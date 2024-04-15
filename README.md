@@ -10,6 +10,6 @@ Currently, two official plugins are available:
 # Installation process
 
 - npm create vite@latest
-- JavaScript
-- blablablakhjadfglksfgdlskajhglsdfa
--  npm run dev
+    - JavaScript
+    -  npm run dev
+- npm i react-bootstrap
