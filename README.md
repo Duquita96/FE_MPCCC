@@ -11,4 +11,5 @@ Currently, two official plugins are available:
 
 - npm create vite@latest
 - JavaScript
+- blablablakhjadfglksfgdlskajhglsdfa
 -  npm run dev
