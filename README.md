@@ -10,3 +10,5 @@ Currently, two official plugins are available:
 # Installation process
 
 - npm create vite@latest
+- JavaScript
+-  npm run dev
