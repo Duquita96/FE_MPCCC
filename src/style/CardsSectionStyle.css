@@ -1,0 +1,22 @@
+/* src/components/CardsSection.css */
+.cards-section {
+    display: flex;
+    flex-direction: column; /* Organize the rows */
+  }
+  
+  .card-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    flex: 1;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
