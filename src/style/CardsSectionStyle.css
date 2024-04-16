@@ -1,9 +1,10 @@
 /* src/components/CardsSection.css */
 .cards-section {
     display: flex;
-    flex-direction: column; /* Organize the rows */
+    flex-direction: row; /* Organize the rows */
   }
   
+ 
   .card-row {
     display: flex;
     justify-content: space-between;

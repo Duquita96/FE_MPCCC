@@ -8,40 +8,41 @@ const CardsSection = () => {
       name: 'Card 1',
       price: '$19.99',
       description: 'This is the first card.',
-      imageSrc: '../src/img/book.jpg', // Ruta de la imagen
+      imageSrc: '../src/assets/img/book.jpg', // Ruta de la imagen
     },
     {
       name: 'Card 2',
       price: '$29.99',
       description: 'This is the second card.',
-      imageSrc: '../src/img/book.jpg', // Ruta de la imagen
+      imageSrc: '../src/assets/img/book.jpg', // Ruta de la imagen
     },
     {
       name: 'Card 3',
       price: '$39.99',
       description: 'This is the third card.',
-      imageSrc: '../src/img/book.jpg', // Ruta de la imagen
+      imageSrc: '../src/assets/img/book.jpg', // Ruta de la imagen
     },
     {
       name: 'Card 4',
       price: '$49.99',
       description: 'This is the fourth card.',
-      imageSrc: '../src/img/book.jpg', // Ruta de la imagen
+      imageSrc: '../src/assets/img/book.jpg', // Ruta de la imagen
     },
     {
       name: 'Card 5',
       price: '$59.99',
       description: 'This is the fifth card.',
-      imageSrc: '../src/img/book.jpg', // Ruta de la imagen
+      imageSrc: '../src/assets/img/book.jpg', // Ruta de la imagen
     },
     {
       name: 'Card 6',
       price: '$69.99',
       description: 'This is the sixth card.',
-      imageSrc: '../src/img/book.jpg', // Ruta de la imagen
+      imageSrc: '../src/assets/img/book.jpg', // Ruta de la imagen
     },
   ];
 
+/* put the 2 row inside a flex container and say that it should be a row instaed os f declaring the espeficic position */
 
   return (
     <div className="cards-section">
@@ -56,7 +57,7 @@ const CardsSection = () => {
           </Card>
         ))}
       </div>
-      <div className="card-row">
+      {/* <div className="card-row">
         {cardsData.slice(3, 6).map((card, index) => (
           <Card key={index} style={{ width: '18rem' }}>
             <Card.Img variant="top" src={card.imageSrc} alt={card.name} />
@@ -66,7 +67,7 @@ const CardsSection = () => {
             </Card.Body>
           </Card>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
