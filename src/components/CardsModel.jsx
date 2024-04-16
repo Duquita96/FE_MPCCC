@@ -9,7 +9,7 @@ export const CardModel = () => {
  
   return (
 <div>
-      <div id='card_model'>
+      <div id='cards_model'>
       {booksData.map((card, index) => (
         <div key={index} className='card-container'>
           <Card> {/*  id='card_model'> */}
