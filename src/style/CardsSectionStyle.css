@@ -1,37 +1,127 @@
-/* src/components/CardsSection.css */
 #cards-section {
+  border: 3px solid black;
+  background-color: antiquewhite;
+  margin: 10%;
+  padding: 15px;
+  width: 85%;
+  height: 250px;
+}
+
+#card_model {
   display: flex;
+  justify-content: center;
+  width: 100%;
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-container {
+  height: 250px;
+  width: 250px;
+  margin-right: 16px;
+  align-items: center;
+  text-align: center;
+}
+.card-container:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+#cardImgSrc {
   width: 50%;
-  height: auto;
-  background-color: gray;
-  margin: 10% auto; /* add here the margin top for avoid interference with the nav bar */
-}
-.row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-}
-
-.box-style,
-.card{
+  height: 90%;
   margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+#cardBody {
+  margin: 10px;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+div.card {
+
 }
 
-.row div{
+/*.row {
+ width: 100%;
+  overflow: hidden;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+    border: 10px solid black;
+}
+
+#card_model {
+  width: 95%;
+  height: 100%;
+  margin: 0 40px;
+
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.box-style{
+  margin: 10px;
+  width: auto;
+  height: auto;
+
+}
+
+.row div {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background-color: #f4f4f4;
   width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  transition: transform 0.3s;
 }
 
-.card img {
-  width: 100%;
-  height: auto;
+
+
+.row div:hover {
+  transform: scale(1.1);
+  white-space: normal;
+  overflow: visible;
+
 }
 
+#cardImgSrc{
+  width: 200px;
+  height: 200px;
+} */
 
+/*@media (max-width: 2500px) {
+  div {
+    color: blue;
+  }
+  #cards-section {
+    display: flex;
+    width: 55%;
+  }
+}
+
+ @media (max-width: 1465px) {
+  div {
+    color: red;
+  }
+  #cards-section {
+    display: flex;
+    width: 50%;
+  }
+
+}*/
+
+
+
+@media (max-width: 1068px) {
+  div {
+    color: green;
+  }
+
+} 
