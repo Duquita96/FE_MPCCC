@@ -19,6 +19,7 @@ const Footer = () => {
             <div className="Footerflex">
                 <div className="box1">
                     <h3>About</h3>
+                    <br></br>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum temporibus vitae ipsam exercitationem unde corrupti ea placeat tempora. Distinctio voluptas vel id dignissimos quaerat, dicta ut totam enim error molestiae!</p>
                 </div>
                 <div className="box2">

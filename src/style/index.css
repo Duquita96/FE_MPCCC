@@ -6,4 +6,24 @@
   text-decoration: none;
   font-size: 1.6rem;
 }
-:root {font-size: 62.5%;} html, body {height: 100%;}
+
+:root {
+  font-size: 62.5%;
+
+  --clr-dark1: rgb(34, 40, 49);
+  --clr-dark1-transparent: rgba(34, 40, 49, 0.5);
+
+  --clr-dark2: rgb(49, 54, 63);
+  --clr-dark2-transparent: rgba(49, 54, 63, 0.5);
+
+  --clr-light1: rgb(118, 171, 174);
+  --clr-light1-transparent: rgba(118, 171, 174, 0.5);
+
+  --clr-light2:rgb(238, 238, 238);
+  --clr-light2-transparent:rgba(238, 238, 238, 0.5);
+}
+
+html,
+body {
+  height: 100%;
+}
