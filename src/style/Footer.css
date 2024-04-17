@@ -1,0 +1,56 @@
+:root {
+    --footerbackground: #1d2331;
+}
+
+* {
+    color: white;
+}
+
+.footerheader {
+    display: flex;
+    justify-content: space-around;
+}
+
+.Footerflex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 20vh;
+}
+
+section {
+    border: 2px solid pink;
+    text-align: center;
+}
+
+.footerheader {
+    background-color: #6452ce;
+}
+
+.footerbottom {
+    background-color: #141b29;
+}
+
+.box1 {
+    background-color: var(--footerbackground);
+    width: 100%;
+    height: 100%;
+}
+
+.box2 {
+    background-color: var(--footerbackground);
+    width: 100%;
+    height: 100%;
+}
+
+.box3 {
+    background-color: var(--footerbackground);
+    width: 100%;
+    height: 100%;
+}
+
+.box4 {
+    background-color: var(--footerbackground);
+    width: 100%;
+    height: 100%;
+}
