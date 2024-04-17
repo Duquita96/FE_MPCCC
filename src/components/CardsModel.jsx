@@ -6,25 +6,25 @@ import { booksData } from './data/book.js'
 
 export const CardModel = () => {
 
- 
+
   return (
-<div>
+    <div>
       <div id='cards_model'>
-      {booksData.map((card, index) => (
-        <div key={index} className='card-container'>
-          <Card> {/*  id='card_model'> */}
-            <Card.Img variant="top" src={`../src/assets/img/${card.imgSrc}`} alt={card.title} id="cardImgSrc" />
-            <Card.Body id="cardBody">
-              <Card.Title>{card.title} {card.price}</Card.Title>
-              <Card.Text>{card.description}</Card.Text>
-            </Card.Body>
-          </Card>
+        {booksData.map((card, index) => (
+          <div key={index} className='card-container'>
+            <Card> {/*  id='card_model'> */}
+              <Card.Img variant="top" src={`../src/assets/img/${card.imgSrc}`} alt={card.title} id="cardImgSrc" />
+              <Card.Body id="cardBody">
+                <Card.Title>{card.title} {card.price}</Card.Title>
+              </Card.Body>
+            </Card>
 
-        </div>
-      ))}
-    </div>          
+          </div>
 
-</div>
+        ))}
+      </div>
+
+    </div>
 
 
   );
