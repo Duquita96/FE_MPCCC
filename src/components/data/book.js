@@ -1,97 +1,125 @@
-export const booksData = [
+export const booksData = {
+  status: 'success',
+  result: 7,
+  data: [
     {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'The Hobbit', // between 1-30 characters
-      author: 'J. R. R. Tolkien', // between 1-30 characters
+      _id: '661e8d455dd934429a34456b',
+      productType: 'BOOK',
+      title: 'The Hobbit',
+      author: 'J.R.R. Talkien',
       genre: 'Adventure',
       price: 10,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 9, // Calculated upon retrieval
+      discountPercentage: 10,
+      priceDiscounted: 9, // This is not available righ away. Needs to be called with x.priceDiscounted()
       pages: 450,
-      description: 'A wonderful ser', // between 15-500 characters
+      description: 'A wonderful ser',
       imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:37:57.394Z',
+      updatedAt: '2024-04-16T14:37:57.394Z',
+      __v: 0,
     },
     {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'The Lord of the Ring', // between 1-30 characters
-      author: 'J. R. R. Tolkien', // between 1-30 characters
+      _id: '661e8d805dd934429a34456d',
+      productType: 'BOOK',
+      title: 'The Lord of The Ring',
+      author: 'J.R.R. Talkien',
       genre: 'Fantasy',
-      price: 20,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 18, // Calculated upon retrieval
+      price: 30,
+      discountPercentage: 10,
+      priceDiscounted: 27,
       pages: 3450,
       description:
-        'A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring', // between 15-500 characters
+        'A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring',
       imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:38:56.851Z',
+      updatedAt: '2024-04-16T14:38:56.851Z',
+      __v: 0,
     },
     {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'Shadowplay', // between 1-30 characters
-      author: 'Tad Willians', // between 1-30 characters
+      _id: '661e8dc25dd934429a34456f',
+      productType: 'BOOK',
+      title: 'Shadowmarch',
+      author: 'Tad Williams',
       genre: 'Fantasy',
-      price: 10,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 9, // TCalculated upon retrieval
-      pages: 750,
+      price: 15,
+      discountPercentage: 20,
+      priceDiscounted: 13,
+      pages: 1050,
       description:
-        'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live.', // between 15-500 characters
+        'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live.',
       imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:40:02.987Z',
+      updatedAt: '2024-04-16T14:40:02.987Z',
+      __v: 0,
     },
     {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'I, Robot', // between 1-30 characters
-      author: 'Isaac Asimov', // between 1-30 characters
+      _id: '661e8de25dd934429a344571',
+      productType: 'BOOK',
+      title: 'ShadowPlay',
+      author: 'Tad Williams',
+      genre: 'Fantasy',
+      price: 15,
+      discountPercentage: 20,
+      priceDiscounted: 13,
+      pages: 1075,
+      description:
+        'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live.',
+      imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:40:34.560Z',
+      updatedAt: '2024-04-16T14:40:34.560Z',
+      __v: 0,
+    },
+    {
+      _id: '661e8e305dd934429a344573',
+      productType: 'BOOK',
+      title: 'ShadowPlay',
+      author: 'Isaac Asimov',
       genre: 'Futuristic',
-      price: 5,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 4.5, // This is a virtual property, calculated upon retrieval
-      pages: 250,
+      price: 15,
+      discountPercentage: 20,
+      priceDiscounted: 13,
+      pages: 1075,
       description:
-        'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic lif', // between 15-500 characters
+        'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic lif',
       imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:41:52.235Z',
+      updatedAt: '2024-04-16T14:41:52.235Z',
+      __v: 0,
     },
     {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'Barack Obama - A Promised Land', // between 1-30 characters
-      author: 'Jonathan Alter', // between 1-30 characters
+      _id: '661e8e625dd934429a344575',
+      productType: 'BOOK',
+      title: 'Barack Obama - A Promise Land',
+      author: 'Jonathan Alter',
       genre: 'Politics',
-      price: 10,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 9, // This is a virtual property, calculated upon retrieval
-      pages: 450,
+      price: 15,
+      discountPercentage: 20,
+      priceDiscounted: 13,
+      pages: 1075,
       description:
-        'Bookmarksgrove right at the coast of the Semantics, a large language ocean', // between 15-500 characters
+        'A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic lif',
       imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:42:42.801Z',
+      updatedAt: '2024-04-16T14:42:42.801Z',
+      __v: 0,
     },
     {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'Originals', // between 1-30 characters
-      author: 'Adam Grant', // between 1-30 characters
+      _id: '661e8e905dd934429a344577',
+      productType: 'BOOK',
+      title: 'Originals',
+      author: 'Adam Grant',
       genre: 'Self-Help',
-      price: 10,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 9, // This is a virtual property, calculated upon retrieval
-      pages: 450,
-      description: 'A wonderful ser is looking at me', // between 15-500 characters
+      price: 15,
+      discountPercentage: 20,
+      priceDiscounted: 13,
+      pages: 1075,
+      description:
+        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life',
       imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:43:28.558Z',
+      updatedAt: '2024-04-16T14:43:28.558Z',
+      __v: 0,
     },
-    {
-      _id: '661e67788d2905b3827a2f21',
-      productType: 'BOOK', // Predefined as 'BOOK' based on schema
-      title: 'Shadowmarch', // between 1-30 characters
-      author: 'Tad Willian', // between 1-30 characters
-      genre: 'Horror',
-      price: 10,
-      discountPercentage: 10, // Defaults to 10% discount based on schema
-      priceDiscounted: 9, // This is a virtual property, calculated upon retrieval
-      pages: 450,
-      description: 'A wonderful ser is looking at all', // between 15-500 characters
-      imgSrc: 'book.jpg',
-    },
-  ];
+  ],
+  msg: 'One GET to rule them All',
+};

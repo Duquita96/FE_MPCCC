@@ -10,7 +10,7 @@ export const CardModel = () => {
   return (
     <div>
       <div id='cards_model'>
-        {booksData.map((card, index) => (
+        {booksData.data.map((card, index) => (
           <div key={index} className='card-container'>
             <Card> {/*  id='card_model'> */}
               <Card.Img variant="top" src={`../src/assets/img/${card.imgSrc}`} alt={card.title} id="cardImgSrc" />
