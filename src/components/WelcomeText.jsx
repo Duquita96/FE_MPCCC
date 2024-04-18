@@ -15,7 +15,7 @@ const WelcomeText = () => {
 
             <div className="flexbox">
                 <div>
-                    <h2><SiWelcometothejungle size={50} />elcome to the PCCCM Marketplace!</h2>
+                    <h2 className = "h2_header_footer"><SiWelcometothejungle size={50} />elcome to the PCCCM Marketplace!</h2>
                 </div>
                 <div className="Welcometext">
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci ullam atque minima incidunt. Obcaecati in nesciunt itaque veniam mollitia aspernatur tempore eligendi hic omnis similique, perspiciatis quasi id deserunt voluptatum?
