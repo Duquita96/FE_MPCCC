@@ -2,9 +2,9 @@
     --footerbackground: #1d2331;
 }
 
-* {
+/* * {
     color: white;
-}
+} */
 
 .footerheader {
     display: flex;

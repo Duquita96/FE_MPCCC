@@ -6,7 +6,6 @@ import { booksData } from './data/book.js'
 
 export const CardModel = () => {
 
-
   return (
     <div>
       <div id='cards_model'>
