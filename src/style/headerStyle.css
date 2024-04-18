@@ -31,7 +31,7 @@
   border-radius: 5px;
 }
 
-.search-result {
+.search-result-list {
   width: 30%;
   background-color: white;
   position: absolute;
@@ -41,7 +41,7 @@
   color: black;
 }
 
-.search-result li:hover {
+.search-result-list li:hover {
   background-color: var(--clr-light1);
   cursor: pointer;
 }
