@@ -25,7 +25,7 @@
     border: solid 4px red;
 }
 
-h2 {
+.h2_header_footer {
     font-size: xx-large;
     border: 5px pink solid;
 }
