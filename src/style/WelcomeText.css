@@ -1,0 +1,39 @@
+.Welcome {
+    text-align: center;
+    margin: auto;
+    background-color: #3493cb;
+    border: 2px black solid;
+    height: 40vh;
+    border: 5px purple solid;
+
+    display: flex;
+    background-image: url("src/assets/img/FooterAndWelcome/desktop-wallpaper-elegant-blue-background.jpg");
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
+    border: 5px yellow solid;
+    margin: auto;
+}
+
+.Welcometext {
+    width: 50vw;
+    margin: auto;
+    border: solid 4px red;
+}
+
+.h2_header_footer {
+    font-size: xx-large;
+    border: 5px pink solid;
+}
+
+.ImageContainer{
+    height: 100%;
+    border: 5px lime solid;
+}
+.WelcomeImage{
+    height: 100%;
+}
