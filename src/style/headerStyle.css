@@ -59,7 +59,22 @@
   text-align: center;
 }
 
+.item {
+  min-width: 30px;
+  height: 30px;
+  margin-left: 7%;
+  background-color: var(--clr-dark2);
+  border-radius: 50%;
+}
+
+.item:hover,
 .box-cart-login:hover {
   border: 1px solid white;
   cursor: pointer;
+}
+
+.sub-headers {
+  background-color: var(--clr-light1);
+  height: 55px;
+  padding: 15px;
 }
