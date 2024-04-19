@@ -1,4 +1,4 @@
-#cards_model {
+#cards-collection {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   overflow: scroll;
@@ -13,11 +13,11 @@
   border-radius: 5px;
 }
 
-#cards_model::-webkit-scrollbar {
+#cards-collection::-webkit-scrollbar {
   height: 12px;
 }
 
-#cards_model::-webkit-scrollbar-thumb {
+#cards-collection::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
     rgb(94, 136, 138),/* Not on the color Palette */
@@ -78,7 +78,7 @@
 }
 
 @media (max-width: 1000px) {
-  #cards_model {
+  #cards-collection {
     gap: 10px;
     padding: 10px;
   }

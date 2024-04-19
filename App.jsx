@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './src/style/App.css'
 import MainHeader from './src/components/MainHeader.jsx'
-import CardsSection from './src/components/CardsSection.jsx'
+import ProductPreview from './src/components/ProductPreview.jsx'
 import Footer from './src/components/Footer.jsx'
 import WelcomeText from './src/components/WelcomeText'
 import ProductsNavBar from './src/components/ProductsNavBar.jsx'
@@ -20,7 +20,7 @@ function App() {
       <ProductsNavBar />
       <ServicesNavBar />
       <WelcomeText />
-      <CardsSection />
+      <ProductPreview />
       <Footer />
     </>
   )
