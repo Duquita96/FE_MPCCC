@@ -20,6 +20,7 @@
 
 .searchbardiv {
   width: 50%;
+  min-width: 300px;
   height: 30px;
 }
 
@@ -33,6 +34,7 @@
 
 .search-result-list {
   width: 30%;
+  min-width: 250px;
   background-color: white;
   position: absolute;
   top: 65px;
@@ -42,9 +44,12 @@
 }
 
 .search-result-list li:hover {
-  background-color: var(--clr-light1);
+  background-color: var(--clr-light2);
   cursor: pointer;
 }
+
+.search-result-list li {padding: 3px;}
+.search-result-list li:last-of-type {padding-bottom: 9px;}
 
 .searchType {
   margin-left: 10px;
@@ -59,15 +64,28 @@
   text-align: center;
 }
 
-.item {
+.nav-item {
   min-width: 30px;
   height: 30px;
-  margin-left: 7%;
+  margin-left: 50px;
   background-color: var(--clr-dark2);
-  border-radius: 50%;
+  border-radius: 5px;
 }
 
-.item:hover,
+.nav-item-mobile {
+  height: 30px;
+  padding: 5px 7%;
+  color: white;
+  background-color: var(--clr-dark1);
+  border-radius: 5px;
+}
+
+.nav-item-mobile:hover {
+  cursor: pointer;
+}
+
+
+.nav-item:hover,
 .box-cart-login:hover {
   border: 1px solid white;
   cursor: pointer;
@@ -78,3 +96,5 @@
   height: 55px;
   padding: 15px;
 }
+
+
