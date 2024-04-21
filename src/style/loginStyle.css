@@ -1,5 +1,5 @@
 .login-container {
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 20px;
   background-color: var(--clr-dark1);
   width: 360px;
@@ -41,4 +41,11 @@
   cursor: pointer;
   color: white;
   text-decoration: underline;
+}
+
+
+@media (max-width: 600px) {
+  .login-container {
+    top: 155px;
+  }
 }

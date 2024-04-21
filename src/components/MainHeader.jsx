@@ -1,14 +1,14 @@
 import "../style/headerStyle.css";
 import SearchBar from "./Searchbar";
 
-const MainHeader = ({ toggleDisplay }) => {
+const MainHeader = ({ toggleDisplay, windowWidth }) => {
   return (
     <div className="main-header headers">
-      <div className="box-cart-login">logo</div>
-      <div className="box-cart-login">user</div>
+      {windowWidth > 600 && <div className="box-cart-login">logo</div>}
+      {windowWidth > 600 && <div className="box-cart-login">user</div>}
       <SearchBar />
-      <div className="box-cart-login">cart</div>
-      <div onClick={toggleDisplay} className="box-cart-login">login</div>
+      {windowWidth > 600 && <div className="box-cart-login">cart</div>}
+      {windowWidth > 600 && <div onClick={toggleDisplay} className="box-cart-login">login</div>}
     </div>
   );
 };
