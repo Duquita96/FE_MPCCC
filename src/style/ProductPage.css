@@ -10,10 +10,12 @@
     display: flex;
 }
 
-.testingbox01 {
+/* Left Bar of the Products Page with the Filter Options */
+.ProductsPage_Filter {
     width: 20vw;
     height: 80vh;
-    background-color: red;
+    background-color: var(--clr-light2);
+    padding: 2rem;
 }
 
 .testingbox02 {
@@ -25,7 +27,7 @@
 .testingbox04 {
     width: 80vw;
     height: 80vh;
-    background-color: rgb(204, 0, 255);
+    background-color: var(--clr-dark1);
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
