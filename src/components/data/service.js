@@ -1,6 +1,6 @@
 export const toursData = {
     status: 'success',
-    result: 7,
+    result: 10,
     data: [
       {
         ratings: {
@@ -128,6 +128,43 @@ export const toursData = {
         createdAt: '2024-04-15T20:36:38.456Z',
         __v: 0,
       },
+      {
+        ratings: {
+          average: 0,
+          count: 0,
+        },
+        priceDiscount: 0,
+        _id: '661d8fd69f773c8d2f92d38e', // ID actualizado
+        name: 'Sky is blue', // Nombre actualizado
+        price: 3000,
+        duration: 5,
+        maxGroupSize: 50,
+        difficulty: 'medium',
+        summary: 'The summary of the tour will come soon!', // Resumen actualizado
+        description: 'Contact us for more information!',
+        startDates: [],
+        createdAt: '2024-04-15T20:36:38.456Z',
+        __v: 0,
+      },
+      {
+        ratings: {
+          average: 0,
+          count: 0,
+        },
+        priceDiscount: 0,
+        _id: '661d8fd69f773c8d2f92d38f', // ID actualizado
+        name: 'Sky is yellow', // Nombre actualizado
+        price: 3000,
+        duration: 5,
+        maxGroupSize: 50,
+        difficulty: 'medium',
+        summary: 'The summary of the tour will come soon!', // Resumen actualizado
+        description: 'Contact us for more information!',
+        startDates: [],
+        createdAt: '2024-04-15T20:36:38.456Z',
+        __v: 0,
+      },
     ],
     message: 'All tours were requested',
   };
+  
