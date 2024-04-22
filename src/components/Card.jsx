@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 
-const CardM = ({ card }) => { // Recibe el objeto card como argumento
+const CardM = ({ card }) => { //recibe the object as an argument
+  
   return (
     <div>
       <Card>
