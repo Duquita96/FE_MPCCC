@@ -42,10 +42,3 @@
   color: white;
   text-decoration: underline;
 }
-
-
-@media (max-width: 600px) {
-  .login-container {
-    top: 155px;
-  }
-}
