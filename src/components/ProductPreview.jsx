@@ -3,7 +3,7 @@ import '../style/CardsSectionStyle.css'
 
 export const ProductPreview = () => {
     return (
-        <div id="cards-section"/*  className='box-style' */>
+        <div id="cards-section">
             <CardsCollection />
         </div>
     );
