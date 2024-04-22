@@ -7,7 +7,7 @@
   scroll-snap-type: x mandatory;
   gap: 12px;
   padding: 10px;
-  margin: 10% auto;
+  margin: 10% auto;/* to change when the 2cond row its added */
   width: 70vw;
   height: auto;
   border-radius: 5px;
@@ -73,7 +73,7 @@
 
 #cardBody {
   background-color: rgba(118, 171, 174, 0.5);
-  height: 45px;
+  height: auto;
   font-size: 16px;
 }
 
@@ -83,8 +83,8 @@
     padding: 10px;
   }
 
-  #cardBody {
+/*   #cardBody {
     height: 20px;
     font-size: 14px;
-  }
+  } */
 }
