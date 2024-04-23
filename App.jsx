@@ -14,7 +14,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Homepage windowWidth={windowWidth} />} />
-        <Route path='/product' element={<ProductPage />} />
+        <Route path='/product' element={<ProductPage windowWidth={windowWidth} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </>
