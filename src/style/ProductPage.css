@@ -2,12 +2,19 @@
     display: flex;
 }
 
+
 .boxes {
     width: 250px;
     height: 250px;
-    background-color: lime;
+    background-color: var(--clr-light1);
     margin: 6px;
     display: flex;
+    border: 3px var(--clr-dark2) solid;
+}
+
+.boxes:hover{
+transform: scale(1.1);
+transition-duration: 0.3s;
 }
 
 /* Left Bar of the Products Page with the Filter Options */
@@ -16,15 +23,11 @@
     height: 80vh;
     background-color: var(--clr-light2);
     padding: 2rem;
-}
-
-.testingbox02 {
-    display: flex;
-    flex-direction: column;
+    background-color: var(--clr-light2);
 }
 
 
-.testingbox04 {
+.ProductCards{
     width: 80vw;
     height: 80vh;
     background-color: var(--clr-dark1);
