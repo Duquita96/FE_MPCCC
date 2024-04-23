@@ -19,27 +19,33 @@
 }
 
 .footerheader {
-    background-color: var(--clr-light1);
+    background-color: #6452ce;
 }
 
 .footerbottom {
-    background-color: var(--clr-light2-transparent);
+    background-color: #141b29;
 }
 
 .box1_footer {
-    background-color: var(--clr-dark2);
+    background-color: #1d2331;
     width: 100%;
     height: 100%;
 }
 
 .box2_footer {
-    background-color: var(--clr-dark2);
+    background-color: #1d2331;
     width: 100%;
     height: 100%;
 }
 
 .box3_footer {
-    background-color: var(--clr-dark2);
+    background-color: #1d2331;
+    width: 100%;
+    height: 100%;
+}
+
+.box4_footer {
+    background-color: #1d2331;
     width: 100%;
     height: 100%;
 }

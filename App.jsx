@@ -1,8 +1,3 @@
-
-import './src/style/App.css'
-import MainHeader from './src/components/MainHeader.jsx'
-import Footer from './src/components/Footer.jsx'
-import ProductPage from "./src/components/ProductPage"
 import { useState } from 'react'
 import Homepage from './src/components/Homepage';
 
@@ -14,9 +9,6 @@ function App() {
 
   return (
     <>
-      <MainHeader />
-      <ProductPage />
-      <Footer />
       <Homepage windowWidth={windowWidth} />
     </>
   )
