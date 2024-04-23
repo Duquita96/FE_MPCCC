@@ -65,6 +65,7 @@
 .service-container {
   background: rgb(118, 171, 174);
   width: 200px;
+  height: 80px;
   align-items: center;
   justify-content: center;
   text-align: center;
