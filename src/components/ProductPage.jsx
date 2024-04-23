@@ -5,7 +5,7 @@ import "../style/ProductPage.css";
 
 const ProductPage = () => {
     return (
-        <section className="needflexin">
+        <section className="needflex">
             <ProductPageFilter/>
             <ProductPageProducts/>
         </section>
