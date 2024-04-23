@@ -27,3 +27,20 @@ html,
 body {
   height: 100%;
 }
+
+
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+ 
+}
+@media only screen and (max-width: 768px) {
+  .login-container {top: 155px}
+  .cart-container {top: 155px}
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1300px) {
+}
