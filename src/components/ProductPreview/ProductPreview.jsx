@@ -1,6 +1,6 @@
 import CardsCollection from "./CardsCollection";
-import '../style/ProductsPreview.css'
-import ServicesCollection from '../components/ServicesCollection.jsx'
+import '../../style/ProductsPreview.css'
+import ServicesCollection from './ServicesCollection.jsx'
 
 export const ProductPreview = () => {
     return (

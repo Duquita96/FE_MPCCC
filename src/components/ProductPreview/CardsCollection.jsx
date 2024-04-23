@@ -1,5 +1,5 @@
 import CardM from './Card.jsx';
-import { booksData } from './data/book.js';
+import { booksData } from '../data/book.js';
 
 
 

@@ -1,5 +1,5 @@
-import ServiceM from './Service.jsx';
-import { toursData } from './data/service.js';
+import ServiceM from '../ProductPreview/Service.jsx';
+import { toursData } from '../data/service.js';
 import { useEffect, useState } from 'react';
 
 
