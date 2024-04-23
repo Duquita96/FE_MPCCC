@@ -1,6 +1,7 @@
-import ServiceM from './Service.jsx';
-import { toursData } from './data/service.js';
+import ServiceM from '../ProductPreview/Service.jsx';
+import { toursData } from '../data/service.js';
 import { useEffect, useState } from 'react';
+import { ProductPreviewClick } from './ProductPreview-Click.jsx';
 
 
 
@@ -31,9 +32,11 @@ export const ServicesCollection= () => {
     <div>
       <div id='service-collection'>
         {randomData.map((card, index) => (
-          <div key={index} className='service-container'>
-          <ServiceM card={card} /> {/* Pass the object as property */}
+          <ProductPreviewClick key={index} id={card.id}>
+          <div className='service-container'>
+            <ServiceM card={card} /> {/* Pass the object as property */}
           </div>
+        </ProductPreviewClick>
         ))}
       </div>
     </div>
