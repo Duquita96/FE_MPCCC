@@ -1,3 +1,5 @@
+import "../../style/ProductPage/ProductPageProducts.css";
+
 const ProductPageProducts = () => {
     return (
         <div className="ProductCards">

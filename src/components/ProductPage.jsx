@@ -1,15 +1,19 @@
-import ProductPageFilter from "../components/ProductPage/ProductPageFilter.jsx";
-import ProductPageProducts from "../components/ProductPage/ProductPageProducts.jsx";
-// import MainHeader from "./MainHeader.jsx";
-import Footer from "../components/Footer.jsx";
+
+// Style Import
 import "../style/ProductPage/ProductPage.css";
 
+// Import Components
+import ProductPageFilter from "./ProductPage/ProductPageFilter.jsx";
+import ProductPageProducts from "./ProductPage/ProductPageProducts.jsx";
+import Footer from "../components/Footer.jsx";
 
 const ProductPage = () => {
     return (
-        <section className="needflex">
-            <ProductPageFilter />
-            <ProductPageProducts />
+        <section>
+            <div className="needflex">
+                <ProductPageFilter />
+                <ProductPageProducts />
+            </div>
             <Footer />
         </section>
     );

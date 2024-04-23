@@ -1,6 +1,8 @@
 import PriceSlider from "./PriceSlider.jsx";
-const ProductPageFilter = () => {
+import "../../style/ProductPage/ProductPageFilter.css";
 
+
+const ProductPageFilter = () => {
     return (
         <section className="ProductsPage_Filter">
             <h3>Filter</h3>

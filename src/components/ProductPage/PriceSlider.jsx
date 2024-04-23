@@ -1,5 +1,8 @@
+// Import Dependencies
 import Slider from "react-slider";
 import { useState } from "react";
+
+// Import Style
 import "../../style/ProductPage/PriceSlider.css";
 
 const MIN = 0;
@@ -7,7 +10,7 @@ const MAX = 1000;
 
 const PriceSlider = () => {
     const [values, setValues] = useState([MIN, MAX]);
-    console.log('values ', values);
+    // console.log('values ', values);
     return (
         <div className="PriceSlider" >
             <div className="ProductPagePriceSliderbox">

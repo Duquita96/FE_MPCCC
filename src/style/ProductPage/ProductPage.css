@@ -1,39 +1,3 @@
 .needflex {
     display: flex;
 }
-
-
-.boxes {
-    width: 250px;
-    height: 250px;
-    background-color: var(--clr-light1);
-    margin: 6px;
-    display: flex;
-    border: 3px var(--clr-dark2) solid;
-}
-
-.boxes:hover{
-transform: scale(1.1);
-transition-duration: 0.3s;
-}
-
-/* Left Bar of the Products Page with the Filter Options */
-.ProductsPage_Filter {
-    width: 20vw;
-    height: 80vh;
-    background-color: var(--clr-light2);
-    padding: 2rem;
-    background-color: var(--clr-light2);
-}
-
-
-.ProductCards{
-    width: 80vw;
-    height: 80vh;
-    background-color: var(--clr-dark1);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    overflow: auto;
-    justify-content: center;
-}
