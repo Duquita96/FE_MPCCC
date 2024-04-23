@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import {Routes, Route} from 'react-router-dom';
 import Homepage from './src/components/Homepage';
+import NotFound from './src/components/NotFound';
 
 function App() {
 
@@ -9,7 +11,10 @@ function App() {
 
   return (
     <>
-      <Homepage windowWidth={windowWidth} />
+      <Routes>
+        <Route path='/' element={<Homepage windowWidth={windowWidth} />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
     </>
   )
 }
