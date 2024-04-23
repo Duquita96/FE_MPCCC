@@ -10,12 +10,9 @@ const PriceSlider = () => {
     console.log('values ', values);
     return (
         <div className="PriceSlider" >
-            <div className="box">
-                <h3>Price <span>Range</span></h3>
+            <div className="ProductPagePriceSliderbox">
+                <h3 className="PriceH3">Price</h3>
                 <div className={"values"}>€{values[0]} - €{values[1]}</div>
-                <small>
-                    Current Range: {values[1] - values[0]};
-                </small>
 
                 <Slider className={"slider"}
                 onChange={setValues}

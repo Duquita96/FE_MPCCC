@@ -3,7 +3,6 @@ min-height: 20vh;
 display: flex;
 justify-content: center;
 align-items: center;
-background: #ededcd;
 }
 
 .slider{
@@ -19,14 +18,11 @@ margin-top: 20px;
     cursor: grab;
     background: #fff;
     border-radius: 50%;
-    border: 2px solid #275efe;
+    border: 2px solid #5e7a5e;
 }
 
-.box{
+.ProductPagePriceSliderbox{
     width: 100%;
-    max-width: 320px;
-    padding: 32;
-    background: #fff;
     border-radius: 10px;
     box-shadow: 0 1px 4px rgba(18,22,33,.12);
 }
@@ -34,17 +30,10 @@ margin-top: 20px;
 .values{
     margin: 0;
     font-weight: 500;
-    color: #275efe;
+    color: #52724b;
 }
 
-.small{
-    font-size: 14px;
-    margin-top: 8px;
-    display: block;
-    color: #576890;
-}
-
-h3{
+.PriceH3{
 font-size: 32px;
 font-weight: 700;
 margin: 0 0 20px 0;

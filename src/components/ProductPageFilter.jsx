@@ -18,14 +18,7 @@ const ProductPageFilter = () => {
 
             <div>
                 <br></br>
-                <h4>Preise</h4>
-                <ul>
-                    <li>0 - 10</li>
-                    <li>10- 50</li>
-                    <li>50 - 100</li>
-                    <li>100 - 500</li>
-                    <li>500 - 1000</li>
-                </ul>
+                <PriceSlider />
             </div>
 
             <div>
@@ -40,7 +33,6 @@ const ProductPageFilter = () => {
                 </ul>
             </div>
             <br></br>
-            <PriceSlider />
         </section>
     );
 };
