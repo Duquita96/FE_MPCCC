@@ -10,10 +10,12 @@ import WelcomeText from "../WelcomeText.jsx";
 import ProductPreview from "../ProductPreview/ProductPreview.jsx";
 import Footer from "../Footer.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
+import WidthContext from '../../context/WidthContext.jsx';
 
-const Homepage = ({windowWidth}) => {
+const Homepage = () => {
   
   const {showLogin,showCart} = useContext(HeaderContext)
+  const {windowWidth} = useContext(WidthContext)
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useState } from 'react'
 
 // Style Import
@@ -11,9 +12,12 @@ import MobileNavBar from "./MobileNavBar";
 import ProductPageFilter from "./ProductPage/ProductPageFilter.jsx";
 import ProductPageProducts from "./ProductPage/ProductPageProducts.jsx";
 import Footer from "../components/Footer.jsx";
+import WidthContext from '../context/WidthContext.jsx';
 
 
-const ProductPage = ({windowWidth}) => {
+const ProductPage = () => {
+
+    const {windowWidth} = useContext(WidthContext)
 
     const [showLogin, setShowLogin] = useState(false);
     const [showCart, setShowCart] = useState(false);
