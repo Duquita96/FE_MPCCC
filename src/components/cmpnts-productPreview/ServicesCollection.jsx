@@ -1,4 +1,4 @@
-import ServiceM from '../ProductPreview/Service.jsx';
+import ServiceM from './Service.jsx';
 import { toursData } from '../data/service.js';
 import { useEffect, useState } from 'react';
 import { ProductPreviewClick } from './ProductPreview-Click.jsx';
