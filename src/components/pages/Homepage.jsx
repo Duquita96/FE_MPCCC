@@ -7,7 +7,7 @@ import ProductsNavBar from "../ProductsNavBar.jsx";
 import ServicesNavBar from "../ServicesNavBar.jsx";
 import MobileNavBar from "../MobileNavBar.jsx";
 import WelcomeText from "../WelcomeText.jsx";
-import ProductPreview from "../ProductPreview/ProductPreview.jsx";
+import ProductPreview from "../cmpnts-productPreview//ProductPreview.jsx";
 import Footer from "../Footer.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
