@@ -123,9 +123,6 @@
 }
 
 @media (max-width: 1024px) {
-/*   .service-container {
-    width: 100%;
-  } */
   #service-collection {
     height: calc(100px * 2);
     grid-template-columns: repeat(3, 1fr);

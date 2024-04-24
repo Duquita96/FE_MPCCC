@@ -6,7 +6,7 @@ import ProductsNavBar from "./ProductsNavBar";
 import ServicesNavBar from "./ServicesNavBar";
 import MobileNavBar from "./MobileNavBar";
 import WelcomeText from "./WelcomeText";
-import ProductPreview from "./ProductPreview/ProductPreview.jsx";
+import ProductPreview from "./cmpnts-productPreview/ProductPreview.jsx";
 import Footer from "./Footer";
 
 const Homepage = ({windowWidth}) => {
