@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import "../style/headerStyle.css";
 import SearchBar from "./Searchbar";
+import HeaderContext from '../context/HeaderContext';
 
-const MainHeader = ({ toggleFunctions, windowWidth }) => {
+const MainHeader = ({ windowWidth }) => {
 
-  const {toggleLogin, toggleCart} = toggleFunctions;
+const {toggleLogin,toggleCart} = useContext(HeaderContext)
 
   return (
     <div className="main-header headers">
