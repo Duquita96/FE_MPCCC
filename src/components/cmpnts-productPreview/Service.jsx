@@ -7,8 +7,8 @@ const ServiceM = ({ card }) => { //recibe the object as an argument
     <div>
       <Card>
         <Card.Body id="serviceBody">
-          <Card.Title>{card.name} {card.price}</Card.Title>
-          <Card.Text>Duration: {card.duration}h</Card.Text>
+          <Card.Title>{card.name} </Card.Title>
+          <Card.Text>{card.price} Duration: {card.duration}h</Card.Text>
         </Card.Body>
       </Card>
     </div>
