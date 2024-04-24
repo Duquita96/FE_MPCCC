@@ -19,7 +19,7 @@ export default ServiceM;
 
 ServiceM.propTypes = {
   card: PropTypes.shape({
-    imgSrc: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     duration: PropTypes.number.isRequired,

@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 export const ProductPreviewClick = ({ id, children }) => {
-  const handleCardClick = () => {
+  const handleCardClick = (event) => {
+    event.preventDefault();
     console.log(`Element with ID ${id} was clicked.`);
-    const url = window.location.href + 'productId';
-    /* window.location.href take the current localhost, and as by default end in a / , the concatenation path needs to be without the / */
-    window.open(url, '_blank')
   };
 
   return (
     <div onClick={handleCardClick}>
-      {children}
+      <NavLink to={`/productId`}>
+        {children}
+      </NavLink>
     </div>
   );
 };

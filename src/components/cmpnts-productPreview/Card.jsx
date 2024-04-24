@@ -21,7 +21,7 @@ export default CardM;
 
 CardM.propTypes = {
   card: PropTypes.shape({
-    imgSrc: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   }).isRequired,

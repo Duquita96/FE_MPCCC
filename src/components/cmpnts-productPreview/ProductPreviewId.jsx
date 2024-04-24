@@ -1,15 +1,17 @@
- const Preview= () => {
-console.log("hellllooo preview")
+import { NavLink } from 'react-router-dom';
 
+export const Preview = () => {
     return (
-       
-<div>
-page for preview id selected element
-</div>
-
-        
+        <div>
+            <div>
+                <button>
+                    <NavLink to="/">return</NavLink>
+                </button>
+            </div>
+        </div>
     );
-}
+};
+
 
 
 export default Preview;
