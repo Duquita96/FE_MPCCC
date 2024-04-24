@@ -28,6 +28,10 @@ body {
   height: 100%;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 
 @media only screen and (min-width: 480px) {
 }

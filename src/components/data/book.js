@@ -120,6 +120,23 @@ export const booksData = {
       updatedAt: '2024-04-16T14:43:28.558Z',
       __v: 0,
     },
+    {
+      _id: '62345e625dd93444577',
+      productType: 'BOOK',
+      title: 'test1',
+      author: 'Adam Grant',
+      genre: 'Self-Help',
+      price: 15,
+      discountPercentage: 20,
+      priceDiscounted: 13,
+      pages: 1075,
+      description:
+        'Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life',
+      imgSrc: 'book.jpg',
+      createdAt: '2024-04-16T14:43:28.558Z',
+      updatedAt: '2024-04-16T14:43:28.558Z',
+      __v: 0,
+    },
   ],
   msg: 'One GET to rule them All',
 };

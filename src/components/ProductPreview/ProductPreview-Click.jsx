@@ -16,11 +16,7 @@ export const ProductPreviewClick = ({ id, children }) => {
 };
 
 
-
-
-
-
 ProductPreviewClick.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   children: PropTypes.node.isRequired,
 };

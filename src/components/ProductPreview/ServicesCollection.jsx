@@ -33,7 +33,7 @@ export const ServicesCollection= () => {
       <div id='service-collection'>
         {randomData.map((card, index) => (
           <ProductPreviewClick key={index} id={card.id}>
-          <div className='service-container'>
+          <div className='service-container pointer'>
             <ServiceM card={card} /> {/* Pass the object as property */}
           </div>
         </ProductPreviewClick>
