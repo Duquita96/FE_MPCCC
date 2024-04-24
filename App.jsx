@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Routes, Route} from 'react-router-dom';
-import Homepage from './src/components/Homepage';
-import NotFound from './src/components/NotFound';
+import Homepage from './src/components/pages/Homepage.jsx';
+import NotFound from './src/components/pages/NotFound.jsx';
 import ProductPage from './src/components/ProductPage.jsx';
 import ProductPreviewId from './src/components/ProductPreview/ProductPreviewId.jsx';
 
