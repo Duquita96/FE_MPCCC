@@ -1,4 +1,6 @@
 import Card from 'react-bootstrap/Card';
+import PropTypes from 'prop-types';
+
 
 const CardM = ({ card }) => { //recibe the object as an argument
   
@@ -12,6 +14,15 @@ const CardM = ({ card }) => { //recibe the object as an argument
       </Card>
     </div>
   );
+
 };
 
 export default CardM;
+
+CardM.propTypes = {
+  card: PropTypes.shape({
+    imgSrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+};
