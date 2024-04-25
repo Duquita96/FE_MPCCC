@@ -8,7 +8,7 @@ import { FaRegCopyright, FaGithub, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
 
     return (
-        <section className = "FooterStyle">
+        <section className="FooterStyle">
             <div className="footerheader">
                 <p>our social networks</p>
                 <div>
@@ -22,38 +22,30 @@ const Footer = () => {
                     <br></br>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum temporibus vitae ipsam exercitationem unde corrupti ea placeat tempora. Distinctio voluptas vel id dignissimos quaerat, dicta ut totam enim error molestiae!</p>
                 </div>
-                <div className="box2_footer">
-                    <h3>Products</h3>
-                    <ul>
-                        <br></br>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </div>
-                <div className="box3_footer">
-                    <h3>Service</h3>
-                    <ul>
-                        <br></br>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </div>
-                <div className="box4_footer">
-                    <h3>Contacts</h3>
-                    <ul>
-                        <br></br>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
+
+                <div className="Footerflex-media600">
+                    <div className="box2_footer">
+                        <h3>Products</h3>
+                        <ul>
+                            <br></br>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                    <div className="box3_footer">
+                        <h3>Service</h3>
+                        <ul>
+                            <br></br>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div className="footerbottom">

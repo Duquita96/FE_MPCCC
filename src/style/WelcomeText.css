@@ -24,7 +24,8 @@
 
 .Welcometext {
     color: white;
-    min-width: 50vw;
+    min-width: 40vw;
+    max-height: 100%;
     margin: auto;
     border: solid 4px red;
 }
@@ -48,7 +49,7 @@
 
 @media only screen and (max-width: 600px){
     .Welcome{
-        height:80vh;
+        height:85vh;
         flex-direction: column;
     };
     .WelcomeImage{
