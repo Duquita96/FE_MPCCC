@@ -7,7 +7,7 @@ import ProductsNavBar from "../ProductsNavBar.jsx";
 import ServicesNavBar from "../ServicesNavBar.jsx";
 import MobileNavBar from "../MobileNavBar.jsx";
 import WelcomeText from "../WelcomeText.jsx";
-import ProductPreview from "../cmpnts-productPreview//ProductPreview.jsx";
+import ProductsPreview from "../cmpnts-productPreview//ProductsPreview.jsx";
 import Footer from "../Footer.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
@@ -26,7 +26,7 @@ const Homepage = () => {
       {windowWidth > 768 && <ServicesNavBar />}
       {windowWidth <= 768 && <MobileNavBar  />}
       <WelcomeText />
-      <ProductPreview />
+      <ProductsPreview />
       <Footer />
     </>
   );
