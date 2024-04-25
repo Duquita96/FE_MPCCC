@@ -1,0 +1,26 @@
+.NotFoundPage {
+    height: 100vh;
+    background-image: url("../../assets//img//NotFound/male-worker-wearing-work-clothes.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notFoundTextBox {
+    margin: auto;
+    width: 400px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.78);
+    box-shadow: 10px 5px 5px black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.h2notFoundPage {
+    color: green;
+    font-size: 4rem;
+    margin: auto;
+    padding: auto;
+}
