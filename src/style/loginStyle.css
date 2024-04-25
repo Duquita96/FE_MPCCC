@@ -22,7 +22,7 @@
 }
 
 .login-btn {
-  padding: 2px;
+  padding: 5px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -41,4 +41,15 @@
   cursor: pointer;
   color: white;
   text-decoration: underline;
+}
+
+.ageField {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#age {
+  width: 130px;
+  margin: 3px auto 0px
 }

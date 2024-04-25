@@ -5,19 +5,23 @@ const Login = () => {
   const [signUp, setSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [birthdate, setBirthdate] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [terms, setTerms] = useState(false);
 
-  const toggleDisplay = () => {
-    setSignUp(signUp === false ? true : false);
+  const resetFields = () => {
     setFirstName("");
     setLastName("");
+    setBirthdate("");
     setEmail("");
     setPassword("");
     setPassword2("");
-    setTerms(false);
+  }
+
+  const toggleDisplay = () => {
+    setSignUp(signUp === false ? true : false);
+    resetFields()
   };
 
   const changeHandler = (e) => {
@@ -25,6 +29,8 @@ const Login = () => {
       ? setFirstName(e.target.value)
       : e.target.id === "lastName"
       ? setLastName(e.target.value)
+      : e.target.id === "age"
+      ? setBirthdate(e.target.value)
       : e.target.id === "email"
       ? setEmail(e.target.value)
       : e.target.id === "pwd"
@@ -32,13 +38,16 @@ const Login = () => {
       : e.target.id === "pwd2"
       ? setPassword2(e.target.value)
       : e.target.id === "terms"
-      ? setTerms(e.target.value)
-      : null;
   };
+
+  const signUpFunction = (e) => {
+    e.preventDefault();
+    resetFields();
+  }
 
   return (
     <div className="login-container">
-      <form action="" className="login-form">
+      <form action="" className="login-form" onSubmit={signUpFunction}>
         {signUp ? (
           <input
             className="login-input"
@@ -60,6 +69,18 @@ const Login = () => {
             value={lastName}
             onChange={changeHandler}
           />
+        ) : null}
+        {signUp ? (
+          <div className="ageField">
+            <p>Please select your date of birth</p>
+            <input 
+              type="date" 
+              name="age" 
+              id="age"
+              value={birthdate}
+              onChange={changeHandler} 
+              />
+          </div>
         ) : null}
         <input
           className="login-input"
@@ -101,8 +122,8 @@ const Login = () => {
             type="checkbox"
             name="terms"
             id="terms"
-            value={terms}
             onChange={changeHandler}
+            required
           />
         ) : null}
         <button className="login-btn" type="submit">
