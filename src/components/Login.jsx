@@ -1,23 +1,32 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../style/loginStyle.css";
+import HeaderContext from "../context/HeaderContext";
 
 const Login = () => {
+
+  const {toggleLogin} = useContext(HeaderContext)
+
   const [signUp, setSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [birthdate, setBirthdate] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [terms, setTerms] = useState(false);
 
-  const toggleDisplay = () => {
-    setSignUp(signUp === false ? true : false);
+  const resetFields = () => {
     setFirstName("");
     setLastName("");
+    setBirthdate("");
     setEmail("");
     setPassword("");
     setPassword2("");
-    setTerms(false);
+    document.getElementById("terms").checked = false;
+  }
+
+  const toggleDisplay = () => {
+    setSignUp(signUp === false ? true : false);
+    resetFields()
   };
 
   const changeHandler = (e) => {
@@ -25,20 +34,65 @@ const Login = () => {
       ? setFirstName(e.target.value)
       : e.target.id === "lastName"
       ? setLastName(e.target.value)
+      : e.target.id === "age"
+      ? setBirthdate(e.target.value)
       : e.target.id === "email"
       ? setEmail(e.target.value)
       : e.target.id === "pwd"
       ? setPassword(e.target.value)
       : e.target.id === "pwd2"
       ? setPassword2(e.target.value)
-      : e.target.id === "terms"
-      ? setTerms(e.target.value)
-      : null;
+      : null
   };
+
+  const signUpFunction = (e) => {
+    e.preventDefault();
+
+    const calcAge = () => {
+      const birthday = (new Date(birthdate)).getTime();
+      return Math.floor((Date.now() - birthday) / (31557600000)); // 24 * 3600 * 365.25 * 1000
+    }
+
+    const age = calcAge();
+
+    if (signUp) {
+      if(password !== password2) {
+        alert("Your password does not match")
+        setPassword("");
+        setPassword2("");
+        return
+      } 
+        
+        fetch("http://localhost:5000/api/v1/users", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+            age,
+          })
+        })
+        .then(data => data.json())
+        .then (result => console.log(result))
+        .catch(err => console.log(err))
+
+      } else { // if sign-in
+
+      // add signin POST fetch when backend is available
+    }
+
+    resetFields();
+    toggleLogin();
+    
+  }
 
   return (
     <div className="login-container">
-      <form action="" className="login-form">
+      <form action="" className="login-form" onSubmit={signUpFunction}>
         {signUp ? (
           <input
             className="login-input"
@@ -48,6 +102,7 @@ const Login = () => {
             placeholder="name"
             value={firstName}
             onChange={changeHandler}
+            required
           />
         ) : null}
         {signUp ? (
@@ -59,7 +114,21 @@ const Login = () => {
             placeholder="surname"
             value={lastName}
             onChange={changeHandler}
+            required
           />
+        ) : null}
+        {signUp ? (
+          <div className="ageField">
+            <p>Please select your date of birth</p>
+            <input 
+              type="date" 
+              name="age" 
+              id="age"
+              value={birthdate}
+              onChange={changeHandler} 
+              required
+              />
+          </div>
         ) : null}
         <input
           className="login-input"
@@ -69,6 +138,7 @@ const Login = () => {
           placeholder="your email"
           value={email}
           onChange={changeHandler}
+          required
         />
         <input
           className="login-input"
@@ -78,6 +148,7 @@ const Login = () => {
           placeholder="password"
           value={password}
           onChange={changeHandler}
+          required
         />
         {signUp ? (
           <input
@@ -88,6 +159,7 @@ const Login = () => {
             placeholder="repeat password"
             value={password2}
             onChange={changeHandler}
+            required
           />
         ) : null}
         {signUp ? (
@@ -101,8 +173,7 @@ const Login = () => {
             type="checkbox"
             name="terms"
             id="terms"
-            value={terms}
-            onChange={changeHandler}
+            required
           />
         ) : null}
         <button className="login-btn" type="submit">

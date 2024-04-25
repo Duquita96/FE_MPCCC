@@ -1,16 +1,17 @@
+import { NavLink } from 'react-router-dom';
 import '../style/headerStyle.css'
 
 const ProductsNavBar = () => {
     return (
-        <div className="sub-headers headers">
+        <nav className="sub-headers headers">
             <p>Products</p>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-        </div>
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+        </nav>
     )
 }
 
