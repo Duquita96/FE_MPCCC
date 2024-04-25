@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../style/loginStyle.css";
+import HeaderContext from "../context/HeaderContext";
 
 const Login = () => {
+
+  const {toggleLogin} = useContext(HeaderContext)
+
   const [signUp, setSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,6 +21,7 @@ const Login = () => {
     setEmail("");
     setPassword("");
     setPassword2("");
+    document.getElementById("terms").checked = false;
   }
 
   const toggleDisplay = () => {
@@ -37,12 +42,52 @@ const Login = () => {
       ? setPassword(e.target.value)
       : e.target.id === "pwd2"
       ? setPassword2(e.target.value)
-      : e.target.id === "terms"
+      : null
   };
 
   const signUpFunction = (e) => {
     e.preventDefault();
+
+    const calcAge = () => {
+      const birthday = (new Date(birthdate)).getTime();
+      return Math.floor((Date.now() - birthday) / (31557600000)); // 24 * 3600 * 365.25 * 1000
+    }
+
+    const age = calcAge();
+
+    if (signUp) {
+      if(password !== password2) {
+        alert("Your password does not match")
+        setPassword("");
+        setPassword2("");
+        return
+      } 
+        
+        fetch("http://localhost:5000/api/v1/users", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+            age,
+          })
+        })
+        .then(data => data.json())
+        .then (result => console.log(result))
+        .catch(err => console.log(err))
+
+      } else { // if sign-in
+
+      // add signin POST fetch when backend is available
+    }
+
     resetFields();
+    toggleLogin();
+    
   }
 
   return (
@@ -57,6 +102,7 @@ const Login = () => {
             placeholder="name"
             value={firstName}
             onChange={changeHandler}
+            required
           />
         ) : null}
         {signUp ? (
@@ -68,6 +114,7 @@ const Login = () => {
             placeholder="surname"
             value={lastName}
             onChange={changeHandler}
+            required
           />
         ) : null}
         {signUp ? (
@@ -79,6 +126,7 @@ const Login = () => {
               id="age"
               value={birthdate}
               onChange={changeHandler} 
+              required
               />
           </div>
         ) : null}
@@ -90,6 +138,7 @@ const Login = () => {
           placeholder="your email"
           value={email}
           onChange={changeHandler}
+          required
         />
         <input
           className="login-input"
@@ -99,6 +148,7 @@ const Login = () => {
           placeholder="password"
           value={password}
           onChange={changeHandler}
+          required
         />
         {signUp ? (
           <input
@@ -109,6 +159,7 @@ const Login = () => {
             placeholder="repeat password"
             value={password2}
             onChange={changeHandler}
+            required
           />
         ) : null}
         {signUp ? (
@@ -122,7 +173,6 @@ const Login = () => {
             type="checkbox"
             name="terms"
             id="terms"
-            onChange={changeHandler}
             required
           />
         ) : null}
