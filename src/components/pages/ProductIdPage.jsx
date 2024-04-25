@@ -35,3 +35,36 @@ export const ProductIdPage = () => {
 };
 
 export default ProductIdPage;
+
+
+/* 
+import { NavLink, useParams } from 'react-router-dom';
+import { booksData } from '../data/book.js';
+import { toursData } from '../data/service.js';
+
+export const ProductIdPage = () => {
+    const { id, type } = useParams();
+
+    const data = type === 'book' ? booksData.data : toursData.data;
+
+    const product = data.find((item) => item._id === id);
+    console.log(product);
+
+    if (!product) {
+        return <div>insert 404</div>;
+    }
+    return (
+        <div>
+            <button>
+                <NavLink to={`/`}>Return</NavLink>
+            </button>
+            <div>
+                <p><strong>Price</strong>: {product.price}</p> 
+
+            </div>
+
+        </div>
+    );
+};
+
+export default ProductIdPage; */
