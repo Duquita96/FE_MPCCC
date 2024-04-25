@@ -1,13 +1,14 @@
+import { NavLink } from 'react-router-dom';
 import '../style/headerStyle.css'
 
 const ServicesNavBar = () => {
     return (
-        <div className="sub-headers headers">
+        <nav className="sub-headers headers">
             <p>Services</p>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-            <div className="nav-item"></div>
-        </div>
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+            <NavLink to={'/'} className="nav-item" />
+        </nav>
     )
 }
 
