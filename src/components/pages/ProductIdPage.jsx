@@ -7,6 +7,7 @@ export const ProductIdPage = () => {
 
     const product = booksData.data.find((item) => item._id === id);
     const service = toursData.data.find((item) => item._id === id);
+console.log(product)
 
     const renderProductDetails = (product) => (
         <div>

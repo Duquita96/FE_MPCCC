@@ -64,9 +64,9 @@
   justify-content: center;
   text-align: center;
   padding: 10px;
-  position: relative;
+/*   position: relative; */
   transition: transform 0.3s ease;
-  z-index: 1;
+/*   z-index: 1; */
   color: rgb(34, 40, 49);
   box-shadow: 2px 2px 5px rgba(34, 40, 49, 0.9);
 }
@@ -74,7 +74,7 @@
 .card-container:hover,
 .service-container:hover {
   transform: scale(1.1);
-  z-index: 2;
+/*   z-index: 2; */
   padding: 10px 10px 0px 10px;
   overflow-y: hidden;
 }
