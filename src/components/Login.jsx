@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
-import "../style/loginStyle.css";
 import HeaderContext from "../context/HeaderContext";
+import "../style/loginStyle.css";
+
 
 const Login = () => {
-
-  const {toggleLogin} = useContext(HeaderContext)
+  const { toggleLogin, toggleLoginMsg } = useContext(HeaderContext);
 
   const [signUp, setSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [birthdate, setBirthdate] = useState("")
+  const [birthdate, setBirthdate] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -21,8 +21,7 @@ const Login = () => {
     setEmail("");
     setPassword("");
     setPassword2("");
-    document.getElementById("terms").checked = false;
-  }
+  };
 
   const toggleDisplay = () => {
     setSignUp(signUp === false ? true : false);
@@ -42,53 +41,63 @@ const Login = () => {
       ? setPassword(e.target.value)
       : e.target.id === "pwd2"
       ? setPassword2(e.target.value)
-      : null
+      : null;
   };
+
+  const confirmLogin = () => {
+    toggleLoginMsg(1)
+    setTimeout(() => {toggleLoginMsg(0)}, 3000)
+  }
+
+  const rejectLogin = () => {
+    toggleLoginMsg(2)
+    setTimeout(() => {toggleLoginMsg(0)}, 3000)
+  }
 
   const signUpFunction = (e) => {
     e.preventDefault();
 
     const calcAge = () => {
-      const birthday = (new Date(birthdate)).getTime();
-      return Math.floor((Date.now() - birthday) / (31557600000)); // 24 * 3600 * 365.25 * 1000
-    }
+      const birthday = new Date(birthdate).getTime();
+      return Math.floor((Date.now() - birthday) / 31557600000); // 24 * 3600 * 365.25 * 1000
+    };
 
     const age = calcAge();
+    let status;
 
     if (signUp) {
-      if(password !== password2) {
-        alert("Your password does not match")
+      if (password !== password2) {
+        alert("Your password does not match");
         setPassword("");
         setPassword2("");
-        return
-      } 
-        
-        fetch("http://localhost:5000/api/v1/users", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            firstName,
-            lastName,
-            email,
-            password,
-            age,
-          })
-        })
-        .then(data => data.json())
-        .then (result => console.log(result))
-        .catch(err => console.log(err))
+        return;
+      }
 
-      } else { // if sign-in
-
+      fetch("http://localhost:5000/api/v1/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+          age,
+        }),
+      })
+        .then((data) => data.json())
+        .then((result) => {result.status === "success"? confirmLogin(): rejectLogin()})
+        .catch((err) => console.log(err));
+    } else {
+      // if sign-in
       // add signin POST fetch when backend is available
     }
 
     resetFields();
     toggleLogin();
-    
-  }
+
+  };
 
   return (
     <div className="login-container">
@@ -120,14 +129,14 @@ const Login = () => {
         {signUp ? (
           <div className="ageField">
             <p>Please select your date of birth</p>
-            <input 
-              type="date" 
-              name="age" 
+            <input
+              type="date"
+              name="age"
               id="age"
               value={birthdate}
-              onChange={changeHandler} 
+              onChange={changeHandler}
               required
-              />
+            />
           </div>
         ) : null}
         <input
@@ -169,12 +178,7 @@ const Login = () => {
           </span>
         ) : null}
         {signUp ? (
-          <input
-            type="checkbox"
-            name="terms"
-            id="terms"
-            required
-          />
+          <input type="checkbox" name="terms" id="terms" required />
         ) : null}
         <button className="login-btn" type="submit">
           {signUp ? "Sign Up" : "Login"}
@@ -182,7 +186,9 @@ const Login = () => {
       </form>
       <p className="login-toggle">
         {signUp ? "Already a user? Click " : "No account? Sign up "}
-        <span onClick={toggleDisplay} className="login-links">here!</span>
+        <span onClick={toggleDisplay} className="login-links">
+          here!
+        </span>
       </p>
     </div>
   );

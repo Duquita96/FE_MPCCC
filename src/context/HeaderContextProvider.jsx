@@ -1,9 +1,10 @@
 import HeaderContext from "./HeaderContext";
 import { useState } from "react";
 
-const HeaderContextProvider = ({children}) => {
+const HeaderContextProvider = ({ children }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [loginMsg, setLoginMsg] = useState(0);
 
   const toggleLogin = () => {
     setShowCart(showCart ? false : null);
@@ -14,10 +15,13 @@ const HeaderContextProvider = ({children}) => {
     setShowCart(showCart ? false : true);
   };
 
+  const toggleLoginMsg = (number) => {
+    setLoginMsg(number);
+  }
+
   return (
     <HeaderContext.Provider
-      value={{ showLogin, showCart, toggleLogin, toggleCart }}
-    >
+      value={{ showLogin, showCart, loginMsg, toggleLogin, toggleCart, toggleLoginMsg }}>
       {children}
     </HeaderContext.Provider>
   );

@@ -97,4 +97,18 @@
   padding: 15px;
 }
 
+.login-success {
+  position: absolute;
+  top: 79px;
+  right: 10px;
+  background-color: green;
+  padding: 1px 5px;
+}
 
+.login-failed {
+  position: absolute;
+  top: 79px;
+  right: 10px;
+  background-color: red;
+  padding: 1px 5px;
+}
