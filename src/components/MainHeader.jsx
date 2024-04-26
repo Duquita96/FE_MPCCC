@@ -5,7 +5,7 @@ import HeaderContext from '../context/HeaderContext';
 
 const MainHeader = ({ windowWidth }) => {
 
-const {toggleLogin,toggleCart} = useContext(HeaderContext)
+const {toggleLogin,toggleCart,loginMsg} = useContext(HeaderContext)
 
   return (
     <div className="main-header headers">
@@ -14,6 +14,8 @@ const {toggleLogin,toggleCart} = useContext(HeaderContext)
       <SearchBar />
       {windowWidth > 768 && <div onClick={toggleCart} className="box-cart-login">cart</div>}
       {windowWidth > 768 && <div onClick={toggleLogin} className="box-cart-login">login</div>}
+      {loginMsg === 1 && <div className='login-success'>You were successfully logged in</div>}
+      {loginMsg === 2 && <div className='login-failed'>Login failed. Please try again</div>}
     </div>
   );
 };
