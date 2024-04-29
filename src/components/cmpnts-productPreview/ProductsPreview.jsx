@@ -1,11 +1,12 @@
 import CardsCollection from "./CardsCollection.jsx";
 import '../../style/ProductsPreview.css'
-import ServicesCollection from './ServicesCollection.jsx'
+import ToursCollection from './ToursCollection.jsx'
 
 export const ProductsPreview = () => {
+    
     return (
         <div id="products-preview-section">
-            <ServicesCollection />
+            <ToursCollection />
             <CardsCollection />
 
         </div>
@@ -13,3 +14,4 @@ export const ProductsPreview = () => {
 }
 
 export default ProductsPreview;
+
