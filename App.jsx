@@ -17,6 +17,7 @@ function App() {
               <Route path='/' element={<Homepage />} />
               <Route path='/product' element={<ProductPage />} />
               <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
+              {/* the name rout book needs to be change to product after route /product ist renamed */}
               <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
               <Route path='*' element={<NotFound />} />
           </Routes>

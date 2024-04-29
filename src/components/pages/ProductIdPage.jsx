@@ -9,7 +9,6 @@ import Cart from "../Cart.jsx";
 import ProductsNavBar from "../ProductsNavBar.jsx";
 import ServicesNavBar from "../ServicesNavBar.jsx";
 import MobileNavBar from "../MobileNavBar.jsx";
-
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
 
