@@ -80,13 +80,7 @@ const Login = () => {
         return;
       }
 
-      if (age < 18) {
-        alert("You need to be at least 18 to sign up");
-        setBirthdate("");
-        return;
-      }
-
-      fetch("http://localhost:5000/api/v1/users", {
+      fetch("http://localhost:8000/api/v1/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

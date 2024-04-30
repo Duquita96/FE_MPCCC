@@ -6,9 +6,6 @@ import MainHeader from '../MainHeader.jsx';
 import Footer from '../Footer.jsx';
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
-import ProductsNavBar from "../ProductsNavBar.jsx";
-import ServicesNavBar from "../ServicesNavBar.jsx";
-import MobileNavBar from "../MobileNavBar.jsx";
 
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
@@ -70,9 +67,6 @@ export const ProductIdPage = ({ productType }) => {
         <MainHeader windowWidth={windowWidth} />
         {showLogin && <Login />}
         {showCart && <Cart />}
-        {windowWidth > 768 && <ProductsNavBar />}
-        {windowWidth > 768 && <ServicesNavBar />}
-        {windowWidth <= 768 && <MobileNavBar  />}
         <button>
             <NavLink to={`/`}>Return</NavLink>
         </button>

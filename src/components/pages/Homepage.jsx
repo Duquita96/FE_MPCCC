@@ -7,7 +7,7 @@ import ProductsNavBar from "../ProductsNavBar.jsx";
 import ToursNavBar from "../ToursNavBar.jsx";
 import MobileNavBar from "../MobileNavBar.jsx";
 import WelcomeText from "../WelcomeText.jsx";
-import ProductsPreview from "../cmpnts-productPreview//ProductsPreview.jsx";
+import ProductsPreview from "../cmpnts-productPreview/ProductsPreview.jsx";
 import Footer from "../Footer.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
