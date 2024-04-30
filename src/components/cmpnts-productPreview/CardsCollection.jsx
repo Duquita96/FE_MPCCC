@@ -7,18 +7,17 @@ export const CardsCollection = () => {
 
   useEffect(() => {
     fetch('http://localhost:8000/api/v1/books')
-    // this path needs to be changed to /products/<name of the collection>
       .then(res => res.json())
       .then(productsData => setProductsData(productsData.data))
       .catch(err => console.log(err))
+    console.log("vivo una vez")
   }, [])
 
   return (
     <div>
       <div id='cards-collection'>
         {productsData.map((card, index) => (
-          <ProductPreviewClick key={index} id={card._id} productType = 'book'>
-        {/* pasarle la variable de tipo correspondiente (en este caso books)*/}
+          <ProductPreviewClick key={index} id={card._id} productType='book'>
             <div className='card-container pointer'>
               <CardM card={card} /> {/* Pass the object as property */}
             </div>
