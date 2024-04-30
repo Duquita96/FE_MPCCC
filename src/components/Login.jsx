@@ -47,23 +47,24 @@ const Login = () => {
   const confirmLogin = () => {
     toggleLoginMsg(1)
     setTimeout(() => {toggleLoginMsg(0)}, 3000)
-  }
+  };
 
   const rejectLogin = () => {
     toggleLoginMsg(2)
     setTimeout(() => {toggleLoginMsg(0)}, 3000)
-  }
+  };
+
+  const calcAge = () => {
+    const birthday = new Date(birthdate).getTime();
+    return Math.floor((Date.now() - birthday) / 31557600000); // 24 * 3600 * 365.25 * 1000
+  };
+
+
 
   const signUpFunction = (e) => {
+    
     e.preventDefault();
-
-    const calcAge = () => {
-      const birthday = new Date(birthdate).getTime();
-      return Math.floor((Date.now() - birthday) / 31557600000); // 24 * 3600 * 365.25 * 1000
-    };
-
     const age = calcAge();
-    let status;
 
     if (signUp) {
       if (password !== password2) {
@@ -73,7 +74,19 @@ const Login = () => {
         return;
       }
 
-      fetch("http://localhost:8000/api/v1/users", {
+      if (age < 18) {
+        alert("You need to be at least 18 to sign up");
+        setBirthdate("");
+        return;
+      }
+
+      if (age < 18) {
+        alert("You need to be at least 18 to sign up");
+        setBirthdate("");
+        return;
+      }
+
+      fetch("http://localhost:5000/api/v1/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,6 +112,9 @@ const Login = () => {
 
   };
 
+
+  
+
   return (
     <div className="login-container">
       <form action="" className="login-form" onSubmit={signUpFunction}>
@@ -109,6 +125,8 @@ const Login = () => {
             name="firstName"
             id="firstName"
             placeholder="name"
+            minLength={2}
+            maxLength={30}
             value={firstName}
             onChange={changeHandler}
             required
@@ -121,6 +139,8 @@ const Login = () => {
             name="lastName"
             id="lastName"
             placeholder="surname"
+            minLength={2}
+            maxLength={30}
             value={lastName}
             onChange={changeHandler}
             required
