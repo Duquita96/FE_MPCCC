@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import '../style/headerStyle.css'
 import HeaderContext from '../context/HeaderContext';
 
-const ServicesNavBar = () => {
+const MobileNavBar = () => {
 
     const {toggleLogin,toggleCart} = useContext(HeaderContext)
 
@@ -16,4 +16,4 @@ const ServicesNavBar = () => {
     )
 }
 
-export default ServicesNavBar;
+export default MobileNavBar;

@@ -4,7 +4,7 @@ import '../style/headerStyle.css'
 const ProductsNavBar = () => {
     return (
         <nav className="sub-headers headers">
-            <p>Products</p>
+            <p className='navbarTitle'>Products</p>
             <NavLink to={'/'} className="nav-item" />
             <NavLink to={'/'} className="nav-item" />
             <NavLink to={'/'} className="nav-item" />

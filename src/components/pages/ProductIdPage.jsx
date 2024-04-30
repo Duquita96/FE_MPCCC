@@ -69,6 +69,7 @@ export const ProductIdPage = ({ productType }) => {
 
     return (
         <div>
+
             <MainHeader windowWidth={windowWidth} />
             {showLogin && <Login />}
             {showCart && <Cart />}
