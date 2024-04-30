@@ -9,7 +9,7 @@ import Cart from "../Cart.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
 import { getImgPath } from '../cmpnts-productPreview/Card.jsx';
-import '../../style/ProductsPreview.css'
+import '../../style/productIdPage.css'
 
 export const ProductIdPage = ({ productType }) => {
     const { id } = useParams();
@@ -48,15 +48,20 @@ export const ProductIdPage = ({ productType }) => {
 
 
     const renderProductDetails = (book) => (
-        <div>
-            <img src={imgPath} alt={"productImage"} />
+        <div id="product_section">
+            <div id='imgcontainer'>
+                <img src={imgPath} alt={"productImage"} />
+            </div>
 
-            <p><strong>Title</strong>: {book.name}</p>
-            <p><strong>Author</strong>: {book.author}</p>
-            <p><strong>Genre</strong>: {book.genre}</p>
-            <p><strong>Price</strong>: {book.price}</p>
-            <p><strong>Pages</strong>: {book.pages}</p>
-            <p><strong>Description</strong>: {book.description}</p>
+            <div id="product">
+                <p><strong>Title</strong>: {book.name}</p>
+                <p><strong>Author</strong>: {book.author}</p>
+                <p><strong>Genre</strong>: {book.genre}</p>
+                <p><strong>Price</strong>: {book.price}</p>
+                <p><strong>Pages</strong>: {book.pages}</p>
+                <p><strong>Description</strong>: {book.description}</p>
+            </div>
+
         </div>
     );
     const renderServiceDetails = (tour) => (
@@ -73,10 +78,28 @@ export const ProductIdPage = ({ productType }) => {
             <MainHeader windowWidth={windowWidth} />
             {showLogin && <Login />}
             {showCart && <Cart />}
-            <button>
-                <NavLink to={`/`}>Return</NavLink>
-            </button>
-            {book ? renderProductDetails(book) : tour ? renderServiceDetails(tour) : <div>insert 404</div>}
+            <div id="product_description">
+                <div id="button_container">
+                    <button>
+                        <NavLink to={`/`}>Return</NavLink>
+
+                    </button>
+                    <div id='product-title'>
+                        Insert Item Name
+                    </div>
+
+                </div>
+                <div>
+                    {book ? renderProductDetails(book) : tour ? renderServiceDetails(tour) : <div>insert 404</div>}
+
+                </div>
+                <div id='buy_section'>Buy Information Section
+            
+                </div>
+
+                <div id='comments-section'>Comments Section(not sure if we are gonna use it)</div>
+            </div>
+
             <Footer />
         </div>
     );
