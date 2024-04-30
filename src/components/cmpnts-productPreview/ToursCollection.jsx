@@ -6,8 +6,8 @@ export const ToursCollection = () => {
   const [toursData, setToursData] = useState([]);
 
   useEffect(() => {
-     fetch('http://localhost:8000/api/v1/tours')
- 
+    fetch('http://localhost:8000/api/v1/tours')
+
       .then(res => res.json())
       .then(data => {
         const firstSix = data.data.slice(0, 6); // Take the first six elements
@@ -20,8 +20,7 @@ export const ToursCollection = () => {
     <div>
       <div id='service-collection'>
         {toursData.map((card, index) => (
-          <ProductPreviewClick key={index} id={card._id} productType = 'tour'>
-            {/* pasarle la variable de tipo correspondiente (en este caso tours)*/}
+          <ProductPreviewClick key={index} id={card._id} productType='tour'>
             <div className='service-container pointer'>
               <ToursM card={card} /> {/* Pass the object as property */}
             </div>

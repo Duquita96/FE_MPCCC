@@ -14,9 +14,9 @@ import WidthContext from '../../context/WidthContext.jsx';
 
 /** Contains all the components related to the homepage */
 const Homepage = () => {
-  
-  const {showLogin,showCart} = useContext(HeaderContext)
-  const {windowWidth} = useContext(WidthContext)
+
+  const { showLogin, showCart } = useContext(HeaderContext)
+  const { windowWidth } = useContext(WidthContext)
 
   return (
     <>
