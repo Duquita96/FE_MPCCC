@@ -5,6 +5,7 @@ import ProductPage from './src/components/ProductPage.jsx';
 import ProductIdPage from './src/components/pages/ProductIdPage.jsx';
 import HeaderContextProvider from './src/context/HeaderContextProvider.jsx';
 import WidthContextProvider from './src/context/WidthContextProvider.jsx';
+import UserContextProvider from './src/context/UserContextProvider.jsx';
 
 
 function App() {
@@ -13,16 +14,16 @@ function App() {
     <>
       <HeaderContextProvider>
         <WidthContextProvider>
-          <Routes>
-            <Route path='/' element={<Homepage />} />
-            {/*<Route path='/product' element={<ProductPage />} />*/}
-            <Route path='/filter-page' element={<ProductPage />} />
-            <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
-            <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
-
-
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+          <UserContextProvider>
+            <Routes>
+              <Route path='/' element={<Homepage />} />
+              {/*<Route path='/product' element={<ProductPage />} />*/}
+              <Route path='/filter-page' element={<ProductPage />} />
+              <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
+              <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </UserContextProvider>
         </WidthContextProvider>
       </HeaderContextProvider>
     </>

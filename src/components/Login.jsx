@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import HeaderContext from "../context/HeaderContext";
+import UserContext from "../context/UserContext";
 import "../style/loginStyle.css";
 
 
 const Login = () => {
   const { toggleLogin, toggleLoginMsg } = useContext(HeaderContext);
+  const { loggedInUser, setLoggedInUser} = useContext(UserContext);
 
   const [signUp, setSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -14,6 +16,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
+ 
+  /** Resets all the fields in the login form */
   const resetFields = () => {
     setFirstName("");
     setLastName("");
@@ -23,11 +27,13 @@ const Login = () => {
     setPassword2("");
   };
 
+  /** Toggles between sign-in and sign-up + resets fields */
   const toggleDisplay = () => {
     setSignUp(signUp === false ? true : false);
     resetFields()
   };
 
+  /** Handles the changes for the input fields */
   const changeHandler = (e) => {
     e.target.id === "firstName"
       ? setFirstName(e.target.value)
@@ -44,16 +50,19 @@ const Login = () => {
       : null;
   };
 
+  /** Displays a confirmation of succesfull log-in for 3 */
   const confirmLogin = () => {
     toggleLoginMsg(1)
     setTimeout(() => {toggleLoginMsg(0)}, 3000)
   };
 
+   /** Displays a message of unsuccesfull log-in for 3 */
   const rejectLogin = () => {
     toggleLoginMsg(2)
     setTimeout(() => {toggleLoginMsg(0)}, 3000)
   };
 
+  /** Calculates the age from the date input field */
   const calcAge = () => {
     const birthday = new Date(birthdate).getTime();
     return Math.floor((Date.now() - birthday) / 31557600000); // 24 * 3600 * 365.25 * 1000
@@ -80,7 +89,7 @@ const Login = () => {
         return;
       }
 
-      fetch("http://localhost:8000/api/v1/users", {
+      fetch("http://localhost:8000/api/v1/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +103,12 @@ const Login = () => {
         }),
       })
         .then((data) => data.json())
-        .then((result) => {result.status === "success"? confirmLogin(): rejectLogin()})
+        .then((result) => {
+          result.status === "success"? confirmLogin(): rejectLogin(); 
+          if(result.status === "success") {
+            console.log(result);
+          }
+        })
         .catch((err) => console.log(err));
     } else {
       // if sign-in
