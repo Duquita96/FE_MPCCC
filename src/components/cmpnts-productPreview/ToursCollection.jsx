@@ -7,11 +7,10 @@ export const ToursCollection = () => {
 
   useEffect(() => {
     fetch('http://localhost:8000/api/v1/tours')
-
       .then(res => res.json())
       .then(data => {
-        const firstSix = data.data.slice(0, 6); // Take the first six elements
-        setToursData(firstSix);
+        const randomSix = data.data.sort(() => 0.5 - Math.random()).slice(0, 6); // Take six random elements
+        setToursData(randomSix);
       })
       .catch(err => console.log(err))
   }, []);
@@ -32,4 +31,3 @@ export const ToursCollection = () => {
 };
 
 export default ToursCollection;
-
