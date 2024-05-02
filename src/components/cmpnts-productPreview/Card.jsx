@@ -2,14 +2,18 @@ import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 
 
+export const getImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
+
 const CardM = ({ card }) => { //recibe the object as an argument
-  
+
+  const imgPath = getImgPath(card);
+
   return (
     <div>
       <Card>
-        <Card.Img variant="top" src={`../src/assets/img/${card.imgSrc}`} alt={card.title} id="cardImgSrc" />
+        <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
         <Card.Body id="cardBody">
-          <Card.Title>{card.title} {card.price}</Card.Title>
+          <Card.Title>{card.name} {card.price}</Card.Title>
         </Card.Body>
       </Card>
     </div>
@@ -19,10 +23,11 @@ const CardM = ({ card }) => { //recibe the object as an argument
 
 export default CardM;
 
+
 CardM.propTypes = {
   card: PropTypes.shape({
     imgSrc: PropTypes.string,
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   }).isRequired,
 };

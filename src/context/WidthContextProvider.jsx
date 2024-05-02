@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import WidthContext from "./WidthContext";
 
+/** Provides the current width of the window to the entire app */
 const WidthContextProvider = ({ children }) => {
 
   const [windowWidth, setWindowWith] = useState(window.innerWidth);

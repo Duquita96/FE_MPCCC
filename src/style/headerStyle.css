@@ -97,4 +97,17 @@
   padding: 15px;
 }
 
+.login-success, .login-failed {
+  position: absolute;
+  top: 79px;
+  padding: 1px 5px;
+  width: 100%;
+}
 
+.login-success {background-color: green}
+.login-failed {background-color: red}
+
+.navbarTitle {
+  width: 80px;
+  text-align: left;
+}

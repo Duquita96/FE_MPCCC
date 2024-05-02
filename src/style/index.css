@@ -39,7 +39,7 @@ body {
 
 }
 @media only screen and (max-width: 768px) {
-  .login-container {top: 155px}
+  .login-container {top: 155px; width: 100%;}
   .cart-container {top: 155px}
 }
 @media only screen and (min-width: 992px) {

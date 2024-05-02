@@ -1,13 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import '../style/headerStyle.css'
 
-const ProductsNavBar = () => {
+const ServicesNavBar = () => {
     return (
         <nav className="sub-headers headers">
-            <p className='navbarTitle'>Products</p>
-            <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
+            <p className='navbarTitle'>Tours </p>
             <NavLink to={'/'} className="nav-item" />
             <NavLink to={'/'} className="nav-item" />
             <NavLink to={'/'} className="nav-item" />
@@ -15,4 +12,4 @@ const ProductsNavBar = () => {
     )
 }
 
-export default ProductsNavBar;
+export default ServicesNavBar;
