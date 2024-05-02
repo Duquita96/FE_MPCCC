@@ -1,4 +1,4 @@
-import "../../style/ProductPage/ProductPageProducts.css";
+import "../../style/ProductsPage/ProductPageProducts.css";
 
 const ProductPageProducts = () => {
     return (

@@ -1,5 +1,5 @@
 import PriceSlider from "./PriceSlider.jsx";
-import "../../style/ProductPage/ProductPageFilter.css";
+import "../../style/ProductsPage/ProductPageFilter.css";
 
 
 const ProductPageFilter = () => {
