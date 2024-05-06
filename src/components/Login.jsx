@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
+import { jwtDecode } from "jwt-decode";
 import HeaderContext from "../context/HeaderContext";
 import UserContext from "../context/UserContext";
 import "../style/loginStyle.css";
 
-
 const Login = () => {
   const { toggleLogin, toggleLoginMsg } = useContext(HeaderContext);
-  const { loggedInUser, setLoggedInUser} = useContext(UserContext);
+  const { userState, addNewUser } = useContext(UserContext);
 
   const [signUp, setSignUp] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -16,7 +16,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
- 
   /** Resets all the fields in the login form */
   const resetFields = () => {
     setFirstName("");
@@ -30,7 +29,7 @@ const Login = () => {
   /** Toggles between sign-in and sign-up + resets fields */
   const toggleDisplay = () => {
     setSignUp(signUp === false ? true : false);
-    resetFields()
+    resetFields();
   };
 
   /** Handles the changes for the input fields */
@@ -50,17 +49,15 @@ const Login = () => {
       : null;
   };
 
-  /** Displays a confirmation of succesfull log-in for 3 */
+  /** Displays a confirmation of succesfull log-in for 3 seconds */
   const confirmLogin = () => {
-    toggleLoginMsg(1)
-    setTimeout(() => {toggleLoginMsg(0)}, 3000)
-  };
+    toggleLoginMsg(1);
+    setTimeout(() => {toggleLoginMsg(0)}, 3000)}
 
-   /** Displays a message of unsuccesfull log-in for 3 */
+  /** Displays a message of unsuccesfull log-in for 3 seconds */
   const rejectLogin = () => {
-    toggleLoginMsg(2)
-    setTimeout(() => {toggleLoginMsg(0)}, 3000)
-  };
+    toggleLoginMsg(2);
+    setTimeout(() => {toggleLoginMsg(0)}, 3000)};
 
   /** Calculates the age from the date input field */
   const calcAge = () => {
@@ -68,10 +65,7 @@ const Login = () => {
     return Math.floor((Date.now() - birthday) / 31557600000); // 24 * 3600 * 365.25 * 1000
   };
 
-
-
   const signUpFunction = (e) => {
-    
     e.preventDefault();
     const age = calcAge();
 
@@ -91,37 +85,35 @@ const Login = () => {
 
       fetch("http://localhost:8000/api/v1/users/signup", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          password,
-          age,
-        }),
-      })
+        headers: {"Content-Type": "application/json",},
+        body: JSON.stringify({ firstName, lastName, email, password, age })})
+
         .then((data) => data.json())
         .then((result) => {
-          result.status === "success"? confirmLogin(): rejectLogin(); 
-          if(result.status === "success") {
-            console.log(result);
-          }
+          result.status === "success" ? confirmLogin() : rejectLogin();
+          const token = result?.xAuthToken;
+          const decodedUserObj = token? jwtDecode(token): null;
+          decodedUserObj && localStorage.setItem("token", token);
+          decodedUserObj && addNewUser(decodedUserObj);
         })
         .catch((err) => console.log(err));
     } else {
-      // if sign-in
-      // add signin POST fetch when backend is available
+      fetch("http://localhost:8000/api/v1/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
+        .then((data) => data.json())
+        .then((result) => {
+          result.status === "success" ? confirmLogin() : rejectLogin();
+          // Add res to localStorage
+        })
+        .catch((err) => console.log(err));
     }
 
     resetFields();
     toggleLogin();
-
   };
-
-
-  
 
   return (
     <div className="login-container">
