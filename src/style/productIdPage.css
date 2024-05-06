@@ -1,10 +1,14 @@
 .product {
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  width: 80%;
+  width: 100%;
+  height: 360px;
   margin: 20px;
   padding: 20px;
   background: rgb(118, 171, 174);
+  /*   position: relative;
+  overflow: hidden;
+  object-fit: cover; */
 }
 
 .product_section {
@@ -34,15 +38,13 @@
 }
 
 .imgcontainer {
-  width: 80%;
+  width: auto;
+  height: auto;
   margin: 20px;
   display: flex;
   justify-content: center;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+  align-items: center;
+  overflow: hidden;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgb(34, 40, 49, 0.5);
 }
@@ -51,6 +53,7 @@ img {
   display: flex;
 }
 
+.add-to-cart,
 #button_container,
 #product_description > div {
   border: 1px solid rgb(34, 40, 49);
@@ -90,7 +93,7 @@ img {
   background: rgb(118, 171, 174);
 }
 
-button {
+.goback-button {
   margin: 20px;
   border: none;
   background: rgb(118, 171, 174);
@@ -103,11 +106,13 @@ button {
   border-radius: 5px;
 }
 
+.add-to-cart,
 .viewMoreButton,
-button,
+.goback-button,
 .buyIcon {
   transition: transform 0.3s ease;
 }
+
 .viewMoreButton:hover,
 .buyIcon:hover,
 button:hover {
@@ -132,4 +137,54 @@ button a {
   border: none;
   box-shadow: none;
   font-weight: bold;
+}
+
+.p-height {
+  height: 30px;
+  width: auto;
+  margin-left: 10px;
+}
+
+#p-description {
+  width: 100%;
+  height: 130px;
+  line-height: 2;
+  overflow-y: auto;
+}
+
+.add-to-cart {
+  background: rgb(34, 40, 49);
+  color: rgb(118, 171, 174);
+  margin: 15px auto;
+  width: 90%;
+  height: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#p-description::-webkit-scrollbar {
+  width: 10px;
+}
+
+#p-description::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to left,
+    rgb(94, 136, 138),
+    rgb(118, 171, 174, 0.5),
+    rgba(94, 136, 138)
+  );
+  border-radius: 10px;
+  border: 1px solid rgb(49, 54, 63);
+}
+
+@media (max-width: 2556px) {
+  #p-description {
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16),
+      inset 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    padding-right: 20px;
+    padding: 10px;
+  }
 }
