@@ -1,7 +1,12 @@
+//React libraries
 import { NavLink, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
+//componets
 import MainHeader from '../MainHeader.jsx';
 import Footer from '../Footer.jsx';
 import Login from "../Login.jsx";
@@ -9,7 +14,9 @@ import Cart from "../Cart.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
 import { getImgPath } from '../cmpnts-productPreview/Card.jsx';
+//css
 import '../../style/productIdPage.css'
+//icons
 import { RiPaypalFill, RiVisaFill, RiMastercardLine, RiBankFill, RiCalendarScheduleFill } from "react-icons/ri";
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
@@ -21,17 +28,12 @@ export const ProductIdPage = ({ productType }) => {
     const [tour, setTour] = useState(null);
     const [imgPath, setImgPath] = useState(null);
 
-
     const { showLogin, showCart } = useContext(HeaderContext)
     const { windowWidth } = useContext(WidthContext)
-    const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
-
-
 
     useEffect(() => {
         console.log("Book:", book)
         console.log("Tour:", tour)
-
 
         if (productType === 'book') {
             fetch(`http://localhost:8000/api/v1/books/${id}`)
@@ -53,32 +55,29 @@ export const ProductIdPage = ({ productType }) => {
         }
     }, [id]);
 
-
-
     const renderProductDetails = (book) => (
         <div className="product_section">
             <div className='imgcontainer'>
-                <img src={imgPath} alt={"productImage"} />
+                <Zoom zoomMargin={10}>
+                    <img src={imgPath} alt={"productImage"} className="zoomImg" />
+                </Zoom>
             </div>
 
             <div className="product">
-                <p><strong>Title</strong>: {book.name}</p>
-                <p><strong>Author</strong>: {book.author}</p>
-                <p><strong>Genre</strong>: {book.genre}</p>
-                <p><strong>Price</strong>: {book.price}</p>
-                <p><strong>Pages</strong>: {book.pages}</p>
-                <p>
-                    <strong>Description</strong>:
-                    {isDescriptionExpanded ? book.description : `${book.description.substring(0, 400)}...`}
-                    <button className="viewMoreButton" onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}>
-                        {isDescriptionExpanded ? ' <<' : ' >>'}
-                    </button>
-                </p>
-                <div>
-<button>Add</button>
-                </div>
+                <>
+                    <p id='p-title' className='p-height'><strong>Title</strong>: {book.name}</p>
+                    <p id='p-author' className='p-height'><strong>Author</strong>: {book.author}</p>
+                    <p id='p-genre' className='p-height'><strong>Genre</strong>: {book.genre}</p>
+                    <p id='p-price' className='p-height'><strong>Price</strong>: {book.price}</p>
+                    <p id='p-pages' className='p-height'><strong>Pages</strong>: {book.pages}</p>
+                    <p id='p-description'>
+                        <strong>Description</strong>: {book.description}
+                    </p>
+                    <div>
+                        <button className='add-to-cart'>Add</button>
+                    </div>
+                </>
             </div>
-
         </div>
     );
     const renderServiceDetails = (tour) => (
@@ -94,20 +93,15 @@ export const ProductIdPage = ({ productType }) => {
             </div>
 
             <div className="product">
-                <p><strong>Name:</strong>: {tour.name}</p>
-                <p><strong>Group Size:</strong>: {tour.maxGroupSize}</p>
+                <p><strong>Name</strong>: {tour.name}</p>
+                <p><strong>Group Size</strong>: {tour.maxGroupSize}</p>
                 <p><strong>Difficulty</strong>: {tour.difficulty}</p>
                 <p><strong>Price</strong>: {tour.price}</p>
-                <p><strong>Duration:</strong>: {tour.duration}h</p>
-                <p>
-                    <strong>Description</strong>:
-                    {isDescriptionExpanded ? tour.description : `${tour.description.substring(0, 400)}...`}
-                    <button className="viewMoreButton" onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}>
-                        {isDescriptionExpanded ? ' <<' : ' >>'}
-                    </button>
+                <p><strong>Duration</strong>: {tour.duration}h</p>
+                <p><strong>Description</strong>:{tour.description}
                 </p>
-                <div>
-                    <button>Reserve</button>
+                <div id='add-button-container'>
+                    <button className='add-to-cart'>Reserve</button>
                 </div>
             </div>
 
@@ -124,7 +118,7 @@ export const ProductIdPage = ({ productType }) => {
             {showCart && <Cart />}
             <div id="product_description">
                 <div id="button_container">
-                    <button>
+                    <button className='goback-button'>
                         <NavLink to={`/`}><BsFillArrowLeftSquareFill id='arrowIcon' /></NavLink>
 
                     </button>
