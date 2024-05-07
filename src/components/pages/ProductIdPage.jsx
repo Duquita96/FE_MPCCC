@@ -14,6 +14,7 @@ import Cart from "../Cart.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
 import { getImgPath } from '../cmpnts-productPreview/Card.jsx';
+import Comments from '../cmpnts-productPreview/Comments.jsx'
 //css
 import '../../style/productIdPage.css'
 //icons
@@ -28,8 +29,10 @@ export const ProductIdPage = ({ productType }) => {
     const [tour, setTour] = useState(null);
     const [imgPath, setImgPath] = useState(null);
 
+    
     const { showLogin, showCart } = useContext(HeaderContext)
     const { windowWidth } = useContext(WidthContext)
+
 
     useEffect(() => {
         console.log("Book:", book)
@@ -70,11 +73,11 @@ export const ProductIdPage = ({ productType }) => {
                     <p id='p-genre' className='p-height'><strong>Genre</strong>: {book.genre}</p>
                     <p id='p-price' className='p-height'><strong>Price</strong>: {book.price}</p>
                     <p id='p-pages' className='p-height'><strong>Pages</strong>: {book.pages}</p>
-                    <p id='p-description'>
+                    <p id='p-description' className='description-box'>
                         <strong>Description</strong>: {book.description}
                     </p>
                     <div>
-                        <button className='add-to-cart'>Add</button>
+                        <button className='add-to-cart'>Add to Cart</button>
                     </div>
                 </>
             </div>
@@ -93,12 +96,12 @@ export const ProductIdPage = ({ productType }) => {
             </div>
 
             <div className="product">
-                <p><strong>Name</strong>: {tour.name}</p>
-                <p><strong>Group Size</strong>: {tour.maxGroupSize}</p>
-                <p><strong>Difficulty</strong>: {tour.difficulty}</p>
-                <p><strong>Price</strong>: {tour.price}</p>
-                <p><strong>Duration</strong>: {tour.duration}h</p>
-                <p><strong>Description</strong>:{tour.description}
+                <p id='t-title' className='p-height'><strong>Name</strong>: {tour.name}</p>
+                <p id='t-author' className='p-height'><strong>Group Size</strong>: {tour.maxGroupSize}</p>
+                <p id='t-genre' className='p-height'><strong>Difficulty</strong>: {tour.difficulty}</p>
+                <p id='t-price' className='p-height'><strong>Price</strong>: {tour.price}</p>
+                <p id='t-pages' className='p-height'><strong>Duration</strong>: {tour.duration}h</p>
+                <p id='t-description' className='description-box'><strong>Description</strong>:{tour.description}
                 </p>
                 <div id='add-button-container'>
                     <button className='add-to-cart'>Reserve</button>
@@ -149,7 +152,10 @@ export const ProductIdPage = ({ productType }) => {
                     </div>
                 </div>
 
-                <div id='comments-section'>Comments Section(not sure if we are gonna use it)</div>
+                <div id='comments-section'>
+
+                    < Comments/>
+                    </div>
             </div>
 
             <Footer />
