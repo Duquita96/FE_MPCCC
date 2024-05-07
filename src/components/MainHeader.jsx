@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import SearchBar from "./Searchbar";
 import HeaderContext from '../context/HeaderContext';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
@@ -7,7 +7,15 @@ import CartBtn from './cmpnts-header-buttons/CartBtn';
 import "../style/headerStyle.css";
 
 const MainHeader = ({ windowWidth }) => {
-const {loginMsg} = useContext(HeaderContext)
+  
+const {loginMsg} = useContext(HeaderContext);
+
+// useEffect(()=> {
+//   if(userState._id) {
+//     // check token expiry validity
+//     // if not valid => trigger logout
+//   }
+// }, [])
 
 
   return (

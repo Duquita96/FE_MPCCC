@@ -6,48 +6,31 @@ import "../style/loginStyle.css";
 
 const Login = () => {
   const { toggleLogin, toggleLoginMsg } = useContext(HeaderContext);
-  const { userState, addNewUser } = useContext(UserContext);
-
+  const { addNewUser } = useContext(UserContext);
   const [signUp, setSignUp] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [birthdate, setBirthdate] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
 
-  /** Resets all the fields in the login form */
-  const resetFields = () => {
-    setFirstName("");
-    setLastName("");
-    setBirthdate("");
-    setEmail("");
-    setPassword("");
-    setPassword2("");
-  };
+  const emptyForm = {
+    firstName: "", 
+    lastName: "", 
+    birthdate: "", 
+    email: "", 
+    password: "", 
+    password2: ""
+  }
 
-  /** Toggles between sign-in and sign-up + resets fields */
-  const toggleDisplay = () => {
-    setSignUp(signUp === false ? true : false);
-    resetFields();
-  };
+  const [form, setForm] = useState(emptyForm);
 
   /** Handles the changes for the input fields */
   const changeHandler = (e) => {
-    e.target.id === "firstName"
-      ? setFirstName(e.target.value)
-      : e.target.id === "lastName"
-      ? setLastName(e.target.value)
-      : e.target.id === "age"
-      ? setBirthdate(e.target.value)
-      : e.target.id === "email"
-      ? setEmail(e.target.value)
-      : e.target.id === "pwd"
-      ? setPassword(e.target.value)
-      : e.target.id === "pwd2"
-      ? setPassword2(e.target.value)
-      : null;
-  };
+    const {name, value} = e.target;
+    setForm(prevState => ({ ...prevState, [name]: value}));
+  }
+
+  /** Resets all the fields in the login form */
+  const resetFields = () => {setForm({ ...emptyForm })};
+
+   /** Toggles between sign-in and sign-up + resets fields */
+   const toggleDisplay = () => {setSignUp(signUp === false ? true : false); resetFields()};
 
   /** Displays a confirmation of succesfull log-in for 3 seconds */
   const confirmLogin = () => {toggleLoginMsg(1); setTimeout(() => {toggleLoginMsg(0)}, 3000)}
@@ -57,16 +40,17 @@ const Login = () => {
 
   /** Calculates the age from the date input field */
   const calcAge = () => {
-    const birthday = new Date(birthdate).getTime();
+    const birthday = new Date(form.birthdate).getTime();
     return Math.floor((Date.now() - birthday) / 31557600000); // 24 * 3600 * 365.25 * 1000
   };
 
+  /** Provides frontend validation for form and submits form to the backend */
   const signUpFunction = (e) => {
     e.preventDefault();
     const age = calcAge();
 
     if (signUp) {
-      if (password !== password2) {
+      if (form.password !== form.password2) {
         alert("Your password does not match");
         setPassword("");
         setPassword2("");
@@ -82,7 +66,13 @@ const Login = () => {
       fetch("http://localhost:8000/api/v1/users/signup", {
         method: "POST",
         headers: {"Content-Type": "application/json",},
-        body: JSON.stringify({ firstName, lastName, email, password, age })})
+        body: JSON.stringify({ 
+          firstName: form.firstName , 
+          lastName: form.lastName, 
+          email: form.email, 
+          password: form.password, 
+          age
+        })})
 
         .then((data) => data.json())
         .then((result) => {
@@ -97,7 +87,7 @@ const Login = () => {
       fetch("http://localhost:8000/api/v1/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: form.email, password: form.password }),
       })
         .then((data) => data.json())
         .then((result) => {
@@ -126,7 +116,7 @@ const Login = () => {
             placeholder="name"
             minLength={2}
             maxLength={30}
-            value={firstName}
+            value={form.firstName}
             onChange={changeHandler}
             required
           />
@@ -140,7 +130,7 @@ const Login = () => {
             placeholder="surname"
             minLength={2}
             maxLength={30}
-            value={lastName}
+            value={form.lastName}
             onChange={changeHandler}
             required
           />
@@ -150,9 +140,9 @@ const Login = () => {
             <p>Please select your date of birth</p>
             <input
               type="date"
-              name="age"
+              name="birthdate"
               id="age"
-              value={birthdate}
+              value={form.age}
               onChange={changeHandler}
               required
             />
@@ -164,17 +154,17 @@ const Login = () => {
           name="email"
           id="email"
           placeholder="your email"
-          value={email}
+          value={form.email}
           onChange={changeHandler}
           required
         />
         <input
           className="login-input"
           type="password"
-          name="pwd"
+          name="password"
           id="pwd"
           placeholder="password"
-          value={password}
+          value={form.password}
           onChange={changeHandler}
           required
         />
@@ -182,10 +172,10 @@ const Login = () => {
           <input
             className="login-input"
             type="password"
-            name="pwd"
+            name="password2"
             id="pwd2"
             placeholder="repeat password"
-            value={password2}
+            value={form.password2}
             onChange={changeHandler}
             required
           />
