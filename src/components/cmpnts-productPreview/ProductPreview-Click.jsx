@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 export const ProductPreviewClick = ({ id, children, productType }) => {
   const handleCardClick = (event) => {
     event.preventDefault();
+    event.stopPropagation();
     console.log(`Element with ID ${id} was clicked.`);
-    console.log("Route: ", route);
   };
 
 
