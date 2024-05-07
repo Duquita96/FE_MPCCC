@@ -6,9 +6,6 @@
   margin: 20px;
   padding: 20px;
   background: rgb(118, 171, 174);
-  /*   position: relative;
-  overflow: hidden;
-  object-fit: cover; */
 }
 
 .product_section {
@@ -64,7 +61,8 @@
 #comments-section,
 #buy_section {
   background: rgb(118, 171, 174);
-  height: 100px;
+  /* height: 100px; */
+  height: auto;
   padding: 20px 100px;
 }
 #buy_section {
@@ -113,9 +111,10 @@
   transition: transform 0.3s ease;
 }
 
+.add-to-cart:hover,
 .viewMoreButton:hover,
 .buyIcon:hover,
-button:hover {
+.goback-button:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -145,7 +144,7 @@ button a {
   margin-left: 10px;
 }
 
-#p-description {
+.description-box {
   width: 100%;
   height: 130px;
   line-height: 2;
@@ -163,12 +162,18 @@ button a {
   justify-content: center;
   align-items: center;
 }
+#addItem {
+  margin: 15px auto 15px 20px;
+  text-align: center;
+  width: 10%;
+  border-radius: 5px;
+}
 
-#p-description::-webkit-scrollbar {
+.description-box::-webkit-scrollbar {
   width: 10px;
 }
 
-#p-description::-webkit-scrollbar-thumb {
+.description-box::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to left,
     rgb(94, 136, 138),
@@ -179,8 +184,12 @@ button a {
   border: 1px solid rgb(49, 54, 63);
 }
 
+#add-element-conatiner {
+  display: flex;
+}
+
 @media (max-width: 2556px) {
-  #p-description {
+  .description-box {
     box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16),
       inset 0 3px 6px rgba(0, 0, 0, 0.23);
     border-radius: 5px;
