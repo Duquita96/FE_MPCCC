@@ -1,0 +1,50 @@
+#review-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  /* padding: 20px; */
+}
+
+.input-group {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#submitButton {
+  background: rgb(34, 40, 49);
+  color: white;
+  width: 15%;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+#submitButton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#firstformbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+/*   border: 1px solid black; */
+}
+
+#userNameRating {
+  width: 80%;
+}
+
+#userNameForm {
+  width: 80%;
+}

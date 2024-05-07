@@ -35,8 +35,6 @@ export const ProductIdPage = ({ productType }) => {
 
 
     useEffect(() => {
-        console.log("Book:", book)
-        console.log("Tour:", tour)
 
         if (productType === 'book') {
             fetch(`http://localhost:8000/api/v1/books/${id}`)
