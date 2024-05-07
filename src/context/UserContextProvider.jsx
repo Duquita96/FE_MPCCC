@@ -32,7 +32,7 @@ const UserContextProvider = ({ children }) => {
     userDispatch({type: "newUser", payload:{firstName, lastName, email, _id}})
   };
 
-  const resetUser = () => {userDispatch({type: "noUser"})}
+  const resetUser = () => {userDispatch({type: "noUser"}); localStorage.clear() }
 
   return (
     <UserContext.Provider value={{ userState, userDispatch, addNewUser, resetUser }}>

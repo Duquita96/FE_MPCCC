@@ -50,14 +50,10 @@ const Login = () => {
   };
 
   /** Displays a confirmation of succesfull log-in for 3 seconds */
-  const confirmLogin = () => {
-    toggleLoginMsg(1);
-    setTimeout(() => {toggleLoginMsg(0)}, 3000)}
+  const confirmLogin = () => {toggleLoginMsg(1); setTimeout(() => {toggleLoginMsg(0)}, 3000)}
 
   /** Displays a message of unsuccesfull log-in for 3 seconds */
-  const rejectLogin = () => {
-    toggleLoginMsg(2);
-    setTimeout(() => {toggleLoginMsg(0)}, 3000)};
+  const rejectLogin = () => {toggleLoginMsg(2); setTimeout(() => {toggleLoginMsg(0)}, 3000)};
 
   /** Calculates the age from the date input field */
   const calcAge = () => {
@@ -106,7 +102,10 @@ const Login = () => {
         .then((data) => data.json())
         .then((result) => {
           result.status === "success" ? confirmLogin() : rejectLogin();
-          // Add res to localStorage
+          const token = result?.xAuthToken;
+          const decodedUserObj = token? jwtDecode(token): null;
+          decodedUserObj && localStorage.setItem("token", token);
+          decodedUserObj && addNewUser(decodedUserObj);
         })
         .catch((err) => console.log(err));
     }

@@ -3,9 +3,10 @@ import "../style/headerStyle.css";
 import SearchBar from "./Searchbar";
 import HeaderContext from '../context/HeaderContext';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
+import LoginLogoutBtn from './cmpnts-header-buttons/LoginLogoutBtn';
 
 const MainHeader = ({ windowWidth }) => {
-const {toggleLogin,toggleCart,loginMsg} = useContext(HeaderContext)
+const {toggleCart,loginMsg} = useContext(HeaderContext)
 
 
   return (
@@ -14,7 +15,7 @@ const {toggleLogin,toggleCart,loginMsg} = useContext(HeaderContext)
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <div onClick={toggleCart} className="box-cart-login">cart</div>}
-      {windowWidth > 768 && <div onClick={toggleLogin} className="box-cart-login">login</div>}
+      {windowWidth > 768 && <LoginLogoutBtn />}
       {loginMsg === 1 && <div className='login-success'>You were successfully logged in</div>}
       {loginMsg === 2 && <div className='login-failed'>Login failed. Please try again</div>}
     </div>
