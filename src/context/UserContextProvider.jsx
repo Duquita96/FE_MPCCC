@@ -28,8 +28,8 @@ const UserContextProvider = ({ children }) => {
   const [userState, userDispatch] = useReducer(userReducer, initialState);
 
   const addNewUser = (obj) => {
-    const {firstName, lastName, email, _id} = obj;
-    userDispatch({type: "newUser", payload:{firstName, lastName, email, _id}})
+    const {firstName, lastName, email, _id, exp} = obj;
+    userDispatch({type: "newUser", payload: {firstName, lastName, email, _id, exp}})
   };
 
   const resetUser = () => {userDispatch({type: "noUser"}); localStorage.clear() }

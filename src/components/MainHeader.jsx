@@ -5,18 +5,16 @@ import AccountBtn from './cmpnts-header-buttons/AccountBtn';
 import LoginLogoutBtn from './cmpnts-header-buttons/LoginLogoutBtn';
 import CartBtn from './cmpnts-header-buttons/CartBtn';
 import "../style/headerStyle.css";
+import UserContext from '../context/UserContext';
 
 const MainHeader = ({ windowWidth }) => {
   
 const {loginMsg} = useContext(HeaderContext);
+const { userState, resetUser} = useContext(UserContext);
 
-// useEffect(()=> {
-//   if(userState._id) {
-//     // check token expiry validity
-//     // if not valid => trigger logout
-//   }
-// }, [])
-
+useEffect(()=> {
+  if(userState.exp) userState.exp < Date.now()? resetUser : null;
+}, [])
 
   return (
     <div className="main-header headers">
