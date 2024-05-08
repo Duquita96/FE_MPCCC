@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
+import {StarRating } from './ReviewList.jsx'
 
 const ToursM = ({ card }) => { //recibe the object as an argument
 
@@ -9,6 +10,7 @@ const ToursM = ({ card }) => { //recibe the object as an argument
         <Card.Body id="serviceBody">
           <Card.Title>{card.name} </Card.Title>
           <Card.Text>{card.price}</Card.Text>
+          <StarRating rating={card.rating} />
         </Card.Body>
       </Card>
     </div>
@@ -22,5 +24,6 @@ ToursM.propTypes = {
     imgSrc: PropTypes.string,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    rating: PropTypes.number, 
   }).isRequired,
 };

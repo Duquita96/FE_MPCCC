@@ -58,7 +58,7 @@ export const ProductIdPage = ({ productType }) => {
 
     const renderProductDetails = (book) => (
         <div className="product_section">
-            <div className='imgcontainer'>
+            <div className='imgContainer'>
                 <Zoom zoomMargin={10}>
                     <img src={imgPath} alt={"productImage"} className="zoomImg" />
                 </Zoom>
@@ -84,7 +84,7 @@ export const ProductIdPage = ({ productType }) => {
     const renderServiceDetails = (tour) => (
 
         <div className="product_section">
-            <div className='imgcontainer'>
+            <div className='imgContainer'>
                 <img src={
                     tour.toursType === 'HIKING' ? '../src/assets/img/Hiking.jpeg' :
                         tour.toursType === 'MUSEUM' ? '../src/assets/img/Museum.jpeg' :
@@ -119,7 +119,7 @@ export const ProductIdPage = ({ productType }) => {
             {showCart && <Cart />}
             <div id="product_description">
                 <div id="button_container">
-                    <button className='goback-button'>
+                    <button className='goBack-button'>
                         <NavLink to={`/`}><BsFillArrowLeftSquareFill id='arrowIcon' /></NavLink>
 
                     </button>

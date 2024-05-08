@@ -10,11 +10,12 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  color: rgb(34, 40, 49);
 }
 
 #submitButton {
   background: rgb(34, 40, 49);
-  color: white;
+  color: rgb(118, 171, 174);
   width: 15%;
   height: 40px;
   border: none;
@@ -31,14 +32,15 @@
 #submitButton:hover {
   transform: scale(1.1);
   cursor: pointer;
+
 }
 
-#firstformbox {
+#firstFormBox {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-/*   border: 1px solid black; */
+  flex-wrap: wrap;
 }
 
 #userNameRating {
@@ -47,4 +49,40 @@
 
 #userNameForm {
   width: 80%;
+}
+#list-title,
+#comment-title{
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(34, 40, 49);
+}
+
+#review-list{
+    margin: 20px;
+}
+
+#empty-list{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(34, 40, 49);
+}
+
+#comment-list{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(34, 40, 49);
+}
+
+#secondCommentLine{
+border-bottom: 1px solid rgb(34, 40, 49);
+padding-bottom: 10px;
+}
+
+#firstCommentLine{
+    display: flex;
+    justify-content: space-between;
 }
