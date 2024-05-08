@@ -2,7 +2,7 @@ import PriceSlider from "./PriceSlider.jsx";
 import "../../style/ProductsPage/ProductPageFilter.css";
 
 
-const ProductPageFilter = () => {
+const FilterMenu = () => {
     return (
         <section className="ProductsPage_Filter">
             <h3>Filter</h3>
@@ -38,4 +38,4 @@ const ProductPageFilter = () => {
     );
 };
 
-export default ProductPageFilter;
+export default FilterMenu;
