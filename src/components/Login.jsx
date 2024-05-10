@@ -80,6 +80,7 @@ const Login = () => {
           const token = result?.xAuthToken;
           const decodedUserObj = token? jwtDecode(token): null;
           decodedUserObj && localStorage.setItem("token", token);
+          decodedUserObj && localStorage.setItem("exp", decodedUserObj.exp);
           decodedUserObj && addNewUser(decodedUserObj);
         })
         .catch((err) => console.log(err));
@@ -95,6 +96,7 @@ const Login = () => {
           const token = result?.xAuthToken;
           const decodedUserObj = token? jwtDecode(token): null;
           decodedUserObj && localStorage.setItem("token", token);
+          decodedUserObj && localStorage.setItem("exp", decodedUserObj.exp);
           decodedUserObj && addNewUser(decodedUserObj);
         })
         .catch((err) => console.log(err));

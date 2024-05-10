@@ -16,6 +16,7 @@
   height: 30px;
   padding-top: 5px;
   border-radius: 5px;
+  background-color: var(--clr-dark2);
 }
 
 .searchbardiv {
@@ -89,6 +90,10 @@
 .box-cart-login:hover {
   border: 1px solid white;
   cursor: pointer;
+}
+
+.box-cart-login:visited {
+  color: white;
 }
 
 .sub-headers {

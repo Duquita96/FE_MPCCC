@@ -1,0 +1,51 @@
+.settings-container {
+  background-color: var(--clr-light1);
+  min-height: 500px;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-home-btn {
+  height: 30px;
+  background-color: var(--clr-dark2);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+
+.settings-home-btn:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.settings-user-info,
+.settings-user-admin,
+.settings-user-options,
+.settings-user-delete,
+.settings-user-orders {
+  border: 1px solid var(--clr-dark1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.setting-del-btn {
+  padding: 3px;
+  border-radius: 5px;
+  background-color: lightcoral;
+  border: none;
+  cursor: pointer;
+}
+
+.settings-user-delete {
+  display: flex;
+  justify-content: space-between;
+}

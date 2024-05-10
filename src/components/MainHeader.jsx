@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react';
+import { jwtDecode } from "jwt-decode";
 import SearchBar from "./Searchbar";
 import HeaderContext from '../context/HeaderContext';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
@@ -9,16 +10,19 @@ import UserContext from '../context/UserContext';
 
 const MainHeader = ({ windowWidth }) => {
   
-const {loginMsg} = useContext(HeaderContext);
-const { userState, resetUser} = useContext(UserContext);
+const { loginMsg } = useContext(HeaderContext);
+const { resetUser, addNewUser} = useContext(UserContext);
 
 useEffect(()=> {
-  if(userState.exp) userState.exp < Date.now()? resetUser : null;
+  const token = localStorage.getItem("token");
+  const expiration = localStorage.getItem("exp");
+  token && +expiration < Date.now()/1000 ? resetUser : addNewUser(jwtDecode(token));
 }, [])
+
 
   return (
     <div className="main-header headers">
-      {windowWidth > 768 && <div className="box-cart-login">logo</div>}
+      {windowWidth > 768 && <div>*LOGO*</div>}
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}
