@@ -1,0 +1,23 @@
+.ProductsPage_Filter {
+    width: 20vw;
+    height: 80vh;
+    background-color: var(--clr-light2);
+    padding: 2rem;
+    background-color: var(--clr-light2);
+}
+
+#filter-collection{
+    background-color: rgb(124, 122, 122);
+    width: 80vw;
+    height: 80vh;
+/*     background-color: var(--clr-dark1); */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow: auto;
+    justify-content: center;
+}
+
+.needflex {
+    display: flex;
+}

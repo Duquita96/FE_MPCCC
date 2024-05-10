@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useState } from 'react'
 
 // Style Import
-import "../../style/ProductsPage/ProductsPage.css";
+import "../../style/filter-page/ProductsPage.css";
 
 // Import Components
 import MainHeader from "../MainHeader.jsx";

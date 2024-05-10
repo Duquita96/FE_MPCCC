@@ -3,7 +3,7 @@ import Slider from "react-slider";
 import { useState } from "react";
 
 // Import Style
-import "../../style/ProductsPage/PriceSlider.css";
+import "../../style/filter-page/PriceSlider.css";
 
 const MIN = 0;
 const MAX = 1000;
