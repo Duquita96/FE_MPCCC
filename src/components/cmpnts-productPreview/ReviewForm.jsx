@@ -1,4 +1,6 @@
+//ReviewForm.jsx
 import { useState } from 'react';
+/* import PropTypes from 'prop-types'; */
 
 //css
 import '../../style/ReviewForm.css';
@@ -15,15 +17,44 @@ const ReviewForm = ({ onAddReview }) => {
             comment,
             rating
         };
-        onAddReview(newReview);
+/*         onAddReview(newReview);
         setAuthor('');
         setComment('');
-        setRating(0);
+        setRating(0); */
+
+        fetch('/api/v1/tours', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newReview),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            if (data) {
+                return JSON.parse(data);
+            } else {
+                return {};
+            }
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+        
+    
     };
 
     return (
         <form id="review-form" onSubmit={handleSubmit}>
-            <div id='firstformbox'>
+            <div id='firstFormBox'>
 
                 <div id='userNameRating'>
                     <input
@@ -40,9 +71,10 @@ const ReviewForm = ({ onAddReview }) => {
                         min="1"
                         max="5"
                         value={rating}
-                        onChange={(e) => setRating(parseInt(e.target.value))}
+                        onChange={(e) => setRating(e.target.value ? parseInt(e.target.value) : '')}
                         id='ratingForm'
                         className='input-group'
+                    required
                     />
                 </div>
 
@@ -55,6 +87,7 @@ const ReviewForm = ({ onAddReview }) => {
                 onChange={(e) => setComment(e.target.value)}
                 id='commentForm'
                 className='input-group'
+                required
             />
 
 
@@ -63,3 +96,7 @@ const ReviewForm = ({ onAddReview }) => {
 };
 
 export default ReviewForm;
+
+/* ReviewForm.propTypes = {
+    onAddReview: PropTypes.array.isRequired,
+}; */

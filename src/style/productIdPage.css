@@ -34,7 +34,7 @@
   margin: 50px 10% 100px 10%;
 }
 
-.imgcontainer {
+.imgContainer {
   width: auto;
   height: auto;
   margin: 20px;
@@ -90,7 +90,7 @@
   background: rgb(118, 171, 174);
 }
 
-.goback-button {
+.goBack-button {
   margin: 20px;
   border: none;
   background: rgb(118, 171, 174);
@@ -105,7 +105,7 @@
 
 .add-to-cart,
 .viewMoreButton,
-.goback-button,
+.goBack-button,
 .buyIcon {
   transition: transform 0.3s ease;
 }
@@ -113,7 +113,7 @@
 .add-to-cart:hover,
 .viewMoreButton:hover,
 .buyIcon:hover,
-.goback-button:hover {
+.goBack-button:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
