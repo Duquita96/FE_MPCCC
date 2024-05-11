@@ -2,6 +2,27 @@ import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 import {StarRating } from './ReviewList.jsx'
 
+
+export const getTourImgPath = (card) => {
+  let imgPath;
+  switch (card.toursType) {
+    case 'HIKING':
+      imgPath = '../src/assets/img/Hiking.jpeg';
+      break;
+    case 'MUSEUM':
+      imgPath = '../src/assets/img/Museum.jpeg';
+      break;
+    case 'SIGHTSEEING':
+      imgPath = '../src/assets/img/SightSeeing.jpeg';
+      break;
+    default:
+      imgPath = card.imgPath;
+  }
+  return imgPath;
+};
+
+
+
 const ToursM = ({ card }) => { //recibe the object as an argument
 
   return (
