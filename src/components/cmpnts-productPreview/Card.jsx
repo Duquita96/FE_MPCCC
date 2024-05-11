@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {StarRating } from './ReviewList.jsx'
 
 
-export const getImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
+export const getBookImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
 
 const CardM = ({ card }) => { //recibe the object as an argument
 
-  const imgPath = getImgPath(card);
+  const imgPath = getBookImgPath(card);
 
   return (
     <div>

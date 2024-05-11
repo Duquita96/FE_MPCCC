@@ -13,7 +13,8 @@ import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
-import { getImgPath } from '../cmpnts-productPreview/Card.jsx';
+import { getBookImgPath } from '../cmpnts-productPreview/Card.jsx';
+import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import Comments from '../cmpnts-productPreview/Comments.jsx'
 //css
 import '../../style/productIdPage.css'
@@ -42,7 +43,7 @@ export const ProductIdPage = ({ productType }) => {
                 .then(data => {
                     console.log(data)
                     setBook(data.data);
-                    setImgPath(getImgPath(data.data));
+                    setImgPath(getBookImgPath(data.data));
                 })
                 .catch(err => console.log(err))
         } else {
@@ -50,7 +51,7 @@ export const ProductIdPage = ({ productType }) => {
                 .then(res => res.json())
                 .then(data => {
                     setTour(data.data);
-                    setImgPath(getImgPath(data.data));
+                    setImgPath(getTourImgPath(data.data));
                 })
                 .catch(err => console.log(err))
         }
@@ -85,12 +86,9 @@ export const ProductIdPage = ({ productType }) => {
 
         <div className="product_section">
             <div className='imgContainer'>
-                <img src={
-                    tour.toursType === 'HIKING' ? '../src/assets/img/Hiking.jpeg' :
-                        tour.toursType === 'MUSEUM' ? '../src/assets/img/Museum.jpeg' :
-                            tour.toursType === 'SIGHTSEEING' ? '../src/assets/img/SightSeeing.jpeg' :
-                                imgPath
-                } alt={"productImage"} />
+                <Zoom zoomMargin={10}>
+                    <img src={imgPath} alt={"productImage"} className="zoomImg" />
+                </Zoom>
             </div>
 
             <div className="product">
