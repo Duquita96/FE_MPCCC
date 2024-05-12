@@ -37,7 +37,9 @@
   margin-top: 10px;
 }
 
-.setting-del-btn {
+.setting-del-btn,
+.adminBtn,
+.modifyBtn {
   padding: 3px;
   border-radius: 5px;
   background-color: lightcoral;
@@ -45,7 +47,33 @@
   cursor: pointer;
 }
 
+.infoBtns {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modifyBtn {
+ background-color: lightgreen;
+}
+
+
 .settings-user-delete {
   display: flex;
   justify-content: space-between;
+}
+
+.addBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  padding: 2px;
+  background-color: lightgreen;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.userInfo {
+  padding: 8px;
 }
