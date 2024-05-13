@@ -1,4 +1,5 @@
 .footer-container {
     height: 140px;
-    background-color: lightcoral;
+    background-color: var(--clr-dark2);
+    margin-top: auto;
 }

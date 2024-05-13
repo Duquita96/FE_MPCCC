@@ -5,12 +5,14 @@ import HeaderContext from '../context/HeaderContext';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
 import LoginLogoutBtn from './cmpnts-header-buttons/LoginLogoutBtn';
 import CartBtn from './cmpnts-header-buttons/CartBtn';
-import "../style/headerStyle.css";
 import UserContext from '../context/UserContext';
+import WidthContext from '..//context/WidthContext.jsx';
+import "../style/headerStyle.css";
 
-const MainHeader = ({ windowWidth }) => {
+const MainHeader = () => {
   
 const { loginMsg } = useContext(HeaderContext);
+const { windowWidth } = useContext(WidthContext);
 const { resetUser, addNewUser} = useContext(UserContext);
 
 useEffect(()=> {
