@@ -9,7 +9,7 @@ import MainHeader from "../MainHeader.jsx";
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import MobileNavBar from "../MobileNavBar.jsx";
-import FilterMenu from "../cmpnts-filter-page/FilterMenu.jsx";
+/* import FilterMenu from "../cmpnts-filter-page/FilterMenu.jsx"; */
 import FilterPageCollection from "../cmpnts-filter-page/FilterPageCollection.jsx";
 import Footer from "../Footer.jsx";
 import WidthContext from '../../context/WidthContext.jsx';
@@ -40,7 +40,7 @@ const AllProducts = () => {
             {showCart && <Cart />}
             {windowWidth <= 768 && <MobileNavBar toggleFunctions={toggleFunctions} />}
             <div className="needflex">
-                <FilterMenu />
+                {/* <FilterMenu /> */}
                 <FilterPageCollection />
             </div>
             <Footer />
