@@ -1,5 +1,5 @@
 import MainHeader from "./MainHeader";
-import TestFooter from "./TestFooter";
+import Footer from "./Footer";
 import '../style/index.css'
 
 /** Contains the page container, main header and footer */
@@ -9,7 +9,7 @@ const PageWrapper = ({ children }) => {
     <div className="page-container">
       <MainHeader />
       {children}
-      <TestFooter />
+      <Footer />
     </div>
   );
 };
