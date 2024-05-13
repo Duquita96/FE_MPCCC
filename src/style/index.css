@@ -50,6 +50,7 @@ body {
 @media only screen and (max-width: 768px) {
   .login-container {top: 155px; width: 100%; border-bottom-left-radius: 0px;}
   .cart-container {top: 155px}
+  .sub-headers {background-color: var(--clr-dark2); color: var(--clr-light2);}
 }
 @media only screen and (min-width: 992px) {
 }

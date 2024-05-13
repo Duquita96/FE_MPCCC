@@ -82,19 +82,6 @@
   border-radius: 5px;
 }
 
-.nav-item-mobile {
-  height: 30px;
-  padding: 5px 7%;
-  color: white;
-  background-color: var(--clr-dark1);
-  border-radius: 5px;
-}
-
-.nav-item-mobile:hover {
-  cursor: pointer;
-}
-
-
 .nav-item:hover,
 .box-cart-login:hover {
   border: 1px solid white;
