@@ -25,7 +25,7 @@ useEffect(()=> {
 
   return (
     <div className="main-header headers">
-      {windowWidth > 768 && <div>*LOGO*</div>}
+      {windowWidth > 768 && <div className='logo'>LOGO</div>}
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}

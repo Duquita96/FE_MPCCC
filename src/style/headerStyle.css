@@ -11,12 +11,21 @@
   color: white;
 }
 
+.logo {
+  padding: 3px;
+  font-size: larger;
+  font-weight: bolder;
+  color: var(--clr-light1);
+  border-top: 1px solid var(--clr-light1);
+  border-bottom: 1px solid var(--clr-light1);
+}
+
 .box-cart-login {
   width: 70px;
   height: 30px;
   padding-top: 5px;
   border-radius: 5px;
-  background-color: var(--clr-dark2);
+  border: 1px solid var(--clr-light2-transparent);
 }
 
 .searchbardiv {

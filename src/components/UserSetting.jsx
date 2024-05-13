@@ -19,7 +19,7 @@ const UserSettings = () => {
   return (
     <div className="settings-container">
       <Link to={"/"} className="settings-home-btn">
-        Back to Homepage
+        Back 
       </Link>
       {loginStatus && <UserInfo />}
     </div>
