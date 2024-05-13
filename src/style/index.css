@@ -23,10 +23,12 @@
   --clr-light2-transparent:rgba(238, 238, 238, 0.5);
 }
 
-html,
+html, body {
+  height: 100%; 
+}
+
 body {
-  height: 100%;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--clr-light2);
 }
 
 .pointer{
