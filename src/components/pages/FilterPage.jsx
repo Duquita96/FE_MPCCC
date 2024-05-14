@@ -2,20 +2,20 @@ import { useContext } from 'react';
 import { useState } from 'react'
 
 // Style Import
-import "../../style/ProductsPage/ProductsPage.css";
+import "../../style/filter-page/ProductsPage.css";
 
 // Import Components
 import MainHeader from "../MainHeader.jsx";
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import MobileNavBar from "../MobileNavBar.jsx";
-import ProductPageFilter from "../ProductsPage/ProductsPageFilter.jsx";
-import ProductPageProducts from "../ProductsPage/ProductsPageCards.jsx";
+/* import FilterMenu from "../cmpnts-filter-page/FilterMenu.jsx"; */
+import FilterPageCollection from "../cmpnts-filter-page/FilterPageCollection.jsx";
 import Footer from "../Footer.jsx";
 import WidthContext from '../../context/WidthContext.jsx';
 
 
-const ProductPage = () => {
+const AllProducts = () => {
 
     const {windowWidth} = useContext(WidthContext)
 
@@ -40,12 +40,12 @@ const ProductPage = () => {
             {showCart && <Cart />}
             {windowWidth <= 768 && <MobileNavBar toggleFunctions={toggleFunctions} />}
             <div className="needflex">
-                <ProductPageFilter />
-                <ProductPageProducts />
+                {/* <FilterMenu /> */}
+                <FilterPageCollection />
             </div>
             <Footer />
         </section>
     );
 };
 
-export default ProductPage;
+export default AllProducts;

@@ -17,22 +17,28 @@ function Comments() {
     // Cargar los comentarios desde el servidor cuando el componente se monta
     useEffect(() => {
         fetch('/api/v1/tours')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                // Verificar si la respuesta es JSON
-                const contentType = response.headers.get("content-type");
-                if (contentType && contentType.indexOf("application/json") !== -1) {
-                    return response.json();
-                } else {
-                    throw new Error('Unexpected response format');
-                }
-            })
-            .then(data => setComments(data))
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        // Imprimir la respuesta del servidor
+/*         response.text().then(text => {
+            console.log(text);
+        }); 
+        // Verificar si la respuesta es JSON
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            return response.json();
+        } else {
+            throw new Error('Unexpected response format');
+        } */
+    })
+    .then(data => setComments(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+    
 
     }, []);
 

@@ -12,7 +12,12 @@ export const ProductPreviewClick = ({ id, children, productType }) => {
   let route;
   if (productType === 'book') {
     route = `/book/${id}`;
-  } else if (productType === 'tour') {
+  } if (productType === 'tour') {
+    route = `/tour/${id}`;
+  } if (route === `/filter-page` && productType === 'book'){
+    route = `/book/${id}`;
+
+  }else if (route === `/filter-page` && productType === 'tour'){
     route = `/tour/${id}`;
   }
 

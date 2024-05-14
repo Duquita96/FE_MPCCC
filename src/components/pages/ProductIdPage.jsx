@@ -1,5 +1,5 @@
 //React libraries
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
@@ -16,6 +16,8 @@ import WidthContext from '../../context/WidthContext.jsx';
 import { getBookImgPath } from '../cmpnts-productPreview/Card.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import Comments from '../cmpnts-productPreview/Comments.jsx'
+//react
+import { useNavigate } from 'react-router-dom';
 //css
 import '../../style/productIdPage.css'
 //icons
@@ -29,10 +31,14 @@ export const ProductIdPage = ({ productType }) => {
     const [book, setBook] = useState(null);
     const [tour, setTour] = useState(null);
     const [imgPath, setImgPath] = useState(null);
-
+    const navigate = useNavigate();
     
     const { showLogin, showCart } = useContext(HeaderContext)
     const { windowWidth } = useContext(WidthContext)
+
+    const handleGoBack = () => {
+        navigate(-1);
+    };
 
 
     useEffect(() => {
@@ -117,9 +123,8 @@ export const ProductIdPage = ({ productType }) => {
             {showCart && <Cart />}
             <div id="product_description">
                 <div id="button_container">
-                    <button className='goBack-button'>
-                        <NavLink to={`/`}><BsFillArrowLeftSquareFill id='arrowIcon' /></NavLink>
-
+                <button className='goBack-button' onClick={handleGoBack}>
+                        <BsFillArrowLeftSquareFill id='arrowIcon' />
                     </button>
                     <div id='product-title'>
                         {book ? book.name : tour ? tour.name : 'Item Name'}

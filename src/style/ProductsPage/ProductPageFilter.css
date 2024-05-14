@@ -1,8 +1,0 @@
-/* Left Bar of the Products Page with the Filter Options */
-.ProductsPage_Filter {
-    width: 20vw;
-    height: 80vh;
-    background-color: var(--clr-light2);
-    padding: 2rem;
-    background-color: var(--clr-light2);
-}
