@@ -39,7 +39,6 @@ const AllProducts = () => {
             {showCart && <Cart />}
             {windowWidth <= 768 && <MobileNavBar toggleFunctions={toggleFunctions} />}
             <div className="needflex">
-                {/* <FilterMenu /> */}
                 <FilterPageCollection />
             </div>
             <Footer />

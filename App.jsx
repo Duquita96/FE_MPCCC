@@ -17,6 +17,7 @@ function App() {
         <WidthContextProvider>
           <UserContextProvider>
             <Routes>
+           {/*    <button>Filter PH</button> */}
               <Route path='/' element={<Homepage />} />
               <Route path='/user-account' element={<UserAccountPage />} />
               <Route path='/filter-page' element={<AllProducts />} />

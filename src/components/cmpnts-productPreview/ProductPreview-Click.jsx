@@ -2,22 +2,17 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 export const ProductPreviewClick = ({ id, children, productType }) => {
-  const handleCardClick = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  const handleCardClick = () => {
     console.log(`Element with ID ${id} was clicked.`);
   };
 
+/* cambiar el no case sensitive de productType */
 
   let route;
-  if (productType === 'book') {
-    route = `/book/${id}`;
-  } if (productType === 'tour') {
-    route = `/tour/${id}`;
-  } if (route === `/filter-page` && productType === 'book'){
+  if (productType === 'book' || productType === 'BOOK') {
     route = `/book/${id}`;
 
-  }else if (route === `/filter-page` && productType === 'tour'){
+  } else if (productType === 'tours' || productType === 'TOURS') {
     route = `/tour/${id}`;
   }
 
