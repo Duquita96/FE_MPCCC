@@ -1,5 +1,5 @@
 //React libraries
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
