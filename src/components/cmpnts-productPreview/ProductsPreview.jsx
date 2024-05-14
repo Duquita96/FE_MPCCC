@@ -1,7 +1,7 @@
 import CardsCollection from "./CardsCollection.jsx";
 import '../../style/ProductsPreview.css'
 import ToursCollection from './ToursCollection.jsx'
-import {Link} from 'react-router-dom';
+/* import {Link} from 'react-router-dom'; */
 
 
 export const ProductsPreview = () => {
@@ -11,7 +11,7 @@ export const ProductsPreview = () => {
             <ToursCollection />
             <CardsCollection />
             <button>
-  <Link to="/filter-page">View More</Link>
+{/*   <Link to="/filter-page">View More</Link> */}
 </button>
         </div>
     );
