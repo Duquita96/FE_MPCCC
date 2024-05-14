@@ -1,24 +1,31 @@
 import { useContext, useEffect } from 'react';
+import { jwtDecode } from "jwt-decode";
 import SearchBar from "./Searchbar";
 import HeaderContext from '../context/HeaderContext';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
 import LoginLogoutBtn from './cmpnts-header-buttons/LoginLogoutBtn';
 import CartBtn from './cmpnts-header-buttons/CartBtn';
-import "../style/headerStyle.css";
 import UserContext from '../context/UserContext';
+import WidthContext from '..//context/WidthContext.jsx';
+import "../style/headerStyle.css";
 
-const MainHeader = ({ windowWidth }) => {
+const MainHeader = () => {
   
-const {loginMsg} = useContext(HeaderContext);
-const { userState, resetUser} = useContext(UserContext);
+const { loginMsg } = useContext(HeaderContext);
+const { windowWidth } = useContext(WidthContext);
+const { resetUser, addNewUser} = useContext(UserContext);
 
 useEffect(()=> {
-  if(userState.exp) userState.exp < Date.now()? resetUser : null;
+  const token = localStorage.getItem("token");
+  if (token === null) {resetUser; return;}
+  const expiration = localStorage.getItem("exp");
+  +expiration < Date.now()/1000 ? resetUser : addNewUser(jwtDecode(token));
 }, [])
+
 
   return (
     <div className="main-header headers">
-      {windowWidth > 768 && <div className="box-cart-login">logo</div>}
+      {windowWidth > 768 && <div className='logo'>LOGO</div>}
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}

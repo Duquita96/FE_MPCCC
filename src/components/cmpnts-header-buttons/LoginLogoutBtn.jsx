@@ -8,8 +8,8 @@ const LoginLogoutBtn = () => {
   const { toggleLogin } = useContext(HeaderContext);
 
   return userState._id? 
-    <div className="box-cart-login" onClick={resetUser}>logout</div>
-    : <div className="box-cart-login" onClick={toggleLogin}>login</div>
+    <div className="box-cart-login" onClick={resetUser}>Logout</div>
+    : <div className="box-cart-login" onClick={toggleLogin}>Login</div>
 };
 
 export default LoginLogoutBtn;

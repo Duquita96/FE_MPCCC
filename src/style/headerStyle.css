@@ -11,11 +11,21 @@
   color: white;
 }
 
+.logo {
+  padding: 3px;
+  font-size: larger;
+  font-weight: bolder;
+  color: var(--clr-light1);
+  border-top: 1px solid var(--clr-light1);
+  border-bottom: 1px solid var(--clr-light1);
+}
+
 .box-cart-login {
   width: 70px;
   height: 30px;
   padding-top: 5px;
   border-radius: 5px;
+  border: 1px solid var(--clr-light2-transparent);
 }
 
 .searchbardiv {
@@ -72,29 +82,20 @@
   border-radius: 5px;
 }
 
-.nav-item-mobile {
-  height: 30px;
-  padding: 5px 7%;
-  color: white;
-  background-color: var(--clr-dark1);
-  border-radius: 5px;
-}
-
-.nav-item-mobile:hover {
-  cursor: pointer;
-}
-
-
 .nav-item:hover,
 .box-cart-login:hover {
   border: 1px solid white;
   cursor: pointer;
 }
 
+.box-cart-login:visited {
+  color: white;
+}
+
 .sub-headers {
   background-color: var(--clr-light1);
   height: 55px;
-  padding: 15px;
+  padding: 20px;
 }
 
 .login-success, .login-failed {

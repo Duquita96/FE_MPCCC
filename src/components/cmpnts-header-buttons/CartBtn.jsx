@@ -7,7 +7,7 @@ const CartBtn = () => {
 
   return (
     <div onClick={toggleCart} className="box-cart-login">
-      cart
+      Cart
     </div>
   );
 };

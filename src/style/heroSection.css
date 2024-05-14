@@ -1,0 +1,12 @@
+.hero-container {
+    height: 140px;
+    background: linear-gradient(180deg, var(--clr-light1), var(--clr-light2));
+    padding: 20px;
+}
+
+.hero-text {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+

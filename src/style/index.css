@@ -23,14 +23,22 @@
   --clr-light2-transparent:rgba(238, 238, 238, 0.5);
 }
 
-html,
+html, body {
+  height: 100vh; 
+}
+
 body {
-  height: 100%;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--clr-light2);
 }
 
 .pointer{
   cursor: pointer;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -40,12 +48,15 @@ body {
 
 }
 @media only screen and (max-width: 768px) {
-  .login-container {top: 155px; width: 100%;}
+  .login-container {top: 155px; width: 100%; border-bottom-left-radius: 0px;}
   .cart-container {top: 155px}
+  .sub-headers {background-color: var(--clr-dark2); color: var(--clr-light2);}
 }
 @media only screen and (min-width: 992px) {
 }
 @media only screen and (min-width: 1024px) {
+
 }
 @media only screen and (min-width: 1300px) {
+  .footer-social {justify-content: center}
 }

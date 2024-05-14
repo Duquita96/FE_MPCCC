@@ -8,9 +8,15 @@ import "../../style/filter-page/ProductsPage.css";
 import MainHeader from "../MainHeader.jsx";
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
+<<<<<<< HEAD:src/components/pages/FilterPage.jsx
 import MobileNavBar from "../MobileNavBar.jsx";
 /* import FilterMenu from "../cmpnts-filter-page/FilterMenu.jsx"; */
 import FilterPageCollection from "../cmpnts-filter-page/FilterPageCollection.jsx";
+=======
+import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
+import ProductPageFilter from "../ProductsPage/ProductsPageFilter.jsx";
+import ProductPageProducts from "../ProductsPage/ProductsPageCards.jsx";
+>>>>>>> user-account:src/components/pages/ProductsPage.jsx
 import Footer from "../Footer.jsx";
 import WidthContext from '../../context/WidthContext.jsx';
 

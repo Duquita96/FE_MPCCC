@@ -1,0 +1,80 @@
+.settings-container {
+  background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-home-btn {
+  height: 30px;
+  border: 1px solid var(--clr-light2-transparent);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+
+.settings-home-btn:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.settings-user-info,
+.settings-user-admin,
+.settings-user-options,
+.settings-user-delete,
+.settings-user-orders {
+  background-color: var(--clr-light2-transparent);
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+  margin-top: 10px;
+  min-width: 400px;
+  max-width: 1000px;
+}
+
+.setting-del-btn,
+.adminBtn,
+.modifyBtn {
+  padding: 3px;
+  border-radius: 5px;
+  background-color: var(--clr-light2-transparent);
+  border: none;
+  color: red;
+}
+
+.infoBtns {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modifyBtn {
+ background-color: lightgreen;
+ color: black;
+}
+
+
+.settings-user-delete {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  padding: 2px;
+  background-color: lightgreen;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.userInfo {
+  padding: 8px;
+}
