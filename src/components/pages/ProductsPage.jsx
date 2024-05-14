@@ -8,7 +8,7 @@ import "../../style/ProductsPage/ProductsPage.css";
 import MainHeader from "../MainHeader.jsx";
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
-import MobileNavBar from "../MobileNavBar.jsx";
+import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
 import ProductPageFilter from "../ProductsPage/ProductsPageFilter.jsx";
 import ProductPageProducts from "../ProductsPage/ProductsPageCards.jsx";
 import Footer from "../Footer.jsx";
