@@ -42,9 +42,9 @@
 .modifyBtn {
   padding: 3px;
   border-radius: 5px;
-  background-color: lightcoral;
+  background-color: var(--clr-light2-transparent);
   border: none;
-  cursor: pointer;
+  color: red;
 }
 
 .infoBtns {
@@ -55,6 +55,7 @@
 
 .modifyBtn {
  background-color: lightgreen;
+ color: black;
 }
 
 

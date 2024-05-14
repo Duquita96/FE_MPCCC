@@ -13,20 +13,20 @@ const UserInfo = () => {
             <div>Password: ****</div>
         </div>
         <div className="infoBtns">
-          <button className="modifyBtn">Change info</button>
-          <button className="adminBtn">Go to admin panel</button>
+          <button className="modifyBtn pointer">Change info</button>
+          <button className="adminBtn pointer">Go to admin panel</button>
         </div>
       </div>
       <div className="settings-user-admin">
         <h3>Shipping addresses</h3>
-        <button className="addBtn">+</button>
+        <button className="addBtn pointer">+</button>
       </div>
       <div className="settings-user-options">
         <h3>Options</h3>
       </div>
       <div className="settings-user-delete">
         <h3>Delete Account</h3>
-        <button className="setting-del-btn">Delete</button>
+        <button className="setting-del-btn pointer">Delete</button>
       </div>
       <div className="settings-user-orders">
         <h3>Current orders</h3>

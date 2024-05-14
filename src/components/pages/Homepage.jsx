@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
-import ProductsNavBar from "../ProductsNavBar.jsx";
-import ToursNavBar from "../ToursNavBar.jsx";
-import MobileNavBar from "../MobileNavBar.jsx";
+import ProductsNavBar from "../cmpnts-homepage-navbars/ProductsNavBar.jsx";
+import ToursNavBar from "../cmpnts-homepage-navbars/ToursNavBar.jsx";
+import MobileNavBar from "../cmpnts-homepage-navbars/MobileNavBar.jsx";
 import ProductsPreview from "../cmpnts-productPreview/ProductsPreview.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';

@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import UserInfo from "./cmpnts-settings-sections/UserInfo";
+import UserInfo from "./UserInfo";
 import { useEffect, useState } from "react";
 
 
@@ -18,9 +17,6 @@ const UserSettings = () => {
 
   return (
     <div className="settings-container">
-      <Link to={"/"} className="settings-home-btn">
-        Back 
-      </Link>
       {loginStatus && <UserInfo />}
     </div>
   );
