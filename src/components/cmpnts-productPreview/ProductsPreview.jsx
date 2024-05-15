@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 // import CardsCollection from "./CardsCollection.jsx";
 // import '../../style/ProductsPreview.css'
 // import ToursCollection from './ToursCollection.jsx'
@@ -26,7 +25,6 @@
 // export default ProductsPreview;
 
 import { useRef, useEffect } from 'react';
->>>>>>> comment
 import BooksCollection from "./BooksCollection.jsx";
 import '../../style/ProductsPreview.css'
 import ToursCollection from './ToursCollection.jsx'
@@ -73,16 +71,11 @@ export const ProductsPreview = () => {
     return (
         <div id="products-preview-section">
             <ToursCollection />
-<<<<<<< HEAD
-            <BooksCollection />
-
-=======
             <div id="collections-container" ref={collectionsContainerRef} onWheel={handleWheel} >
                 <VideoGamesCollection />
                 <BooksCollection />
                 <PcPartsCollection />
             </div>
->>>>>>> comment
         </div>
     );
 }
