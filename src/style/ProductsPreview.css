@@ -143,7 +143,7 @@
     grid-template-rows: repeat(2, 1fr);
   }
 }
-CACHARRA2 = 33
+CACHARRA222 = 33
 @media (max-width: 468px) {
   .service-container {
     width: auto;
