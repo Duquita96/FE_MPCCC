@@ -140,7 +140,7 @@ align-content: center;
 /* -------------------- */
 #collections-container {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;
   min-width: 100%; /* Ajusta esto según el ancho total de tus componentes */
 }
 #collections-container > div {

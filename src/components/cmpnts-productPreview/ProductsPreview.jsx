@@ -74,8 +74,6 @@ export const ProductsPreview = () => {
                 <VideoGamesCollection />
                 <BooksCollection />
                 <PcPartsCollection />
-                <VideoGamesCollection />
-
             </div>
         </div>
     );
