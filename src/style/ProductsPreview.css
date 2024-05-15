@@ -142,10 +142,41 @@ align-content: center;
   display: flex;
   overflow-x: auto;
   min-width: 100%; /* Ajusta esto según el ancho total de tus componentes */
+
+
+}
+
+/* #cards-container{
+  position: relative;
+  overflow: hidden;
 }
 #collections-container > div {
-  flex-shrink: 0; /* Evita que los componentes se reduzcan */
+  flex-shrink: 0;
 }
+#cards-container > div {
+  flex-shrink: 0;
+}
+
+#cards-container ::before,
+#cards-container ::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px; 
+  z-index: 2;
+  backdrop-filter: blur(10px); 
+}
+
+#cards-container ::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.7), transparent);
+}
+
+#cards-container ::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0.7), transparent);
+} */
 
 /* .list {
   height: 200px;
@@ -208,17 +239,6 @@ align-content: center;
   transition: opacity .5s, transform .5s;
 } */
 
-/* .swipe {
-  width: 270px;
-  height: 200px;
-  position: absolute;
-  background-color: green;
-  border-radius: 2px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  opacity: 0;
-} */
 /* --------------------- */
 
 
