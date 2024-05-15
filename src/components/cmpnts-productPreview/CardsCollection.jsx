@@ -99,7 +99,7 @@ export const CardsCollection = () => {
 
   return (
     <div id='cards-collection'>
-      <ul id="cards-container" className="list">
+      <ul id="cards-container" /* className="list" */>
         {productsData.map((card) => (
           <li key={card._id}>
             <ProductPreviewClick id={card._id} productType={card.productType}>
