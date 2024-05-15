@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import HeaderContext from "../context/HeaderContext";
 import UserContext from "../context/UserContext";
 import "../style/loginStyle.css";
+import axios from "axios";
 
 const Login = () => {
   const { toggleLogin, toggleLoginMsg } = useContext(HeaderContext);
@@ -63,37 +64,28 @@ const Login = () => {
         return;
       }
 
-      fetch("http://localhost:8000/api/v1/users/signup", {
-        method: "POST",
-        headers: {"Content-Type": "application/json",},
-        body: JSON.stringify({ 
+      axios.post("http://localhost:8000/api/v1/users/signup", { 
           firstName: form.firstName , 
           lastName: form.lastName, 
           email: form.email, 
           password: form.password, 
           age
-        })})
-
-        .then((data) => data.json())
+        })
         .then((result) => {
-          result.status === "success" ? confirmLogin() : rejectLogin();
-          const token = result?.xAuthToken;
+          result.data.status === "success" ? confirmLogin() : rejectLogin();
+          const token = result.headers['x-auth-token'];
           const decodedUserObj = token? jwtDecode(token): null;
           decodedUserObj && localStorage.setItem("token", token);
           decodedUserObj && localStorage.setItem("exp", decodedUserObj.exp);
           decodedUserObj && addNewUser(decodedUserObj);
         })
         .catch((err) => console.log(err));
+
     } else {
-      fetch("http://localhost:8000/api/v1/users/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: form.email, password: form.password }),
-      })
-        .then((data) => data.json())
+      axios.post("http://localhost:8000/api/v1/users/login",{ email: form.email, password: form.password })
         .then((result) => {
-          result.status === "success" ? confirmLogin() : rejectLogin();
-          const token = result?.xAuthToken;
+          result.data.status === "success" ? confirmLogin() : rejectLogin();
+          const token = result.headers['x-auth-token'];
           const decodedUserObj = token? jwtDecode(token): null;
           decodedUserObj && localStorage.setItem("token", token);
           decodedUserObj && localStorage.setItem("exp", decodedUserObj.exp);
