@@ -3,14 +3,14 @@
   display: flex;
   flex-direction: column;
 }
-#cards-collection,
+#books-collection,
 #service-collection {
   display: grid;
   gap: 12px;
   padding: 10px;
 }
 
-#cards-collection {
+#books-collection {
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   height: auto;
@@ -28,12 +28,12 @@
   display: flexbox;
 }
 
-#cards-collection::-webkit-scrollbar,
+#books-collection::-webkit-scrollbar,
 #service-collection::-webkit-scrollbar {
   height: 12px;
 }
 
-#cards-collection::-webkit-scrollbar-thumb,
+#books-collection::-webkit-scrollbar-thumb,
 #service-collection::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
@@ -102,13 +102,13 @@
 
 @media (max-width: 2200px) {
   #service-collection,
-  #cards-collection {
+  #books-collection {
     overflow: scroll;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
   }
-  #cards-collection {
+  #books-collection {
     justify-content: left;
   }
 }

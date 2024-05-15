@@ -23,7 +23,7 @@ export const getTourImgPath = (card) => {
 
 
 
-const ToursM = ({ card }) => { //recibe the object as an argument
+const TourM = ({ card }) => { //recibe the object as an argument
 
   return (
     <div>
@@ -38,9 +38,9 @@ const ToursM = ({ card }) => { //recibe the object as an argument
   );
 };
 
-export default ToursM;
+export default TourM;
 
-ToursM.propTypes = {
+TourM.propTypes = {
   card: PropTypes.shape({
     imgSrc: PropTypes.string,
     name: PropTypes.string.isRequired,

@@ -44,7 +44,7 @@
 
 //   export default FilterPageCollection;
 
-import CardM from '../cmpnts-productPreview/Card.jsx';
+import CardM from '../cmpnts-productPreview/Book.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { useEffect, useState } from 'react';
 import Slider from "react-slider";
