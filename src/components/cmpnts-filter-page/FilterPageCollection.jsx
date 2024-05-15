@@ -44,7 +44,7 @@
 
 //   export default FilterPageCollection;
 
-import CardM from '../cmpnts-productPreview/Book.jsx';
+import BookM from '../cmpnts-productPreview/Book.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { useEffect, useState } from 'react';
 import Slider from "react-slider";
@@ -127,7 +127,7 @@ export const FilterPageCollection = () => {
         {filteredData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='card-container pointer'>
-              <CardM card={card} />
+              <BookM card={card} />
             </div>
           </ProductPreviewClick>
         ))}

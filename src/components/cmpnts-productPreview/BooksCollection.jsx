@@ -19,7 +19,7 @@ export const BooksCollection = () => {
     <div>
       <div id='books-collection'>
         {productsData.map((card, index) => (
-          <ProductPreviewClick key={index} id={card._id} productType='book'>
+          <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='card-container pointer'>
               <BookM card={card} /> {/* Pass the object as property */}
             </div>
