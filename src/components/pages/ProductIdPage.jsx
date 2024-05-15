@@ -15,6 +15,8 @@ import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
 import { getBookImgPath } from '../cmpnts-productPreview/Book.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
+import { getPcPartsImgPath } from '../cmpnts-productPreview/PcParts.jsx';
+import { getVideoGamesImgPath } from '../cmpnts-productPreview/VideoGames.jsx';
 import Comments from '../cmpnts-productPreview/Comments.jsx'
 //react
 import { useNavigate } from 'react-router-dom';
@@ -30,9 +32,11 @@ export const ProductIdPage = ({ productType }) => {
     const { id } = useParams();
     const [book, setBook] = useState(null);
     const [tour, setTour] = useState(null);
+    const [pcParts, setPcParts] = useState(null);
+    const [videoGames, setVideoGames] = useState(null);
     const [imgPath, setImgPath] = useState(null);
     const navigate = useNavigate();
-    
+
     const { showLogin, showCart } = useContext(HeaderContext)
     const { windowWidth } = useContext(WidthContext)
 
@@ -52,7 +56,7 @@ export const ProductIdPage = ({ productType }) => {
                     setImgPath(getBookImgPath(data.data));
                 })
                 .catch(err => console.log(err))
-        } else {
+        } else if (productType === 'tour') {
             fetch(`http://localhost:8000/api/v1/tours/${id}`)
                 .then(res => res.json())
                 .then(data => {
@@ -60,9 +64,29 @@ export const ProductIdPage = ({ productType }) => {
                     setImgPath(getTourImgPath(data.data));
                 })
                 .catch(err => console.log(err))
-        }
-    }, [id]);
+        } else if (productType === 'pc_part') {
 
+            fetch(`http://localhost:8000/api/v1/pc-parts/${id}`)
+                .then(res => res.json())
+                .then(data => {
+
+                    setPcParts(data.data);
+                    setImgPath(getPcPartsImgPath(data.data));
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        } else if (productType === 'video_games') {
+            fetch(`http://localhost:8000/api/v1/video-games/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setVideoGames(data.data);
+                    setImgPath(getVideoGamesImgPath(data.data));
+                })
+        }
+
+
+    }, [id]);
     const renderProductDetails = (book) => (
         <div className="product_section">
             <div className='imgContainer'>
@@ -111,9 +135,62 @@ export const ProductIdPage = ({ productType }) => {
             </div>
 
         </div>
-
-
     );
+    const renderPcDetails = (pcParts) => {
+
+        return (
+            <div className="product_section">
+                <div className='imgContainer'>
+                    <Zoom zoomMargin={10}>
+                        <img src={imgPath} alt={"productImage"} className="zoomImg" />
+                    </Zoom>
+                </div>
+
+                <div className="product">
+                    <>
+                        <p id='p-title' className='p-height'><strong>Name</strong>: {pcParts.name}</p>
+                        <p id='p-author' className='p-height'><strong>Brand</strong>: {pcParts.brand}</p>
+                        <p id='p-genre' className='p-height'><strong>Category</strong>: {pcParts.category}</p>
+                        <p id='p-price' className='p-height'><strong>Price</strong>: {pcParts.price}</p>
+                        <p id='p-description' className='description-box'>
+                            <strong>Description</strong>: {pcParts.description}
+                        </p>
+                        <div>
+                            <button className='add-to-cart'>Add to Cart</button>
+                        </div>
+                    </>
+                </div>
+            </div>
+        );
+    };
+
+    const renderVideoGamesDetails = (videoGames) => {
+
+        return (
+            <div className="product_section">
+                <div className='imgContainer'>
+                    <Zoom zoomMargin={10}>
+                        <img src={imgPath} alt={"productImage"} className="zoomImg" />
+                    </Zoom>
+                </div>
+
+                <div className="product">
+                    <>
+                        <p id='p-title' className='p-height'><strong>Name</strong>: {videoGames.name}</p>
+                        <p id='p-author' className='p-height'><strong>Brand</strong>: {videoGames.brand}</p>
+                        <p id='p-genre' className='p-height'><strong>Category</strong>: {videoGames.category}</p>
+                        <p id='p-price' className='p-height'><strong>Price</strong>: {videoGames.price}</p>
+                        <p id='p-description' className='description-box'>
+                            <strong>Description</strong>: {videoGames.description}
+                        </p>
+                        <div>
+                            <button className='add-to-cart'>Add to Cart</button>
+                        </div>
+                    </>
+                </div>
+            </div>
+        );
+    };
 
     return (
         <div>
@@ -123,16 +200,20 @@ export const ProductIdPage = ({ productType }) => {
             {showCart && <Cart />}
             <div id="product_description">
                 <div id="button_container">
-                <button className='goBack-button' onClick={handleGoBack}>
+                    <button className='goBack-button' onClick={handleGoBack}>
                         <BsFillArrowLeftSquareFill id='arrowIcon' />
                     </button>
                     <div id='product-title'>
-                        {book ? book.name : tour ? tour.name : 'Item Name'}
+                        {book ? book.name : tour ? tour.name : pcParts ? pcParts.name : videoGames ? videoGames.name : 'Item Name'}
                     </div>
 
                 </div>
                 <div>
-                    {book ? renderProductDetails(book) : tour ? renderServiceDetails(tour) : <div>insert 404</div>}
+                    {book ? renderProductDetails(book) :
+                        tour ? renderServiceDetails(tour) :
+                            pcParts ? renderPcDetails(pcParts) :
+                                videoGames ? renderVideoGamesDetails(videoGames) :
+                                    <div>insert 404</div>}
 
                 </div>
                 <div id='buy_section'>
@@ -155,8 +236,8 @@ export const ProductIdPage = ({ productType }) => {
 
                 <div id='comments-section'>
 
-                    < Comments/>
-                    </div>
+                    < Comments />
+                </div>
             </div>
 
             <Footer />
