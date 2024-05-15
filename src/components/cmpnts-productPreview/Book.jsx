@@ -5,7 +5,7 @@ import {StarRating } from './ReviewList.jsx'
 
 export const getBookImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
 
-const CardM = ({ card }) => { //recibe the object as an argument
+const BookM = ({ card }) => { //recibe the object as an argument
 
   const imgPath = getBookImgPath(card);
 
@@ -24,10 +24,10 @@ const CardM = ({ card }) => { //recibe the object as an argument
 
 };
 
-export default CardM;
+export default BookM;
 
 
-CardM.propTypes = {
+BookM.propTypes = {
   card: PropTypes.shape({
     imgSrc: PropTypes.string,
     name: PropTypes.string.isRequired,
