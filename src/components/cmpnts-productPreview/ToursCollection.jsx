@@ -1,4 +1,4 @@
-import ToursM from './Tours.jsx';
+import TourM from './Tours.jsx';
 import { ProductPreviewClick } from './ProductPreview-Click.jsx';
 import { useEffect, useState } from 'react';
 
@@ -21,7 +21,7 @@ export const ToursCollection = () => {
         {toursData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='service-container pointer'>
-              <ToursM card={card} /> {/* Pass the object as property */}
+              <TourM card={card} /> {/* Pass the object as property */}
             </div>
           </ProductPreviewClick>
         ))}
