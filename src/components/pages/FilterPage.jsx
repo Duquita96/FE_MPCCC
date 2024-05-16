@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 
 // Style Import
 import "../../style/filter-page/ProductsPage.css";
@@ -14,7 +15,7 @@ import PageWrapper from '../PageWrapper.jsx';
 
 
 const AllProducts = () => {
-
+  const { productType } = useParams();
   const { showLogin, showCart } = useContext(HeaderContext)
   const { windowWidth } = useContext(WidthContext)
 
@@ -24,7 +25,7 @@ const AllProducts = () => {
           {showCart && <Cart />}
           {windowWidth <= 768 && <MobileNavBar />}
           <div className="needflex">
-              <FilterPageCollection />
+              <FilterPageCollection productType={productType}/>
           </div>
         </PageWrapper>
     );

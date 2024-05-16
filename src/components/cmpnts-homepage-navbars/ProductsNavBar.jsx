@@ -7,18 +7,20 @@ const ProductsNavBar = () => {
     return (
         <nav className="sub-headers headers">
             <p className='navbarTitle'>Products</p>
-            <NavLink to={'/'} className="nav-item"
+            <NavLink to={'/filter-page/video_game'} className="nav-item"
+      
                 style={() => {
                     return {
                         fontWeight: "bold",
                         color: "white",
                     };
                 }}
+                
             >
                 <CgGames size={27} />
             </NavLink>
 
-            <NavLink to={'/'} className="nav-item"
+            <NavLink to={'/filter-page/book'} className="nav-item"
                 style={() => {
                     return {
                         fontWeight: "bold",
@@ -29,7 +31,7 @@ const ProductsNavBar = () => {
                 <GiBookshelf size={27} />
             </NavLink>
 
-            <NavLink to={'/'} className="nav-item"
+            <NavLink to={'/filter-page/pc_part'} className="nav-item"
                 style={() => {
                     return {
                         fontWeight: "bold",

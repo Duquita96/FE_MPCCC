@@ -21,6 +21,7 @@ function App() {
               <Route path='/' element={<Homepage />} />
               <Route path='/user-account' element={<UserAccountPage />} />
               <Route path='/filter-page' element={<AllProducts />} />
+              <Route path='/filter-page/:productType' element={<AllProducts />} />
               <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
               <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
               <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc_part' />} />

@@ -1,26 +1,44 @@
+//react
+import Slider from "react-slider";
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+//components
 import BookM from '../cmpnts-productPreview/Book.jsx';
-import VideoGameM from '../cmpnts-productPreview/VideoGames.jsx'; // Asegúrate de tener este componente
-import PcPartM from '../cmpnts-productPreview/PcParts.jsx'; // Asegúrate de tener este componente
-import TourM from '../cmpnts-productPreview/Tours.jsx'; // Asegúrate de tener este componente
+import VideoGameM from '../cmpnts-productPreview/VideoGames.jsx';
+import PcPartM from '../cmpnts-productPreview/PcParts.jsx';
+import TourM from '../cmpnts-productPreview/Tours.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
-import Slider from "react-slider";
+
+//css
 import "../../style/filter-page/ProductsPage.css";
 
 const MIN = 0;
 const MAX = 1000;
 
-export const FilterPageCollection = () => {
+
+export const FilterPageCollection = ({ productType }) => {
   const [filterData, setProductsData] = useState([]);
   const [values, setValues] = useState([MIN, MAX]);
   const [currentFilter, setCurrentFilter] = useState('all');
 
+  const navigate = useNavigate();
 
-  // Función para cambiar el filtro actual
+  // Change the actual filter
   const changeFilter = (filterType) => {
+    console.log('filterType:', filterType)
     setCurrentFilter(filterType);
+    console.log('filterType:', filterType)
+    // Change the selected path
+    navigate(`/filter-page/${filterType}`);
   };
+  useEffect(() => {
+    if (productType) {
+      setCurrentFilter(productType);
+    }
+  }, [productType]);
 
   useEffect(() => {
     Promise.all([
@@ -35,17 +53,18 @@ export const FilterPageCollection = () => {
       console.log('Video Games:', videoGamesData);
       console.log('PC Parts:', pcPartsData);
 
-      // Combina y aleatoriza los datos
+      // Combine and randomize the data
       const combinedData = [...booksData.data, ...toursData.data, ...videoGamesData.data, ...pcPartsData.data];
       const randomizedData = combinedData.sort(() => 0.5 - Math.random());
       setProductsData(randomizedData);
     }).catch(err => console.log(err));
   }, []);
 
-   // Filtra los datos basados en el rango de precios y el tipo de producto
    const filteredData = filterData
-   .filter(item => item.price >= values[0] && item.price <= values[1])
-   .filter(item => currentFilter === 'all' || item.productType.toUpperCase() === currentFilter.toUpperCase());
+    .filter(item => item.price >= values[0] && item.price <= values[1])
+    .filter(item => currentFilter === 'all' || item.productType.toUpperCase() === currentFilter.toUpperCase());
+
+
 
   return (
     <div id='allProducts-container'>
@@ -93,7 +112,7 @@ export const FilterPageCollection = () => {
 
 
       <div id="filter-collection">
-{filteredData.map((card, index) => (
+{filteredData.map(( card ) => (
   <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
     <div className='card-container pointer'>
       {card.productType === 'book'|| card.productType === 'BOOK' && <BookM card={card} />}
@@ -113,3 +132,8 @@ export const FilterPageCollection = () => {
 };
 
 export default FilterPageCollection;
+
+
+FilterPageCollection.propTypes = {
+  productType: PropTypes.string,
+};
