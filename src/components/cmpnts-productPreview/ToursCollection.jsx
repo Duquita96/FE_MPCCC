@@ -21,7 +21,7 @@ export const ToursCollection = () => {
         {toursData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='service-container pointer'>
-              <TourM card={card} /> {/* Pass the object as property */}
+              <TourM card={card} hideImg={true} /> {/* Pass the object as property */}
             </div>
           </ProductPreviewClick>
         ))}
