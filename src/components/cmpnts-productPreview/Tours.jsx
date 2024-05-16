@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
-import {StarRating } from './ReviewList.jsx'
+import { StarRating } from './ReviewList.jsx'
 
 
 export const getTourImgPath = (card) => {
@@ -23,18 +23,28 @@ export const getTourImgPath = (card) => {
 
 
 
-const TourM = ({ card }) => { //recibe the object as an argument
+const TourM = ({ card, imgPath, hideImg }) => { //recibe the object as an argument
 
+  //let a = true;
+
+  function truncateName(name) {
+    return name.length > 20 ? name.substring(0, 15) + '...' : name;
+  }
+
+  const cardName = truncateName(card.name);
   return (
-    <div>
+    
       <Card>
+        <div className='imgBoxContainer'>
+          <Card.Img variant="top" src={imgPath} id="cardImgSrc" className={hideImg ? "hidden" : "toShow"}/>
+        </div>
         <Card.Body id="serviceBody">
-          <Card.Title>{card.name} </Card.Title>
+          <Card.Title id='card-title'>{cardName} </Card.Title>
           <Card.Text>{card.price}</Card.Text>
           <StarRating rating={card.rating} />
         </Card.Body>
       </Card>
-    </div>
+   
   );
 };
 
@@ -42,9 +52,10 @@ export default TourM;
 
 TourM.propTypes = {
   card: PropTypes.shape({
-    imgSrc: PropTypes.string,
+    imgPath: PropTypes.string,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    rating: PropTypes.number, 
+    rating: PropTypes.number,
+    a: PropTypes.bool,
   }).isRequired,
 };
