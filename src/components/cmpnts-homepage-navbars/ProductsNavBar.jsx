@@ -1,5 +1,5 @@
-import '../../style/headerStyle.css'
 import { NavLink } from 'react-router-dom';
+import '../../style/headerStyle.css'
 import { CgGames } from "react-icons/cg"
 import { GiBookshelf, GiComputerFan } from "react-icons/gi";
 
