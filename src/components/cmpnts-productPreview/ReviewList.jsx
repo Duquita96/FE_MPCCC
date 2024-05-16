@@ -1,0 +1,49 @@
+//ReviewList.jxs
+/* import PropTypes from 'prop-types'; */
+import { FaStar } from 'react-icons/fa';
+
+export const StarRating = ({ rating }) => {
+    return (
+        <span>
+            {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                    <label key={i}>
+                        <FaStar
+                            color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
+                        />
+                    </label>
+                );
+            })}
+        </span>
+    );
+};
+
+
+
+const ReviewList = ({ reviews }) => {
+    return (
+        <div id='review-list'>
+            <h2 id="list-title">Other Users said:</h2>
+            {reviews.length === 0 ? (
+                <p id='empty-list'>No reviews yet.</p>
+            ) : (
+                <ul id='comment-list'>
+                    {reviews.map((review, index) => (
+                        <li key={index} >
+                            <p id='firstCommentLine'>
+                                <strong>{review.author}</strong><StarRating rating={review.rating} />
+                            </p>
+                            <p id='secondCommentLine'>
+                                {review.comment}
+                            </p>
+                            
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
+
+export default ReviewList;

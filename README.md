@@ -13,3 +13,9 @@ Currently, two official plugins are available:
     - JavaScript
     -  npm run dev
 - npm i react-bootstrap
+    - https://www.npmjs.com/package/react-bootstrap
+- npm i react-router-dom
+    - https://www.npmjs.com/package/react-router-dom
+- npm i react-icons
+    - Ri library used by react
+    - https://react-icons.github.io/react-icons/

@@ -11,15 +11,26 @@
   color: white;
 }
 
+.logo {
+  padding: 3px;
+  font-size: larger;
+  font-weight: bolder;
+  color: var(--clr-light1);
+  border-top: 1px solid var(--clr-light1);
+  border-bottom: 1px solid var(--clr-light1);
+}
+
 .box-cart-login {
-  width: 50px;
+  width: 70px;
   height: 30px;
   padding-top: 5px;
   border-radius: 5px;
+  border: 1px solid var(--clr-light2-transparent);
 }
 
 .searchbardiv {
   width: 50%;
+  min-width: 300px;
   height: 30px;
 }
 
@@ -33,6 +44,7 @@
 
 .search-result-list {
   width: 30%;
+  min-width: 250px;
   background-color: white;
   position: absolute;
   top: 65px;
@@ -42,9 +54,12 @@
 }
 
 .search-result-list li:hover {
-  background-color: var(--clr-light1);
+  background-color: var(--clr-light2);
   cursor: pointer;
 }
+
+.search-result-list li {padding: 3px;}
+.search-result-list li:last-of-type {padding-bottom: 9px;}
 
 .searchType {
   margin-left: 10px;
@@ -59,22 +74,41 @@
   text-align: center;
 }
 
-.item {
+.nav-item {
   min-width: 30px;
   height: 30px;
-  margin-left: 7%;
+  margin-left: 50px;
   background-color: var(--clr-dark2);
-  border-radius: 50%;
+  border-radius: 5px;
 }
 
-.item:hover,
+.nav-item:hover,
 .box-cart-login:hover {
   border: 1px solid white;
   cursor: pointer;
 }
 
+.box-cart-login:visited {
+  color: white;
+}
+
 .sub-headers {
   background-color: var(--clr-light1);
   height: 55px;
-  padding: 15px;
+  padding: 20px;
+}
+
+.login-success, .login-failed {
+  position: absolute;
+  top: 79px;
+  padding: 1px 5px;
+  width: 100%;
+}
+
+.login-success {background-color: green}
+.login-failed {background-color: red}
+
+.navbarTitle {
+  width: 80px;
+  text-align: left;
 }
