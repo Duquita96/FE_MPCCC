@@ -13,14 +13,12 @@ function Comments() {
     const handleAddReview = (review) => {
         setReviews([...reviews, review]);
     };
-    /* 
-        fetch(`http://localhost:8000/api/v1/books/${id}/reviews`)
-        fetch(`http://localhost:8000/api/v1/tours/${id}/reviews`) 
-        fetch(`http://localhost:8000/api/v1/video-games/${id}/reviews`) 
-        fetch(`http://localhost:8000/api/v1/pc-parts/${id}/reviews`)  */
 
     useEffect(() => {
         fetch(`http://localhost:8000/api/v1/books/${id}/reviews`)
+        fetch(`http://localhost:8000/api/v1/tours/${id}/reviews`) 
+         fetch(`http://localhost:8000/api/v1/video-games/${id}/reviews`) 
+        fetch(`http://localhost:8000/api/v1/pc-parts/${id}/reviews`)  
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

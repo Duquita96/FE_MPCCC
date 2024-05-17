@@ -22,6 +22,25 @@ const ReviewForm = ({ onAddReview }) => {
             body: JSON.stringify(newReview),
            
         })
+         fetch('/api/v1/ours/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        })
+      fetch('/api/v1/video-games/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        })
+         fetch('/api/v1/pc-parts/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        }) 
+
 
         .then(response => response.json())
         .then(data => {
