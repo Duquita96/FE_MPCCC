@@ -44,15 +44,16 @@ code {
     }
 }
 
-
-.homebutton {
-    color: var(--clr-light1);;
-    font-family: monospace;
-    font-size: 20px;
-    text-decoration: underline;
-    margin-top:10px;
-    display:inline-block
-}
+.HomeButtonError {
+    height: 30px;
+    border: 1px solid var(--clr-light2-transparent);
+    color: rgb(2, 2, 2);
+    padding: 5px 15px;
+    border-radius: 5px;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+  }
 
 @media screen and (max-width: 880px) {
     p {
