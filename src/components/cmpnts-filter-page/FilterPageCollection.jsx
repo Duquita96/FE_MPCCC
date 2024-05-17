@@ -16,22 +16,24 @@ import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import "../../style/filter-page/ProductsPage.css";
 
 const MIN = 0;
-const MAX = 1000;
+const MAX = 10000;
 
 
 export const FilterPageCollection = ({ productType }) => {
   const [filterData, setProductsData] = useState([]);
   const [values, setValues] = useState([MIN, MAX]);
   const [currentFilter, setCurrentFilter] = useState('all');
+  const [toursTypeFilter, setToursTypeFilter] = useState('');
+
 
   const navigate = useNavigate();
 
   // Change the actual filter
-  const changeFilter = (filterType) => {
-    console.log('filterType:', filterType)
+  const changeFilter = (filterType, toursType = '') => {
     setCurrentFilter(filterType);
-    console.log('filterType:', filterType)
-    // Change the selected path
+      
+      setToursTypeFilter(toursType);
+    
     navigate(`/filter-page/${filterType}`);
   };
   useEffect(() => {
@@ -45,7 +47,7 @@ export const FilterPageCollection = ({ productType }) => {
       fetch('http://localhost:8000/api/v1/books').then(res => res.json()),
       fetch('http://localhost:8000/api/v1/tours').then(res => res.json()),
       fetch('http://localhost:8000/api/v1/video-games').then(res => res.json()),
-      fetch('http://localhost:8000/api/v1/pc-parts').then(res => res.json()) 
+      fetch('http://localhost:8000/api/v1/pc-parts').then(res => res.json())
     ]).then(([booksData, toursData, videoGamesData, pcPartsData]) => {
 
       console.log('Books:', booksData);
@@ -60,9 +62,11 @@ export const FilterPageCollection = ({ productType }) => {
     }).catch(err => console.log(err));
   }, []);
 
-   const filteredData = filterData
+  const filteredData = filterData
     .filter(item => item.price >= values[0] && item.price <= values[1])
-    .filter(item => currentFilter === 'all' || item.productType.toUpperCase() === currentFilter.toUpperCase());
+    .filter(item => currentFilter === 'all' || item.productType.toUpperCase() === currentFilter.toUpperCase())
+    .filter(item => !toursTypeFilter || (item.toursType && item.toursType.toUpperCase() === toursTypeFilter.toUpperCase()));
+
 
 
 
@@ -74,11 +78,11 @@ export const FilterPageCollection = ({ productType }) => {
         <div>
           <h3>Products</h3>
           <ul>
-            <li className="filterPointer"onClick={() => changeFilter('all')}>All</li>
-            <li className="filterPointer"onClick={() => changeFilter('book')}>Books</li>
-            <li className="filterPointer"onClick={() => changeFilter('pc_part')}>PC Parts</li>
-            <li className="filterPointer"onClick={() => changeFilter('tours')}>Tours</li>
-            <li className="filterPointer"onClick={() => changeFilter('video_game')}>Video Games</li>
+            <li className="filterPointer" onClick={() => changeFilter('all')}>All</li>
+            <li className="filterPointer" onClick={() => changeFilter('book')}>Books</li>
+            <li className="filterPointer" onClick={() => changeFilter('pc_part')}>PC Parts</li>
+{/*             <li className="filterPointer" onClick={() => changeFilter('tours')}>Tours</li> */}
+            <li className="filterPointer" onClick={() => changeFilter('video_game')}>Video Games</li>
           </ul>
         </div>
 
@@ -97,31 +101,32 @@ export const FilterPageCollection = ({ productType }) => {
         </div>
 
         <div>
+          <h4>Services</h4>
           <br />
-          <h4>Genre</h4>
-          <ul>
-            <li>Adventure</li>
-            <li>Horror</li>
-            <li>Romance</li>
-            <li>Thriller</li>
-            <li>Science Fiction</li>
+          <ul /*  className="filterPointer" onClick={() => changeFilter('tours')} */>
+            <li className="filterPointer" onClick={() => changeFilter('tours')}>Tours</li>
+            <br />
+            <li className="filterPointer" onClick={() => changeFilter('tours', 'sightseeing')}>Sightseeing</li>
+            <li className="filterPointer" onClick={() => changeFilter('tours', 'hiking')}>Hiking</li>
+            <li className="filterPointer" onClick={() => changeFilter('tours', 'museum')}>Museum</li>
           </ul>
         </div>
+
         <br></br>
       </div>
 
 
       <div id="filter-collection">
-{filteredData.map(( card ) => (
-  <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
-    <div className='card-container pointer'>
-      {card.productType === 'book'|| card.productType === 'BOOK' && <BookM card={card} />}
-      {card.productType === 'video_game' || card.productType === 'VIDEO_GAME' && <VideoGameM card={card} />}
-      {card.productType === 'pc_part' || card.productType === 'PC_PART' && <PcPartM card={card} />}
-      {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow"/>}
-    </div>
-  </ProductPreviewClick>
-))}
+        {filteredData.map((card) => (
+          <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
+            <div className='card-container pointer'>
+              {card.productType === 'book' || card.productType === 'BOOK' && <BookM card={card} />}
+              {card.productType === 'video_game' || card.productType === 'VIDEO_GAME' && <VideoGameM card={card} />}
+              {card.productType === 'pc_part' || card.productType === 'PC_PART' && <PcPartM card={card} />}
+              {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
+            </div>
+          </ProductPreviewClick>
+        ))}
 
 
 
