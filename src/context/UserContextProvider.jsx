@@ -1,5 +1,5 @@
 import UserContext from "./UserContext";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 const initialState = {};
 
@@ -32,22 +32,33 @@ const userReducer = (state, action) => {
   }
 };
 
+
+
 /** Provides information about the logged in user to the entire app */
 const UserContextProvider = ({ children }) => {
+
   const [userState, userDispatch] = useReducer(userReducer, initialState);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const loginON = () => {setLoggedIn(true)};
+  const loginOFF = () => {setLoggedIn(false)};
 
   const addNewUser = (obj) => {
     userDispatch({type: "newUser",payload: obj});
+    loginON()
   };
 
   const resetUser = () => {
     userDispatch({ type: "noUser" });
+    loginOFF();
     localStorage.clear();
   };
 
+  
+
   return (
     <UserContext.Provider
-      value={{ userState, userDispatch, addNewUser, resetUser }}
+      value={{ userState, userDispatch, addNewUser, resetUser, loggedIn }}
     >
       {children}
     </UserContext.Provider>

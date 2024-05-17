@@ -29,7 +29,6 @@ const EmailForm = ({ cancel }) => {
           { headers }
         )
         .then((res) => {
-          console.log(res.data);
           userDispatch({type: "email", email: newMail1})
           cancel();
         });

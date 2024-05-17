@@ -65,7 +65,21 @@
 
 .settings-user-delete {
   display: flex;
+  flex-direction: column;
+}
+
+.delBox {
+  display: flex;
   justify-content: space-between;
+}
+
+.delConfirm {
+  align-self: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
 }
 
 .addBtn {

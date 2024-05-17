@@ -5,8 +5,7 @@ import axios from "axios";
 import UserNotLoggedIn from "./UserNotLoggedIn";
 
 const UserSettings = () => {
-  const { addNewUser, resetUser } = useContext(UserContext);
-  const [loginStatus, setLoginStatus] = useState(false);
+  const { userState, addNewUser, resetUser, loggedIn } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -14,16 +13,15 @@ const UserSettings = () => {
     axios
       .get("http://localhost:8000/api/v1/users/me", { headers })
       .then((res) => {
-        res.data.status === "success" ? setLoginStatus(true) : resetUser;
-        addNewUser(res.data?.data);
+        res.data.status === "success" ? addNewUser(res.data.data) : resetUser;
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [loggedIn]);
 
   return (
     <div className="settings-container">
-      {loginStatus && <UserPanel />}
-      {!loginStatus && <UserNotLoggedIn />}
+      {loggedIn && <UserPanel />}
+      {!loggedIn && <UserNotLoggedIn />}
     </div>
   );
 };
