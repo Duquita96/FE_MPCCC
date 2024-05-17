@@ -22,6 +22,10 @@ function App() {
               <Route path='/user-account' element={<UserAccountPage />} />
               <Route path='/filter-page' element={<AllProducts />} />
               <Route path='/filter-page/:productType' element={<AllProducts />} />
+              {/* <Route path='/filter-page/:productType/:toursType' element={<AllProducts />} /> */}
+{/*               <Route path='/filter-page/sightseeing' element={<AllProducts toursType='SIGHTSEEING' />} />
+              <Route path='/filter-page/hiking' element={<AllProducts toursType='HIKING' />} />
+              <Route path='/filter-page/museum' element={<AllProducts toursType='MUSEUM' />} /> */}
               <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
               <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
               <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc_part' />} />

@@ -4,12 +4,13 @@ import { PiParkDuotone } from "react-icons/pi";
 import { MdHiking } from "react-icons/md";
 import { MdOutlineMuseum } from "react-icons/md";
 
+
 const ServicesNavBar = () => {
     return (
         <nav className="sub-headers headers">
             <p className='navbarTitle'>Tours </p>
-
-            <NavLink to={'/'} className="nav-item"
+                        <NavLink to={'/filter-page/tours'} className="nav-item"
+   
                 style={() => {
                     return {
                         fontWeight: "bold",
@@ -20,7 +21,7 @@ const ServicesNavBar = () => {
                 <PiParkDuotone size={27} />
             </NavLink>
 
-            <NavLink to={'/'} className="nav-item"
+            <NavLink to={'/filter-page/tours'} className="nav-item"
                 style={() => {
                     return {
                         fontWeight: "bold",
@@ -31,7 +32,7 @@ const ServicesNavBar = () => {
                 <MdHiking size={27} />
             </NavLink>
 
-                        <NavLink to={'/'} className="nav-item"
+            <NavLink to={'/filter-page/tours'} className="nav-item"
                 style={() => {
                     return {
                         fontWeight: "bold",
