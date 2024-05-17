@@ -15,7 +15,7 @@ import PageWrapper from '../PageWrapper.jsx';
 
 
 const AllProducts = () => {
-  const { productType } = useParams();
+  const { productType, toursType } = useParams();
   const { showLogin, showCart } = useContext(HeaderContext)
   const { windowWidth } = useContext(WidthContext)
 
@@ -25,7 +25,7 @@ const AllProducts = () => {
           {showCart && <Cart />}
           {windowWidth <= 768 && <MobileNavBar />}
           <div className="needflex">
-              <FilterPageCollection productType={productType}/>
+              <FilterPageCollection productType={productType} toursType={toursType}/>
           </div>
         </PageWrapper>
     );
