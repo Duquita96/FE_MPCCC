@@ -40,9 +40,9 @@ export const ProductIdPage = ({ productType }) => {
     const { showLogin, showCart } = useContext(HeaderContext)
     const { windowWidth } = useContext(WidthContext)
 
-    const handleGoBack = () => {
-        navigate(-1);
-    };
+ const handleGoBack = () => {
+    navigate(-1);
+};
 
 
     useEffect(() => {

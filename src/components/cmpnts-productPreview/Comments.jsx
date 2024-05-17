@@ -1,46 +1,40 @@
 //Comments.jsx
-import PropTypes from 'prop-types';
 import ReviewForm from './ReviewForm';
 import ReviewList from './ReviewList';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 //css
 import '../../style/ReviewForm.css';
 
 function Comments() {
     const [reviews, setReviews] = useState([]);
-    const [comments, setComments] = useState([]);
+    const { id } = useParams();
 
     const handleAddReview = (review) => {
         setReviews([...reviews, review]);
     };
+    /* 
+        fetch(`http://localhost:8000/api/v1/books/${id}/reviews`)
+        fetch(`http://localhost:8000/api/v1/tours/${id}/reviews`) 
+        fetch(`http://localhost:8000/api/v1/video-games/${id}/reviews`) 
+        fetch(`http://localhost:8000/api/v1/pc-parts/${id}/reviews`)  */
 
-    // Cargar los comentarios desde el servidor cuando el componente se monta
     useEffect(() => {
-        fetch('/api/v1/tours')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        // Imprimir la respuesta del servidor
-/*         response.text().then(text => {
-            console.log(text);
-        }); 
-        // Verificar si la respuesta es JSON
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.indexOf("application/json") !== -1) {
-            return response.json();
-        } else {
-            throw new Error('Unexpected response format');
-        } */
-    })
-    .then(data => setComments(data))
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        fetch(`http://localhost:8000/api/v1/books/${id}/reviews`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                setReviews(data.data.reviews);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }, [id]);
 
-    
-
-    }, []);
 
     return (
         <div className="review-box">
@@ -52,7 +46,3 @@ function Comments() {
 }
 
 export default Comments
-
-ReviewForm.propTypes = {
-    onAddReview: PropTypes.func.isRequired,
-};
