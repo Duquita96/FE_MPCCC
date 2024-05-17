@@ -1,55 +1,57 @@
 //ReviewForm.jsx
 import { useState } from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 
 //css
 import '../../style/ReviewForm.css';
 
 const ReviewForm = ({ onAddReview }) => {
-    const [author, setAuthor] = useState('');
+    const [name, setName] = useState('');
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newReview = {
-            author,
-            comment,
-            rating
-        };
-/*         onAddReview(newReview);
-        setAuthor('');
-        setComment('');
-        setRating(0); */
 
-        fetch('/api/v1/tours', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newReview),
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(data => {
-            if (data) {
-                return JSON.parse(data);
-            } else {
-                return {};
-            }
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            const newReview = { name, comment, rating };
+
         
-    
+        fetch('/api/v1/books/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        })
+         fetch('/api/v1/ours/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        })
+      fetch('/api/v1/video-games/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        })
+         fetch('/api/v1/pc-parts/:id/reviews', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newReview),
+           
+        }) 
+
+
+        .then(response => response.json())
+        .then(data => {
+            onAddReview(data); // Update the Status of the Component
+            // Clean the Form
+            setName('');
+            setComment('');
+            setRating(0);
+        })
+        .catch((error) => console.error('Error:', error));
+    console.log("esto es el el fetch de Patch")
     };
 
     return (
@@ -60,8 +62,8 @@ const ReviewForm = ({ onAddReview }) => {
                     <input
                         type="text"
                         placeholder="Your Name"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         id='userNameForm'
                         className='input-group'
                     />
@@ -97,6 +99,7 @@ const ReviewForm = ({ onAddReview }) => {
 
 export default ReviewForm;
 
-/* ReviewForm.propTypes = {
-    onAddReview: PropTypes.array.isRequired,
-}; */
+
+ReviewForm.propTypes = {
+    onAddReview: PropTypes.func.isRequired,
+};

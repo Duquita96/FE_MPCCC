@@ -1,8 +1,9 @@
 //react
 import Slider from "react-slider";
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 
 //components
 import BookM from '../cmpnts-productPreview/Book.jsx';
@@ -25,7 +26,6 @@ export const FilterPageCollection = ({ productType }) => {
   const [currentFilter, setCurrentFilter] = useState('all');
   const [toursTypeFilter, setToursTypeFilter] = useState('');
   console.log('in export FilterPageCollection: currentFilter', currentFilter, 'toursTypeFilter: ', toursTypeFilter);
-
 
   const navigate = useNavigate();
   const changeFilter = (filterType, toursType = '') => {
@@ -79,6 +79,7 @@ export const FilterPageCollection = ({ productType }) => {
   return (
     <div id='allProducts-container'>
       <div className="ProductsPage_Filter">
+      <NavLink to={'/'} >Go back</NavLink>
         <li className="filterPointer" onClick={() => changeFilter('all')}>All Products and Services</li>
         <h3>Filter</h3>
         <br></br>
