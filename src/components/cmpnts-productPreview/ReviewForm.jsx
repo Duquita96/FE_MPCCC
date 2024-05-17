@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 import '../../style/ReviewForm.css';
 
 const ReviewForm = ({ onAddReview }) => {
-    const [author, setAuthor] = useState('');
+    const [name, setName] = useState('');
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
 
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            const newReview = { author, comment, rating };
+            const newReview = { name, comment, rating };
 
         
         fetch('/api/v1/books/:id/reviews', {
@@ -27,7 +27,7 @@ const ReviewForm = ({ onAddReview }) => {
         .then(data => {
             onAddReview(data); // Update the Status of the Component
             // Clean the Form
-            setAuthor('');
+            setName('');
             setComment('');
             setRating(0);
         })
@@ -43,8 +43,8 @@ const ReviewForm = ({ onAddReview }) => {
                     <input
                         type="text"
                         placeholder="Your Name"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         id='userNameForm'
                         className='input-group'
                     />

@@ -30,7 +30,7 @@ const ReviewList = ({ reviews }) => {
                     {reviews.map((review, index) => (
                         <li key={index} >
                             <p id='firstCommentLine'>
-                                <strong>{review.author}</strong><StarRating rating={review.rating} />
+                                <strong>{review.name}</strong><StarRating rating={review.rating} />
                             </p>
                             <p id='secondCommentLine'>
                                 {review.comment}
@@ -53,7 +53,7 @@ StarRating.propTypes = {
 
 ReviewList.propTypes = {
     reviews: PropTypes.arrayOf(PropTypes.shape({
-        author: PropTypes.string,
+        name: PropTypes.string,
         comment: PropTypes.string,
         rating: PropTypes.number.isRequired,
     }))
