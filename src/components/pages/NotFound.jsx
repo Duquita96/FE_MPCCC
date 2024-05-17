@@ -1,22 +1,24 @@
 import React from 'react';
 import styles from '../../style/NotFoundPage/NotFound.module.css';
 import useTypewriter from '../../typewritter/useTypewriter.js';
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
-    const handleTryAgain = () => {
-      // Implement try_again() function logic here
-    };
+  const handleTryAgain = () => {
 
-    const handleGoHome = () => {
-      // Implement window.location = home; logic here
-    };
+  };
 
-    const code0Ref = useTypewriter("this_page.not_found = true;", 0);
-    const code1Ref = useTypewriter("if (you_spelt_it_wrong) {try_again();}", 600);
-    const code2Ref = useTypewriter('else if (we_screwed_up) {alert("We\'re really sorry about that."); window.location = home;}', 1300);
+  const handleGoHome = () => {
+    // Implement window.location = home; logic here
+  };
 
-    return (
-      <div className= "colorSchematic">
+  const code0Ref = useTypewriter("this_page.not_found = true;", 0);
+  const code1Ref = useTypewriter("if (you_spelt_it_wrong) {try_again();}", 600);
+  const code2Ref = useTypewriter('else if (we_screwed_up) {alert("We\'re really sorry about that."); window.location = home;}', 1300);
+
+  return (
+    <div>
+      <div className="colorSchematic">
         <p className={styles.colorSchematic}>
           HTTPS: <span className={styles.span}>404</span>
         </p>
@@ -31,11 +33,12 @@ const NotFoundPage = () => {
           <span className={styles.span}>else if (<b className={styles.b}>we\_screwed\_up</b>)</span> &#123;
           <em className={styles.em}>alert</em>(<i className={styles.i}>"We're really sorry about that."</i>); <span className={styles.span} onClick={handleGoHome}>window.location = home;</span>&#125;
         </code>
-        <center>
-          <a className={styles.homebutton} onClick={handleGoHome}>HOME</a>
-        </center>
       </div>
-    );
-  };
+      <center>
+        <Link to={"/"} className="homeButtonError">Home</Link>
+      </center>
+    </div>
+  );
+};
 
-  export default NotFoundPage;
+export default NotFoundPage;
