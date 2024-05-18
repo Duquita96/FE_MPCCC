@@ -43,25 +43,30 @@ import { useNavigate } from 'react-router-dom';
 
 export const ProductPreviewClick = ({ id, children, productType }) => {
   const navigate = useNavigate();
+
+
+let lowerProductType= productType.toLowerCase();
+console.log("lowerProductType: ", lowerProductType, "productType:", productType)
+
+
+  
   const handleCardClick = () => {
     let route;
-    //Esto debería ser "books", como está en la DB. Pero como GET books tiene un bug, siempre viene "BOOK"
-    if (productType === 'book' || productType === 'BOOK') {
+
+
+
+    if (lowerProductType === 'book') {
       route = `/book/${id}`;
-    //Esto debería ser "tours", como está en la DB. Funciona bien
-    } else if (productType === 'tours' || productType === 'TOURS') {
+    } else if (lowerProductType === 'tours') {
       route = `/tour/${id}`;
-      //Esto debería ser "pc_parts", como está en la DB. Pero como GET pc_parts tiene un bug, siempre viene "PC_PART"
-    } else if (productType === 'pc_part' || productType === 'PC_PART') {
-      console.log('en el if de ProductType al clickear: ', productType);
+    } else if (lowerProductType === 'pc_part') {
       route = `/pc-parts/${id}`;
     }
-    else if (productType === 'video_game' || productType === 'VIDEO_GAME') {
-      console.log('en el if de ProductType al clickear: ', productType);
+    else if (lowerProductType === 'video_game') {
       route = `/video-games/${id}`;
     }
-    console.log(`Element ${productType} with ID ${id} was clicked.`, "route: ", route);
-    navigate(route); // Navega al route correspondiente
+    console.log(`Element ${lowerProductType} with ID ${id} was clicked.`, "route: ", route);
+    navigate(route);
   };
 
   return (
