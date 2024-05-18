@@ -76,6 +76,7 @@ export const FilterPageCollection = ({ productType }) => {
     })
     .filter(item => !toursTypeFilter || (item.toursType && item.toursType.toUpperCase() === toursTypeFilter.toUpperCase()));
 
+
   return (
     <div id='allProducts-container'>
       <div className="ProductsPage_Filter">
@@ -131,10 +132,10 @@ export const FilterPageCollection = ({ productType }) => {
           /* Llena el contenido de las tarjetas "card" que se han filtrado */
           <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
             <div className='card-container pointer'>
-              {card.productType === 'book' || card.productType === 'BOOK' && <BookM card={card} />}
-              {card.productType === 'video_game' || card.productType === 'VIDEO_GAME' && <VideoGameM card={card} />}
-              {card.productType === 'pc_part' || card.productType === 'PC_PART' && <PcPartM card={card} />}
-              {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
+              {card.productType.toLowerCase() === 'book' && <BookM card={card} />}
+              {card.productType.toLowerCase() === 'video_game' && <VideoGameM card={card} />}
+              {card.productType.toLowerCase() === 'pc_part' && <PcPartM card={card} />}
+              {card.productType.toLowerCase() === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
               {/* {card.productType === 'sightseeing' || card.productType === 'SIGHTSEEING' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />} */}
             </div>
           </ProductPreviewClick>
