@@ -29,13 +29,13 @@ const UserInfo = () => {
       <h3>Your information:</h3>
       <div className="userInfo">
         <div>
-          Name:
-          {userState.firstName.charAt(0).toUpperCase() +
+          Name: 
+          {" " + userState.firstName.charAt(0).toUpperCase() +
             userState?.firstName.slice(1)}
         </div>
         <div>
           Surname:
-          {userState.lastName.charAt(0).toUpperCase() +
+          {" " + userState.lastName.charAt(0).toUpperCase() +
             userState.lastName.slice(1)}
         </div>
         {!modify && <div>Email: {userState.email}</div>}
@@ -47,15 +47,15 @@ const UserInfo = () => {
         {!modify && (
           <div>
             Gender:
-            {userState.gender.charAt(0).toUpperCase() +
-              userState.gender.slice(1)}
+            {" " + userState.gender?.charAt(0).toUpperCase() +
+              userState.gender?.slice(1)}
           </div>
         )}
         {modify && (
           <div className="modify" onClick={toggleGender}>
             Gender:
-            {userState.gender.charAt(0).toUpperCase() +
-              userState.gender.slice(1)}
+            {userState.gender?.charAt(0).toUpperCase() +
+              userState.gender?.slice(1)}
           </div>
         )}
         {!modify && <div>Password: ****</div>}

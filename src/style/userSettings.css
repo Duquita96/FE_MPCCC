@@ -91,6 +91,7 @@
   background-color: lightgreen;
   cursor: pointer;
   margin: 2px;
+  margin-bottom: 10px;
 }
 
 .userInfo {
@@ -145,6 +146,12 @@
   text-align: center;
 }
 
-#gender-select {
+#gender-select, #address-type {
   text-align: center;
+}
+
+#address-type {
+  width: 50%;
+  align-self: center;
+  margin-bottom: 5px;
 }
