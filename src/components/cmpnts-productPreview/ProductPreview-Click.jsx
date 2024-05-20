@@ -6,7 +6,7 @@ export const ProductPreviewClick = ({ id, children, productType }) => {
 
 
 let lowerProductType= productType.toLowerCase();
-console.log("lowerProductType: ", lowerProductType, "productType:", productType)
+/* console.log("lowerProductType: ", lowerProductType, "productType:", productType) */
 
 
   

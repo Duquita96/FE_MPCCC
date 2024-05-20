@@ -1,7 +1,7 @@
 //react
 import Slider from "react-slider";
 import { useEffect, useState } from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
@@ -29,7 +29,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
   const [currentFilter, setCurrentFilter] = useState('all');
   const [toursTypeFilter, setToursTypeFilter] = useState('');
   const { setTourType } = useContext(ToursTypeContext);
-  console.log('in export FilterPageCollection: currentFilter', currentFilter, 'toursTypeFilter: ', toursTypeFilter);
+/*   console.log('in export FilterPageCollection: currentFilter', currentFilter, 'toursTypeFilter: ', toursTypeFilter); */
 
   const navigate = useNavigate();
   const changeFilter = (filterType, toursType = '') => {
@@ -37,7 +37,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     setToursTypeFilter(toursType); // Filter Tour Type
     setTourType(toursType); // Context TourType
     navigate(`/filter-page/${filterType}`);
-    console.log('in Change Filter: filterType: ', filterType, 'toursType: ', toursType);
+ /*    console.log('in Change Filter: filterType: ', filterType, 'toursType: ', toursType); */
   };
 
   const GoBack = () => {

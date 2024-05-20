@@ -45,7 +45,7 @@ export const ProductIdPage = ({ productType }) => {
         navigate(-1);
     };
 
-    console.log('productType en ProductIdPage: ', productType);
+/*     console.log('productType en ProductIdPage: ', productType); */
     useEffect(() => {
 
         if (productType === 'book') {
@@ -251,4 +251,5 @@ export default ProductIdPage;
 
 ProductIdPage.propTypes = {
     productType: PropTypes.string,
-};
+  };
+  
