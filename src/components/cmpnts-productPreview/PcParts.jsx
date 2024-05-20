@@ -16,7 +16,6 @@ const PcPartM = ({ card }) => { //recibe the object as an argument
         <Card.Body id="cardBody">
           <Card.Title>{card.name} {card.price}</Card.Title>
           <StarRating rating={card.rating} />
-       {/*    {console.log("card.review", card.review)} */}
         </Card.Body>
       </Card>
     </div>

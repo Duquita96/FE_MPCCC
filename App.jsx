@@ -7,6 +7,7 @@ import HeaderContextProvider from './src/context/HeaderContextProvider.jsx';
 import WidthContextProvider from './src/context/WidthContextProvider.jsx';
 import UserContextProvider from './src/context/UserContextProvider.jsx';
 import UserAccountPage from './src/components/pages/UserAccountPage.jsx';
+import ToursTypeContextProvider from './src/context/TypesContext.jsx';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <HeaderContextProvider>
         <WidthContextProvider>
           <UserContextProvider>
+          <ToursTypeContextProvider>
             <Routes>
            {/*    <button>Filter PH</button> */}
               <Route path='/' element={<Homepage />} />
@@ -28,6 +30,7 @@ function App() {
               <Route path='/video-games/:id' element={<ProductIdPage productType='video_games' />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
+            </ToursTypeContextProvider>
           </UserContextProvider>
         </WidthContextProvider>
       </HeaderContextProvider>

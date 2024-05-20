@@ -12,12 +12,14 @@ import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.
 import HeaderContext from '../../context/HeaderContext.jsx';
 import WidthContext from '../../context/WidthContext.jsx';
 import PageWrapper from '../PageWrapper.jsx';
+import {ToursTypeContext} from '../../context/TypesContext.jsx';
 
 
 const AllProducts = () => {
-  const { productType, toursType } = useParams();
+  const { productType } = useParams();
   const { showLogin, showCart } = useContext(HeaderContext)
   const { windowWidth } = useContext(WidthContext)
+  const { tourType } = useContext(ToursTypeContext);
 
     return (
       <PageWrapper >
@@ -25,7 +27,7 @@ const AllProducts = () => {
           {showCart && <Cart />}
           {windowWidth <= 768 && <MobileNavBar />}
           <div className="needflex">
-              <FilterPageCollection productType={productType} toursType={toursType}/>
+              <FilterPageCollection productType={productType} toursType={tourType}/>
           </div>
         </PageWrapper>
     );
