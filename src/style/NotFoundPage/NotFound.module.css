@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Bevan");
+/* @import url("https://fonts.googleapis.com/css?family=Bevan"); */
 
 .colorSchematic {
     font-family: "Bevan", cursive;
@@ -55,8 +55,3 @@ code {
     left: 20px;
   }
 
-@media screen and (max-width: 880px) {
-    p {
-        font-size: 14vw;
-    }
-}
