@@ -12,11 +12,29 @@ const ReviewForm = ({ onAddReview, productType }) => {
     const [rating, setRating] = useState(0);
     const { id } = useParams();
 
+    /* PARCHE para Coexistir con el bug de backend */
+    let productRoute;
+    
+    switch (productType) {
+        case "book":
+            productRoute = 'books';
+            break
+        case "video_game":
+          productRoute = 'video-games';
+          break
+        case "pc_part":
+          productRoute = 'pc-parts';
+          break
+        default:
+            productRoute = 'tours';
+      }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const newReview = { name, comment, rating };
 
-        fetch(`http://localhost:8000/api/v1/${productType}/${id}/reviews`, {
+        //productType cuando se arreegle el bug
+        fetch(`http://localhost:8000/api/v1/${productRoute}/${id}/reviews`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newReview),
