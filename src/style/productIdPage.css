@@ -31,7 +31,6 @@
 
 #product_description {
   background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
-  border-radius: 5px;
   padding: 50px 10% 100px 10%;
 }
 
