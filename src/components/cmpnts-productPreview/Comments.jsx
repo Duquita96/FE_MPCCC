@@ -8,17 +8,23 @@ import '../../style/ReviewForm.css';
 
 function Comments() {
     const [reviews, setReviews] = useState([]);
+/*     const [productType, setProductType] = useState(''); */
     const { id } = useParams();
 
     const handleAddReview = (review) => {
         setReviews([...reviews, review]);
     };
 
-    useEffect(() => {
-        fetch(`http://localhost:8000/api/v1/books/${id}/reviews`)
-        fetch(`http://localhost:8000/api/v1/tours/${id}/reviews`) 
-         fetch(`http://localhost:8000/api/v1/video-games/${id}/reviews`) 
-        fetch(`http://localhost:8000/api/v1/pc-parts/${id}/reviews`)  
+useEffect(() => {
+    const urls = [
+        `http://localhost:8000/api/v1/books/${id}/reviews`,
+        `http://localhost:8000/api/v1/tours/${id}/reviews`,
+        `http://localhost:8000/api/v1/video-games/${id}/reviews`,
+        `http://localhost:8000/api/v1/pc-parts/${id}/reviews`
+    ];
+
+    urls.forEach(url => {
+        fetch(url)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,12 +32,13 @@ function Comments() {
                 return response.json();
             })
             .then(data => {
-                setReviews(data.data.reviews);
+                setReviews(prevReviews => [...prevReviews, ...data.data.reviews]);
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-    }, [id]);
+    });
+}, [id]);
 
 
     return (

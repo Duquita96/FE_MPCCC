@@ -136,7 +136,7 @@ export const FilterPageCollection = ({ productType }) => {
               {card.productType.toLowerCase() === 'video_game' && <VideoGameM card={card} />}
               {card.productType.toLowerCase() === 'pc_part' && <PcPartM card={card} />}
               {card.productType.toLowerCase() === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
-              {/* {card.productType === 'sightseeing' || card.productType === 'SIGHTSEEING' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />} */}
+
             </div>
           </ProductPreviewClick>
         ))}

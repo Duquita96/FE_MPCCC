@@ -44,7 +44,7 @@ export const ProductIdPage = ({ productType }) => {
     navigate(-1);
 };
 
-
+console.log('productType en ProductIdPage: ', productType);
     useEffect(() => {
 
         if (productType === 'book') {
@@ -236,7 +236,7 @@ export const ProductIdPage = ({ productType }) => {
 
                 <div id='comments-section'>
 
-                    < Comments />
+                    < Comments productType={productType}/>
                 </div>
             </div>
 
