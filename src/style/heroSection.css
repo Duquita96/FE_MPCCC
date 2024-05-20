@@ -1,7 +1,7 @@
 .hero-container {
     height: 140px;
     background: linear-gradient(180deg, var(--clr-light1), var(--clr-light2));
-    padding: 20px;
+    padding: 30px;
 }
 
 .hero-text {

@@ -53,6 +53,8 @@ body {
   .sub-headers {background-color: var(--clr-dark2); color: var(--clr-light2)}
   .settings-container {padding: 80px;}
   .settings-home-btn {top: 180px;}
+  .navbar {background-color: var(--clr-light2);}
+  .nav-item {min-width: 30px}
 
   }
 @media only screen and (min-width: 992px) {

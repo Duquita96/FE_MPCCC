@@ -75,11 +75,13 @@
 }
 
 .nav-item {
-  min-width: 30px;
+  min-width: 90px;
+  margin: 10px;
   height: 30px;
-  margin-left: 50px;
   background-color: var(--clr-dark2);
   border-radius: 5px;
+  font-weight: bold;
+  color: white;
 }
 
 .nav-item:hover,
@@ -98,6 +100,12 @@
   padding: 20px;
 }
 
+.navbar {
+  background-color: var(--clr-light1);
+  height: 55px;
+  justify-content: center;
+}
+
 .login-success, .login-failed {
   position: absolute;
   top: 79px;
@@ -107,8 +115,3 @@
 
 .login-success {background-color: green}
 .login-failed {background-color: red}
-
-.navbarTitle {
-  width: 80px;
-  text-align: left;
-}
