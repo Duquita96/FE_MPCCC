@@ -1,11 +1,16 @@
+import { useContext } from 'react';
+import WidthContext from '../context/WidthContext.jsx';
 import "../style/heroSection.css";
 
 const HeroSection = () => {
+
+  const { windowWidth } = useContext(WidthContext)
+
   return (
     <div className="hero-container">
-      <p className="hero-text">
+      {windowWidth > 768 && <p className="hero-text">
         "A great selection of products and services at the best value, right here for you!" *****  
-      </p>
+      </p>}
       <p className="hero-text">
         "Beats the competition in both prices and availability!" *****  
       </p>

@@ -7,6 +7,47 @@
     right: 0;
     top: 100px;
     border-bottom-left-radius: 10px;
-    color: white;
+    color: var(--clr-light2);
     text-align: center;
+  }
+
+  .cart-item-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+  }
+
+  .cart-item-desc {
+    width: 200px;
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .cartBtn {
+    width: 70px;
+    margin: 6px;
+    padding: 2px;
+    border-radius: 5px;
+  }
+
+  .buyBtn {
+    background-color: lightgreen;
+  }
+
+  .emptyBtn, .delBtn {
+    color: red;
+    background-color: var(--clr-light1);
+  }
+
+  .emptyBtn:hover, .buyBtn:hover {
+    border: 1px solid white;
+  }
+
+  .cart-total {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--clr-light1);
   }
