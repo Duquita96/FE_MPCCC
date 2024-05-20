@@ -1,57 +1,38 @@
 //ReviewForm.jsx
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 //css
 import '../../style/ReviewForm.css';
 
-const ReviewForm = ({ onAddReview }) => {
+const ReviewForm = ({ onAddReview, productType }) => {
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
+    const { id } = useParams();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newReview = { name, comment, rating };
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            const newReview = { name, comment, rating };
-
-        
-        fetch('/api/v1/books/:id/reviews', {
+        fetch(`/api/v1/${productType}/${id}/reviews`, { // Asegúrate de que `id` es el valor correcto
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newReview),
-           
         })
-         fetch('/api/v1/ours/:id/reviews', {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newReview),
-           
-        })
-      fetch('/api/v1/video-games/:id/reviews', {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newReview),
-           
-        })
-         fetch('/api/v1/pc-parts/:id/reviews', {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newReview),
-           
-        }) 
 
 
-        .then(response => response.json())
-        .then(data => {
-            onAddReview(data); // Update the Status of the Component
-            // Clean the Form
-            setName('');
-            setComment('');
-            setRating(0);
-        })
-        .catch((error) => console.error('Error:', error));
-    console.log("esto es el el fetch de Patch")
+            .then(response => response.json())
+            .then(data => {
+                onAddReview(data); // Update the Status of the Component
+                // Clean the Form
+                setName('');
+                setComment('');
+                setRating(0);
+            })
+            .catch((error) => console.error('Error:', error));
+        console.log("esto es el el fetch de Patch")
     };
 
     return (
@@ -76,7 +57,7 @@ const ReviewForm = ({ onAddReview }) => {
                         onChange={(e) => setRating(e.target.value ? parseInt(e.target.value) : '')}
                         id='ratingForm'
                         className='input-group'
-                    required
+                        required
                     />
                 </div>
 
@@ -102,4 +83,5 @@ export default ReviewForm;
 
 ReviewForm.propTypes = {
     onAddReview: PropTypes.func.isRequired,
+    productType: PropTypes.string,
 };
