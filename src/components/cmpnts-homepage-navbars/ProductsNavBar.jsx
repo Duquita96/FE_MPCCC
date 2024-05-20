@@ -41,9 +41,6 @@ const ProductsNavBar = () => {
             >
                 <GiComputerFan size={27} />
             </NavLink>
-
-            {/* <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" /> */}
         </nav>
     )
 }

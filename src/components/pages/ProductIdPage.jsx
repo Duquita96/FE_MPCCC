@@ -40,11 +40,11 @@ export const ProductIdPage = ({ productType }) => {
     const { showLogin, showCart } = useContext(HeaderContext)
     const { windowWidth } = useContext(WidthContext)
 
- const handleGoBack = () => {
-    navigate(-1);
-};
+    const handleGoBack = () => {
+        navigate(-1);
+    };
 
-console.log('productType en ProductIdPage: ', productType);
+    console.log('productType en ProductIdPage: ', productType);
     useEffect(() => {
 
         if (productType === 'book') {
@@ -199,8 +199,8 @@ console.log('productType en ProductIdPage: ', productType);
             {showLogin && <Login />}
             {showCart && <Cart />}
             <div id="product_description">
-                <div id="button_container">
-                    <button className='goBack-button' onClick={handleGoBack}>
+                <div className="button_container">
+                    <button className='filter-goBack-button' onClick={handleGoBack}>
                         <BsFillArrowLeftSquareFill id='arrowIcon' />
                     </button>
                     <div id='product-title'>
@@ -236,7 +236,7 @@ console.log('productType en ProductIdPage: ', productType);
 
                 <div id='comments-section'>
 
-                    < Comments productType={productType}/>
+                    < Comments productType={productType} />
                 </div>
             </div>
 

@@ -15,6 +15,7 @@ import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 
 //css
 import "../../style/filter-page/ProductsPage.css";
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 const MIN = 0;
 const MAX = 10000;
@@ -34,6 +35,11 @@ export const FilterPageCollection = ({ productType }) => {
     navigate(`/filter-page/${filterType}`);
     console.log('in Change Filter: filterType: ', filterType, 'toursType: ', toursType);
   };
+
+  const GoBack = () => {
+    navigate(-1);
+};
+
   useEffect(() => {
     if (productType) {
       setCurrentFilter(productType);
@@ -80,7 +86,10 @@ export const FilterPageCollection = ({ productType }) => {
   return (
     <div id='allProducts-container'>
       <div className="ProductsPage_Filter">
-      <NavLink to={'/'} >Go back</NavLink>
+{/*       <NavLink to={'/'} className="filter-GoBackButton">Go back</NavLink> */}
+      <button className='goBack-button'  id="ButtonFilter-GoBack" onClick={GoBack}>
+                        <BsFillArrowLeftSquareFill id='arrowIcon' />
+                    </button>
         <li className="filterPointer" onClick={() => changeFilter('all')}>All Products and Services</li>
         <h3>Filter</h3>
         <br></br>
@@ -114,7 +123,7 @@ export const FilterPageCollection = ({ productType }) => {
           <br />
           <h4>Services</h4>
 
-          <ul /*  className="filterPointer" onClick={() => changeFilter('tours')} */ >
+          <ul>
             <li className="filterPointer" onClick={() => changeFilter('tours')}>All Tours</li>
             <br />
             <li className="filterPointer" onClick={() => changeFilter('tours', 'sightseeing')}>Sightseeing</li>
