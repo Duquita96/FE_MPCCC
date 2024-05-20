@@ -34,8 +34,8 @@ import VideoGamesCollection from './VideoGamesCollection.jsx'
 export const ProductsPreview = () => {
     const collectionsContainerRef = useRef(null);
 
-    // Asumiendo que cada colección tiene el mismo ancho fijo
-    const collectionWidth = 300; // Reemplaza con el ancho real de tus colecciones
+    
+    const collectionWidth = 300;
 
     const handleWheel = (event) => {
         if (collectionsContainerRef.current) {
@@ -45,14 +45,14 @@ export const ProductsPreview = () => {
 
             if (event.deltaY > 0) {
                 if (scrollLeft >= maxScrollLeft - collectionWidth) {
-                    // Si estamos al final, volvemos al principio sin animación
+                    // if we are on the end, go bak to the beginning
                     container.scrollTo({ left: 0, behavior: 'auto' });
                 } else {
                     container.scrollTo({ left: scrollLeft + collectionWidth, behavior: 'smooth' });
                 }
             } else {
                 if (scrollLeft <= collectionWidth) {
-                    // Si estamos al principio, saltamos al final sin animación
+                    // if we are on teh beginning, go to the end
                     container.scrollTo({ left: maxScrollLeft, behavior: 'auto' });
                 } else {
                     container.scrollTo({ left: scrollLeft - collectionWidth, behavior: 'smooth' });
@@ -61,7 +61,6 @@ export const ProductsPreview = () => {
         }
     };
 
-    // Ajusta el desplazamiento inicial para el duplicado del primer elemento
     useEffect(() => {
         if (collectionsContainerRef.current) {
             collectionsContainerRef.current.scrollLeft = collectionWidth;
