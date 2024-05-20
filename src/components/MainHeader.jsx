@@ -13,7 +13,7 @@ const MainHeader = () => {
   
 const { loginMsg } = useContext(HeaderContext);
 const { windowWidth } = useContext(WidthContext);
-const { resetUser, addNewUser} = useContext(UserContext);
+const { userState, resetUser, addNewUser} = useContext(UserContext);
 
 useEffect(()=> {
   const token = localStorage.getItem("token");
@@ -22,10 +22,14 @@ useEffect(()=> {
   +expiration < Date.now()/1000 ? resetUser : addNewUser(jwtDecode(token));
 }, [])
 
+// For testing
+const logUser = () => {
+  console.log(userState);
+}
 
   return (
     <div className="main-header headers">
-      {windowWidth > 768 && <div className='logo'>LOGO</div>}
+      {windowWidth > 768 && <div className='logo' onClick={logUser}>LOGO</div>}
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}

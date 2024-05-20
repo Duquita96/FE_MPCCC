@@ -14,7 +14,6 @@
   padding: 5px 15px;
   border-radius: 5px;
   position: absolute;
-  top: 120px;
   left: 20px;
 }
 
@@ -37,6 +36,10 @@
   max-width: 1000px;
 }
 
+.userInfo {
+  position: relative;
+}
+
 .setting-del-btn,
 .adminBtn,
 .modifyBtn {
@@ -56,12 +59,26 @@
 .modifyBtn {
  background-color: lightgreen;
  color: black;
+ margin-top: 5px;
 }
-
 
 .settings-user-delete {
   display: flex;
+  flex-direction: column;
+}
+
+.delBox {
+  display: flex;
   justify-content: space-between;
+}
+
+.delConfirm {
+  align-self: center;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
 }
 
 .addBtn {
@@ -73,8 +90,67 @@
   background-color: lightgreen;
   cursor: pointer;
   margin: 2px;
+  margin-bottom: 10px;
 }
 
 .userInfo {
   padding: 8px;
+}
+
+.userWarning {
+  padding: 5px;
+  border: 2px solid red;
+  border-radius: 5px;
+  background-color: var(--clr-light2-transparent);
+  text-align: center;
+  color: var(--clr-dark1);
+}
+
+.modify {
+  margin-top: 10px;
+  width: auto;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid lightgreen;
+  border-radius: 5px;
+  background-color: var(--clr-light2-transparent);
+}
+
+.modify::after {
+  content: "Modify";
+  position: absolute;
+  right: 15px;
+  color: lightgreen;
+  justify-content: end;
+  padding: 2px;
+  background-color: var(--clr-dark2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modbox {
+  margin-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid lightgreen;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--clr-light2-transparent);
+}
+
+.formInput {
+  margin: 2px;
+  text-align: center;
+}
+
+#gender-select, #address-type {
+  text-align: center;
+}
+
+#address-type {
+  width: 50%;
+  align-self: center;
+  margin-bottom: 5px;
 }

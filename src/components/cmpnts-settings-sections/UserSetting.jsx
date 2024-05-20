@@ -1,23 +1,27 @@
-import UserInfo from "./UserInfo";
-import { useEffect, useState } from "react";
-
-
+import UserPanel from "./UserPanel";
+import { useContext, useEffect } from "react";
+import UserContext from "../../context/UserContext";
+import axios from "axios";
+import UserNotLoggedIn from "./UserNotLoggedIn";
 
 const UserSettings = () => {
+  const { addNewUser, resetUser, loggedIn } = useContext(UserContext);
 
-  const [loginStatus, setLoginStatus] = useState(true);
-  const [adminStatus, setAdminStatus] = useState(false);
-
-  useEffect(()=> {
-    // get user by id
-    // set loginstatus
-    // set is admin or not
-    // log user out if token is not valid anymore
-  }, [])
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const headers = { "x-auth-token": token };
+    axios
+      .get("http://localhost:8000/api/v1/users/me", { headers })
+      .then((res) => {
+        res.data.status === "success" ? addNewUser(res.data.data) : resetUser();
+      })
+      .catch((err) => console.log(err));
+  }, [loggedIn]);
 
   return (
     <div className="settings-container">
-      {loginStatus && <UserInfo />}
+      {loggedIn && <UserPanel />}
+      {!loggedIn && <UserNotLoggedIn />}
     </div>
   );
 };
