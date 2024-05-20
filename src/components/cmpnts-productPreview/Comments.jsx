@@ -20,7 +20,7 @@ useEffect(() => {
         `http://localhost:8000/api/v1/books/${id}/reviews`,
         `http://localhost:8000/api/v1/tours/${id}/reviews`,
         `http://localhost:8000/api/v1/video-games/${id}/reviews`,
-        `http://localhost:8000/api/v1/pc-parts/${id}/reviews`
+        `http://localhost:8000/api/v1/pc-parts/${id}/reviews` 
     ];
 
     urls.forEach(url => {
@@ -44,7 +44,7 @@ useEffect(() => {
     return (
         <div className="review-box">
             <h1 id='comment-title'>Give us a Feed Back!</h1>
-            <ReviewForm onAddReview={handleAddReview} />
+            <ReviewForm onAddReview={handleAddReview} productType={'books'}/>
             <ReviewList reviews={reviews} />
         </div>
     );
