@@ -7,8 +7,7 @@ import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
 //componets
-import MainHeader from '../MainHeader.jsx';
-import Footer from '../Footer.jsx';
+
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import HeaderContext from '../../context/HeaderContext.jsx';
@@ -18,6 +17,8 @@ import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import { getPcPartsImgPath } from '../cmpnts-productPreview/PcParts.jsx';
 import { getVideoGamesImgPath } from '../cmpnts-productPreview/VideoGames.jsx';
 import Comments from '../cmpnts-productPreview/Comments.jsx'
+import PageWrapper from '../PageWrapper.jsx';
+import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
 //react
 import { useNavigate } from 'react-router-dom';
 //css
@@ -195,9 +196,10 @@ console.log('productType en ProductIdPage: ', productType);
     return (
         <div>
 
-            <MainHeader windowWidth={windowWidth} />
+            <PageWrapper >
             {showLogin && <Login />}
             {showCart && <Cart />}
+            {windowWidth <= 768 && <MobileNavBar />}
             <div id="product_description">
                 <div id="button_container">
                     <button className='goBack-button' onClick={handleGoBack}>
@@ -240,7 +242,7 @@ console.log('productType en ProductIdPage: ', productType);
                 </div>
             </div>
 
-            <Footer />
+            </PageWrapper>
         </div>
     );
 };

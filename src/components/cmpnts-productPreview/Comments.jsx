@@ -43,7 +43,7 @@ useEffect(() => {
 
     return (
         <div className="review-box">
-            <h1 id='comment-title'>Give us a Feed Back!</h1>
+            <h1 id='comment-title'>Give us a Feedback!</h1>
             <ReviewForm onAddReview={handleAddReview} productType={'books'}/>
             <ReviewList reviews={reviews} />
         </div>
