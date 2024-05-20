@@ -16,18 +16,11 @@ const ReviewForm = ({ onAddReview, productType }) => {
         e.preventDefault();
         const newReview = { name, comment, rating };
 
-        console.log("EN ReviewForm productType: ", productType, "id: ", id)
-         fetch(`http://localhost:8000/api/v1/${productType}/${id}/reviews`, { 
+        fetch(`http://localhost:8000/api/v1/${productType}/${id}/reviews`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newReview),
         })
-/*         fetch(`/api/v1/books/${id}/reviews`, { 
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newReview),
-        }) */
-
 
             .then(response => response.json())
             .then(data => {
@@ -36,9 +29,9 @@ const ReviewForm = ({ onAddReview, productType }) => {
                 setName('');
                 setComment('');
                 setRating(0);
+                window.location.reload();
             })
             .catch((error) => console.error('Error:', error));
-        console.log("esto es el el fetch de Patch")
     };
 
     return (
