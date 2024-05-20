@@ -1,29 +1,3 @@
-
-// import CardsCollection from "./CardsCollection.jsx";
-// import '../../style/ProductsPreview.css'
-// import ToursCollection from './ToursCollection.jsx'
-// import PcPartsCollection from './PcPartsCollection.jsx';
-// import VideoGamesCollection from './VideoGamesCollection.jsx'
-// /* import {Link} from 'react-router-dom'; */
-
-
-// export const ProductsPreview = () => {
-
-//     return (
-//         <div id="products-preview-section">
-//             <ToursCollection />
-//             <div>
-//                 <CardsCollection />
-//                 <PcPartsCollection />
-//                 <VideoGamesCollection />
-//             </div>
-
-//         </div>
-//     );
-// }
-
-// export default ProductsPreview;
-
 import { useRef, useEffect } from 'react';
 import BooksCollection from "./BooksCollection.jsx";
 import '../../style/ProductsPreview.css'
