@@ -25,7 +25,6 @@ const BookM = ({ card }) => { //recibe the object as an argument
         <Card.Body id="cardBody">
           <Card.Title>{cardName} {card.price}</Card.Title>
           <StarRating rating={card.rating} />
-          {/*    {console.log("card.review", card.review)} */}
         </Card.Body>
       </Card>
     </div>

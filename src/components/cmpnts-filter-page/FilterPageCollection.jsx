@@ -12,6 +12,8 @@ import PcPartM from '../cmpnts-productPreview/PcParts.jsx';
 import TourM from '../cmpnts-productPreview/Tours.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
+import { ToursTypeContext } from '../../context/TypesContext.jsx';
+import { useContext } from 'react';
 
 //css
 import "../../style/filter-page/ProductsPage.css";
@@ -21,30 +23,36 @@ const MIN = 0;
 const MAX = 10000;
 
 
-export const FilterPageCollection = ({ productType }) => {
+export const FilterPageCollection = ({ productType, toursType }) => {
   const [filterData, setProductsData] = useState([]);
   const [values, setValues] = useState([MIN, MAX]);
   const [currentFilter, setCurrentFilter] = useState('all');
   const [toursTypeFilter, setToursTypeFilter] = useState('');
+  const { setTourType } = useContext(ToursTypeContext);
   console.log('in export FilterPageCollection: currentFilter', currentFilter, 'toursTypeFilter: ', toursTypeFilter);
 
   const navigate = useNavigate();
   const changeFilter = (filterType, toursType = '') => {
     setCurrentFilter(filterType);
-    setToursTypeFilter(toursType);
+    setToursTypeFilter(toursType); // Filter Tour Type
+    setTourType(toursType); // Context TourType
     navigate(`/filter-page/${filterType}`);
     console.log('in Change Filter: filterType: ', filterType, 'toursType: ', toursType);
   };
 
   const GoBack = () => {
-    navigate(-1);
+    setTourType('');
+    navigate("/");
 };
 
   useEffect(() => {
     if (productType) {
       setCurrentFilter(productType);
     }
-  }, [productType]);
+    if (productType) {
+      setToursTypeFilter(toursType);
+    }
+  }, [productType, toursType]);
 
   useEffect(() => {
     Promise.all([
@@ -53,11 +61,6 @@ export const FilterPageCollection = ({ productType }) => {
       fetch('http://localhost:8000/api/v1/video-games').then(res => res.json()),
       fetch('http://localhost:8000/api/v1/pc-parts').then(res => res.json())
     ]).then(([booksData, toursData, videoGamesData, pcPartsData]) => {
-
-      console.log('Books:', booksData);
-      console.log('Tours:', toursData);
-      console.log('Video Games:', videoGamesData);
-      console.log('PC Parts:', pcPartsData);
 
       // Combine and randomize the data
       const combinedData = [...booksData.data, ...toursData.data, ...videoGamesData.data, ...pcPartsData.data];
@@ -86,7 +89,6 @@ export const FilterPageCollection = ({ productType }) => {
   return (
     <div id='allProducts-container'>
       <div className="ProductsPage_Filter">
-{/*       <NavLink to={'/'} className="filter-GoBackButton">Go back</NavLink> */}
       <button className='goBack-button'  id="ButtonFilter-GoBack" onClick={GoBack}>
                         <BsFillArrowLeftSquareFill id='arrowIcon' />
                     </button>
@@ -99,7 +101,6 @@ export const FilterPageCollection = ({ productType }) => {
             <li className="filterPointer" onClick={() => changeFilter('all-products')}>All Products</li>
             <li className="filterPointer" onClick={() => changeFilter('book')}>Books</li>
             <li className="filterPointer" onClick={() => changeFilter('pc_part')}>PC Parts</li>
-            {/*    <li className="filterPointer" onClick={() => changeFilter('tours')}>Tours</li> */}
             <li className="filterPointer" onClick={() => changeFilter('video_game')}>Video Games</li>
           </ul>
         </div>
@@ -124,7 +125,7 @@ export const FilterPageCollection = ({ productType }) => {
           <h4>Services</h4>
 
           <ul>
-            <li className="filterPointer" onClick={() => changeFilter('tours')}>All Tours</li>
+            <li className="filterPointer" onClick={() => changeFilter('tours', '')}>All Tours</li>
             <br />
             <li className="filterPointer" onClick={() => changeFilter('tours', 'sightseeing')}>Sightseeing</li>
             <li className="filterPointer" onClick={() => changeFilter('tours', 'hiking')}>Hiking</li>
@@ -163,4 +164,5 @@ export default FilterPageCollection;
 
 FilterPageCollection.propTypes = {
   productType: PropTypes.string,
+  toursType: PropTypes.string,
 };
