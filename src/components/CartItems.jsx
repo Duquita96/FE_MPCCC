@@ -1,14 +1,28 @@
+import { useState } from "react";
+
 const CartItems = () => {
-  const items = ["Game", "Book", "Tour"];
+  
+  const [cart, setCart] = useState(["Game", "Book", "Tour"]);
+
+  const delItem = (e) => {
+    let newArray = cart.filter((item) => cart.indexOf(item) !== Number(e.target.id));
+    setCart(newArray);
+  };
 
   return (
     <div>
-      {items.map((item) => {
+      {cart.map((item) => {
         return (
           <div className="cart-item-list">
             <p className="cart-item-desc">{item}</p>
             <p>0,00€</p>
-            <button className="delBtn pointer">D</button>
+            <button
+              className="delBtn pointer"
+              id={cart.indexOf(item)}
+              onClick={delItem}
+            >
+              D
+            </button>
           </div>
         );
       })}
@@ -19,7 +33,7 @@ const CartItems = () => {
       </div>
 
       <button className="buyBtn cartBtn pointer">Buy</button>
-      <button className="emptyBtn cartBtn pointer">Empty</button>
+      <button className="emptyBtn cartBtn pointer" onClick={()=> setCart([])}>Empty</button>
     </div>
   );
 };
