@@ -1,6 +1,6 @@
 import UserContext from "../../context/UserContext";
-import axios from "axios";
 import { useState, useContext } from "react";
+import patchFunction from "../../utils/patch";
 
 const GenderForm = ({ cancel }) => {
   const { userDispatch } = useContext(UserContext);
@@ -8,21 +8,11 @@ const GenderForm = ({ cancel }) => {
 
   const changeGender = (e) => {setGen(e.target.value)};
 
-  const patchGender = (e) => {
-    const token = localStorage.getItem("token");
-    const headers = { "x-auth-token": token };
-    axios
-      .patch(
-        "http://localhost:8000/api/v1/users/me",
-        { gender: gen },
-        { headers }
-      )
-      .then((res) => {
-        console.log(res.data);
+  const patchGender = () => {
+        patchFunction({ gender: gen });
         userDispatch({ type: "gender", gender: gen });
         cancel();
-      });
-  };
+      };
 
   return (
     <div className="modbox">

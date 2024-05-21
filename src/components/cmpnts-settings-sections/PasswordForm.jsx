@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import patchFunction from "../../utils/patch";
 
 const PasswordForm = ({ cancel }) => {
   const [newPwd, setNewPwd] = useState("");
@@ -16,18 +16,8 @@ const PasswordForm = ({ cancel }) => {
     if (newPwd !== newPwd2) {
       alert("Passwords do not match, please check!");
     } else {
-      const token = localStorage.getItem("token");
-      const headers = { "x-auth-token": token };
-      axios
-        .patch(
-          "http://localhost:8000/api/v1/users/me",
-          { password: newPwd },
-          { headers }
-        )
-        .then((res) => {
-          console.log(res);
-          cancel();
-        });
+      patchFunction({ password: newPwd });
+      cancel();
     }
   };
 
