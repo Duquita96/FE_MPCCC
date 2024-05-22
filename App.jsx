@@ -26,8 +26,8 @@ function App() {
               <Route path='/filter-page/:productType' element={<AllProducts />} />
               <Route path='/books/:id' element={<ProductIdPage productType='books' />} />
               <Route path='/tours/:id' element={<ProductIdPage productType='tours' />} />
-              <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc_parts' />} />
-              <Route path='/video-games/:id' element={<ProductIdPage productType='video_games' />} />
+              <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc-parts' />} />
+              <Route path='/video-games/:id' element={<ProductIdPage productType='video-games' />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
             </ToursTypeContextProvider>
