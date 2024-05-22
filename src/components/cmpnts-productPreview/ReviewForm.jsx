@@ -16,13 +16,13 @@ const ReviewForm = ({ onAddReview, productType }) => {
     let productRoute;
     
     switch (productType) {
-        case "book":
+        case "books":
             productRoute = 'books';
             break
-        case "video_game":
+        case "video_games":
           productRoute = 'video-games';
           break
-        case "pc_part":
+        case "pc_parts":
           productRoute = 'pc-parts';
           break
         default:

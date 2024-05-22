@@ -11,13 +11,13 @@ const ProductsNavBar = () => {
   const { setTourType } = useContext(ToursTypeContext);
   return (
     <nav className="navbar headers">
-      <Link to={"/filter-page/video_game"} className="nav-item">
+      <Link to={"/filter-page/video_games"} className="nav-item">
         <CgGames size={27} />
       </Link>
-      <Link to={"/filter-page/book"} className="nav-item">
+      <Link to={"/filter-page/books"} className="nav-item">
         <GiBookshelf size={27} />
       </Link>
-      <Link to={"/filter-page/pc_part"} className="nav-item">
+      <Link to={"/filter-page/pc_parts"} className="nav-item">
         <GiComputerFan size={27} />
       </Link>
       <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('sightseeing')}>
