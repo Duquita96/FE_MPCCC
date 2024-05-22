@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../style/NotFoundPage/NotFound.module.css';
-import useTypewriter from '../../typewritter/useTypewriter.js';
+import useTypewriter from '../../utils/useTypewriter.js';
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
