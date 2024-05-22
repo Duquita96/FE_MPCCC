@@ -1,9 +1,9 @@
 import UserContext from "../../context/UserContext";
-import axios from "axios";
 import { useState, useContext } from "react";
+import patchFunction from "../../utils/patch";
 
 const EmailForm = ({ cancel }) => {
-
+  
   const { userDispatch } = useContext(UserContext);
 
   const [newMail1, setNewMail1] = useState("");
@@ -20,27 +20,18 @@ const EmailForm = ({ cancel }) => {
     if (newMail1 !== newMail2) {
       alert("Emails do not match, please check!");
     } else {
-      const token = localStorage.getItem("token");
-      const headers = { "x-auth-token": token };
-      axios
-        .patch(
-          "http://localhost:8000/api/v1/users/me",
-          { email: newMail1 },
-          { headers }
-        )
-        .then((res) => {
-          userDispatch({type: "email", email: newMail1})
-          cancel();
-        });
+      patchFunction({ email: newMail1 });
+      userDispatch({ type: "email", email: newMail1 });
+      cancel();
     }
   };
 
   return (
     <div className="modbox">
-      <form 
+      <form
         style={{ display: "flex", flexDirection: "column" }}
         onSubmit={patchEmail}
-        >
+      >
         <input
           type="email"
           placeholder="new email"
@@ -59,10 +50,7 @@ const EmailForm = ({ cancel }) => {
           onChange={changeHandler}
           required
         />
-        <button
-          type="submit"
-          className="modifyBtn pointer"
-        >
+        <button type="submit" className="modifyBtn pointer">
           Update
         </button>
         <button className="modifyBtn pointer" onClick={cancel}>

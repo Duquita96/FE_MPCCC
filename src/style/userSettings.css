@@ -116,16 +116,19 @@
   background-color: var(--clr-light2-transparent);
 }
 
-.modify::after {
+.modify::after, .home  {
   content: "Modify";
-  position: absolute;
-  right: 15px;
   color: lightgreen;
   justify-content: end;
   padding: 2px;
   background-color: var(--clr-dark2);
   border-radius: 5px;
   cursor: pointer;
+}
+
+.modify::after {
+  position: absolute;
+  right: 15px;
 }
 
 .modbox {
@@ -153,4 +156,10 @@
   width: 50%;
   align-self: center;
   margin-bottom: 5px;
+}
+
+.address {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
 }

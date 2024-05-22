@@ -1,6 +1,7 @@
 import UserContext from "../../context/UserContext";
-import axios from "axios";
 import { useState, useContext } from "react";
+import patchFunction from "../../utils/patch";
+
 
 const AddressForm = ({ cancel }) => {
   const { userDispatch } = useContext(UserContext);
@@ -18,42 +19,22 @@ const AddressForm = ({ cancel }) => {
       : setCountry(e.target.value);
   };
 
-  const changeType = (e) => {
-    setType(e.target.value);
-  };
+  const changeType = (e) => {setType(e.target.value)};
 
   const patchAddress = (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-    const headers = { "x-auth-token": token };
-    if (type === "home") {
-      axios
-        .patch(
-          "http://localhost:8000/api/v1/users/me",
-          { homeAddress: { street, city, country } },
-          { headers }
-        )
-        .then((res) => {
-          userDispatch({
-            type: "home",
-            homeAddress: { street, city, country },
-          });
-          console.log(res);
-          cancel();
-        });
-    } else {
-      axios
-        .patch(
-          "http://localhost:8000/api/v1/users/me",
-          { shippingAddress: { street, city, country } },
-          { headers }
-        )
-        .then((res) => {
-          userDispatch({ type: "shipping", shippingAddress: { street, city, country } });
-          console.log(res);
-          cancel();
-        });
-    }
+    const patchObj =
+      type === "home"
+        ? { homeAddress: { street, city, country } }
+        : { shippingAddress: { street, city, country } };
+
+    patchFunction(patchObj);
+
+    type === "home"
+     ? userDispatch({type: "home", homeAddress: { street, city, country }})
+     : userDispatch({ type: "shipping", shippingAddress: { street, city, country }});
+    
+    cancel();
   };
 
   return (
