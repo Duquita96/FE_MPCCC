@@ -45,49 +45,38 @@ export const ProductIdPage = ({ productType }) => {
         navigate(-1);
     };
 
-/*     console.log('productType en ProductIdPage: ', productType); */
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`http://localhost:8000/api/v1/${productType}/${id}`);
+                const data = await response.json();
+                switch (productType) {
+                    case 'books':
+                        setBook(data.data);
+                        setImgPath(getBookImgPath(data.data));
+                        break;
+                    case 'tours':
+                        setTour(data.data);
+                        setImgPath(getTourImgPath(data.data));
+                        break;
+                    case 'pc-parts':
+                        setPcParts(data.data);
+                        setImgPath(getPcPartsImgPath(data.data));
+                        break;
+                    case 'video-games':
+                        setVideoGames(data.data);
+                        setImgPath(getVideoGamesImgPath(data.data));
+                        break;
+                    default:
+                        break;
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        };
 
-        if (productType === 'books') {
-            fetch(`http://localhost:8000/api/v1/books/${id}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    setBook(data.data);
-                    setImgPath(getBookImgPath(data.data));
-                })
-                .catch(err => console.log(err))
-        } else if (productType === 'tours') {
-            fetch(`http://localhost:8000/api/v1/tours/${id}`)
-                .then(res => res.json())
-                .then(data => {
-                    setTour(data.data);
-                    setImgPath(getTourImgPath(data.data));
-                })
-                .catch(err => console.log(err))
-        } else if (productType === 'pc_parts') {
-
-            fetch(`http://localhost:8000/api/v1/pc-parts/${id}`)
-                .then(res => res.json())
-                .then(data => {
-
-                    setPcParts(data.data);
-                    setImgPath(getPcPartsImgPath(data.data));
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-        } else if (productType === 'video_games') {
-            fetch(`http://localhost:8000/api/v1/video-games/${id}`)
-                .then(res => res.json())
-                .then(data => {
-                    setVideoGames(data.data);
-                    setImgPath(getVideoGamesImgPath(data.data));
-                })
-        }
-
-
-    }, [id]);
+        fetchData();
+    }, [id, productType]);
     const renderProductDetails = (book) => (
         <div className="product_section">
             <div className='imgContainer'>
@@ -197,50 +186,50 @@ export const ProductIdPage = ({ productType }) => {
         <div>
 
             <PageWrapper >
-            {showLogin && <Login />}
-            {showCart && <Cart />}
-            {windowWidth <= 768 && <MobileNavBar />}
-            <div id="product_description">
-                <div className="button_container">
-                    <button className='filter-goBack-button' onClick={handleGoBack}>
-                        <BsFillArrowLeftSquareFill id='arrowIcon' />
-                    </button>
-                    <div id='product-title'>
-                        {book ? book.name : tour ? tour.name : pcParts ? pcParts.name : videoGames ? videoGames.name : 'Item Name'}
+                {showLogin && <Login />}
+                {showCart && <Cart />}
+                {windowWidth <= 768 && <MobileNavBar />}
+                <div id="product_description">
+                    <div className="button_container">
+                        <button className='filter-goBack-button' onClick={handleGoBack}>
+                            <BsFillArrowLeftSquareFill id='arrowIcon' />
+                        </button>
+                        <div id='product-title'>
+                            {book ? book.name : tour ? tour.name : pcParts ? pcParts.name : videoGames ? videoGames.name : 'Item Name'}
+                        </div>
+
+                    </div>
+                    <div>
+                        {book ? renderProductDetails(book) :
+                            tour ? renderServiceDetails(tour) :
+                                pcParts ? renderPcDetails(pcParts) :
+                                    videoGames ? renderVideoGamesDetails(videoGames) :
+                                        <div>insert 404</div>}
+
+                    </div>
+                    <div id='buy_section'>
+                        <div>
+                            <RiPaypalFill id='paypalIcon' className='buyIcon' />
+                        </div>
+                        <div>
+                            <RiVisaFill id='visaIcon' className='buyIcon' />
+                        </div>
+                        <div>
+                            <RiMastercardLine id='masterIcon' className='buyIcon' />
+                        </div>
+                        <div>
+                            <RiBankFill id='bankIcon' className='buyIcon' />
+                        </div>
+                        <div>
+                            <RiCalendarScheduleFill id='buyNowCalendarIcon' className='buyIcon' />
+                        </div>
                     </div>
 
-                </div>
-                <div>
-                    {book ? renderProductDetails(book) :
-                        tour ? renderServiceDetails(tour) :
-                            pcParts ? renderPcDetails(pcParts) :
-                                videoGames ? renderVideoGamesDetails(videoGames) :
-                                    <div>insert 404</div>}
+                    <div id='comments-section'>
 
-                </div>
-                <div id='buy_section'>
-                    <div>
-                        <RiPaypalFill id='paypalIcon' className='buyIcon' />
-                    </div>
-                    <div>
-                        <RiVisaFill id='visaIcon' className='buyIcon' />
-                    </div>
-                    <div>
-                        <RiMastercardLine id='masterIcon' className='buyIcon' />
-                    </div>
-                    <div>
-                        <RiBankFill id='bankIcon' className='buyIcon' />
-                    </div>
-                    <div>
-                        <RiCalendarScheduleFill id='buyNowCalendarIcon' className='buyIcon' />
+                        < Comments productType={productType} />
                     </div>
                 </div>
-
-                <div id='comments-section'>
-
-                    < Comments productType={productType} />
-                </div>
-            </div>
 
             </PageWrapper>
         </div>
@@ -251,5 +240,4 @@ export default ProductIdPage;
 
 ProductIdPage.propTypes = {
     productType: PropTypes.string,
-  };
-  
+};

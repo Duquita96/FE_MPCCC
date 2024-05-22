@@ -21,7 +21,7 @@ const VideoGamesM = ({ card }) => { //recibe the object as an argument
         <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
         <Card.Body id="cardBody">
           <Card.Title>{cardName} {card.price}</Card.Title>
-          <StarRating rating={card.rating} />
+          <StarRating rating={card.ratings} />
        {/*    {console.log("card.review", card.review)} */}
         </Card.Body>
       </Card>
@@ -38,6 +38,6 @@ VideoGamesM.propTypes = {
     imgSrc: PropTypes.string,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    rating: PropTypes.number, 
+    ratings: PropTypes.number, 
   }).isRequired,
 };

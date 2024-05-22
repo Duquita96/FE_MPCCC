@@ -24,7 +24,7 @@ const BookM = ({ card }) => { //recibe the object as an argument
         </div>
         <Card.Body id="cardBody">
           <Card.Title>{cardName} {card.price}</Card.Title>
-          <StarRating rating={card.rating} />
+          <StarRating rating={card.ratings} />
         </Card.Body>
       </Card>
     </div>
@@ -41,5 +41,6 @@ BookM.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number,
+    ratings: PropTypes.number,
   }).isRequired,
 };

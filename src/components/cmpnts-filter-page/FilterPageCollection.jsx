@@ -29,7 +29,6 @@ export const FilterPageCollection = ({ productType, toursType }) => {
   const [currentFilter, setCurrentFilter] = useState('all');
   const [toursTypeFilter, setToursTypeFilter] = useState('');
   const { setTourType } = useContext(ToursTypeContext);
-/*   console.log('in export FilterPageCollection: currentFilter', currentFilter, 'toursTypeFilter: ', toursTypeFilter); */
 
   const navigate = useNavigate();
   const changeFilter = (filterType, toursType = '') => {
@@ -37,13 +36,12 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     setToursTypeFilter(toursType); // Filter Tour Type
     setTourType(toursType); // Context TourType
     navigate(`/filter-page/${filterType}`);
- /*    console.log('in Change Filter: filterType: ', filterType, 'toursType: ', toursType); */
   };
 
   const GoBack = () => {
     setTourType('');
     navigate("/");
-};
+  };
 
   useEffect(() => {
     if (productType) {
@@ -72,26 +70,30 @@ export const FilterPageCollection = ({ productType, toursType }) => {
   const filteredData = filterData
     .filter(item => item.price >= values[0] && item.price <= values[1])
     .filter(item => {
+
       if (currentFilter === 'all-products') {
-        // Exclude 'tours' from filter 'all-products'
-        return item.productType !== 'tours' && item.productType !== 'TOURS';
-      } else if (currentFilter === 'all') {
-        // Include all the products and services
+        //exclude tours from the filter
+        console.log("All Products was clicked, value is: ", currentFilter)
+        return item.productType !== 'tours';
+      } if (currentFilter === 'all') {
+        //include All items
+        console.log("All Products and Services was clicked, value is: ", currentFilter)
         return true;
       } else {
         // Specific Filters
-        return item.productType.toUpperCase() === currentFilter.toUpperCase();
+        console.log("All tours was clicked, value is: ", currentFilter)
+        return item.productType === currentFilter;
       }
     })
-    .filter(item => !toursTypeFilter || (item.toursType && item.toursType.toUpperCase() === toursTypeFilter.toUpperCase()));
+    .filter(item => !toursTypeFilter || (item.toursType === toursTypeFilter));
 
 
   return (
     <div id='allProducts-container'>
       <div className="ProductsPage_Filter">
-      <button className='goBack-button'  id="ButtonFilter-GoBack" onClick={GoBack}>
-                        <BsFillArrowLeftSquareFill id='arrowIcon' />
-                    </button>
+        <button className='goBack-button' id="ButtonFilter-GoBack" onClick={GoBack}>
+          <BsFillArrowLeftSquareFill id='arrowIcon' />
+        </button>
         <li className="filterPointer" onClick={() => changeFilter('all')}>All Products and Services</li>
         <h3>Filter</h3>
         <br></br>
@@ -100,8 +102,8 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           <ul>
             <li className="filterPointer" onClick={() => changeFilter('all-products')}>All Products</li>
             <li className="filterPointer" onClick={() => changeFilter('books')}>Books</li>
-            <li className="filterPointer" onClick={() => changeFilter('pc_parts')}>PC Parts</li>
-            <li className="filterPointer" onClick={() => changeFilter('video_games')}>Video Games</li>
+            <li className="filterPointer" onClick={() => changeFilter('pc-parts')}>PC Parts</li>
+            <li className="filterPointer" onClick={() => changeFilter('video-games')}>Video Games</li>
           </ul>
         </div>
 
@@ -142,10 +144,10 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           /* Llena el contenido de las tarjetas "card" que se han filtrado */
           <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
             <div className='card-container pointer'>
-              {card.productType.toLowerCase() === 'books' && <BookM card={card} />}
-              {card.productType.toLowerCase() === 'video_games' && <VideoGameM card={card} />}
-              {card.productType.toLowerCase() === 'pc_parts' && <PcPartM card={card} />}
-              {card.productType.toLowerCase() === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
+              {card.productType === 'books' && <BookM card={card} />}
+              {card.productType === 'video-games' && <VideoGameM card={card} />}
+              {card.productType === 'pc-parts' && <PcPartM card={card} />}
+              {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
 
             </div>
           </ProductPreviewClick>
