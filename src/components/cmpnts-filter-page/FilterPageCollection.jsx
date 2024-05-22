@@ -99,9 +99,9 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           <h3>Products</h3>
           <ul>
             <li className="filterPointer" onClick={() => changeFilter('all-products')}>All Products</li>
-            <li className="filterPointer" onClick={() => changeFilter('book')}>Books</li>
-            <li className="filterPointer" onClick={() => changeFilter('pc_part')}>PC Parts</li>
-            <li className="filterPointer" onClick={() => changeFilter('video_game')}>Video Games</li>
+            <li className="filterPointer" onClick={() => changeFilter('books')}>Books</li>
+            <li className="filterPointer" onClick={() => changeFilter('pc_parts')}>PC Parts</li>
+            <li className="filterPointer" onClick={() => changeFilter('video_games')}>Video Games</li>
           </ul>
         </div>
 
@@ -142,9 +142,9 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           /* Llena el contenido de las tarjetas "card" que se han filtrado */
           <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
             <div className='card-container pointer'>
-              {card.productType.toLowerCase() === 'book' && <BookM card={card} />}
-              {card.productType.toLowerCase() === 'video_game' && <VideoGameM card={card} />}
-              {card.productType.toLowerCase() === 'pc_part' && <PcPartM card={card} />}
+              {card.productType.toLowerCase() === 'books' && <BookM card={card} />}
+              {card.productType.toLowerCase() === 'video_games' && <VideoGameM card={card} />}
+              {card.productType.toLowerCase() === 'pc_parts' && <PcPartM card={card} />}
               {card.productType.toLowerCase() === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
 
             </div>

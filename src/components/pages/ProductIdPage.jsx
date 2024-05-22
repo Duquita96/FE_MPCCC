@@ -48,7 +48,7 @@ export const ProductIdPage = ({ productType }) => {
 /*     console.log('productType en ProductIdPage: ', productType); */
     useEffect(() => {
 
-        if (productType === 'book') {
+        if (productType === 'books') {
             fetch(`http://localhost:8000/api/v1/books/${id}`)
                 .then(res => res.json())
                 .then(data => {
@@ -57,7 +57,7 @@ export const ProductIdPage = ({ productType }) => {
                     setImgPath(getBookImgPath(data.data));
                 })
                 .catch(err => console.log(err))
-        } else if (productType === 'tour') {
+        } else if (productType === 'tours') {
             fetch(`http://localhost:8000/api/v1/tours/${id}`)
                 .then(res => res.json())
                 .then(data => {
@@ -65,7 +65,7 @@ export const ProductIdPage = ({ productType }) => {
                     setImgPath(getTourImgPath(data.data));
                 })
                 .catch(err => console.log(err))
-        } else if (productType === 'pc_part') {
+        } else if (productType === 'pc_parts') {
 
             fetch(`http://localhost:8000/api/v1/pc-parts/${id}`)
                 .then(res => res.json())

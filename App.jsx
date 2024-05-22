@@ -24,9 +24,9 @@ function App() {
               <Route path='/user-account' element={<UserAccountPage />} />
               <Route path='/filter-page' element={<AllProducts />} />
               <Route path='/filter-page/:productType' element={<AllProducts />} />
-              <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
-              <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
-              <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc_part' />} />
+              <Route path='/books/:id' element={<ProductIdPage productType='books' />} />
+              <Route path='/tours/:id' element={<ProductIdPage productType='tours' />} />
+              <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc_parts' />} />
               <Route path='/video-games/:id' element={<ProductIdPage productType='video_games' />} />
               <Route path='*' element={<NotFound />} />
             </Routes>

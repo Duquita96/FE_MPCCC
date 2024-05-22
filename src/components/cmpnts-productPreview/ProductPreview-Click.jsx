@@ -15,13 +15,13 @@ let lowerProductType= productType.toLowerCase();
 
 
 
-    if (lowerProductType === 'book') {
-      route = `/book/${id}`;
+    if (lowerProductType === 'books') {
+      route = `/books/${id}`;
     } else if (lowerProductType === 'tours') {
-      route = `/tour/${id}`;
-    } else if (lowerProductType === 'pc_part') {
+      route = `/tours/${id}`;
+    } else if (lowerProductType === 'pc_parts') {
       route = `/pc-parts/${id}`;
-    } else if (lowerProductType === 'video_game') {
+    } else if (lowerProductType === 'video_games') {
       route = `/video-games/${id}`;
     }
     console.log(`Element ${lowerProductType} with ID ${id} was clicked.`, "route: ", route);
