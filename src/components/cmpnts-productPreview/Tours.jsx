@@ -6,13 +6,13 @@ import { StarRating } from './ReviewList.jsx'
 export const getTourImgPath = (card) => {
   let imgPath;
   switch (card.toursType) {
-    case 'HIKING':
+    case 'hiking':
       imgPath = '../src/assets/img/Hiking.jpeg';
       break;
-    case 'MUSEUM':
+    case 'museum':
       imgPath = '../src/assets/img/Museum.jpeg';
       break;
-    case 'SIGHTSEEING':
+    case 'sightseeing':
       imgPath = '../src/assets/img/SightSeeing.jpeg';
       break;
     default:
