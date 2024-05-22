@@ -20,7 +20,6 @@ export const StarRating = ({ rating }) => {
 };
 
 const ReviewList = ({ reviews }) => {
-    const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
 
     return (
         <div id='review-list'>
@@ -37,7 +36,6 @@ const ReviewList = ({ reviews }) => {
                             <p id='secondCommentLine'>
                                 {review.comment}
                             </p>
-                            { console.log("promedio de ratings: ", averageRating.toFixed(2) ) }
                         </li>
                     ))}
                 </ul>
