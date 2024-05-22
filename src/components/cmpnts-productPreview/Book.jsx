@@ -8,10 +8,11 @@ export const getBookImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
 const BookM = ({ card }) => { //recibe the object as an argument
 
   const imgPath = getBookImgPath(card);
-  
+
   function truncateName(name) {
     return name.length > 20 ? name.substring(0, 18) + '...' : name;
   }
+
 
   const cardName = truncateName(card.name);
 
@@ -19,12 +20,13 @@ const BookM = ({ card }) => { //recibe the object as an argument
     <div>
       <Card>
         <div className='imgBoxContainer'>
-        <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
+          <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
 
         </div>
         <Card.Body id="cardBody">
           <Card.Title>{cardName} {card.price}</Card.Title>
-          <StarRating rating={card.ratings} />
+          <StarRating rating={card.ratingAvg} />
+          {console.log("En Books card.ratingAvg: ",card.ratingAvg)}
         </Card.Body>
       </Card>
     </div>
@@ -41,6 +43,6 @@ BookM.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number,
-    ratings: PropTypes.number,
+    ratingAvg: PropTypes.number,
   }).isRequired,
 };

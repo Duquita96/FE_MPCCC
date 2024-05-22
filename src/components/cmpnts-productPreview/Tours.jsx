@@ -41,7 +41,8 @@ const TourM = ({ card, imgPath, hideImg }) => { //recibe the object as an argume
         <Card.Body id="serviceBody">
           <Card.Title id='card-title'>{cardName} </Card.Title>
           <Card.Text>{card.price}</Card.Text>
-          <StarRating rating={card.ratings} />
+          <StarRating rating={card.ratingAvg} />
+          {console.log("En Tours card.ratingAvg: ",card.ratingAvg)}
         </Card.Body>
       </Card>
    
@@ -57,5 +58,6 @@ TourM.propTypes = {
     price: PropTypes.number.isRequired,
     ratings: PropTypes.number,
     a: PropTypes.bool,
+    ratingAvg: PropTypes.number,
   }).isRequired,
 };
