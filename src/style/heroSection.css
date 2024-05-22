@@ -2,11 +2,26 @@
     height: 140px;
     background: linear-gradient(180deg, var(--clr-light1), var(--clr-light2));
     padding: 30px;
+    text-align: center;
 }
 
 .hero-text {
     text-align: center;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
+.hero-text:last-of-type {
+    font-weight:600;
+    color: var(--clr-dark1);
+}
+
+.heroStar {
+    color: yellow;
+    size: 10;
+    margin-top: -10px;
+}
+
+.stars {
+    margin-bottom: 2px;
+}
