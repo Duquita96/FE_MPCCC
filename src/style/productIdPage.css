@@ -32,6 +32,7 @@
 #product_description {
   background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
   padding: 50px 10% 100px 10%;
+  flex-grow: 1;
 }
 
 .imgContainer {

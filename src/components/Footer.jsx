@@ -1,37 +1,54 @@
+import { FaLinkedin, FaFacebookSquare } from "react-icons/fa";
+import { FaXTwitter, FaSquareInstagram } from "react-icons/fa6";
 import "../style/footer.css";
 
 const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-social">
-        <div className="ft-social-icon pointer"></div>
-        <div className="ft-social-icon pointer"></div>
-        <div className="ft-social-icon pointer"></div>
-        <div className="ft-social-icon pointer"></div>
+        <a
+          className="ft-social-icon pointer"
+          href="https://www.facebook.com"
+          target="_blank"
+        >
+          <FaFacebookSquare size={20} />
+        </a>
+        <a
+          className="ft-social-icon pointer"
+          href="https://www.linkedin.com"
+          target="_blank"
+        >
+          <FaLinkedin size={20} />
+        </a>
+        <a
+          className="ft-social-icon pointer"
+          href="https://twitter.com"
+          target="_blank"
+        >
+          <FaXTwitter size={20} />
+        </a>
+        <a
+          className="ft-social-icon pointer"
+          href="https://www.instagram.com"
+          target="_blank"
+        >
+          <FaSquareInstagram size={20} />
+        </a>
       </div>
       <div className="footer-main">
         <div className="ft-box">
           <p className="ft-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-            temporibus vitae ipsam exercitationem unde corrupti ea placeat
-            tempora. Distinctio voluptas vel id dignissimos quaerat, dicta ut
-            totam enim error molestiae!
+           Easy. Searching for the best deal? Whether you're shopping for books, tours, games or pc-parts, we've got everything you need. It's incredibly straightforward.
           </p>
         </div>
         <div className="ft-box">
           <p className="ft-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-            temporibus vitae ipsam exercitationem unde corrupti ea placeat
-            tempora. Distinctio voluptas vel id dignissimos quaerat, dicta ut
-            totam enim error molestiae!
+          Clear. By providing clear information, we help you make the best choices tailored to your needs. Our main focus is to assist you in your shopping journey. 
           </p>
         </div>
         <div className="ft-box">
           <p className="ft-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-            temporibus vitae ipsam exercitationem unde corrupti ea placeat
-            tempora. Distinctio voluptas vel id dignissimos quaerat, dicta ut
-            totam enim error molestiae!
+          Smart. Dive into our detailed reviews and confidently find products tailored to your needs. With pmccc-marketplace you're making smarter choices.
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaRegTrashCan } from "react-icons/fa6";
 
 const CartItems = () => {
   
@@ -20,8 +21,7 @@ const CartItems = () => {
               className="delBtn pointer"
               id={cart.indexOf(item)}
               onClick={delItem}
-            >
-              D
+            > <FaRegTrashCan size={14} />
             </button>
           </div>
         );
@@ -33,7 +33,9 @@ const CartItems = () => {
       </div>
 
       <button className="buyBtn cartBtn pointer">Buy</button>
-      <button className="emptyBtn cartBtn pointer" onClick={()=> setCart([])}>Empty</button>
+      <button className="emptyBtn cartBtn pointer" onClick={()=> setCart([])}>
+      <FaRegTrashCan size={14} /> All
+      </button>
     </div>
   );
 };

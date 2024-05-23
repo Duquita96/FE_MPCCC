@@ -17,9 +17,9 @@ const { userState, resetUser, addNewUser} = useContext(UserContext);
 
 useEffect(()=> {
   const token = localStorage.getItem("token");
-  if (token === null) {resetUser; return;}
+  if (token === null) {resetUser(); return;}
   const expiration = localStorage.getItem("exp");
-  +expiration < Date.now()/1000 ? resetUser : addNewUser(jwtDecode(token));
+  +expiration < Date.now()/1000 ? resetUser() : addNewUser(jwtDecode(token));
 }, [])
 
 // For testing

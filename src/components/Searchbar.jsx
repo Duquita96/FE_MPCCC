@@ -7,6 +7,8 @@ const SearchBar = () => {
   const [inputStr, setInputStr] = useState("");
   const [searchData, setSearchData] = useState([]);
 
+  const navigate = useNavigate();
+
   const updateSearchData = (array) => {setSearchData(array)};
 
   useEffect(() => {
@@ -29,8 +31,6 @@ const SearchBar = () => {
   const handleChange = (e) => {setInputStr(e.target.value)};
   const clear = () => {setInputStr("")};
 
-  const navigate = useNavigate();
-
   const searchSelector = (e) => {
     const selectedId = e.target.id;
     const selectedCategory = e.target.innerText.split("|")[1].trim().toLowerCase();
@@ -39,6 +39,8 @@ const SearchBar = () => {
     selectedId.length > 1
     ? navigate(`/${selectedCategory}/${selectedId}`) 
     : navigate(`/filter-page/${selectedType}`)
+
+    clear();
   };
 
   return (

@@ -32,16 +32,17 @@
 
   .buyBtn {
     background-color: lightgreen;
+    border: none;
   }
 
   .emptyBtn, .delBtn {
-    color: red;
-    background-color: var(--clr-light1);
+    color: white;
+    background-color: red;
+    border: none;
   }
 
-  .emptyBtn:hover, .buyBtn:hover {
-    border: 1px solid white;
-  }
+  .delBtn {padding: 4px; border-radius: 5px;}
+
 
   .cart-total {
     margin-top: 20px;
