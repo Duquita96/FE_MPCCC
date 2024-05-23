@@ -12,22 +12,22 @@ const ProductsNavBar = () => {
   return (
     <nav className="navbar headers">
       <Link to={"/filter-page/video-games"} className="nav-item">
-        <CgGames size={27} />
+        <CgGames size={27} /><span className="tooltipText">Video Games</span>
       </Link>
       <Link to={"/filter-page/books"} className="nav-item">
-        <GiBookshelf size={27} />
+        <GiBookshelf size={27} /><span className="tooltipText">Books</span>
       </Link>
       <Link to={"/filter-page/pc-parts"} className="nav-item">
-        <GiComputerFan size={27} />
+        <GiComputerFan size={27} /><span className="tooltipText">PC Parts</span>
       </Link>
       <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('sightseeing')}>
-        <PiParkDuotone size={27} />
+        <PiParkDuotone size={27} /><span className="tooltipText">Sightseeing</span>
       </Link>
       <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('hiking')}>
-        <MdHiking size={27} />
+        <MdHiking size={27} /><span className="tooltipText">Hiking</span>
       </Link>
       <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('museum')}>
-        <MdOutlineMuseum size={27} />
+        <MdOutlineMuseum size={27} /><span className="tooltipText">Museum</span>
       </Link>
     </nav>
   );
