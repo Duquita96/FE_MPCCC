@@ -10,8 +10,8 @@ import 'react-medium-image-zoom/dist/styles.css'
 
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
-import HeaderContext from '../../context/HeaderContext.jsx';
-import WidthContext from '../../context/WidthContext.jsx';
+import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
+import { WidthContext } from '../../context/WidthContextProvider.jsx';
 import { getBookImgPath } from '../cmpnts-productPreview/Book.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import { getPcPartsImgPath } from '../cmpnts-productPreview/PcParts.jsx';

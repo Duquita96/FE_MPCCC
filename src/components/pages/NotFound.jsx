@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../style/NotFoundPage/NotFound.module.css';
+import styles from '../../style/NotFound.module.css';
 import useTypewriter from '../../utils/useTypewriter.js';
 import { Link } from "react-router-dom";
 

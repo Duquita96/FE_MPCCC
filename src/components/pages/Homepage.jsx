@@ -4,8 +4,8 @@ import Cart from "../Cart.jsx";
 import ProductsNavBar from "../cmpnts-homepage-navbars/ProductsNavBar.jsx";
 import MobileNavBar from "../cmpnts-homepage-navbars/MobileNavBar.jsx";
 import ProductsPreview from "../cmpnts-productPreview/ProductsPreview.jsx";
-import HeaderContext from '../../context/HeaderContext.jsx';
-import WidthContext from '../../context/WidthContext.jsx';
+import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
+import { WidthContext } from '../../context/WidthContextProvider.jsx';
 import HeroSection from '../HeroSection.jsx';
 import PageWrapper from '../PageWrapper.jsx';
 

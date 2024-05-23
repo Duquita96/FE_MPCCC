@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import HeaderContext from "../../context/HeaderContext";
+import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
 
 /** Cart button. Toggles visibility of drop down cart menu */
 const CartBtn = () => {
