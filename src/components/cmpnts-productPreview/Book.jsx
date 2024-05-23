@@ -21,12 +21,10 @@ const BookM = ({ card }) => { //recibe the object as an argument
       <Card>
         <div className='imgBoxContainer'>
           <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
-
         </div>
         <Card.Body id="cardBody">
           <Card.Title>{cardName} {card.price}</Card.Title>
           <StarRating rating={card.ratingAvg} />
-          {console.log("En Books card.ratingAvg: ",card.ratingAvg)}
         </Card.Body>
       </Card>
     </div>

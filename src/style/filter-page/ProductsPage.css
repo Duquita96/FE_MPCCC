@@ -2,16 +2,13 @@
     width: 20vw;
     min-width: 220px;
     height: 80vh;
-/*     background-color: var(--clr-light2); */
     padding: 2rem;
-/*     background-color: var(--clr-light2); */
 }
 
 #filter-collection{
     background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
     width: 80vw;
     height: 80vh;
-/*     background-color: var(--clr-dark1); */
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -19,23 +16,6 @@
     justify-content: center;
     padding: 20px;
 }
-
-/* :root {
-    font-size: 62.5%;
-  
-    --clr-dark1: rgb(34, 40, 49);
-    --clr-dark1-transparent: rgba(34, 40, 49, 0.5);
-  
-    --clr-dark2: rgb(49, 54, 63);
-    --clr-dark2-transparent: rgba(49, 54, 63, 0.5);
-  
-    --clr-light1: rgb(118, 171, 174);
-    --clr-light1-transparent: rgba(118, 171, 174, 0.5);
-  
-    --clr-light2:rgb(238, 238, 238);
-    --clr-light2-transparent:rgba(238, 238, 238, 0.5);
-  } */
-
 
 .needflex {
     display: flex;

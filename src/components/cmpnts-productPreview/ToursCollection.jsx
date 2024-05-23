@@ -17,7 +17,7 @@ export const ToursCollection = () => {
 
   return (
     <div>
-      <div id='service-collection'>
+      <div id='service-collection' className='cards-container'>
         {toursData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='service-container pointer'>

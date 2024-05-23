@@ -17,16 +17,14 @@ export const VideoGamesCollection = () => {
 
   return (
     <div>
-      <div id='cards-collection'>
-      <ul id="cards-container">
+      <div id="videoGames-collection" className="cards-container">
         {videoGamesData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
-            <div className='card-container pointer'>
+            <div className='carrousell pointer'>
               <VideoGamesM card={card} /> {/* Pass the object as property */}
             </div>
           </ProductPreviewClick>
         ))}
-        </ul>
       </div>
     </div>
   );
