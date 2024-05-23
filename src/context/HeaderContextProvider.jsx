@@ -1,5 +1,6 @@
-import HeaderContext from "./HeaderContext";
-import { useState } from "react";
+import { createContext, useState } from 'react';
+
+export const HeaderContext = createContext();
 
 /** Provides the functions and states for the functionality of the header and drop down menus*/
 const HeaderContextProvider = ({ children }) => {

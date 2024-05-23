@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import HeaderContext from "../context/HeaderContext";
-import UserContext from "../context/UserContext";
+import { HeaderContext } from '../context/HeaderContextProvider.jsx';
+import { UserContext } from '../context/UserContextProvider.jsx';
 import "../style/loginStyle.css";
 import axios from "axios";
 

@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode";
 import SearchBar from "./Searchbar";
-import HeaderContext from '../context/HeaderContext';
+import { HeaderContext } from '../context/HeaderContextProvider.jsx';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
 import LoginLogoutBtn from './cmpnts-header-buttons/LoginLogoutBtn';
 import CartBtn from './cmpnts-header-buttons/CartBtn';
-import UserContext from '../context/UserContext';
-import WidthContext from '..//context/WidthContext.jsx';
+import { UserContext } from '../context/UserContextProvider.jsx';
+import { WidthContext } from '../context/WidthContextProvider.jsx';
 import "../style/headerStyle.css";
 
 const MainHeader = () => {

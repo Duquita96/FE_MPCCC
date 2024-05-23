@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import UserContext from "../../context/UserContext";
+import { UserContext } from '../../context/UserContextProvider.jsx';
 import { Link } from "react-router-dom";
 
 /** Account button, appears when user logs in, onclick goes to user account settings */

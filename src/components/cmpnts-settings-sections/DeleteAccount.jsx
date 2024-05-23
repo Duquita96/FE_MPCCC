@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import UserContext from "../../context/UserContext";
+import { UserContext } from '../../context/UserContextProvider.jsx';
 import axios from "axios";
 
 const DeleteAccount = () => {

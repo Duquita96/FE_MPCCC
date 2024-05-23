@@ -9,8 +9,8 @@ import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import FilterPageCollection from "../cmpnts-filter-page/FilterPageCollection.jsx";
 import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
-import HeaderContext from '../../context/HeaderContext.jsx';
-import WidthContext from '../../context/WidthContext.jsx';
+import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
+import { WidthContext } from '../../context/WidthContextProvider.jsx';
 import PageWrapper from '../PageWrapper.jsx';
 import {ToursTypeContext} from '../../context/TypesContext.jsx';
 

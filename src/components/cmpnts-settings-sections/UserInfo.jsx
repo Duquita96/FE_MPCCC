@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import UserContext from "../../context/UserContext";
+import { UserContext } from '../../context/UserContextProvider.jsx';
 import EmailForm from '../cmpnts-settings-sections/EmailForm'
 import GenderForm from '../cmpnts-settings-sections/GenderForm'
 import PasswordForm from '../cmpnts-settings-sections/PasswordForm'

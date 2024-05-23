@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import WidthContext from "../context/WidthContext.jsx";
+import { WidthContext } from '../context/WidthContextProvider.jsx';
 import { FaStar } from "react-icons/fa";
 import "../style/heroSection.css";
 
