@@ -33,19 +33,15 @@ const TourM = ({ card, imgPath, hideImg }) => { //recibe the object as an argume
 
   const cardName = truncateName(card.name);
   return (
-    
-      <Card>
-        <div className='imgBoxContainer'>
-          <Card.Img variant="top" src={imgPath} id="cardImgSrc" className={hideImg ? "hidden" : "toShow"}/>
-        </div>
-        <Card.Body id="serviceBody">
-          <Card.Title id='card-title'>{cardName} </Card.Title>
-          <Card.Text>{card.price}</Card.Text>
-          <StarRating rating={card.ratingAvg} />
-          {console.log("En Tours card.ratingAvg: ",card.ratingAvg)}
-        </Card.Body>
-      </Card>
-   
+    <Card>
+      <div className='imgBoxContainer'>
+        <Card.Img variant="top" src={imgPath} id="cardImgSrc" className={hideImg ? "hidden" : "toShow"} />
+      </div>
+      <Card.Body id="serviceBody">
+        <Card.Title id='card-title'>{cardName} {card.price}</Card.Title>
+        <StarRating rating={card.ratingAvg} />
+      </Card.Body>
+    </Card>
   );
 };
 

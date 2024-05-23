@@ -12,9 +12,9 @@ const CartItems = () => {
 
   return (
     <div>
-      {cart.map((item, key) => {
+      {cart.map((item, index) => {
         return (
-          <div key={key} className="cart-item-list">
+          <div className="cart-item-list" key={index}>
             <p className="cart-item-desc">{item}</p>
             <p>0,00€</p>
             <button

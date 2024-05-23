@@ -143,7 +143,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
         {filteredData.map((card) => (
           /* Llena el contenido de las tarjetas "card" que se han filtrado */
           <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
-            <div className='card-container pointer'>
+            <div className='carrousell pointer'>
               {card.productType === 'books' && <BookM card={card} />}
               {card.productType === 'video-games' && <VideoGameM card={card} />}
               {card.productType === 'pc-parts' && <PcPartM card={card} />}

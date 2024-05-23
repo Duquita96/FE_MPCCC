@@ -6,21 +6,23 @@
 #books-collection,
 #service-collection {
   display: grid;
-  gap: 12px;
-  padding: 10px;
+  gap: 10px;
 }
 
 #books-collection {
   grid-template-columns: repeat(7, 1fr);
-  width: auto;
-  height: 250px;
-  border-radius: 5px;
   display: flex;
-  flex-direction: row;
+}
+
+.cards-container {
+  display: flex;
+  overflow: hidden;
+  height: 250px;
+  width: 100%;
+  padding: 1rem 0rem;
   justify-content: center;
   align-content: center;
-  position: relative;
-  overflow: hidden;
+
 }
 
 #service-collection {
@@ -45,10 +47,10 @@
     rgba(94, 136, 138)
   );
   border-radius: 5px;
-  /* border: 1px solid rgb(49, 54, 63); */
 }
 
-.card-container {
+
+.carrousell {
   height: 200px;
   width: 200px;
   display: flex;
@@ -69,56 +71,52 @@
   margin: auto;
 }
 
-.card-container,
+.carrousell,
 .service-container {
   border: 1px solid rgb(49, 54, 63);
   border-radius: 5px;
   background: rgb(118, 171, 174);
   display: flex;
-  align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 10px;
+  padding: 1rem;
   transition: transform 0.3s ease;
   color: rgb(34, 40, 49);
   box-shadow: 2px 2px 5px rgba(34, 40, 49, 0.9);
   overflow: hidden;
 }
 
-.card-container:hover,
+.carrousell:hover,
 .service-container:hover {
   transform: scale(1.1);
-  padding: 0px 10px;
 }
 
 #cardImgSrc {
+  height: 12rem;
   border-radius: 5px;
-  border: 1px solid blue;
-  
-      
-    
-}
-
-#cardImgSrc{
+  object-fit: cover;
+  object-position: center;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 5px;
 }
 
-.card-title{
-width: 100%;
+.imgBoxContainer {
+  padding: 0px 10px;
+  overflow: hidden;
+  width: 20rem;
+}
+.card-title {
+  width: 100%;
 }
 
 #serviceBody {
   padding: auto;
 }
-.hidden{
+.hidden {
   display: none;
 }
-.toShow{
-display: block;
-object-fit: contain;
+.toShow {
+  display: block;
+  object-fit: cover;
 }
 
 #cardBody {
@@ -128,24 +126,13 @@ object-fit: contain;
   margin-top: 0px;
 }
 
-#cards-container{
-  display: flex;
-overflow: hidden;
-height: 250px;
-width: 100%;
-padding: 10px;
-justify-content: center;
-align-content: center;
-}
-
-
 #collections-container {
   display: flex;
   overflow-x: hidden;
   min-width: 100%;
 }
 
-
+/* /////////////////////Responsivness //////////////////////*/
 
 @media (min-width: 1600px) {
   #service-collection {
@@ -165,7 +152,7 @@ align-content: center;
   }
   #books-collection {
     justify-content: left;
-    grid-template-columns: repeat(7, minmax(0, 1fr)); 
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
 
