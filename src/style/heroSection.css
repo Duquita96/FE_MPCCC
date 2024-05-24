@@ -17,7 +17,7 @@
 }
 
 .heroStar {
-    color: yellow;
+    color: var(--clr-stars);
     size: 10;
     margin-top: -10px;
 }

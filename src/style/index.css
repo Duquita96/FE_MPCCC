@@ -21,6 +21,8 @@
 
   --clr-light2:rgb(238, 238, 238);
   --clr-light2-transparent:rgba(238, 238, 238, 0.5);
+
+  --clr-stars: #ffc107;
 }
 
 html, body {
