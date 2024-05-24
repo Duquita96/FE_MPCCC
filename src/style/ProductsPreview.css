@@ -104,24 +104,29 @@
   overflow: hidden;
   width: 20rem;
 }
-.card-title {
-  width: 100%;
-}
-
 #serviceBody {
   padding: auto;
 }
 .hidden {
   display: none;
+  margin: 10px;
 }
 .toShow {
   display: block;
   object-fit: cover;
 }
 
+.cardNmePrice{
+display: flex;
+justify-content: space-around;
+margin: 0px 15px;
+}
+.cardNmePrice > span {
+font-weight: bolder;
+}
+
 #cardBody {
-  background-color: rgba(118, 171, 174, 0.5);
-  height: 20px;
+  height: 40px;
   font-size: 16px;
   margin-top: 0px;
 }
@@ -132,6 +137,9 @@
   min-width: 100%;
 }
 
+#card-title{
+  height: 40px;
+}
 /* /////////////////////Responsivness //////////////////////*/
 
 @media (min-width: 1600px) {
@@ -180,9 +188,12 @@
   }
 
   #service-collection {
-    height: calc(78px * 2);
+    height: calc(40px * 2);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+  #card-title{
+    height: 30px;
   }
 }
 

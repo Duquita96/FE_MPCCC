@@ -5,16 +5,14 @@ import { StarRating } from './ReviewList.jsx'
 
 export const getBookImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
 
+export function truncateName(name) {
+  return name.length > 40 ? name.substring(0, 18) + '...' : name;
+
+}
+
 const BookM = ({ card }) => { //recibe the object as an argument
-
-  const imgPath = getBookImgPath(card);
-
-  function truncateName(name) {
-    return name.length > 20 ? name.substring(0, 18) + '...' : name;
-  }
-
-
   const cardName = truncateName(card.name);
+  const imgPath = getBookImgPath(card);
 
   return (
     <div>
@@ -23,9 +21,9 @@ const BookM = ({ card }) => { //recibe the object as an argument
           <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
         </div>
         <Card.Body id="cardBody">
-          <Card.Title>{cardName} {card.price}</Card.Title>
-          <StarRating rating={card.ratingAvg} />
+          <Card.Title className='cardNmePrice'>&ldquo;{cardName}&rdquo; <span>{card.price}Є</span></Card.Title>
         </Card.Body>
+        <StarRating rating={card.ratingAvg} className="PPstars" />
       </Card>
     </div>
   );

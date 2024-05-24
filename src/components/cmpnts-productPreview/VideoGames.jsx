@@ -1,15 +1,12 @@
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 import { StarRating } from './ReviewList.jsx'
+import { truncateName } from './Book.jsx';
 
 
 export const getVideoGamesImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
 
 const VideoGamesM = ({ card }) => { //recibe the object as an argument
-
-  function truncateName(name) {
-    return name.length > 20 ? name.substring(0, 18) + '...' : name;
-  }
 
   const cardName = truncateName(card.name);
 
@@ -22,9 +19,9 @@ const VideoGamesM = ({ card }) => { //recibe the object as an argument
           <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
         </div>
         <Card.Body id="cardBody">
-          <Card.Title>{cardName} {card.price}</Card.Title>
-          <StarRating rating={card.ratingAvg} />
+          <Card.Title className='cardNmePrice'>&ldquo;{cardName}&rdquo; <span>{card.price}Є</span></Card.Title>
         </Card.Body>
+        <StarRating rating={card.ratingAvg} className="PPstars" />
       </Card>
     </div>
   );

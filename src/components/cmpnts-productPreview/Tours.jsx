@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
+import { truncateName } from './Book.jsx';
 import { StarRating } from './ReviewList.jsx'
 
 
@@ -25,22 +26,17 @@ export const getTourImgPath = (card) => {
 
 const TourM = ({ card, imgPath, hideImg }) => { //recibe the object as an argument
 
-  //let a = true;
-
-  function truncateName(name) {
-    return name.length > 20 ? name.substring(0, 15) + '...' : name;
-  }
-
   const cardName = truncateName(card.name);
+
   return (
     <Card>
       <div className='imgBoxContainer'>
         <Card.Img variant="top" src={imgPath} id="cardImgSrc" className={hideImg ? "hidden" : "toShow"} />
       </div>
       <Card.Body id="serviceBody">
-        <Card.Title id='card-title'>{cardName} {card.price}</Card.Title>
-        <StarRating rating={card.ratingAvg} />
+        <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; <span>{card.price}Є</span></Card.Title>
       </Card.Body>
+      <StarRating rating={card.ratingAvg} />
     </Card>
   );
 };
@@ -53,7 +49,6 @@ TourM.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     ratings: PropTypes.number,
-    a: PropTypes.bool,
     ratingAvg: PropTypes.number,
   }).isRequired,
 };
