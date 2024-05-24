@@ -1,5 +1,4 @@
 //react
-import Slider from "react-slider";
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -19,13 +18,9 @@ import { useContext } from 'react';
 import "../../style/filter-page/ProductsPage.css";
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
-const MIN = 0;
-const MAX = 10000;
-
 
 export const FilterPageCollection = ({ productType, toursType }) => {
   const [filterData, setProductsData] = useState([]);
-  const [values, setValues] = useState([MIN, MAX]);
   const [currentFilter, setCurrentFilter] = useState('all');
   const [toursTypeFilter, setToursTypeFilter] = useState('');
   const { setTourType } = useContext(ToursTypeContext);
@@ -112,22 +107,6 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     }
     return false;
     })
-  
-  
-    /*     .filter(item => {
-        if (item.price >= 1 && item.price <= 50) {
-          return true;
-        } else if (item.price >= 51 && item.price <= 100) {
-          return true;
-        } else if (item.price >= 101 && item.price <= 200) {
-          return true;
-        } else if (item.price >= 201 && item.price <= 300) {
-          return true;
-        } else {
-          return item.price >= 301;
-        }
-      }); */
-
 
   return (
     <div id='allProducts-container'>
