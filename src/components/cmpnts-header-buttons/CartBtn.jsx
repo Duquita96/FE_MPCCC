@@ -3,11 +3,11 @@ import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
 
 /** Cart button. Toggles visibility of drop down cart menu */
 const CartBtn = () => {
-  const { toggleCart } = useContext(HeaderContext);
+  const { toggleCart, cart } = useContext(HeaderContext);
 
   return (
     <div onClick={toggleCart} className="box-cart-login">
-      Cart
+      Cart ({cart.length})
     </div>
   );
 };
