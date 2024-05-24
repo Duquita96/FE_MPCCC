@@ -105,6 +105,8 @@
 #ButtonFilter-GoBack{
 background: rgba(238, 238, 238, 0.5);
 margin: 0px 20px 20px 0px;
+width: 30px;
+height: 30px;
 } 
 
 .add-to-cart,
@@ -118,7 +120,7 @@ margin: 0px 20px 20px 0px;
 .add-to-cart:hover,
 .viewMoreButton:hover,
 .buyIcon:hover,
-.filter-goBack-button,
+.filter-goBack-button:hover,
 .goBack-button:hover {
   transform: scale(1.1);
   cursor: pointer;
