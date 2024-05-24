@@ -38,6 +38,19 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     navigate(`/filter-page/${filterType}`);
   };
 
+  const [priceRange, setPriceRange] = useState({
+    range1: false,
+    range2: false,
+    range3: false,
+  });
+
+  const handleCheckboxChange = (event) => {
+    setPriceRange({
+      ...priceRange,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   const GoBack = () => {
     setTourType('');
     navigate("/");
@@ -68,7 +81,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
   }, []);
 
   const filteredData = filterData
-    .filter(item => item.price >= values[0] && item.price <= values[1])
+    /*     .filter(item => item.price >= values[0] && item.price <= values[1]) */
     .filter(item => {
 
       if (currentFilter === 'all-products') {
@@ -85,7 +98,35 @@ export const FilterPageCollection = ({ productType, toursType }) => {
         return item.productType === currentFilter;
       }
     })
-    .filter(item => !toursTypeFilter || (item.toursType === toursTypeFilter));
+    .filter(item => !toursTypeFilter || (item.toursType === toursTypeFilter))
+    .filter(item => {
+    if (!priceRange.range1 && !priceRange.range2 && !priceRange.range3) {
+      return true;
+    }
+    if (priceRange.range1 && item.price >= 1 && item.price <= 50) {
+      return true;
+    } else if (priceRange.range2 && item.price >= 51 && item.price <= 100) {
+      return true;
+    } else if (priceRange.range3 && item.price >= 101 && item.price <= 200) {
+      return true;
+    }
+    return false;
+    })
+  
+  
+    /*     .filter(item => {
+        if (item.price >= 1 && item.price <= 50) {
+          return true;
+        } else if (item.price >= 51 && item.price <= 100) {
+          return true;
+        } else if (item.price >= 101 && item.price <= 200) {
+          return true;
+        } else if (item.price >= 201 && item.price <= 300) {
+          return true;
+        } else {
+          return item.price >= 301;
+        }
+      }); */
 
 
   return (
@@ -111,13 +152,40 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           <br />
           <div className="ProductPagePriceSliderbox">
             <h3 className="PriceH3">Price</h3>
-            <div className={"values"}>€{values[0]} - €{values[1]}</div>
+            {/* <div className={"values"}>€{values[0]} - €{values[1]}</div>
 
             <Slider className={"slider"}
               onChange={setValues}
               value={values}
               min={MIN}
-              max={MAX} />
+              max={MAX} /> */}
+              <label>
+          <input
+            type="checkbox"
+            name="range1"
+            checked={priceRange.range1}
+            onChange={handleCheckboxChange}
+          />
+          €1 - €50
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="range2"
+            checked={priceRange.range2}
+            onChange={handleCheckboxChange}
+          />
+          €51 - €100
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="range3"
+            checked={priceRange.range3}
+            onChange={handleCheckboxChange}
+          />
+          €101 - €200
+        </label>
           </div>
 
         </div>
