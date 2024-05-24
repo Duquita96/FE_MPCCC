@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: column;
 }
-#books-collection,
+#products-collection,
 #service-collection {
   display: grid;
   gap: 10px;
 }
 
-#books-collection {
+#products-collection {
   grid-template-columns: repeat(7, 1fr);
   display: flex;
 }
@@ -33,12 +33,12 @@
   display: flexbox;
 }
 
-#books-collection::-webkit-scrollbar,
+#products-collection::-webkit-scrollbar,
 #service-collection::-webkit-scrollbar {
   height: 12px;
 }
 
-#books-collection::-webkit-scrollbar-thumb,
+#products-collection::-webkit-scrollbar-thumb,
 #service-collection::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
@@ -152,13 +152,13 @@ font-weight: bolder;
 
 @media (max-width: 2200px) {
   #service-collection,
-  #books-collection {
+  #products-collection {
     overflow: scroll;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
   }
-  #books-collection {
+  #products-collection {
     justify-content: left;
     grid-template-columns: repeat(7, minmax(0, 1fr));
   }

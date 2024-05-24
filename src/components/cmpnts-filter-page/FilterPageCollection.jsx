@@ -5,18 +5,12 @@ import PropTypes from 'prop-types';
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 //components
-import BookM from '../cmpnts-productPreview/Book.jsx';
-import VideoGameM from '../cmpnts-productPreview/VideoGames.jsx';
-import PcPartM from '../cmpnts-productPreview/PcParts.jsx';
-import TourM from '../cmpnts-productPreview/Tours.jsx';
+import GenericCard from '../cmpnts-productPreview/GenericCard.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
-import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import { ToursTypeContext } from '../../context/TypesContext.jsx';
 
 //css
 import "../../style/filter-page/ProductsPage.css";
-
-
 
 export const FilterPageCollection = ({ productType, toursType }) => {
   const [filterData, setProductsData] = useState([]);
@@ -116,10 +110,9 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           <h3 className="titleH3" id='categoriesTitle'>Categories</h3>
         </div>
         <li className="pointer prodSerFilter" onClick={() => changeFilter('all')}>All Products and Services</li>
-
         <br></br>
         <div>
-        <h3 className='titleH3'>Products</h3>
+          <h3 className='titleH3'>Products</h3>
           <ul>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('all-products')}>All Products</li>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('books')}>Books</li>
@@ -127,7 +120,6 @@ export const FilterPageCollection = ({ productType, toursType }) => {
             <li className="pointer prodSerFilter" onClick={() => changeFilter('video-games')}>Video Games</li>
           </ul>
         </div>
-
         <div>
           <br />
           <div className="ProductPagePriceFilterBox">
@@ -169,7 +161,6 @@ export const FilterPageCollection = ({ productType, toursType }) => {
         <div>
           <br />
           <h3 className='titleH3'>Services</h3>
-
           <ul>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('tours', '')}>All Tours</li>
             <br />
@@ -178,28 +169,27 @@ export const FilterPageCollection = ({ productType, toursType }) => {
             <li className="pointer prodSerFilter" onClick={() => changeFilter('tours', 'museum')}>Museum</li>
           </ul>
         </div>
-
         <br></br>
       </div>
-
 
       <div id="filter-collection">
         {filteredData.map((card) => (
           /* Llena el contenido de las tarjetas "card" que se han filtrado */
           <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
             <div className='carrousell pointer'>
-              {card.productType === 'books' && <BookM card={card} />}
-              {card.productType === 'video-games' && <VideoGameM card={card} />}
-              {card.productType === 'pc-parts' && <PcPartM card={card} />}
-              {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
-
+              {
+                ['books', 'video-games', 'pc-parts', 'tours'].includes(card.productType) && (
+                  <GenericCard
+                    card={card}
+                    productType={card.productType}
+                    hideImg={false}
+                    className={card.productType === 'tours' ? "toShow" : ""}
+                  />
+                )
+              }
             </div>
           </ProductPreviewClick>
         ))}
-
-
-
-
       </div>
     </div>
   );

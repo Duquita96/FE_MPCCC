@@ -11,10 +11,7 @@ import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import { HeaderContext } from "../../context/HeaderContextProvider.jsx";
 import { WidthContext } from "../../context/WidthContextProvider.jsx";
-import { getBookImgPath } from "../cmpnts-productPreview/Book.jsx";
-import { getTourImgPath } from "../cmpnts-productPreview/Tours.jsx";
-import { getPcPartsImgPath } from "../cmpnts-productPreview/PcParts.jsx";
-import { getVideoGamesImgPath } from "../cmpnts-productPreview/VideoGames.jsx";
+import {getImagePath} from "../cmpnts-productPreview/GenericCard.jsx";
 import Comments from "../cmpnts-productPreview/Comments.jsx";
 import PageWrapper from "../PageWrapper.jsx";
 import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
@@ -73,19 +70,19 @@ export const ProductIdPage = ({ productType }) => {
         switch (productType) {
           case "books":
             setBook(data.data);
-            setImgPath(getBookImgPath(data.data));
+            setImgPath(getImagePath(data.data));
             break;
           case "tours":
             setTour(data.data);
-            setImgPath(getTourImgPath(data.data));
+            setImgPath(getImagePath(data.data));
             break;
           case "pc-parts":
             setPcParts(data.data);
-            setImgPath(getPcPartsImgPath(data.data));
+            setImgPath(getImagePath(data.data));
             break;
           case "video-games":
             setVideoGames(data.data);
-            setImgPath(getVideoGamesImgPath(data.data));
+            setImgPath(getImagePath(data.data));
             break;
           default:
             break;

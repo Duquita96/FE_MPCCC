@@ -1,14 +1,15 @@
-import { useRef, useEffect } from 'react';
+/* import { useRef, useEffect } from 'react';
 import BooksCollection from "./BooksCollection.jsx";
 import '../../style/ProductsPreview.css'
 import ToursCollection from './ToursCollection.jsx'
 import PcPartsCollection from './PcPartsCollection.jsx';
-import VideoGamesCollection from './VideoGamesCollection.jsx'
+import VideoGamesCollection from './VideoGamesCollection.jsx' */
+import { useRef, useEffect } from 'react';
+import GenericCollection from "./GenericCollection.jsx";
+import '../../style/ProductsPreview.css'
 
 export const ProductsPreview = () => {
     const collectionsContainerRef = useRef(null);
-
-    
     const collectionWidth = 300;
 
     const handleWheel = (event) => {
@@ -43,11 +44,11 @@ export const ProductsPreview = () => {
 
     return (
         <div id="products-preview-section">
-            <ToursCollection />
+            <GenericCollection productType="tours" apiEndpoint="http://localhost:8000/api/v1/tours" hideImg={true} />
             <div id="collections-container" ref={collectionsContainerRef} onWheel={handleWheel} >
-                <VideoGamesCollection />
-                <BooksCollection />
-                <PcPartsCollection />
+                <GenericCollection productType="video-games" apiEndpoint="http://localhost:8000/api/v1/video-games"  />
+                <GenericCollection productType="books" apiEndpoint="http://localhost:8000/api/v1/books" />
+                <GenericCollection productType="pc-parts" apiEndpoint="http://localhost:8000/api/v1/pc-parts"/>
             </div>
         </div>
     );
