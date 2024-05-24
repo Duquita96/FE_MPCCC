@@ -1,11 +1,10 @@
-/* import { useRef, useEffect } from 'react';
-import BooksCollection from "./BooksCollection.jsx";
-import '../../style/ProductsPreview.css'
-import ToursCollection from './ToursCollection.jsx'
-import PcPartsCollection from './PcPartsCollection.jsx';
-import VideoGamesCollection from './VideoGamesCollection.jsx' */
+//React libraries and others
 import { useRef, useEffect } from 'react';
+
+//Components
 import GenericCollection from "./GenericCollection.jsx";
+
+//CSS
 import '../../style/ProductsPreview.css'
 
 export const ProductsPreview = () => {

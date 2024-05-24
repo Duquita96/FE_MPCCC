@@ -1,4 +1,7 @@
+//React libraries and others
 import { Routes, Route } from 'react-router-dom';
+
+//Components
 import Homepage from './src/components/pages/Homepage.jsx';
 import NotFound from './src/components/pages/NotFound.jsx';
 import AllProducts from './src/components/pages/FilterPage.jsx';

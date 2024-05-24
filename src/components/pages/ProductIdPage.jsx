@@ -1,12 +1,11 @@
-//React libraries
-import { useParams } from "react-router-dom";
+//React libraries and others
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 
-//componets
-
+//Components
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import { HeaderContext } from "../../context/HeaderContextProvider.jsx";
@@ -15,10 +14,10 @@ import {getImagePath} from "../cmpnts-productPreview/GenericCard.jsx";
 import Comments from "../cmpnts-productPreview/Comments.jsx";
 import PageWrapper from "../PageWrapper.jsx";
 import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
-//react
-import { useNavigate } from "react-router-dom";
+
 //css
 import "../../style/productIdPage.css";
+
 //icons
 import {
   RiPaypalFill,

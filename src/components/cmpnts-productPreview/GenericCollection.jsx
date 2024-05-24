@@ -1,6 +1,10 @@
+//React libraries and others
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
+//Components
 import GenericCard from './GenericCard.jsx';
 import { ProductPreviewClick } from './ProductPreview-Click.jsx';
-import { useEffect, useState } from 'react';
 
 export const GenericCollection = ({ productType, apiEndpoint, hideImg }) => {
   const [productData, setProductData] = useState([]);
@@ -32,3 +36,11 @@ export const GenericCollection = ({ productType, apiEndpoint, hideImg }) => {
 };
 
 export default GenericCollection;
+
+
+GenericCollection.propTypes = {
+  apiEndpoint: PropTypes.string.isRequired,
+  productType: PropTypes.oneOf(['books', 'pc-parts', 'video-games', 'tours']).isRequired, // insert the productType
+  toursType: PropTypes.oneOf(['sightseeing', 'museum', 'hiking']),
+  hideImg: PropTypes.bool,
+};

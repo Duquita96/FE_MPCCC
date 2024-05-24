@@ -1,10 +1,8 @@
+////React libraries and others
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-// Style Import
-import "../../style/filter-page/ProductsPage.css";
-
-// Import Components
+//Components
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import FilterPageCollection from "../cmpnts-filter-page/FilterPageCollection.jsx";
@@ -14,6 +12,8 @@ import { WidthContext } from '../../context/WidthContextProvider.jsx';
 import PageWrapper from '../PageWrapper.jsx';
 import {ToursTypeContext} from '../../context/TypesContext.jsx';
 
+//CSS
+import "../../style/filter-page/ProductsPage.css";
 
 const AllProducts = () => {
   const { productType } = useParams();

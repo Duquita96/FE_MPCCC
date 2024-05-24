@@ -1,5 +1,8 @@
+//React libraries and others
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
+
+//Components
 import { StarRating } from './ReviewList.jsx';
 
 export const getImagePath = (card) => `../src/assets/img/${card.imgSrc}`;

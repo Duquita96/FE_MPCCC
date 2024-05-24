@@ -1,9 +1,9 @@
-//ReviewForm.jsx
+//React libraries and others
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
-//css
+//CSS
 import '../../style/ReviewForm.css';
 
 const ReviewForm = ({ onAddReview, productType }) => {
@@ -16,7 +16,6 @@ const ReviewForm = ({ onAddReview, productType }) => {
         e.preventDefault();
         const newReview = { name, comment, rating };
 
-        //productType cuando se arreegle el bug
         fetch(`http://localhost:8000/api/v1/${productType}/${id}/reviews`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },

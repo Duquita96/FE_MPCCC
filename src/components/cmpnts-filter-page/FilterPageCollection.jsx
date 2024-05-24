@@ -1,15 +1,15 @@
-//react
+//React libraries and ohers
 import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
-//components
+//Components
 import GenericCard from '../cmpnts-productPreview/GenericCard.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { ToursTypeContext } from '../../context/TypesContext.jsx';
 
-//css
+//CSS
 import "../../style/filter-page/ProductsPage.css";
 
 export const FilterPageCollection = ({ productType, toursType }) => {
