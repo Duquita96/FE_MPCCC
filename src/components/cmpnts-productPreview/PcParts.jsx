@@ -1,4 +1,4 @@
-import Card from 'react-bootstrap/Card';
+/* import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 import { truncateName } from './Book.jsx';
 import { StarRating } from './ReviewList.jsx'
@@ -38,3 +38,4 @@ PcPartM.propTypes = {
     ratingAvg: PropTypes.number,
   }).isRequired,
 };
+ */

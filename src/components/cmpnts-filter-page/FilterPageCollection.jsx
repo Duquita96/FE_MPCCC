@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 //components
-import BookM from '../cmpnts-productPreview/Book.jsx';
+/* import BookM from '../cmpnts-productPreview/Book.jsx';
 import VideoGameM from '../cmpnts-productPreview/VideoGames.jsx';
-import PcPartM from '../cmpnts-productPreview/PcParts.jsx';
+import PcPartM from '../cmpnts-productPreview/PcParts.jsx'; */
 import TourM from '../cmpnts-productPreview/Tours.jsx';
+import GenericCard from '../cmpnts-productPreview/GenericCard.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import { ToursTypeContext } from '../../context/TypesContext.jsx';
@@ -119,7 +120,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
 
         <br></br>
         <div>
-        <h3 className='titleH3'>Products</h3>
+          <h3 className='titleH3'>Products</h3>
           <ul>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('all-products')}>All Products</li>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('books')}>Books</li>
@@ -188,9 +189,11 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           /* Llena el contenido de las tarjetas "card" que se han filtrado */
           <ProductPreviewClick key={card._id} id={card._id} productType={card.productType}>
             <div className='carrousell pointer'>
-              {card.productType === 'books' && <BookM card={card} />}
+              {/*               {card.productType === 'books' && <BookM card={card} />}
               {card.productType === 'video-games' && <VideoGameM card={card} />}
               {card.productType === 'pc-parts' && <PcPartM card={card} />}
+              {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />} */}
+              {card.productType === 'books' && card.productType === 'pc-parts' && card.productType === 'video-games' && <GenericCard card={card} />}
               {card.productType === 'tours' && <TourM card={card} imgPath={getTourImgPath(card)} hideImg={false} className="toShow" />}
 
             </div>

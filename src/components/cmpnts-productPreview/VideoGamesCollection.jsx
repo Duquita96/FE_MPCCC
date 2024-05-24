@@ -1,4 +1,5 @@
-import VideoGamesM from './VideoGames.jsx';
+/* import VideoGamesM from './VideoGames.jsx'; */
+import GenericCard from './GenericCard'; 
 import { ProductPreviewClick } from './ProductPreview-Click.jsx';
 import { useEffect, useState } from 'react';
 
@@ -18,10 +19,10 @@ export const VideoGamesCollection = () => {
   return (
     <div>
       <div id="videoGames-collection" className="cards-container">
-        {videoGamesData.map((card, index) => (
+      {videoGamesData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='carrousell pointer'>
-              <VideoGamesM card={card} /> {/* Pass the object as property */}
+              <GenericCard card={card} productType="video-games" /> {/* Utiliza GenericCard aquí */}
             </div>
           </ProductPreviewClick>
         ))}

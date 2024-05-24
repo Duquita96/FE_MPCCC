@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
-import { truncateName } from './Book.jsx';
+/* import { truncateName } from './Book.jsx'; */
 import { StarRating } from './ReviewList.jsx'
 
 
@@ -26,7 +26,7 @@ export const getTourImgPath = (card) => {
 
 const TourM = ({ card, imgPath, hideImg }) => { //recibe the object as an argument
 
-  const cardName = truncateName(card.name);
+/*   const cardName = truncateName(card.name); */
 
   return (
     <Card>
@@ -34,7 +34,7 @@ const TourM = ({ card, imgPath, hideImg }) => { //recibe the object as an argume
         <Card.Img variant="top" src={imgPath} id="cardImgSrc" className={hideImg ? "hidden" : "toShow"} />
       </div>
       <Card.Body id="serviceBody">
-        <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; <span>{card.price}Є</span></Card.Title>
+        <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{card.name}&rdquo; <span>{card.price}Є</span></Card.Title>
       </Card.Body>
       <StarRating rating={card.ratingAvg} />
     </Card>

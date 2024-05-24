@@ -1,6 +1,6 @@
-import BookM from './Book.jsx';
-import { ProductPreviewClick } from './ProductPreview-Click.jsx';
 import { useEffect, useState } from 'react';
+import GenericCard from './GenericCard'; // Asegúrate de que la ruta sea correcta
+import { ProductPreviewClick } from './ProductPreview-Click.jsx';
 
 export const BooksCollection = () => {
   const [productsData, setProductsData] = useState([]);
@@ -21,7 +21,7 @@ export const BooksCollection = () => {
         {productsData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='carrousell pointer'>
-              <BookM card={card} /> {/* Pass the object as property */}
+              <GenericCard card={card} productType="books" /> {/* Utiliza GenericCard aquí */}
             </div>
           </ProductPreviewClick>
         ))}

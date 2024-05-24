@@ -1,6 +1,7 @@
-import PcPartsM from './PcParts.jsx';
+/* import PcPartsM from './PcParts.jsx'; */
 import { ProductPreviewClick } from './ProductPreview-Click.jsx';
 import { useEffect, useState } from 'react';
+import GenericCard from './GenericCard'; 
 
 export const PcPartsCollection = () => {
   const [pcPartsData, setPcPartsData] = useState([]);
@@ -18,10 +19,10 @@ export const PcPartsCollection = () => {
   return (
     <div>
       <div id="pcParts-collection" className="cards-container">
-        {pcPartsData.map((card, index) => (
+      {pcPartsData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className='carrousell pointer'>
-              <PcPartsM card={card} /> {/* Pass the object as property */}
+              <GenericCard card={card} productType="pc-parts" /> {/* Utiliza GenericCard aquí */}
             </div>
           </ProductPreviewClick>
         ))}

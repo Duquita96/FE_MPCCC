@@ -1,18 +1,17 @@
-/* import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
-import { StarRating } from './ReviewList.jsx'
+import { StarRating } from './ReviewList.jsx';
 
-
-export const getBookImgPath = (card) => `../src/assets/img/${card.imgSrc}`;
+export const getImagePath = (card) => `../src/assets/img/${card.imgSrc}`;
 
 export function truncateName(name) {
   return name.length > 40 ? name.substring(0, 18) + '...' : name;
-
 }
 
-const BookM = ({ card }) => { //recibe the object as an argument
+// Componente genérico para manejar diferentes tipos de tarjetas
+const GenericCard = ({ card, productType }) => {
   const cardName = truncateName(card.name);
-  const imgPath = getBookImgPath(card);
+  const imgPath = getImagePath(card, productType);
 
   return (
     <div>
@@ -21,19 +20,17 @@ const BookM = ({ card }) => { //recibe the object as an argument
           <Card.Img variant="top" src={imgPath} alt={card.name} id="cardImgSrc" />
         </div>
         <Card.Body id="cardBody">
-          <Card.Title className='cardNmePrice'>&ldquo;{cardName}&rdquo; <span>{card.price}Є</span></Card.Title>
+          <Card.Title className='cardNmePrice'>“{cardName}” <span>{card.price}Є</span></Card.Title>
         </Card.Body>
         <StarRating rating={card.ratingAvg} className="PPstars" />
       </Card>
     </div>
   );
-
 };
 
-export default BookM;
+export default GenericCard;
 
-
-BookM.propTypes = {
+GenericCard.propTypes = {
   card: PropTypes.shape({
     imgSrc: PropTypes.string,
     name: PropTypes.string.isRequired,
@@ -41,5 +38,5 @@ BookM.propTypes = {
     rating: PropTypes.number,
     ratingAvg: PropTypes.number,
   }).isRequired,
+  productType: PropTypes.oneOf(['books', 'pc-parts', 'video-games']).isRequired, // Añade aquí más tipos si es necesario
 };
- */
