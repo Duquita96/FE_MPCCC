@@ -17,7 +17,6 @@ const SearchBar = () => {
         .get("http://localhost:8000/api/v1/resources/list")
         .then((res) => {
           const fetchArray = res.data.data;
-          console.log(fetchArray);
           fetchArray.push({_id: 1, name: 'Video-games', productType: "category"});
           fetchArray.push({_id: 2, name: 'Books', productType: "category"});
           fetchArray.push({_id: 3, name: 'Pc Parts', productType: "category"});

@@ -14,7 +14,7 @@ const CartItems = () => {
  
   return (
     <div>
-      {cart.map((item, index) => {
+      {cart.map((item, key) => {
         return (
           <div key={key} className="cart-item-list">
             <p className="cart-item-desc">{item.name.charAt(0).toUpperCase() + item.name.slice(1) }</p>
