@@ -1,8 +1,8 @@
 //react
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { BsFillArrowLeftSquareFill } from "react-icons/bs";
 
 //components
 import BookM from '../cmpnts-productPreview/Book.jsx';
@@ -12,11 +12,10 @@ import TourM from '../cmpnts-productPreview/Tours.jsx';
 import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Click.jsx';
 import { getTourImgPath } from '../cmpnts-productPreview/Tours.jsx';
 import { ToursTypeContext } from '../../context/TypesContext.jsx';
-import { useContext } from 'react';
 
 //css
 import "../../style/filter-page/ProductsPage.css";
-import { BsFillArrowLeftSquareFill } from "react-icons/bs";
+
 
 
 export const FilterPageCollection = ({ productType, toursType }) => {
@@ -76,7 +75,6 @@ export const FilterPageCollection = ({ productType, toursType }) => {
   }, []);
 
   const filteredData = filterData
-    /*     .filter(item => item.price >= values[0] && item.price <= values[1]) */
     .filter(item => {
 
       if (currentFilter === 'all-products') {
@@ -95,90 +93,89 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     })
     .filter(item => !toursTypeFilter || (item.toursType === toursTypeFilter))
     .filter(item => {
-    if (!priceRange.range1 && !priceRange.range2 && !priceRange.range3) {
-      return true;
-    }
-    if (priceRange.range1 && item.price >= 1 && item.price <= 50) {
-      return true;
-    } else if (priceRange.range2 && item.price >= 51 && item.price <= 100) {
-      return true;
-    } else if (priceRange.range3 && item.price >= 101 && item.price <= 200) {
-      return true;
-    }
-    return false;
+      if (!priceRange.range1 && !priceRange.range2 && !priceRange.range3) {
+        return true;
+      }
+      if (priceRange.range1 && item.price >= 1 && item.price <= 50) {
+        return true;
+      } else if (priceRange.range2 && item.price >= 51 && item.price <= 100) {
+        return true;
+      } else if (priceRange.range3 && item.price >= 101 && item.price <= 200) {
+        return true;
+      }
+      return false;
     })
 
   return (
     <div id='allProducts-container'>
       <div className="ProductsPage_Filter">
-        <button className='goBack-button' id="ButtonFilter-GoBack" onClick={GoBack}>
-          <BsFillArrowLeftSquareFill id='arrowIcon' />
-        </button>
-        <li className="filterPointer" onClick={() => changeFilter('all')}>All Products and Services</li>
-        <h3>Filter</h3>
+        <div id='buttonTitleContainer'>
+          <button className='goBack-button' id="ButtonFilter-GoBack" onClick={GoBack}>
+            <BsFillArrowLeftSquareFill id='arrowIcon' />
+          </button>
+          <h3 className="titleH3" id='categoriesTitle'>Categories</h3>
+        </div>
+        <li className="pointer prodSerFilter" onClick={() => changeFilter('all')}>All Products and Services</li>
+
         <br></br>
         <div>
-          <h3>Products</h3>
+        <h3 className='titleH3'>Products</h3>
           <ul>
-            <li className="filterPointer" onClick={() => changeFilter('all-products')}>All Products</li>
-            <li className="filterPointer" onClick={() => changeFilter('books')}>Books</li>
-            <li className="filterPointer" onClick={() => changeFilter('pc-parts')}>PC Parts</li>
-            <li className="filterPointer" onClick={() => changeFilter('video-games')}>Video Games</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('all-products')}>All Products</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('books')}>Books</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('pc-parts')}>PC Parts</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('video-games')}>Video Games</li>
           </ul>
         </div>
 
         <div>
           <br />
-          <div className="ProductPagePriceSliderbox">
-            <h3 className="PriceH3">Price</h3>
-            {/* <div className={"values"}>€{values[0]} - €{values[1]}</div>
-
-            <Slider className={"slider"}
-              onChange={setValues}
-              value={values}
-              min={MIN}
-              max={MAX} /> */}
+          <div className="ProductPagePriceFilterBox">
+            <h3 className="titleH3">Price</h3>
+            <div className='priceCheckbox'>
+              <label >
+                <input
+                  type="checkbox"
+                  name="range1"
+                  checked={priceRange.range1}
+                  onChange={handleCheckboxChange}
+                  className='checkBox'
+                /> €1 - €50
+              </label>
               <label>
-          <input
-            type="checkbox"
-            name="range1"
-            checked={priceRange.range1}
-            onChange={handleCheckboxChange}
-          />
-          €1 - €50
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="range2"
-            checked={priceRange.range2}
-            onChange={handleCheckboxChange}
-          />
-          €51 - €100
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="range3"
-            checked={priceRange.range3}
-            onChange={handleCheckboxChange}
-          />
-          €101 - €200
-        </label>
+                <input
+                  type="checkbox"
+                  name="range2"
+                  checked={priceRange.range2}
+                  onChange={handleCheckboxChange}
+                  className='checkBox'
+                />
+                €51 - €100
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="range3"
+                  checked={priceRange.range3}
+                  onChange={handleCheckboxChange}
+                  className='checkBox'
+                />
+                €101 - €200
+              </label>
+            </div>
           </div>
-
         </div>
 
         <div>
           <br />
-          <h4>Services</h4>
+          <h3 className='titleH3'>Services</h3>
 
           <ul>
-            <li className="filterPointer" onClick={() => changeFilter('tours', '')}>All Tours</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('tours', '')}>All Tours</li>
             <br />
-            <li className="filterPointer" onClick={() => changeFilter('tours', 'sightseeing')}>Sightseeing</li>
-            <li className="filterPointer" onClick={() => changeFilter('tours', 'hiking')}>Hiking</li>
-            <li className="filterPointer" onClick={() => changeFilter('tours', 'museum')}>Museum</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('tours', 'sightseeing')}>Sightseeing</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('tours', 'hiking')}>Hiking</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('tours', 'museum')}>Museum</li>
           </ul>
         </div>
 

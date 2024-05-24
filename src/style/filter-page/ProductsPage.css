@@ -20,54 +20,36 @@
   flex-grow: 1;
 }
 
-.PriceSlider {
-  min-height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.checkBox{
+margin: 10px;
+
 }
 
-.ProductPagePriceSliderbox {
+.ProductPagePriceFilterBox {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(18, 22, 33, 0.12);
 }
-
-.PriceH3 {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0 0 20px 0;
+.priceCheckbox {
+  display: flex;
+  flex-direction: column;
   color: #3f4656;
 }
-
-.slider {
-  width: 100%;
-  height: 10px;
-  background-color: #decded;
-  margin-top: 20px;
-}
-
-.slider .thumb {
-  width: 23px;
-  height: 23px;
-  cursor: grab;
-  background: #fff;
-  border-radius: 50%;
-  border: 2px solid #5e7a5e;
-  position: relative;
-  top: -3px;
-}
-
-.values {
-  margin: 0;
-  font-weight: 500;
-  color: #52724b;
+.titleH3 {
+  font-size: 32px;
+  color: #3f4656;
+  margin: 10px 0px;
 }
 
 #allProducts-container {
   display: flex;
 }
 
-.filterPointer {
+.pointer {
   cursor: pointer;
+}
+.prodSerFilter{
+  font-size: 20px;
+  color: #3f4656;
+margin-left: 10px;
 }
