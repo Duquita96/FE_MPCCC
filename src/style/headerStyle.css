@@ -52,6 +52,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: black;
+  z-index: 5;
 }
 
 .search-result-list li:hover {
@@ -59,8 +60,12 @@
   cursor: pointer;
 }
 
-.search-result-list li {padding: 3px;}
-.search-result-list li:last-of-type {padding-bottom: 9px;}
+.search-result-list li {
+  padding: 3px;
+}
+.search-result-list li:last-of-type {
+  padding-bottom: 9px;
+}
 
 .searchType {
   margin-left: 10px;
@@ -83,6 +88,34 @@
   border-radius: 5px;
   font-weight: bold;
   color: white;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  z-index: 0;
+}
+
+.tooltipText {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(49,54,63);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.nav-item:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
+  z-index: 2;
 }
 
 .nav-item:hover,
@@ -90,7 +123,6 @@
   border: 1px solid white;
   cursor: pointer;
 }
-
 .box-cart-login:visited {
   color: white;
 }
@@ -107,12 +139,17 @@
   justify-content: center;
 }
 
-.login-success, .login-failed {
+.login-success,
+.login-failed {
   position: absolute;
   top: 79px;
   padding: 1px 5px;
   width: 100%;
 }
 
-.login-success {background-color: green}
-.login-failed {background-color: red}
+.login-success {
+  background-color: green;
+}
+.login-failed {
+  background-color: red;
+}
