@@ -1,12 +1,11 @@
 .ProductsPage_Filter {
-  width: 20vw;
-  min-width: 220px;
+  width: 200px;
   padding: 2rem;
 }
 
 #filter-collection {
   background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
-  width: 80vw;
+  width: 100%;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
@@ -20,13 +19,12 @@
   flex-grow: 1;
 }
 
-.checkBox{
-margin: 10px;
-
+.checkBox {
+  margin: 10px;
 }
 
 .ProductPagePriceFilterBox {
-  width: 100%;
+  width: 150px;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(18, 22, 33, 0.12);
 }
@@ -36,9 +34,13 @@ margin: 10px;
   color: #3f4656;
 }
 .titleH3 {
-  font-size: 32px;
+  font-size: 20px;
   color: #3f4656;
   margin: 10px 0px;
+}
+
+#categoriesTitle {
+  margin-top: 50px;
 }
 
 #allProducts-container {
@@ -48,8 +50,8 @@ margin: 10px;
 .pointer {
   cursor: pointer;
 }
-.prodSerFilter{
-  font-size: 20px;
+.prodSerFilter {
   color: #3f4656;
-margin-left: 10px;
+  margin-left: 10px;
+  width: 90px;
 }

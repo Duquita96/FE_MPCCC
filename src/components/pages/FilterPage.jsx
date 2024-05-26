@@ -13,7 +13,7 @@ import PageWrapper from '../PageWrapper.jsx';
 import {ToursTypeContext} from '../../context/TypesContext.jsx';
 
 //CSS
-import "../../style/filter-page/ProductsPage.css";
+import "../../style/ProductsPage.css";
 
 const AllProducts = () => {
   const { productType } = useParams();

@@ -10,7 +10,7 @@ import { ProductPreviewClick } from '../cmpnts-productPreview/ProductPreview-Cli
 import { ToursTypeContext } from '../../context/TypesContext.jsx';
 
 //CSS
-import "../../style/filter-page/ProductsPage.css";
+import "../../style/ProductsPage.css";
 
 export const FilterPageCollection = ({ productType, toursType }) => {
   const [filterData, setProductsData] = useState([]);
@@ -115,8 +115,9 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           <h3 className='titleH3'>Products</h3>
           <ul>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('all-products')}>All Products</li>
+            <br />
             <li className="pointer prodSerFilter" onClick={() => changeFilter('books')}>Books</li>
-            <li className="pointer prodSerFilter" onClick={() => changeFilter('pc-parts')}>PC Parts</li>
+            <li className="pointer prodSerFilter" onClick={() => changeFilter('pc-parts')}>Pc Parts</li>
             <li className="pointer prodSerFilter" onClick={() => changeFilter('video-games')}>Video Games</li>
           </ul>
         </div>
