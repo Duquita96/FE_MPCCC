@@ -12,7 +12,7 @@ const ProductsNavBar = () => {
   return (
     <nav className="navbar headers">
       <Link to={"/filter-page/video-games"} className="nav-item">
-        <CgGames size={27} /><span className="tooltipText">Video Games</span>
+        <CgGames size={27} /><span className="tooltipText">Games</span>
       </Link>
       <Link to={"/filter-page/books"} className="nav-item">
         <GiBookshelf size={27} /><span className="tooltipText">Books</span>
