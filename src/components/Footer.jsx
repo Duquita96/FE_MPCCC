@@ -1,5 +1,8 @@
 import { FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 import { FaXTwitter, FaSquareInstagram } from "react-icons/fa6";
+import { MdOutlineReviews } from "react-icons/md";
+import { ImPriceTags } from "react-icons/im"
+import { PiCubeTransparentLight } from "react-icons/pi";
 import "../style/footer.css";
 
 const Footer = () => {
@@ -37,18 +40,27 @@ const Footer = () => {
       </div>
       <div className="footer-main">
         <div className="ft-box">
+          <ImPriceTags size={40} color={'var(--clr-light1)'}  />
           <p className="ft-text">
-           Easy. Searching for the best deal? Whether you're shopping for books, tours, games or pc-parts, we've got everything you need. It's incredibly straightforward.
+            Easy. Searching for the best deal? Whether you're shopping for
+            books, tours, games or pc-parts, we've got everything you need. It's
+            incredibly straightforward.
           </p>
         </div>
         <div className="ft-box">
+          <PiCubeTransparentLight size={40} color={'var(--clr-light1)'}  />
           <p className="ft-text">
-          Clear. By providing clear information, we help you make the best choices tailored to your needs. Our main focus is to assist you in your shopping journey. 
+            Clear. By providing clear information, we help you make the best
+            choices tailored to your needs. Our main focus is to assist you in
+            your shopping journey.
           </p>
         </div>
         <div className="ft-box">
+          <MdOutlineReviews size={40} color={'var(--clr-light1)'}  />
           <p className="ft-text">
-          Smart. Dive into our detailed reviews and confidently find products tailored to your needs. With pmccc-marketplace you're making smarter choices.
+            Smart. Dive into our detailed reviews and confidently find products
+            tailored to your needs. With pmccc-marketplace you're making smarter
+            choices.
           </p>
         </div>
       </div>

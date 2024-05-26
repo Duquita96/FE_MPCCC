@@ -9,6 +9,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import { HeaderContext } from "../../context/HeaderContextProvider.jsx";
+import { cartContext } from "../../context/CartContextProvider.jsx";
 import { WidthContext } from "../../context/WidthContextProvider.jsx";
 import {getImagePath} from "../cmpnts-productPreview/GenericCard.jsx";
 import Comments from "../cmpnts-productPreview/Comments.jsx";
@@ -37,7 +38,7 @@ export const ProductIdPage = ({ productType }) => {
   const [imgPath, setImgPath] = useState(null);
   const navigate = useNavigate();
 
-  const { addToCart } = useContext(HeaderContext);
+  const { addToCart } = useContext(cartContext);
   const { showLogin, showCart } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
 
