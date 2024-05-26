@@ -176,7 +176,7 @@ const Login = () => {
         ) : null}
         {signUp ? (
           <span className="login-terms">
-            I have read and accept the
+            I have read and accept the {" "}
             <span className="login-links">terms</span>
           </span>
         ) : null}

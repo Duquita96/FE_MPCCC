@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
-import axios from "axios";
-import { UserContext } from '../../context/UserContextProvider.jsx';
+import { UserContext } from "../../context/UserContextProvider.jsx";
 import AddressForm from "./AddressForm";
+import patchFunction from "../../utils/patch";
+import axios from "axios";
 
 const UserShipping = () => {
   const { userState, userDispatch } = useContext(UserContext);
@@ -19,22 +20,18 @@ const UserShipping = () => {
   };
 
   const delAddress = (e) => {
-    const token = localStorage.getItem("token");
-    const headers = { "x-auth-token": token };
     if (e.target.id === "homeDel") {
-      axios
-        .patch(
-          "http://localhost:8000/api/v1/users/me",
-          { homeAddress: { street: "", city: "", country: "" } },
-          { headers }
-        )
-        .then((res) => {
-          userDispatch({
-            type: "home",
-            homeAddress: { street: "", city: "", country: "" },
-          });
-          console.log(res);
-        });
+      patchFunction({ homeAddress: { street: "", city: "", country: "" } });
+      userDispatch({
+        type: "home",
+        homeAddress: { street: "", city: "", country: "" },
+      });
+    } else {
+      patchFunction({ shippingAddress: { street: "", city: "", country: "" } });
+      userDispatch({
+        type: "shipping",
+        shippingAddress: { street: "", city: "", country: "" }
+      });
     }
   };
 

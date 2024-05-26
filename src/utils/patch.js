@@ -8,7 +8,7 @@ const patchFunction = (obj) => {
 
   axios
     .patch("http://localhost:8000/api/v1/users/me", obj, { headers })
-    .then((res) => {console.log(res)})
+    .then((res) => {console.log(res.data.status)})
     .catch((err) => console.log(err))
 };
 

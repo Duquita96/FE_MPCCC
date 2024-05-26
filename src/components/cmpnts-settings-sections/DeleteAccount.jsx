@@ -36,8 +36,8 @@ const DeleteAccount = () => {
         {display && (
           <div className="delConfirm">
             <p>Are you sure?</p>
-            <button onClick={deleteUser}>DELETE</button>
-            <button onClick={toggleDisplay}>CANCEL</button>
+            <button className="confirmBtn pointer" onClick={deleteUser}>DELETE</button>
+            <button className="confirmBtn pointer" onClick={toggleDisplay}>CANCEL</button>
           </div>
         )}
       </div>

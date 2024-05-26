@@ -5,7 +5,7 @@
 
 #filter-collection {
   background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
-  width: 100%;
+  width: calc(100vw - 200px);
   display: flex;
   align-content: center;
   flex-wrap: wrap;

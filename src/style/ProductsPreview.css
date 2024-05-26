@@ -1,12 +1,12 @@
 #products-preview-section {
-  margin: 10vh 5% 5vh 5%;
+  margin: 10vh 5% auto 5% ;
   display: flex;
   flex-direction: column;
 }
 #products-collection,
 #service-collection {
   display: grid;
-  gap: 10px;
+  gap: 24px;
 }
 
 #products-collection {
@@ -73,9 +73,9 @@
 
 .carrousell,
 .service-container {
-  border: 1px solid rgb(49, 54, 63);
+  /* border: 1px solid rgb(49, 54, 63); */
   border-radius: 5px;
-  background: rgb(118, 171, 174);
+  background: var(--clr-light1);
   display: flex;
   justify-content: center;
   text-align: center;

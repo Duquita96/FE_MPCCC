@@ -2,6 +2,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: var(--clr-dark1);
+    opacity: 0.9;
     width: 360px;
     position: absolute;
     right: 0;
