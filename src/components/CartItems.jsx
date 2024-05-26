@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
-import { HeaderContext } from "../context/HeaderContextProvider";
+import { cartContext } from "../context/CartContextProvider";
 
 const CartItems = () => {
   
-  const { cart, replaceCart, emptyCart } = useContext(HeaderContext);
+  const { cart, replaceCart, emptyCart } = useContext(cartContext);
 
   const delItem = (e) => {
     let newArray = cart.filter((item) => cart.indexOf(item) !== Number(e.target.id));
@@ -31,7 +31,7 @@ const CartItems = () => {
 
       <div className="cart-total">
         <p>Total amount</p>
-        <p>€</p>
+        <p>{cart.reduce((acc, curr) => acc + curr.price, 0)} €</p>
       </div>
 
       <button className="buyBtn cartBtn pointer">Buy</button>

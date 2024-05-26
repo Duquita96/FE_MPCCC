@@ -11,15 +11,17 @@ import WidthContextProvider from './src/context/WidthContextProvider.jsx';
 import UserContextProvider from './src/context/UserContextProvider.jsx';
 import UserAccountPage from './src/components/pages/UserAccountPage.jsx';
 import ToursTypeContextProvider from './src/context/TypesContext.jsx';
+import CartContextProvider from './src/context/CartContextProvider.jsx';
 
 
 function App() {
 
   return (
     <>
-      <HeaderContextProvider>
+     <HeaderContextProvider>
+      <CartContextProvider>
         <WidthContextProvider>
-          <UserContextProvider>
+         <UserContextProvider>
           <ToursTypeContextProvider>
             <Routes>
            {/*    <button>Filter PH</button> */}
@@ -36,7 +38,8 @@ function App() {
             </ToursTypeContextProvider>
           </UserContextProvider>
         </WidthContextProvider>
-      </HeaderContextProvider>
+       </CartContextProvider>
+     </HeaderContextProvider>
     </>
   )
 }
