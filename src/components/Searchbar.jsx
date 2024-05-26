@@ -4,6 +4,9 @@ import axios from "axios";
 import "../style/headerStyle.css";
 
 const SearchBar = () => {
+
+  window.onclick = function(e) {e.target.className !== "search-result-list" ? clear() : null};
+
   const [inputStr, setInputStr] = useState("");
   const [searchData, setSearchData] = useState([]);
 

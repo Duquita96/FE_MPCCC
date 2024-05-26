@@ -62,6 +62,7 @@ body {
   .hero-container {height: 100px;}
   /* .tooltipText {top: 110%; position: absolute; top: 310px;} */
   .nav-item:hover .tooltipText {visibility: hidden;}
+  .nav-item:hover {border: 1px solid white;}
   }
 @media only screen and (min-width: 992px) {
 }
