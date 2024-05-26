@@ -62,6 +62,10 @@ const SearchBar = () => {
             inputStr.toLowerCase() === ""
               ? ""
               : item.name.toLowerCase().includes(inputStr.toLowerCase())
+          ).filter((item) =>
+            inputStr.toLowerCase() === ""
+              ? ""
+              : item.name.toLowerCase().split(" ").some(item => item.startsWith(inputStr.toLowerCase()))
           )
           .map((item) => (
             <li key={item._id} id={item._id} onClick={searchSelector}>
