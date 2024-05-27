@@ -49,12 +49,12 @@ export const ProductIdPage = ({ productType }) => {
   const addItem = () => {
     let objToAdd;
     productType === "books" 
-      ? objToAdd = {productId:book._id, name: book.name, price: book.price}
+      ? objToAdd = {productId:book._id, name: book.name, productType: book.productType, price: book.price}
       : productType === "tours" 
-      ? objToAdd = {productId:tour._id, name: tour.name, price: tour.price}
+      ? objToAdd = {productId:tour._id, name: tour.name, productType: tour.productType, price: tour.price}
       : productType === "video-games" 
-      ? objToAdd = {productId:videoGames._id, name: videoGames.name, price: videoGames.price}
-      : objToAdd = {productId:pcParts._id, name: pcParts.name, price: pcParts.price}
+      ? objToAdd = {productId:videoGames._id, name: videoGames.name, productType: videoGames.productType, price: videoGames.price}
+      : objToAdd = {productId:pcParts._id, name: pcParts.name, productType: pcParts.productType, price: pcParts.price}
     addToCart(objToAdd);
   };
 
