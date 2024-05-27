@@ -1,0 +1,57 @@
+/* @import url("https://fonts.googleapis.com/css?family=Bevan"); */
+
+.colorSchematic {
+    font-family: "Bevan", cursive;
+    font-size: 130px;
+    margin: 10vh 0 0;
+    text-align: center;
+    letter-spacing: 5px;
+    background-color: var(--clr-dark1);
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+
+    span {
+        font-size: 1.2em;
+    }
+}
+
+code {
+    color: #bdbdbd;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    margin: 0 30px 25px;
+
+    span {
+        color: #f0c674;
+    }
+
+    i {
+        color: #b5bd68;
+    }
+
+    em {
+        color: #b294bb;
+        font-style: unset;
+    }
+
+    b {
+        color: #81a2be;
+        font-weight: 500;
+    }
+}
+
+.HomeButtonError {
+    height: 30px;
+    border: 1px solid var(--clr-light2-transparent);
+    color: rgb(2, 2, 2);
+    padding: 5px 15px;
+    border-radius: 5px;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+  }
+

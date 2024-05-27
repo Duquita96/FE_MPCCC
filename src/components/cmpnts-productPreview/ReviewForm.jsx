@@ -1,55 +1,41 @@
-//ReviewForm.jsx
+//React libraries and others
 import { useState } from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
-//css
+//CSS
 import '../../style/ReviewForm.css';
 
-const ReviewForm = ({ onAddReview }) => {
-    const [author, setAuthor] = useState('');
+const ReviewForm = ({ onAddReview, productType }) => {
+    const [name, setName] = useState('');
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
+    const { id } = useParams();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newReview = {
-            author,
-            comment,
-            rating
-        };
-/*         onAddReview(newReview);
-        setAuthor('');
-        setComment('');
-        setRating(0); */
+        const newReview = { name, comment, rating };
+        const token = localStorage.getItem('token');
 
-        fetch('/api/v1/tours', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+        fetch(`http://localhost:8000/api/v1/${productType}/${id}/reviews`, {
+            method: 'PATCH',
+            headers: { 
+                'Content-Type': 'application/json', 
+                'x-auth-token': token},
+
             body: JSON.stringify(newReview),
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(data => {
-            if (data) {
-                return JSON.parse(data);
-            } else {
-                return {};
-            }
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-        
-    
+        }, console.log)
+
+            .then(response => response.json())
+            .then(data => {
+                onAddReview(data); // Update the Status of the Component
+                // Clean the Form
+                setName('');
+                setComment('');
+                setRating(0);
+                window.location.reload();
+            })
+            .catch((error) => console.error('Error:', error));
     };
 
     return (
@@ -60,8 +46,8 @@ const ReviewForm = ({ onAddReview }) => {
                     <input
                         type="text"
                         placeholder="Your Name"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         id='userNameForm'
                         className='input-group'
                     />
@@ -74,7 +60,7 @@ const ReviewForm = ({ onAddReview }) => {
                         onChange={(e) => setRating(e.target.value ? parseInt(e.target.value) : '')}
                         id='ratingForm'
                         className='input-group'
-                    required
+                        required
                     />
                 </div>
 
@@ -97,6 +83,8 @@ const ReviewForm = ({ onAddReview }) => {
 
 export default ReviewForm;
 
-/* ReviewForm.propTypes = {
-    onAddReview: PropTypes.array.isRequired,
-}; */
+
+ReviewForm.propTypes = {
+    onAddReview: PropTypes.func.isRequired,
+    productType: PropTypes.string,
+};

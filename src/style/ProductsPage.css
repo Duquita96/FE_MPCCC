@@ -1,0 +1,57 @@
+.ProductsPage_Filter {
+  width: 200px;
+  padding: 2rem;
+}
+
+#filter-collection {
+  background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
+  width: calc(100vw - 200px);
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.needflex {
+  display: flex;
+  flex-grow: 1;
+}
+
+.checkBox {
+  margin: 10px;
+}
+
+.ProductPagePriceFilterBox {
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(18, 22, 33, 0.12);
+}
+.priceCheckbox {
+  display: flex;
+  flex-direction: column;
+  color: #3f4656;
+}
+.titleH3 {
+  font-size: 20px;
+  color: #3f4656;
+  margin: 10px 0px;
+}
+
+#categoriesTitle {
+  margin-top: 50px;
+}
+
+#allProducts-container {
+  display: flex;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.prodSerFilter {
+  color: #3f4656;
+  margin-left: 10px;
+  width: 90px;
+}

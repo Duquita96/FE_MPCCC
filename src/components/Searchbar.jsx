@@ -1,25 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "../style/headerStyle.css";
-import dataObj from "./data/searchData.js";
 
 const SearchBar = () => {
-  const items = Object.keys(dataObj);
-  const [inputStr, setInputStr] = useState("");
 
-  const handleChange = (e) => {
-    setInputStr(e.target.value);
-  };
-  const clear = () => {
-    setInputStr("");
-  };
+  window.onclick = function(e) {e.target.className !== "search-result-list" ? clear() : null};
+
+  const [inputStr, setInputStr] = useState("");
+  const [searchData, setSearchData] = useState([]);
+
+  const navigate = useNavigate();
+
+  const updateSearchData = (array) => {setSearchData(array)};
+
+  useEffect(() => {
+    if (searchData.length === 0) {
+      axios
+        .get("http://localhost:8000/api/v1/resources/list")
+        .then((res) => {
+          const fetchArray = res.data.data;
+          fetchArray.push({_id: 1, name: 'Video-games', productType: "category"});
+          fetchArray.push({_id: 2, name: 'Books', productType: "category"});
+          fetchArray.push({_id: 3, name: 'Pc Parts', productType: "category"});
+          fetchArray.push({_id: 4, name: 'Tours', productType: "category"});
+          updateSearchData(fetchArray);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, []);
+
+  const handleChange = (e) => {setInputStr(e.target.value)};
+  const clear = () => {setInputStr("")};
 
   const searchSelector = (e) => {
-    const selectedSearch = e.target.innerText.split("|");
-    const searchInput = selectedSearch[0].toLowerCase();
-    const searchType = selectedSearch[1].toLowerCase();
+    const selectedId = e.target.id;
+    const selectedCategory = e.target.innerText.split("|")[1].trim().toLowerCase();
+    const selectedType = e.target.innerText.split("|")[0].toLowerCase();
+  
+    selectedId.length > 1
+    ? navigate(`/${selectedCategory}/${selectedId}`) 
+    : navigate(`/filter-page/${selectedType}`)
 
-    // Add fetching info where needed
-    // Add redirecting of user based on selection
+    clear();
   };
 
   return (
@@ -37,15 +60,19 @@ const SearchBar = () => {
         </form>
       </div>
       <ul className="search-result-list">
-        {items
+        {searchData
           .filter((item) =>
             inputStr.toLowerCase() === ""
               ? ""
-              : item.toLowerCase().includes(inputStr.toLowerCase())
+              : item.name.toLowerCase().includes(inputStr.toLowerCase())
+          ).filter((item) =>
+            inputStr.toLowerCase() === ""
+              ? ""
+              : item.name.toLowerCase().split(" ").some(item => item.startsWith(inputStr.toLowerCase()))
           )
           .map((item) => (
-            <li key={item} onClick={searchSelector}>
-              {item} |<span className="searchType">{dataObj[item].type}</span>
+            <li key={item._id} id={item._id} onClick={searchSelector}>
+              {item.name} | {item.productType.charAt(0).toUpperCase() + item.productType.slice(1)}
             </li>
           ))}
       </ul>

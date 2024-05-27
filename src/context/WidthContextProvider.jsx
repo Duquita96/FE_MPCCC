@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import WidthContext from "./WidthContext";
+import { createContext, useState } from 'react';
+
+export const WidthContext = createContext();
 
 /** Provides the current width of the window to the entire app */
 const WidthContextProvider = ({ children }) => {

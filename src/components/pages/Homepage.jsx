@@ -2,11 +2,10 @@ import { useContext } from 'react';
 import Login from "../Login.jsx";
 import Cart from "../Cart.jsx";
 import ProductsNavBar from "../cmpnts-homepage-navbars/ProductsNavBar.jsx";
-import ToursNavBar from "../cmpnts-homepage-navbars/ToursNavBar.jsx";
 import MobileNavBar from "../cmpnts-homepage-navbars/MobileNavBar.jsx";
 import ProductsPreview from "../cmpnts-productPreview/ProductsPreview.jsx";
-import HeaderContext from '../../context/HeaderContext.jsx';
-import WidthContext from '../../context/WidthContext.jsx';
+import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
+import { WidthContext } from '../../context/WidthContextProvider.jsx';
 import HeroSection from '../HeroSection.jsx';
 import PageWrapper from '../PageWrapper.jsx';
 
@@ -22,9 +21,9 @@ const Homepage = () => {
         {showLogin && <Login />}
         {showCart && <Cart />}
         {windowWidth > 768 && <ProductsNavBar />}
-        {windowWidth > 768 && <ToursNavBar />}
         {windowWidth <= 768 && <MobileNavBar  />}
         <HeroSection />
+        {windowWidth <= 768 && <ProductsNavBar />}
         <ProductsPreview />
       </PageWrapper>
   );

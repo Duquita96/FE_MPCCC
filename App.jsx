@@ -1,4 +1,7 @@
+//React libraries and others
 import { Routes, Route } from 'react-router-dom';
+
+//Components
 import Homepage from './src/components/pages/Homepage.jsx';
 import NotFound from './src/components/pages/NotFound.jsx';
 import AllProducts from './src/components/pages/FilterPage.jsx';
@@ -7,29 +10,35 @@ import HeaderContextProvider from './src/context/HeaderContextProvider.jsx';
 import WidthContextProvider from './src/context/WidthContextProvider.jsx';
 import UserContextProvider from './src/context/UserContextProvider.jsx';
 import UserAccountPage from './src/components/pages/UserAccountPage.jsx';
+import ToursTypeContextProvider from './src/context/TypesContext.jsx';
+import CartContextProvider from './src/context/CartContextProvider.jsx';
 
 
 function App() {
 
   return (
     <>
-      <HeaderContextProvider>
+     <HeaderContextProvider>
+      <CartContextProvider>
         <WidthContextProvider>
-          <UserContextProvider>
+         <UserContextProvider>
+          <ToursTypeContextProvider>
             <Routes>
-           {/*    <button>Filter PH</button> */}
               <Route path='/' element={<Homepage />} />
               <Route path='/user-account' element={<UserAccountPage />} />
               <Route path='/filter-page' element={<AllProducts />} />
-              <Route path='/book/:id' element={<ProductIdPage productType='book' />} />
-              <Route path='/tour/:id' element={<ProductIdPage productType='tour' />} />
-              <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc_part' />} />
-              <Route path='/video-games/:id' element={<ProductIdPage productType='video_games' />} />
+              <Route path='/filter-page/:productType' element={<AllProducts />} />
+              <Route path='/books/:id' element={<ProductIdPage productType='books' />} />
+              <Route path='/tours/:id' element={<ProductIdPage productType='tours' />} />
+              <Route path='/pc-parts/:id' element={<ProductIdPage productType='pc-parts' />} />
+              <Route path='/video-games/:id' element={<ProductIdPage productType='video-games' />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
+            </ToursTypeContextProvider>
           </UserContextProvider>
         </WidthContextProvider>
-      </HeaderContextProvider>
+       </CartContextProvider>
+     </HeaderContextProvider>
     </>
   )
 }

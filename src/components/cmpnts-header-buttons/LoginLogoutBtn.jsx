@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import UserContext from "../../context/UserContext";
-import HeaderContext from "../../context/HeaderContext";
+import { UserContext } from '../../context/UserContextProvider.jsx';
+import { HeaderContext } from '../../context/HeaderContextProvider.jsx';
 
 /** Log in/out button, changes display and onClick function depending on logged-in state */
 const LoginLogoutBtn = () => {

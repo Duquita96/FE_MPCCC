@@ -1,18 +1,36 @@
-import { NavLink } from 'react-router-dom';
-import '../../style/headerStyle.css'
+import { Link } from "react-router-dom";
+import { CgGames } from "react-icons/cg";
+import { PiParkDuotone } from "react-icons/pi";
+import { GiBookshelf, GiComputerFan } from "react-icons/gi";
+import { MdOutlineMuseum, MdHiking } from "react-icons/md";
+import { ToursTypeContext } from '../../context/TypesContext.jsx';
+import { useContext } from 'react';
+import "../../style/headerStyle.css";
 
 const ProductsNavBar = () => {
-    return (
-        <nav className="sub-headers headers">
-            <p className='navbarTitle'>Products</p>
-            <NavLink to={'/filter-page'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
-            <NavLink to={'/'} className="nav-item" />
-        </nav>
-    )
-}
+  const { setTourType } = useContext(ToursTypeContext);
+  return (
+    <nav className="navbar headers">
+      <Link to={"/filter-page/video-games"} className="nav-item">
+        <CgGames size={27} /><span className="tooltipText">Games</span>
+      </Link>
+      <Link to={"/filter-page/books"} className="nav-item">
+        <GiBookshelf size={27} /><span className="tooltipText">Books</span>
+      </Link>
+      <Link to={"/filter-page/pc-parts"} className="nav-item">
+        <GiComputerFan size={27} /><span className="tooltipText">PC Parts</span>
+      </Link>
+      <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('sightseeing')}>
+        <PiParkDuotone size={27} /><span className="tooltipText">Sightseeing</span>
+      </Link>
+      <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('hiking')}>
+        <MdHiking size={27} /><span className="tooltipText">Hiking</span>
+      </Link>
+      <Link to={"/filter-page/tours"} className="nav-item" onClick={() => setTourType('museum')}>
+        <MdOutlineMuseum size={27} /><span className="tooltipText">Museum</span>
+      </Link>
+    </nav>
+  );
+};
 
 export default ProductsNavBar;

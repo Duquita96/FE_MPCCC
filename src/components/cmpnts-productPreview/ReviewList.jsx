@@ -1,5 +1,5 @@
 //ReviewList.jxs
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 import { FaStar } from 'react-icons/fa';
 
 export const StarRating = ({ rating }) => {
@@ -19,9 +19,8 @@ export const StarRating = ({ rating }) => {
     );
 };
 
-
-
 const ReviewList = ({ reviews }) => {
+
     return (
         <div id='review-list'>
             <h2 id="list-title">Other Users said:</h2>
@@ -32,12 +31,11 @@ const ReviewList = ({ reviews }) => {
                     {reviews.map((review, index) => (
                         <li key={index} >
                             <p id='firstCommentLine'>
-                                <strong>{review.author}</strong><StarRating rating={review.rating} />
+                                <strong>{review.name}</strong><StarRating rating={review.rating} />
                             </p>
                             <p id='secondCommentLine'>
                                 {review.comment}
                             </p>
-                            
                         </li>
                     ))}
                 </ul>
@@ -47,3 +45,16 @@ const ReviewList = ({ reviews }) => {
 };
 
 export default ReviewList;
+
+
+StarRating.propTypes = {
+    rating: PropTypes.number
+};
+
+ReviewList.propTypes = {
+    reviews: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        comment: PropTypes.string,
+        rating: PropTypes.number.isRequired,
+    }))
+};

@@ -1,5 +1,6 @@
-import HeaderContext from "./HeaderContext";
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
+export const HeaderContext = createContext();
 
 /** Provides the functions and states for the functionality of the header and drop down menus*/
 const HeaderContextProvider = ({ children }) => {
@@ -12,7 +13,7 @@ const HeaderContextProvider = ({ children }) => {
     setShowCart(showCart ? false : null);
     setShowLogin(showLogin ? false : true);
   };
-   /** Toggles between Cart visibility and turns of Login visibility if needed */
+  /** Toggles between Cart visibility and turns of Login visibility if needed */
   const toggleCart = () => {
     setShowLogin(showLogin ? false : null);
     setShowCart(showCart ? false : true);

@@ -18,6 +18,7 @@
   color: var(--clr-light1);
   border-top: 1px solid var(--clr-light1);
   border-bottom: 1px solid var(--clr-light1);
+  cursor: pointer;
 }
 
 .box-cart-login {
@@ -43,7 +44,8 @@
 }
 
 .search-result-list {
-  width: 30%;
+  max-width: 45%;
+  padding: 0px 20px;
   min-width: 250px;
   background-color: white;
   position: absolute;
@@ -51,6 +53,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: black;
+  z-index: 5;
 }
 
 .search-result-list li:hover {
@@ -58,8 +61,12 @@
   cursor: pointer;
 }
 
-.search-result-list li {padding: 3px;}
-.search-result-list li:last-of-type {padding-bottom: 9px;}
+.search-result-list li {
+  padding: 3px;
+}
+.search-result-list li:last-of-type {
+  padding-bottom: 9px;
+}
 
 .searchType {
   margin-left: 10px;
@@ -75,19 +82,35 @@
 }
 
 .nav-item {
-  min-width: 30px;
+  min-width: 90px;
+  margin: 10px;
   height: 30px;
-  margin-left: 50px;
   background-color: var(--clr-dark2);
   border-radius: 5px;
+  color: white;
+  position: relative;
 }
 
-.nav-item:hover,
+.tooltipText {
+  visibility: hidden;
+  width: 85px;
+  background-color: var(--clr-dark2);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item:hover .tooltipText {
+  visibility: visible;
+}
+
 .box-cart-login:hover {
   border: 1px solid white;
   cursor: pointer;
 }
-
 .box-cart-login:visited {
   color: white;
 }
@@ -98,17 +121,23 @@
   padding: 20px;
 }
 
-.login-success, .login-failed {
+.navbar {
+  background-color: var(--clr-light1);
+  height: 55px;
+  justify-content: center;
+}
+
+.login-success,
+.login-failed {
   position: absolute;
   top: 79px;
   padding: 1px 5px;
   width: 100%;
 }
 
-.login-success {background-color: green}
-.login-failed {background-color: red}
-
-.navbarTitle {
-  width: 80px;
-  text-align: left;
+.login-success {
+  background-color: green;
+}
+.login-failed {
+  background-color: red;
 }

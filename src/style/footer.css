@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .footer-main {
@@ -28,7 +29,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    margin: 20px auto;
+    margin: 20px auto 30px;
     max-width: 1000px;
     
 }

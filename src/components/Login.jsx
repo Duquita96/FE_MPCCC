@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import HeaderContext from "../context/HeaderContext";
-import UserContext from "../context/UserContext";
+import { HeaderContext } from '../context/HeaderContextProvider.jsx';
+import { UserContext } from '../context/UserContextProvider.jsx';
 import "../style/loginStyle.css";
 import axios from "axios";
 
@@ -176,7 +176,7 @@ const Login = () => {
         ) : null}
         {signUp ? (
           <span className="login-terms">
-            I have read and accept the{" "}
+            I have read and accept the {" "}
             <span className="login-links">terms</span>
           </span>
         ) : null}
