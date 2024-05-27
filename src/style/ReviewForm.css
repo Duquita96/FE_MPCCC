@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-  /* padding: 20px; */
 }
 
 .input-group {
@@ -32,7 +31,6 @@
 #submitButton:hover {
   transform: scale(1.1);
   cursor: pointer;
-
 }
 
 #firstFormBox {
@@ -51,38 +49,126 @@
   width: 80%;
 }
 #list-title,
-#comment-title{
-    font-size: 2rem;
-    text-align: center;
-    color: rgb(34, 40, 49);
+#comment-title {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(34, 40, 49);
 }
 
-#review-list{
-    margin: 20px;
+#review-list {
+  margin: 20px;
 }
 
-#empty-list{
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgb(238, 238, 238);
-    color: rgb(34, 40, 49);
+#empty-list {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);
+  color: rgb(34, 40, 49);
 }
 
-#comment-list{
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgb(238, 238, 238);
-    color: rgb(34, 40, 49);
+#comment-list {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);
+  color: rgb(34, 40, 49);
 }
 
-#secondCommentLine{
-border-bottom: 1px solid rgb(34, 40, 49);
-padding-bottom: 10px;
+#secondCommentLine {
+  border-bottom: 1px solid rgb(34, 40, 49);
+  padding-bottom: 10px;
 }
 
-#firstCommentLine{
+
+#firstCommentLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px){
+  #review-form {
+    margin: 5px;
+  }
+
+  #comment-title {
+    font-size: 3rem;
+  }
+  #firstFormBox {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    
+
+  }
+  #userNameForm {
+    width: 85%;
+    font-size: 20px;
+  }
+
+  .input-group {
+    margin: 10px 0px;
+  }
+
+  #ratingForm{
+    width: 40px;
+    height: 45px;
+    padding: 5px;
+    font-size: 20px;
+  }
+  #userNameRating {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0px;
+  }
+  #submitButton {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    padding: 10px;
+    justify-content: center;
+    font-size: 20px;
+  }
+  #review-list{
+    margin: 0px;
+  }
+#commentForm{
+  margin: 15px 0px;
+  font-size: 20px;
+}
+}
+
+
+@media (max-width: 540px) {
+  #comment-title {
+    font-size: 2rem;
+  }
+  #userNameForm {
+    width: 80%;
+    font-size: 15px;
+  }
+  #ratingForm{
+    height: 40px;
+    font-size: 15px;
+  }
+  #submitButton {
+    font-size: 15px;
+  }
+  #review-list{
+    font-size: 15px;
+  }
+#commentForm{
+  font-size: 15px;
+}
+}
+
+
+
+@media (max-width: 360px) {
+  #userNameForm {
+    width: 75%;
+  }
 }
