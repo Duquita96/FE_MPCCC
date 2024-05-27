@@ -15,12 +15,16 @@ const ReviewForm = ({ onAddReview, productType }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newReview = { name, comment, rating };
+        const token = localStorage.getItem('token');
 
         fetch(`http://localhost:8000/api/v1/${productType}/${id}/reviews`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json', 
+                'x-auth-token': token},
+
             body: JSON.stringify(newReview),
-        })
+        }, console.log)
 
             .then(response => response.json())
             .then(data => {
