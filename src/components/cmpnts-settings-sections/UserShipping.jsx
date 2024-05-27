@@ -45,11 +45,11 @@ const UserShipping = () => {
       )}
       {userState.homeAddress?.street && (
         <div className="address homeAddress">
-          {userState.homeAddress.street +
+          {userState.homeAddress.street.charAt(0).toUpperCase() + userState.homeAddress.street.slice(1)  +
             " - " +
-            userState.homeAddress.city +
+            userState.homeAddress.city.charAt(0).toUpperCase()+ userState.homeAddress.city.slice(1)  +
             ", " +
-            userState.homeAddress.country}
+            userState.homeAddress.country.toUpperCase()}
           <div className="home">Home</div>
           <button
             className="setting-del-btn pointer"
@@ -62,11 +62,11 @@ const UserShipping = () => {
       )}
       {userState.shippingAddress?.street && (
         <div className="address shippingAddress">
-          {userState.shippingAddress.street +
+          {userState.shippingAddress.street.charAt(0).toUpperCase() + userState.shippingAddress.street.slice(1) +
             " - " +
-            userState.shippingAddress.city +
+            userState.shippingAddress.city.charAt(0).toUpperCase()+ userState.shippingAddress.city.slice(1)  +
             ", " +
-            userState.shippingAddress.country}
+            userState.shippingAddress.country.toUpperCase()}
           <button
             className="setting-del-btn pointer"
             id="shipDel"

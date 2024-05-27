@@ -1,7 +1,7 @@
 const UserOptions = () => {
   return (
     <div className="settings-user-options">
-      <h3>Options</h3>
+      <h3 className="h3settings">Options</h3>
       <p>Receive newsletter?</p>
       
     </div>

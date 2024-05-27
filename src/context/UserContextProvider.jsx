@@ -40,6 +40,7 @@ const UserContextProvider = ({ children }) => {
 
   const [userState, userDispatch] = useReducer(userReducer, initialState);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [orderList, setOrderlist] = useState([]);
 
   const loginON = () => {setLoggedIn(true)};
   const loginOFF = () => {setLoggedIn(false)};
@@ -55,11 +56,12 @@ const UserContextProvider = ({ children }) => {
     localStorage.clear();
   };
 
+  const addOrders = (array) => {setOrderlist(array)};
   
 
   return (
     <UserContext.Provider
-      value={{ userState, userDispatch, addNewUser, resetUser, loggedIn }}
+      value={{ userState, userDispatch, addNewUser, resetUser, loggedIn, addOrders, orderList }}
     >
       {children}
     </UserContext.Provider>
