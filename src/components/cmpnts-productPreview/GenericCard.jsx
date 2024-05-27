@@ -28,9 +28,13 @@ const GenericCard = ({ card, productType, hideImg = false }) => {
           />
         </div>
         <Card.Body id={productType === 'tours' ? "serviceBody" : "cardBody"}>
-          <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; <span>{card.price}Є</span></Card.Title>
+          <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; </Card.Title>
         </Card.Body>
-        <StarRating rating={card.ratingAvg} />
+        <div className='cardPrice'>
+                  <StarRating rating={card.ratingAvg} />
+                  <span>{card.price}Є</span>
+        </div>
+
       </Card>
     </div>
   );
