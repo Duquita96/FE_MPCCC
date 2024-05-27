@@ -116,13 +116,16 @@
   object-fit: cover;
 }
 
-.cardNmePrice{
+.cardPrice{
+  height: 10px;
 display: flex;
 justify-content: space-around;
 margin: 0px 15px;
 }
-.cardNmePrice > span {
+.cardPrice > span {
 font-weight: bolder;
+display: flex;
+justify-content: space-between;
 }
 
 #cardBody {
@@ -138,7 +141,8 @@ font-weight: bolder;
 }
 
 #card-title{
-  height: 40px;
+  height: 30px;
+  margin: 5px 15px;
 }
 /* /////////////////////Responsivness //////////////////////*/
 
