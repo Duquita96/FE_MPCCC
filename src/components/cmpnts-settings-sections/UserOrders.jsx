@@ -25,7 +25,7 @@ const UserOrders = () => {
           if (order.status === "complete") {
             return (
               <div key={order._id} className="order">
-                <p>Order: {order._id}</p>
+                <p>Order: <a className="orderLink" href="#">{order._id}</a> - Delivered</p>
                 <p>{order.totalPrice} € </p>
               </div>
             );
