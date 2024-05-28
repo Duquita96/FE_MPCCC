@@ -58,9 +58,7 @@ body {
   .settings-home-btn {top: 180px;}
   .navbar {background-color: var(--clr-light2);}
   .nav-item {min-width: 30px; position: static;}
-  .hero-text {font-size: 1.4rem;}
-  .hero-container {height: 100px;}
-  /* .tooltipText {top: 110%; position: absolute; top: 310px;} */
+  .hero-container {height: 100px; margin-bottom: 10px;}
   .nav-item:hover .tooltipText {visibility: hidden;}
   .nav-item:hover {border: 1px solid white;}
   }
