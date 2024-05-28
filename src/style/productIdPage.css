@@ -53,7 +53,7 @@
 .add-to-cart,
 .button_container,
 #product_description > div {
-  border: 1px solid rgb(34, 40, 49);
+  /* border: 1px solid rgb(34, 40, 49); */
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgb(34, 40, 49, 0.5);
   margin: 10px;
