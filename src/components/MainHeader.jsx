@@ -11,7 +11,7 @@ import { WidthContext } from '../context/WidthContextProvider.jsx';
 import '../style/headerStyle.css';
 
 const MainHeader = () => {
-  const { loginMsg } = useContext(HeaderContext);
+  const { feedbackMsg } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
   const { resetUser, addNewUser } = useContext(UserContext);
 
@@ -35,12 +35,9 @@ const MainHeader = () => {
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}
       {windowWidth > 768 && <LoginLogoutBtn />}
-      {loginMsg === 1 && (
-        <div className='login-success'>You were successfully logged in</div>
-      )}
-      {loginMsg === 2 && (
-        <div className='login-failed'>Login failed. Please try again</div>
-      )}
+      {feedbackMsg === 1 && (<div className='login-success'>You were successfully logged in</div>)}
+      {feedbackMsg === 2 && (<div className='login-failed'>Login failed. Please try again</div>)}
+      {feedbackMsg === 3 && (<div className='login-success'>Item added to cart</div>)}
     </div>
   );
 };

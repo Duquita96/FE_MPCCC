@@ -77,9 +77,6 @@ body {
     min-width: 30px;
     position: static;
   }
-  .hero-text {
-    font-size: 1.4rem;
-  }
   .hero-container {
     height: 100px;
   }

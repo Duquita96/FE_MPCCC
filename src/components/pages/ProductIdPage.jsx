@@ -40,13 +40,15 @@ export const ProductIdPage = ({ productType }) => {
   const navigate = useNavigate();
 
   const { addToCart } = useContext(cartContext);
-  const { showLogin, showCart } = useContext(HeaderContext);
+  const { showLogin, showCart, toggleFeedbackMsg } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
   const { loggedIn } = useContext(UserContext);
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+    /** Displays a confirmation of succesfull add-to-cart for 3 seconds */
+    const confirmAddToCart = () => {toggleFeedbackMsg(3); setTimeout(() => {toggleFeedbackMsg(0)}, 3000)}
+
+
+  const handleGoBack = () => {navigate(-1)};
 
   const addItem = () => {
     let objToAdd;
@@ -78,6 +80,7 @@ export const ProductIdPage = ({ productType }) => {
           price: pcParts.price,
         });
     addToCart(objToAdd);
+    confirmAddToCart();
   };
 
   productType === "tours";
