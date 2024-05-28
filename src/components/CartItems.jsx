@@ -33,8 +33,6 @@ const CartItems = () => {
       .post("http://localhost:8000/api/v1/orders/checkout", cartObj, { headers })
       .then((res) => {console.log(res.data.status); emptyCart(); toggleCart()})
       .catch((err) => console.log(err));
-
-    closeCart();
   };
 
   return (

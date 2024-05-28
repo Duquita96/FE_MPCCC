@@ -184,4 +184,10 @@
 .order {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.orderLink {
+  color: var(--clr-dark1);
+  text-decoration: underline;
 }
