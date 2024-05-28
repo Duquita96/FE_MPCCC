@@ -38,6 +38,7 @@ const MainHeader = () => {
       {feedbackMsg === 1 && (<div className='login-success'>You were successfully logged in</div>)}
       {feedbackMsg === 2 && (<div className='login-failed'>Login failed. Please try again</div>)}
       {feedbackMsg === 3 && (<div className='login-success'>Item added to cart</div>)}
+      {feedbackMsg === 4 && (<div className='login-success'>Order added. We have sent you an email.</div>)}
     </div>
   );
 };
