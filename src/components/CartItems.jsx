@@ -5,8 +5,15 @@ import { HeaderContext } from "../context/HeaderContextProvider";
 import axios from "axios";
 
 const CartItems = () => {
+
   const { cart, replaceCart, emptyCart } = useContext(cartContext);
-  const { toggleCart } = useContext(HeaderContext);
+  const { toggleCart, closeCart } = useContext(HeaderContext);
+
+  const page= document.querySelector('.page-container')
+ 
+  page.addEventListener("click", (e) => {
+    if(!e.target.className.includes('cart')) {closeCart()}
+  });
 
   const delItem = (e) => {
     let newArray = cart.filter((item) => cart.indexOf(item) !== Number(e.target.id));
@@ -14,6 +21,10 @@ const CartItems = () => {
   };
 
   const buyCart = () => {
+    if (cart.reduce((acc, curr) => acc + curr.price, 0) === 0) {
+      alert('Cart is empty'); 
+      return;
+    }
     const cartObj = {details: cart, totalPrice: cart.reduce((acc, curr) => acc + curr.price, 0)};
     const token = localStorage.getItem("token");
     const headers = { "x-auth-token": token };
@@ -22,10 +33,12 @@ const CartItems = () => {
       .post("http://localhost:8000/api/v1/orders/checkout", cartObj, { headers })
       .then((res) => {console.log(res.data.status); emptyCart(); toggleCart()})
       .catch((err) => console.log(err));
+
+    closeCart();
   };
 
   return (
-    <div>
+    <div className="cartClickAvoid">
       {cart.map((item, key) => {
         return (
           <div key={key} className="cart-item-list">

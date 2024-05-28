@@ -29,7 +29,7 @@ const HeroSection = () => {
         <FaStar className="heroStar" size={12} />
         <FaStar className="heroStar" size={12} />
       </div>
-      <p className="hero-text">Come shop at MarketPlace, our users love it!</p>
+      <p className="hero-text">Come shop at PMC&#179;, our users love it!</p>
     </div>
   );
 };
