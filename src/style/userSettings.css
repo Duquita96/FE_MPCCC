@@ -260,3 +260,8 @@
   right: 0px;
 }
 /* TOGGLE ENDS */
+
+.orderLink {
+  color: var(--clr-dark1);
+  text-decoration: underline;
+}

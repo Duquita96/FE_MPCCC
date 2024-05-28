@@ -10,7 +10,7 @@ const AccountBtn = () => {
   return (
     <Link
     to={'/user-account'}
-      className="box-cart-login"
+      className="accountBtn"
       style={{ visibility: userState._id ? "visible" : "hidden" }}
     >
       Account
