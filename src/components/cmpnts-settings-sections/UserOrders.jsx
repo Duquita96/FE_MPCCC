@@ -12,8 +12,8 @@ const UserOrders = () => {
           if (order.status === "pending") {
             return (
               <div key={order._id} className="order">
-                <p>Order: {order._id}</p>
-                <p>{order.totalPrice} € </p>
+                <p>Order: <a className="orderLink" href="#">{order._id}</a> - Pending</p>
+                <p>Date: {order.createdAt.slice(0,10)}</p>
               </div>
             );
           }

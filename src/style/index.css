@@ -19,21 +19,22 @@
   --clr-light1: rgb(118, 171, 174);
   --clr-light1-transparent: rgba(118, 171, 174, 0.5);
 
-  --clr-light2:rgb(238, 238, 238);
-  --clr-light2-transparent:rgba(238, 238, 238, 0.5);
+  --clr-light2: rgb(238, 238, 238);
+  --clr-light2-transparent: rgba(238, 238, 238, 0.5);
 
   --clr-stars: #ffc107;
 }
 
-html, body {
-  height: 100vh; 
+html,
+body {
+  height: 100vh;
 }
 
 body {
   background-color: var(--clr-light2);
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
@@ -43,32 +44,59 @@ body {
   flex-direction: column;
 }
 
-
 @media only screen and (max-width: 480px) {
-  
 }
 @media only screen and (min-width: 768px) {
-  .settings-home-btn {top: 120px;}
+  .settings-home-btn {
+    top: 120px;
+  }
 }
 @media only screen and (max-width: 768px) {
-  .login-container {top: 155px; width: 100%; border-bottom-left-radius: 0px}
-  .cart-container {top: 155px}
-  .sub-headers {background-color: var(--clr-dark2); color: var(--clr-light2)}
-  .settings-container {padding: 80px;}
-  .settings-home-btn {top: 180px;}
-  .navbar {background-color: var(--clr-light2);}
-  .nav-item {min-width: 30px; position: static;}
-  .hero-text {font-size: 1.4rem;}
-  .hero-container {height: 100px;}
-  /* .tooltipText {top: 110%; position: absolute; top: 310px;} */
-  .nav-item:hover .tooltipText {visibility: hidden;}
-  .nav-item:hover {border: 1px solid white;}
+  .login-container {
+    top: 155px;
+    width: 100%;
+    border-bottom-left-radius: 0px;
   }
+  .cart-container {
+    top: 155px;
+  }
+  .sub-headers {
+    background-color: var(--clr-dark2);
+    color: var(--clr-light2);
+  }
+  .settings-container {
+    padding: 80px;
+  }
+  .settings-home-btn {
+    top: 180px;
+  }
+  .navbar {
+    background-color: var(--clr-light2);
+  }
+  .nav-item {
+    min-width: 30px;
+    position: static;
+  }
+  .hero-text {
+    font-size: 1.4rem;
+  }
+  .hero-container {
+    height: 100px;
+  }
+  /* .tooltipText {top: 110%; position: absolute; top: 310px;} */
+  .nav-item:hover .tooltipText {
+    visibility: hidden;
+  }
+  .nav-item:hover {
+    border: 1px solid white;
+  }
+}
 @media only screen and (min-width: 992px) {
 }
 @media only screen and (min-width: 1024px) {
-
 }
 @media only screen and (min-width: 1300px) {
-  .footer-social {justify-content: center}
+  .footer-social {
+    justify-content: center;
+  }
 }

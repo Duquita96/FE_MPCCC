@@ -1,5 +1,5 @@
 #products-preview-section {
-  margin: 10vh 5% auto 5% ;
+  margin: 10vh 5% auto 5%;
   display: flex;
   flex-direction: column;
 }
@@ -22,7 +22,6 @@
   padding: 1rem 0rem;
   justify-content: center;
   align-content: center;
-
 }
 
 #service-collection {
@@ -48,7 +47,6 @@
   );
   border-radius: 5px;
 }
-
 
 .carrousell {
   height: 200px;
@@ -116,16 +114,16 @@
   object-fit: cover;
 }
 
-.cardPrice{
+.cardPrice {
   height: 10px;
-display: flex;
-justify-content: space-around;
-margin: 0px 15px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 15px;
 }
 .cardPrice > span {
-font-weight: bolder;
-display: flex;
-justify-content: space-between;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
 }
 
 #cardBody {
@@ -140,7 +138,7 @@ justify-content: space-between;
   min-width: 100%;
 }
 
-#card-title{
+#card-title {
   height: 30px;
   margin: 5px 15px;
 }
@@ -196,7 +194,7 @@ justify-content: space-between;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
-  #card-title{
+  #card-title {
     height: 30px;
   }
 }
@@ -215,6 +213,18 @@ justify-content: space-between;
   .card-text {
     font-size: 12px;
   }
+  .carrousell {
+    /* height: 200px; */
+    width: 150px;
+    /* display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    margin: 5px 20px;
+    transition: transform 0.3s ease;
+    transition: margin 0.3s ease; */
+  }
 }
-
-

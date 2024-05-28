@@ -59,13 +59,13 @@ const Footer = () => {
           <MdOutlineReviews size={40} color={'var(--clr-light1)'}  />
           <p className="ft-text">
             Smart. Dive into our detailed reviews and confidently find products
-            tailored to your needs. With pmccc-marketplace you're making smarter
+            tailored to your needs. With PMC&#179; marketplace you're making smarter
             choices.
           </p>
         </div>
       </div>
       <div className="footer-copyright">
-        <p>PMCCC Marketplace - All rights reserved. </p>
+        <p>PMC&#179; Marketplace &#169; All rights reserved. </p>
       </div>
     </div>
   );

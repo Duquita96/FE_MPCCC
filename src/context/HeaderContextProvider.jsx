@@ -8,6 +8,8 @@ const HeaderContextProvider = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [loginMsg, setLoginMsg] = useState(0);
 
+ window.onresize = () => {if (showCart || showLogin) {setShowCart(false);setShowLogin(false)}};
+
   /** Toggles between Login visibility and turns of Cart visibility if needed */
   const toggleLogin = () => {
     setShowCart(showCart ? false : null);
@@ -23,6 +25,8 @@ const HeaderContextProvider = ({ children }) => {
     setLoginMsg(number);
   };
 
+  const closeCart = () => setShowCart(false);
+
   return (
     <HeaderContext.Provider
       value={{
@@ -32,6 +36,7 @@ const HeaderContextProvider = ({ children }) => {
         toggleLogin,
         toggleCart,
         toggleLoginMsg,
+        closeCart,
       }}
     >
       {children}

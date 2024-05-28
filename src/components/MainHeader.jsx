@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import SearchBar from './Searchbar';
@@ -30,11 +30,7 @@ const MainHeader = () => {
 
   return (
     <div className='main-header headers'>
-      {windowWidth > 768 && (
-        <NavLink to='/' className='logo'>
-          PMC&#179;
-        </NavLink>
-      )}
+      {windowWidth > 768 && (<Link to='/' className='logo'>PMC&#179;</Link>)}
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}
