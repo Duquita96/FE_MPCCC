@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 //css
 import '../../style/ReviewForm.css';
 
-function Comments({productType}) {
+function Comments({ productType }) {
     const [reviews, setReviews] = useState([]);
     const { id } = useParams();
 
@@ -16,34 +16,40 @@ function Comments({productType}) {
         setReviews([...reviews, review]);
     };
 
-useEffect(() => {
-    const urls = [
-        `http://localhost:8000/api/v1/${productType}/${id}/reviews`
-    ];
-
-    urls.forEach(url => {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+    useEffect(() => {
+        const urls = [
+            `http://localhost:8000/api/v1/${productType}/${id}/reviews`
+        ];
+        const token = localStorage.getItem('token');
+        urls.forEach(url => {
+            fetch(url, {
+                headers: { 
+                    'Content-Type': 'application/json', 
+                    'x-auth-token': token // Agrega el token a los headers
                 }
-                return response.json();
-                
             })
-            .then(data => {
-                setReviews(prevReviews => [...prevReviews, ...data.data.reviews]);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    });
-}, [id]);
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+
+
+                })
+                .then(data => {
+                    setReviews(prevReviews => [...prevReviews, ...data.data.reviews]);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+    }, [id]);
 
 
     return (
         <div className="review-box">
             <h1 id='comment-title'>Give us a Feedback!</h1>
-            <ReviewForm onAddReview={handleAddReview} productType={productType}/>
+            <ReviewForm onAddReview={handleAddReview} productType={productType} />
             <ReviewList reviews={reviews} />
         </div>
     );
@@ -53,5 +59,4 @@ export default Comments
 
 Comments.propTypes = {
     productType: PropTypes.string,
-  };
-  
+};
