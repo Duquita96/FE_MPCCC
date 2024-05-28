@@ -1,11 +1,24 @@
 .ProductsPage_Filter {
   width: 200px;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 480px) {
+  .ProductsPage_Filter {
+    /* background-color: brown; */
+    width: 135px;
+    padding: 1rem;
+  }
+
+  #filter-collection {
+    /* background: red; */
+    padding: 10px;
+  }
 }
 
 #filter-collection {
-  background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
-  width: calc(100vw - 200px);
+  /* background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2)); */
+  /* width: calc(100vw - 200px); */
   display: flex;
   align-content: center;
   flex-wrap: wrap;

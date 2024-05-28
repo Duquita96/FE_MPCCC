@@ -279,7 +279,7 @@ button a {
   }
 }
 
-@media (max-width: 420px){
+@media (max-width: 420px) {
   #product-title {
     font-size: 22px;
   }
