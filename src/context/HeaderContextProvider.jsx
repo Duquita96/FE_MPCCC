@@ -26,7 +26,9 @@ const HeaderContextProvider = ({ children }) => {
   };
 
   const closeCart = () => setShowCart(false);
+  const closeLogin = () => setShowLogin(false);
 
+  
   return (
     <HeaderContext.Provider
       value={{
@@ -37,6 +39,7 @@ const HeaderContextProvider = ({ children }) => {
         toggleCart,
         toggleFeedbackMsg,
         closeCart,
+        closeLogin
       }}
     >
       {children}

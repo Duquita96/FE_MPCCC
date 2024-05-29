@@ -6,9 +6,13 @@ import "../style/loginStyle.css";
 import axios from "axios";
 
 const Login = () => {
-  const { toggleLogin, toggleFeedbackMsg } = useContext(HeaderContext);
+  const { toggleLogin, toggleFeedbackMsg, closeLogin } = useContext(HeaderContext);
   const { addNewUser } = useContext(UserContext);
   const [signUp, setSignUp] = useState(false);
+
+  window.addEventListener("click", (e) => {
+    if(!e.target.className.includes('login')) {closeLogin()}
+  });
 
   const emptyForm = {
     firstName: "", 

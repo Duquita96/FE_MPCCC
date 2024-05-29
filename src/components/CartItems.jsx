@@ -8,7 +8,7 @@ const CartItems = () => {
 
   const { cart, replaceCart, emptyCart } = useContext(cartContext);
   const { toggleCart, closeCart, toggleFeedbackMsg } = useContext(HeaderContext);
- 
+
   window.addEventListener("click", (e) => {
     if(!e.target.className.includes('cart')) {closeCart()}
   });
