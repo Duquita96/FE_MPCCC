@@ -30,7 +30,7 @@ const MainHeader = () => {
 
   return (
     <div className='main-header headers'>
-      {windowWidth > 768 && (<Link to='/' className='logo'>PMC&#179;</Link>)}
+      {windowWidth > 768 && <Link to='/' className='logo'>PMC&#179;</Link>}
       {windowWidth > 768 && <AccountBtn />}
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}

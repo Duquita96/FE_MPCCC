@@ -22,7 +22,7 @@ const Homepage = () => {
         {showCart && <Cart />}
         {windowWidth > 768 && <ProductsNavBar />}
         {windowWidth <= 768 && <MobileNavBar  />}
-        <HeroSection />
+        {windowWidth > 768 &&<HeroSection />}
         {windowWidth <= 768 && <ProductsNavBar />}
         <ProductsPreview />
       </PageWrapper>
