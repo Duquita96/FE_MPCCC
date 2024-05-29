@@ -5,10 +5,13 @@ import patchFunction from '../../utils/patch';
 
 const UserOptions = () => {
   const { userState, userDispatch } = useContext(UserContext);
-  const [isNewsletter, setIsNewsletter] = useState(userState.newsletter);
+  console.log(userState.newsletter);
+
+  const [isNewsletter, setIsNewsletter] = useState(false);
+  console.log({ isNewsletter });
 
   const onChange = async () => {
-    if (isNewsletter) alert('You have unsubscribed from our newsletter');
+    if (isNewsletter) alert('You have unbsubscribed from our newsletter');
     else alert('Thanks for subscribing to our newsletter!');
 
     await patchFunction({ newsletter: !isNewsletter }).then(() => {
@@ -18,13 +21,13 @@ const UserOptions = () => {
   };
   return (
     <div className='settings-user-options'>
-      <h3 className='h3settings'>Options</h3>
+      <h3>Options</h3>
       <div className='delBox'>
         <p>Receive newsletter?</p>
         <ToggleSwitch
           label='newsletter'
           onChange={onChange}
-          isChecked={userState.newsletter}
+          isChecked={isNewsletter}
         />
       </div>
     </div>
