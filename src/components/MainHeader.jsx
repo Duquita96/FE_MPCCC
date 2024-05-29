@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import SearchBar from './Searchbar';
 import { HeaderContext } from '../context/HeaderContextProvider.jsx';
+import { UserContext } from '../context/UserContextProvider.jsx';
+import { WidthContext } from '../context/WidthContextProvider.jsx';
 import AccountBtn from './cmpnts-header-buttons/AccountBtn';
 import LoginLogoutBtn from './cmpnts-header-buttons/LoginLogoutBtn';
 import CartBtn from './cmpnts-header-buttons/CartBtn';
-import { UserContext } from '../context/UserContextProvider.jsx';
-import { WidthContext } from '../context/WidthContextProvider.jsx';
+import SearchBar from './Searchbar';
 import '../style/headerStyle.css';
 
+
+/** Displays the main header and the feedback messages */
 const MainHeader = () => {
   const { feedbackMsg } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
@@ -35,10 +37,12 @@ const MainHeader = () => {
       <SearchBar />
       {windowWidth > 768 && <CartBtn />}
       {windowWidth > 768 && <LoginLogoutBtn />}
-      {feedbackMsg === 1 && (<div className='login-success'>You were successfully logged in</div>)}
-      {feedbackMsg === 2 && (<div className='login-failed'>Login failed. Please try again</div>)}
-      {feedbackMsg === 3 && (<div className='login-success'>Item added to cart</div>)}
-      {feedbackMsg === 4 && (<div className='login-success'>Order added. We have sent you an email.</div>)}
+      {feedbackMsg === 1 && (<div className='fb-success'>You were successfully logged in</div>)}
+      {feedbackMsg === 2 && (<div className='fb-failed'>Login failed. Please try again</div>)}
+      {feedbackMsg === 3 && (<div className='fb-success'>Item added to cart</div>)}
+      {feedbackMsg === 4 && (<div className='fb-success'>Order added. We have sent you an email.</div>)}
+      {feedbackMsg === 5 && (<div className='fb-success'>Thank you for subscribing to our newsletter</div>)}
+      {feedbackMsg === 6 && (<div className='fb-success'>You have unsubscribed from our newsletter</div>)}
     </div>
   );
 };

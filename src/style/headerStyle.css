@@ -127,17 +127,18 @@
   flex-wrap: wrap;
 }
 
-.login-success,
-.login-failed {
+.fb-success,
+.fb-failed {
   position: absolute;
   top: 79px;
   padding: 1px 5px;
+  height: 22px;
   width: 100%;
 }
 
-.login-success {
+.fb-success {
   background-color: green;
 }
-.login-failed {
+.fb-failed {
   background-color: red;
 }
