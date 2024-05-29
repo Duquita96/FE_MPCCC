@@ -8,6 +8,7 @@ import { StarRating } from './ReviewList.jsx';
 export const getImagePath = (card) => `../src/assets/img/${card.imgSrc}`;
 
 export function truncateName(name) {
+
   return name.length > 40 ? name.substring(0, 18) + '...' : name;
 }
 
@@ -28,6 +29,7 @@ const GenericCard = ({ card, productType, hideImg = false }) => {
           />
         </div>
         <Card.Body id={productType === 'tours' ? "serviceBody" : "cardBody"}>
+
           <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; </Card.Title>
         </Card.Body>
         <div className='cardPrice'>
