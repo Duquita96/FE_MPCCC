@@ -5,12 +5,8 @@
 }
 #products-collection,
 #service-collection {
-  display: grid;
-  gap: 24px;
-}
-
-#products-collection {
-  grid-template-columns: repeat(7, 1fr);
+  gap: 22px;
+  width: auto;
   display: flex;
 }
 
@@ -25,11 +21,13 @@
 }
 
 #service-collection {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  overflow: hidden;
-  height: 110px;
-  display: flexbox;
+  height: 115px;
+  flex-direction: row;
+  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  justify-content: left;
 }
 
 #products-collection::-webkit-scrollbar,
@@ -71,7 +69,6 @@
 
 .carrousell,
 .service-container {
-  /* border: 1px solid rgb(49, 54, 63); */
   border-radius: 5px;
   background: var(--clr-light1);
   display: flex;
@@ -140,95 +137,39 @@
 
 #card-title {
   height: 30px;
-  margin: 5px 15px;
+  /*   margin: 5px; */
 }
 /* /////////////////////Responsivness //////////////////////*/
 
-@media (min-width: 1600px) {
-  #service-collection {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 2200px) {
-  #service-collection,
-  #products-collection {
-    overflow: scroll;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-  }
-  #products-collection {
-    justify-content: left;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 1024px) {
-  #service-collection {
-    height: calc(100px * 2);
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  #products-collection{
-/* background-color: red; */
-width: auto;
-  }
-}
-
-@media (max-width: 992px) {
-  #service-collection {
-    width: auto;
-    height: calc(100px * 2);
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .service-container {
-    height: 60px;
-    width: 95%;
-    padding-top: 5px;
-  }
-
-  #service-collection {
-    height: calc(40px * 2);
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  #card-title {
-    height: 30px;
-  }
-}
-
 @media (max-width: 468px) {
-  .service-container {
-    width: auto;
-    padding-top: 5px;
-  }
-  #serviceBody.card {
-    display: flex;
-  }
   .card-title {
-    font-size: 14px;
+    font-size: 15px;
   }
-  .card-text {
-    font-size: 12px;
+  .service-container {
+    padding: 5px;
+    width: 150px;
+  }
+  .service-container .cardNmePrice,
+  .service-container .card {
+    width: 140px;
+    margin: 0px;
+  }
+  .service-container #card-title {
+    margin: 5px;
+  }
+  #products-collection {
+    height: 200px;
+    margin: 5px;
   }
   .carrousell {
-    /* height: 200px; */
-    width: 150px;
-    /* display: flex;
-    overflow: hidden;
-    justify-content: center;
-    align-content: center;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    margin: 5px 20px;
-    transition: transform 0.3s ease;
-    transition: margin 0.3s ease; */
+    height: 180px;
+    width: 175px;
+  }
+  .imgBoxContainer {
+    width: 180px;
+  }
+  .carrousell .card #cardBody {
+    margin: 0px 10px 5px 10px;
+    height: 20px;
   }
 }
