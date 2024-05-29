@@ -172,6 +172,10 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
+  #products-collection{
+/* background-color: red; */
+width: auto;
+  }
 }
 
 @media (max-width: 992px) {
