@@ -9,7 +9,7 @@ export const getImagePath = (card) => `../src/assets/img/${card.imgSrc}`;
 
 export function truncateName(name) {
 
-  return name.length > 40 ? name.substring(0, 18) + '...' : name;
+  return name.length > 20 ? name.substring(0, 17) + '...' : name;
 }
 
 // Generic Component to render the cards

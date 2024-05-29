@@ -156,7 +156,7 @@ button a {
 .add-to-crt {
   background: rgb(34, 40, 49);
   color: rgb(118, 171, 174);
-  margin: 15px auto;
+  margin: 10px auto;
   width: 90%;
   height: 30px;
   border: none;
@@ -165,7 +165,7 @@ button a {
   align-items: center;
 }
 #addItem {
-  margin: 15px auto 15px 20px;
+  margin: 10px auto 15px 20px;
   text-align: center;
   width: 10%;
   border-radius: 5px;
