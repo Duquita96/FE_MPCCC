@@ -50,7 +50,7 @@
   display: flex;
 }
 
-.add-to-cart,
+.add-to-crt,
 .button_container,
 #product_description > div {
   /* border: 1px solid rgb(34, 40, 49); */
@@ -108,7 +108,7 @@
   height: 30px;
 }
 
-.add-to-cart,
+.add-to-crt,
 .viewMoreButton,
 .goBack-button,
 .filter-goBack-button,
@@ -116,7 +116,7 @@
   transition: transform 0.3s ease;
 }
 
-.add-to-cart:hover,
+.add-to-crt:hover,
 .viewMoreButton:hover,
 .buyIcon:hover,
 .filter-goBack-button:hover,
@@ -153,7 +153,7 @@ button a {
   overflow-y: auto;
 }
 
-.add-to-cart {
+.add-to-crt {
   background: rgb(34, 40, 49);
   color: rgb(118, 171, 174);
   margin: 15px auto;

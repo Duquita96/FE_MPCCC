@@ -7,18 +7,20 @@ import axios from "axios";
 const CartItems = () => {
 
   const { cart, replaceCart, emptyCart } = useContext(cartContext);
-  const { toggleCart, closeCart } = useContext(HeaderContext);
-
-  const page= document.querySelector('.page-container')
+  const { toggleCart, closeCart, toggleFeedbackMsg } = useContext(HeaderContext);
  
-  page.addEventListener("click", (e) => {
+  window.addEventListener("click", (e) => {
     if(!e.target.className.includes('cart')) {closeCart()}
   });
 
+  /** Deletes an item based on it's index in the array */
   const delItem = (e) => {
     let newArray = cart.filter((item) => cart.indexOf(item) !== Number(e.target.id));
     replaceCart(newArray);
   };
+
+  /** Displays a confirmation of succesfull buy-cart for 3 seconds */
+  const confirmBuy = () => {toggleFeedbackMsg(4); setTimeout(() => {toggleFeedbackMsg(0)}, 5000)}
 
   const buyCart = () => {
     if (cart.reduce((acc, curr) => acc + curr.price, 0) === 0) {
@@ -31,7 +33,7 @@ const CartItems = () => {
 
     axios
       .post("http://localhost:8000/api/v1/orders/checkout", cartObj, { headers })
-      .then((res) => {console.log(res.data.status); emptyCart(); toggleCart()})
+      .then((res) => {console.log(res.data.status); emptyCart(); toggleCart(); confirmBuy()})
       .catch((err) => console.log(err));
   };
 

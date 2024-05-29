@@ -16,15 +16,15 @@ const UserSettings = () => {
       .then((res) => {
         res.data.status === "success" ? addNewUser(res.data.data) : resetUser();
         const orders = res.data.data.orders;
-        const orderList = [];
+        const newOrderList = [];
         if(orders.length > 0) {
           orders.forEach(order => {
             axios.get(`http://localhost:8000/api/v1/orders/${order}`, { headers })
-            .then((res) => orderList.push(res.data.data))
+            .then((res) => newOrderList.push(res.data.data))
             .catch(err => console.log(err))
-          });
-          addOrders(orderList);
+          }); 
         }
+        addOrders(newOrderList);
       })
       .catch((err) => console.log(err));
   }, [loggedIn]);

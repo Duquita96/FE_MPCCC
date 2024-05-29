@@ -37,7 +37,7 @@ const UserShipping = () => {
 
   return (
     <div className="settings-user-admin">
-      <h3>Shipping addresses</h3>
+      <h3 className="h3settings">Shipping addresses</h3>
       {addBtn && (
         <button className="addBtn pointer" onClick={toggleModify}>
           +

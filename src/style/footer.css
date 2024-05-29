@@ -39,6 +39,7 @@
     height: 120px;
     text-align: center;
     padding: 10px;
+    user-select: none;
 }
 
 .ft-text {
@@ -52,4 +53,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
