@@ -8,6 +8,7 @@
 }
 
 :root {
+  font-family: 'Roboto', sans-serif;
   font-size: 62.5%;
 
   --clr-dark1: rgb(34, 40, 49);
