@@ -131,7 +131,7 @@ const Login = () => {
         ) : null}
         {signUp ? (
           <div className="ageField">
-            <p>Please select your date of birth</p>
+            <label>Date of birth</label>
             <input
               type="date"
               name="birthdate"
@@ -177,14 +177,14 @@ const Login = () => {
         {signUp ? (
           <span className="login-terms">
             I have read and accept the {" "}
-            <span className="login-links">terms</span>
+            <span className="login-links">T&C</span>
           </span>
         ) : null}
         {signUp ? (
           <input type="checkbox" name="terms" id="terms" required />
         ) : null}
         <button className="login-btn" type="submit">
-          {signUp ? "Sign Up" : "Login"}
+          {signUp ? "Sign up" : "Login"}
         </button>
       </form>
       <p className="login-toggle">
