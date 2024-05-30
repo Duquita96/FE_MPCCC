@@ -17,14 +17,31 @@ export const FilterPageCollection = ({ productType, toursType }) => {
   const [currentFilter, setCurrentFilter] = useState('all');
   const [toursTypeFilter, setToursTypeFilter] = useState('');
   const { setTourType } = useContext(ToursTypeContext);
+  const [genre, setGenre] = useState('');
+  const [category, setCategory] = useState('');
+  const [genres, setGenres] = useState([]);
+  const [showFilterOptions, setShowFilterOptions] = useState(false);
+  const [videoGameGenres, setVideoGameGenres] = useState([]);
+  const [pcPartsCategory, setPcPartsCategory] = useState([]);
+
 
   const navigate = useNavigate();
-  const changeFilter = (filterType, toursType = '') => {
+
+
+
+  const changeFilter = (filterType, toursType = '', genre = '', category = '') => {
     setCurrentFilter(filterType);
     setToursTypeFilter(toursType); // Filter Tour Type
     setTourType(toursType); // Context TourType
+    setGenre(genre); // Stablish genre
+    setCategory(category) // Stablish category
+    if (filterType === 'books' || filterType === 'video-games' || filterType === 'pc-parts') {
+      setShowFilterOptions(!showFilterOptions);
+    }
     navigate(`/filter-page/${filterType}`);
   };
+
+
 
   const [priceRange, setPriceRange] = useState({
     range1: false,
@@ -53,6 +70,27 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     }
   }, [productType, toursType]);
 
+
+  useEffect(() => {
+    const fetchGenres = async (url, setGenresFunction) => {
+      const response = await fetch(url);
+      const data = await response.json();
+      const uniqueGenres = [...new Set(data.data.map(item => item.genre))];
+      setGenresFunction(uniqueGenres);
+    };
+
+    fetchGenres('http://localhost:8000/api/v1/books', setGenres);
+    fetchGenres('http://localhost:8000/api/v1/video-games', setVideoGameGenres);
+    fetch('http://localhost:8000/api/v1/pc-parts')
+      .then(response => response.json())
+      .then(data => {
+        const uniqueCategories = [...new Set(data.data.map(item => item.category))];
+        setPcPartsCategory(uniqueCategories);
+      })
+  }, []);
+
+
+
   useEffect(() => {
     Promise.all([
       fetch('http://localhost:8000/api/v1/books').then(res => res.json()),
@@ -78,22 +116,34 @@ export const FilterPageCollection = ({ productType, toursType }) => {
     .filter(item => {
       if (currentFilter === 'all-products') {
         //exclude tours from the filter
-        console.log('All Products was clicked, value is: ', currentFilter);
         return item.productType !== 'tours';
       }
       if (currentFilter === 'all') {
         //include All items
-        console.log(
-          'All Products and Services was clicked, value is: ',
-          currentFilter
-        );
         return true;
       } else {
         // Specific Filters
-        console.log('All tours was clicked, value is: ', currentFilter);
         return item.productType === currentFilter;
       }
     })
+
+    .filter(item => {
+      if (!genre) {
+        return true;
+      } else {
+/*         console.log("item.genre: ", item.genre); */
+        return item.genre === genre;
+      }
+    })
+    .filter(item => {
+      if (!category) {
+        return true;
+      } else {
+        return item.category === category;
+      }
+    })
+
+
     .filter(item => !toursTypeFilter || item.toursType === toursTypeFilter)
     .filter(item => {
       if (!priceRange.range1 && !priceRange.range2 && !priceRange.range3) {
@@ -128,7 +178,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
           onClick={() => changeFilter('all')}>
           All Products and Services
         </li>
-        <br></br>
+        <br />
         <div>
           <h3 className='titleH3'>Products</h3>
           <ul>
@@ -140,19 +190,78 @@ export const FilterPageCollection = ({ productType, toursType }) => {
             <br />
             <li
               className='pointer prodSerFilter'
-              onClick={() => changeFilter('books')}>
+              onClick={() => {
+                if (currentFilter !== 'books') {
+                  changeFilter('books');
+                }
+                setShowFilterOptions(!showFilterOptions);
+              }}>
               Books
             </li>
+
+            {currentFilter === 'books' && showFilterOptions && (
+              <ul><br />
+                {genres.map(genre => (
+                  <li
+                    key={genre}
+                    className='pointer prodSerFilter'
+                    onClick={() => setGenre(genre)}>
+                    {genre}
+                  </li>
+                ))}
+                <br />
+              </ul>
+            )}
+
             <li
               className='pointer prodSerFilter'
-              onClick={() => changeFilter('pc-parts')}>
+              onClick={() => {
+                if (currentFilter !== 'pc-parts') {
+                  changeFilter('pc-parts');
+                }
+                setShowFilterOptions(!showFilterOptions);
+              }}>
               Pc Parts
             </li>
+
+            {currentFilter === 'pc-parts' && showFilterOptions && (
+              <ul><br />
+                {pcPartsCategory.map(category => (
+                  <li
+                    key={category}
+                    className='pointer prodSerFilter'
+                    onClick={() => setCategory(category)}>
+                    {category}
+                  </li>
+                ))}
+                <br />
+              </ul>
+            )}
+
             <li
               className='pointer prodSerFilter'
-              onClick={() => changeFilter('video-games')}>
+              onClick={() => {
+                if (currentFilter !== 'video-games') {
+                  changeFilter('video-games');
+                }
+                setShowFilterOptions(!showFilterOptions);
+              }}>
               Video Games
             </li>
+            {currentFilter === 'video-games' && showFilterOptions && (
+              <ul>
+                <br />
+                {videoGameGenres.map(genre => (
+                  <li
+                    key={genre}
+                    className='pointer prodSerFilter'
+                    onClick={() => setGenre(genre)}>
+                    {genre}
+                  </li>
+                ))}
+                <br />
+              </ul>
+            )}
           </ul>
         </div>
         <div>
@@ -235,13 +344,13 @@ export const FilterPageCollection = ({ productType, toursType }) => {
               {['books', 'video-games', 'pc-parts', 'tours'].includes(
                 card.productType
               ) && (
-                <GenericCard
-                  card={card}
-                  productType={card.productType}
-                  hideImg={false}
-                  className={card.productType === 'tours' ? 'toShow' : ''}
-                />
-              )}
+                  <GenericCard
+                    card={card}
+                    productType={card.productType}
+                    hideImg={false}
+                    className={card.productType === 'tours' ? 'toShow' : ''}
+                  />
+                )}
             </div>
           </ProductPreviewClick>
         ))}
