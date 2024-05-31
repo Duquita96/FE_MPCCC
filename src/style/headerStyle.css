@@ -138,7 +138,8 @@
 }
 
 .fb-success {
-  background-color: green;
+  background-color: lightgreen;
+  color: var(--clr-dark2);
 }
 .fb-failed {
   background-color: red;
