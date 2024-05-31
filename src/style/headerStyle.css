@@ -9,6 +9,7 @@
   height: 100px;
   justify-content: space-around;
   color: white;
+  z-index: 5;
 }
 
 .logo {

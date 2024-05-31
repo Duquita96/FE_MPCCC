@@ -47,7 +47,7 @@ const CartItems = () => {
             </p>
             <p className="cart-item-price">{item.price} €</p>
             <button
-              className="delBtn pointer"
+              className="delBtn pointer cartt"
               id={cart.indexOf(item)}
               onClick={delItem}
             >
