@@ -33,8 +33,12 @@ const GenericCard = ({ card, productType, hideImg = false }) => {
           <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; </Card.Title>
         </Card.Body>
         <div className='cardPrice'>
-                  <StarRating rating={card.ratingAvg} />
-                  <span>{card.price}Є</span>
+          <div>
+            <StarRating rating={card.ratingAvg} className="starsReview" />
+            <Card.Text className='rating'>({card.reviews.length})</Card.Text>
+          </div>
+
+          <span>{card.price}Є</span>
         </div>
 
       </Card>
@@ -51,6 +55,8 @@ GenericCard.propTypes = {
     price: PropTypes.number.isRequired,
     rating: PropTypes.number,
     ratingAvg: PropTypes.number,
+    reviews: PropTypes.string,
+    length: PropTypes.string,
   }).isRequired,
   productType: PropTypes.oneOf(['books', 'pc-parts', 'video-games', 'tours']).isRequired, // insert the productType
   toursType: PropTypes.oneOf(['sightseeing', 'museum', 'hiking']),
