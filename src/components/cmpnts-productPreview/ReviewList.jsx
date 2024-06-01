@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa';
 
 export const StarRating = ({ rating }) => {
     return (
-        <span>
+        <span className='rating'>
             {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (
