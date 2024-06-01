@@ -55,7 +55,7 @@ GenericCard.propTypes = {
     price: PropTypes.number.isRequired,
     rating: PropTypes.number,
     ratingAvg: PropTypes.number,
-    reviews: PropTypes.string,
+    reviews: PropTypes.array,
     length: PropTypes.string,
   }).isRequired,
   productType: PropTypes.oneOf(['books', 'pc-parts', 'video-games', 'tours']).isRequired, // insert the productType
