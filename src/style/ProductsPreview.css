@@ -3,9 +3,19 @@
   display: flex;
   flex-direction: column;
 }
-#products-collection,
+#products-collection{
+  padding: 15px 12px 0px;
+}
+
+#products-collection {
+  gap: 5px;
+}
 #service-collection {
   gap: 22px;
+}
+
+#products-collection,
+#service-collection {
   width: auto;
   display: flex;
 }
@@ -15,7 +25,7 @@
   overflow: hidden;
   height: 250px;
   width: 100%;
-  padding: 1rem 0rem;
+  padding: 1rem;
   justify-content: center;
   align-content: center;
 }
@@ -56,9 +66,10 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  margin: 5px 20px;
+  margin: 5px 0px;
   transition: transform 0.3s ease;
   transition: margin 0.3s ease;
+  margin: 0px 10px;
 }
 
 .service-container {
@@ -95,12 +106,15 @@
 }
 
 .imgBoxContainer {
-  padding: 0px 10px;
+  padding: 0px;
   overflow: hidden;
-  width: 20rem;
+  width: 190px;
 }
 #serviceBody {
   padding: auto;
+}
+.card-img-top {
+  margin-bottom: 5px;
 }
 .hidden {
   display: none;
@@ -112,21 +126,21 @@
 }
 
 .cardPrice {
-  height: 10px;
   display: flex;
-  justify-content: space-around;
-  margin: 0px 15px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px;
 }
 .cardPrice > span {
   font-weight: bolder;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #cardBody {
-  height: 40px;
+  height: auto;
   font-size: 16px;
-  margin-top: 0px;
+  margin: 0px;
 }
 
 #collections-container {
@@ -136,9 +150,13 @@
 }
 
 #card-title {
-  height: 30px;
-  /*   margin: 5px; */
+  height: 20px;
 }
+
+.card {
+  height: 190px;
+}
+
 /* /////////////////////Responsivness //////////////////////*/
 
 @media (max-width: 468px) {
@@ -162,14 +180,23 @@
     margin: 5px;
   }
   .carrousell {
-    height: 180px;
-    width: 175px;
+    height: 170px;
+    width: 150px;
   }
   .imgBoxContainer {
     width: 180px;
   }
+
+  #cardImgSrc {
+    height: 90px;
+    width: 140px;
+  }
   .carrousell .card #cardBody {
-    margin: 0px 10px 5px 10px;
-    height: 20px;
+    height: 40px;
+    width: 140px;
+    margin: 0px;
+  }
+  .card {
+    width: 140px;
   }
 }
