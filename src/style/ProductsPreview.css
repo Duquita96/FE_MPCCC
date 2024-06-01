@@ -175,10 +175,19 @@ align-items: end;
 
 
 /* /////////////////////Responsivness //////////////////////*/
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 15px;
+  }
+}
+
 
 @media (max-width: 468px) {
   .card-title {
-    font-size: 15px;
+    font-size: 14px;
+  }
+  .carrousell, .card, #cardBody {
+height: 20px;
   }
   .service-container {
     padding: 5px;
@@ -209,7 +218,6 @@ align-items: end;
     width: 140px;
   }
   .carrousell .card #cardBody {
-    height: 40px;
     width: 140px;
     margin: 0px;
   }
