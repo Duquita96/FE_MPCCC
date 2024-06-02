@@ -16,7 +16,7 @@ const Homepage = () => {
   const { windowWidth } = useContext(WidthContext);
 
   // const { data } = useResources('/resources/list');
-  // console.log(data.data);
+  // console.log(data);
 
   return (
     <PageWrapper>

@@ -24,10 +24,12 @@ export const useResources = param => {
       .get(param, { signal: controller.signal })
       .then(res => {
         setData(res.data);
+        setLoading(false);
       })
       .catch(err => {
         console.log(err);
         setError(err.message);
+        setLoading(false);
       });
 
     return () => controller.abort();
