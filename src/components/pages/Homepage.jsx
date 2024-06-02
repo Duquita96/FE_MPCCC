@@ -15,8 +15,8 @@ const Homepage = () => {
   const { showLogin, showCart } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
 
-  // const { data } = useResources('/resources/list');
-  // console.log(data.data);
+  // const { data } = useResources('/users/me');
+  // console.log(data);
 
   return (
     <PageWrapper>

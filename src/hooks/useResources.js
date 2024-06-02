@@ -10,7 +10,7 @@ import apiClient from '../services/api-client';
  * @property {boolean} isLoading - Indicates if data is currently being fetched (initially false).
  * @property {string} error - Error message in case of failed fetch (initially empty string).
  */
-export const useResources = param => {
+export const useResources = endpoint => {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -21,13 +21,15 @@ export const useResources = param => {
     setLoading(true);
 
     apiClient
-      .get(param, { signal: controller.signal })
+      .get(endpoint, { signal: controller.signal })
       .then(res => {
         setData(res.data);
+        setLoading(false);
       })
       .catch(err => {
         console.log(err);
         setError(err.message);
+        setLoading(false);
       });
 
     return () => controller.abort();
