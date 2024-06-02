@@ -15,7 +15,7 @@ const Homepage = () => {
   const { showLogin, showCart } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
 
-  // const { data } = useResources('/resources/list');
+  // const { data } = useResources('/users/me');
   // console.log(data);
 
   return (
