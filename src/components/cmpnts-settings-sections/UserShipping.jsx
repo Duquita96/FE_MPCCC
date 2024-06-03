@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContextProvider.jsx";
+import { FaRegTrashCan } from "react-icons/fa6";
 import AddressForm from "./AddressForm";
 import patchFunction from "../../utils/patch";
-import axios from "axios";
 
 const UserShipping = () => {
   const { userState, userDispatch } = useContext(UserContext);
@@ -50,13 +50,13 @@ const UserShipping = () => {
             userState.homeAddress.city.charAt(0).toUpperCase()+ userState.homeAddress.city.slice(1)  +
             ", " +
             userState.homeAddress.country.toUpperCase()}
-          <div className="home">Home</div>
+          
           <button
-            className="setting-del-btn pointer"
+            className="delBtn delBtnClr1 pointer"
             id="homeDel"
             onClick={delAddress}
           >
-            Delete
+            <FaRegTrashCan size={14} />
           </button>
         </div>
       )}
@@ -68,11 +68,11 @@ const UserShipping = () => {
             ", " +
             userState.shippingAddress.country.toUpperCase()}
           <button
-            className="setting-del-btn pointer"
+            className="delBtn delBtnClr1 pointer"
             id="shipDel"
             onClick={delAddress}
           >
-            Delete
+            <FaRegTrashCan size={14} />
           </button>
         </div>
       )}

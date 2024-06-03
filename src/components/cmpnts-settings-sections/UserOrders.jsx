@@ -6,7 +6,7 @@ const UserOrders = () => {
 
   const [render, setRender] = useState(false);
 
-  useEffect(() => {setTimeout(() => {setRender(true)},100)}, [])
+  useEffect(() => {setTimeout(() => {setRender(true)},300)}, [orderList])
 
   return (
     <>
@@ -16,8 +16,8 @@ const UserOrders = () => {
           if (order.status === "pending") {
             return (
               <div key={order._id} className="order">
-                <p>Order: <a className="orderLink" href="#">{order._id}</a> - Pending</p>
-                <p>Date: {order.createdAt.slice(0,10)}</p>
+                <p><a className="orderLink" href="#">{order._id}</a></p>
+                <p>{order.createdAt.slice(0,10)}</p>
               </div>
             );
           }
@@ -29,7 +29,7 @@ const UserOrders = () => {
           if (order.status === "complete") {
             return (
               <div key={order._id} className="order">
-                <p>Order: <a className="orderLink" href="#">{order._id}</a> - Delivered</p>
+                <p>Id: <a className="orderLink" href="#">{order._id}</a></p>
                 <p>{order.totalPrice} € </p>
               </div>
             );

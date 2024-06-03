@@ -6,9 +6,13 @@ import "../style/loginStyle.css";
 import axios from "axios";
 
 const Login = () => {
-  const { toggleLogin, toggleFeedbackMsg } = useContext(HeaderContext);
+  const { toggleLogin, toggleFeedbackMsg, closeLogin } = useContext(HeaderContext);
   const { addNewUser } = useContext(UserContext);
   const [signUp, setSignUp] = useState(false);
+
+  window.addEventListener("click", (e) => {
+    if(!e.target.className.includes('login')) {closeLogin()}
+  });
 
   const emptyForm = {
     firstName: "", 
@@ -130,8 +134,8 @@ const Login = () => {
           />
         ) : null}
         {signUp ? (
-          <div className="ageField">
-            <p>Please select your date of birth</p>
+          <div className="login-ageField">
+            <label>Date of birth</label>
             <input
               type="date"
               name="birthdate"
@@ -177,14 +181,14 @@ const Login = () => {
         {signUp ? (
           <span className="login-terms">
             I have read and accept the {" "}
-            <span className="login-links">terms</span>
+            <span className="login-links">T&C</span>
           </span>
         ) : null}
         {signUp ? (
           <input type="checkbox" name="terms" id="terms" required />
         ) : null}
         <button className="login-btn" type="submit">
-          {signUp ? "Sign Up" : "Login"}
+          {signUp ? "Sign up" : "Login"}
         </button>
       </form>
       <p className="login-toggle">

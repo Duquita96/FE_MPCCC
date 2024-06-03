@@ -9,6 +9,7 @@
   height: 100px;
   justify-content: space-around;
   color: white;
+  z-index: 5;
 }
 
 .logo {
@@ -107,7 +108,7 @@
   visibility: visible;
 }
 
-.box-cart-login:hover {
+.box-cart-login:hover , .accountBtn:hover {
   border: 1px solid white;
   cursor: pointer;
 }
@@ -116,7 +117,6 @@
 }
 
 .sub-headers {
-  background-color: var(--clr-light1);
   height: 55px;
   padding: 20px;
 }
@@ -125,19 +125,22 @@
   background-color: var(--clr-light1);
   height: 55px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.login-success,
-.login-failed {
+.fb-success,
+.fb-failed {
   position: absolute;
   top: 79px;
   padding: 1px 5px;
+  height: 22px;
   width: 100%;
 }
 
-.login-success {
-  background-color: green;
+.fb-success {
+  background-color: lightgreen;
+  color: var(--clr-dark2);
 }
-.login-failed {
+.fb-failed {
   background-color: red;
 }

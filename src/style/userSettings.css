@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 80px 5px;
 }
 
 .settings-home-btn {
@@ -40,7 +41,6 @@
   position: relative;
 }
 
-.setting-del-btn,
 .adminBtn,
 .modifyBtn {
   padding: 3px;
@@ -129,8 +129,7 @@
   background-color: var(--clr-light2-transparent);
 }
 
-.modify::after,
-.home {
+.modify::after {
   content: 'Modify';
   color: lightgreen;
   justify-content: end;
@@ -160,6 +159,10 @@
 .formInput {
   margin: 2px;
   text-align: center;
+}
+
+.delBtnClr1 {
+  background-color: var(--clr-dark1);
 }
 
 #gender-select,

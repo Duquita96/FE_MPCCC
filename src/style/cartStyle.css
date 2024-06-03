@@ -1,17 +1,23 @@
 .cart-container {
+  transition: all 0.5s ease-out;
+  position: absolute;
+  right: 0;
+  top: -100px;
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: var(--clr-dark1);
   opacity: 0.9;
   width: 360px;
-  position: absolute;
-  right: 0;
-  top: 100px;
   border-bottom-left-radius: 10px;
   color: var(--clr-light2);
   text-align: center;
   z-index: 1;
 }
+
+.cart-out {
+  transform: translate(0px, 200px);
+}
+
 
 .cart-item-list {
   display: flex;

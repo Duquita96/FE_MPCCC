@@ -8,7 +8,7 @@ const CartItems = () => {
 
   const { cart, replaceCart, emptyCart } = useContext(cartContext);
   const { toggleCart, closeCart, toggleFeedbackMsg } = useContext(HeaderContext);
- 
+
   window.addEventListener("click", (e) => {
     if(!e.target.className.includes('cart')) {closeCart()}
   });
@@ -47,7 +47,7 @@ const CartItems = () => {
             </p>
             <p className="cart-item-price">{item.price} €</p>
             <button
-              className="delBtn pointer"
+              className="delBtn pointer cartt"
               id={cart.indexOf(item)}
               onClick={delItem}
             >

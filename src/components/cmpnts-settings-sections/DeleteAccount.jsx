@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from '../../context/UserContextProvider.jsx';
+import { FaRegTrashCan } from "react-icons/fa6";
 import axios from "axios";
 
 const DeleteAccount = () => {
@@ -28,8 +29,8 @@ const DeleteAccount = () => {
         <div className="delBox">
           <h3>Delete Account</h3>
           {!display && (
-            <button className="setting-del-btn pointer" onClick={toggleDisplay}>
-              Delete
+            <button className="delBtn delBtnClr1 pointer" onClick={toggleDisplay}>
+              <FaRegTrashCan size={14} />
             </button>
           )}
         </div>

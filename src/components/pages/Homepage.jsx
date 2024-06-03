@@ -19,15 +19,15 @@ const Homepage = () => {
   // console.log(data);
 
   return (
-    <PageWrapper>
-      {showLogin && <Login />}
-      {showCart && <Cart />}
-      {windowWidth > 768 && <ProductsNavBar />}
-      {windowWidth <= 768 && <MobileNavBar />}
-      <HeroSection />
-      {windowWidth <= 768 && <ProductsNavBar />}
-      <ProductsPreview />
-    </PageWrapper>
+      <PageWrapper >
+        {showLogin && <Login />}
+        {showCart && <Cart />}
+        {windowWidth > 768 && <ProductsNavBar />}
+        {windowWidth <= 768 && <MobileNavBar  />}
+        {windowWidth > 768 &&<HeroSection />}
+        {windowWidth <= 768 && <ProductsNavBar />}
+        <ProductsPreview />
+      </PageWrapper>
   );
 };
 

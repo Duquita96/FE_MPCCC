@@ -70,6 +70,7 @@ body {
   .sub-headers {
     background-color: var(--clr-dark2);
     color: var(--clr-light2);
+    z-index: 5;
   }
   .settings-container {
     padding: 80px;
@@ -78,21 +79,29 @@ body {
     top: 180px;
   }
   .navbar {
-    background-color: var(--clr-light2);
-  }
-  .nav-item {
-    min-width: 30px;
-    position: static;
+    background: linear-gradient(180deg, var(--clr-light1), var(--clr-light2));
+    padding-top: 10px;
+    height: 100px;
+    align-items: flex-start;
   }
   .hero-container {
     height: 100px;
   }
-  /* .tooltipText {top: 110%; position: absolute; top: 310px;} */
-  .nav-item:hover .tooltipText {
-    visibility: hidden;
-  }
-  .nav-item:hover {
+  .nav-item:hover, .accountBtn:hover {
     border: 1px solid white;
+  }
+  .searchbardiv {
+    width: 75%;
+  }
+  .box-cart-login, .accountBtn {
+    width: 15vw;
+    min-width: 70px;
+  }
+  .cart-container {
+    top: -50px;
+  }
+  .cart-out {
+    transform: translate(0px, 205px);
   }
 }
 @media only screen and (min-width: 992px) {
