@@ -10,33 +10,40 @@ export const GenericCollection = ({ productType, hideImg }) => {
   const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
-    Promise.all([
-      fetch('http://localhost:8000/api/v1/books').then(res => res.json()),
-      fetch('http://localhost:8000/api/v1/video-games').then(res => res.json()),
-      fetch('http://localhost:8000/api/v1/pc-parts').then(res => res.json()),
-    ])
-      .then(([booksData, videoGamesData, pcPartsData]) => {
-        // Combine and randomize the data
-        const combinedData = [
-          ...booksData.data,
-          ...videoGamesData.data,
-          ...pcPartsData.data,
-        ];
-        const randomizedData = combinedData.sort(() => 0.5 - Math.random());
-        setProductsData(randomizedData);
-      })
-      .catch(err => console.log(err));
+    if (productType === 'tours') {
+      fetch('http://localhost:8000/api/v1/tours')
+        .then(res => res.json())
+        .then(data => {
+          setProductsData(data.data);
+        })
+        .catch(err => console.log(err));
+    } else {
+      Promise.all([
+        fetch('http://localhost:8000/api/v1/books').then(res => res.json()),
+        fetch('http://localhost:8000/api/v1/video-games').then(res => res.json()),
+        fetch('http://localhost:8000/api/v1/pc-parts').then(res => res.json()),
+        fetch('http://localhost:8000/api/v1/tours').then(res => res.json()),
+      ])
+        .then(([booksData, videoGamesData, pcPartsData]) => {
+          // Combine and randomize the data
+          const combinedData = [
+            ...booksData.data,
+            ...videoGamesData.data,
+            ...pcPartsData.data,
+          ];
+          const randomizedData = combinedData.sort(() => 0.5 - Math.random());
+          setProductsData(randomizedData);
+        })
+        .catch(err => console.log(err));
+    }
   }, []);
-
-
   return (
     <div>
-
       <div id={productType === 'tours' ? "service-collection" : "products-collection"} className="cards-container">
         {productsData.map((card, index) => (
           <ProductPreviewClick key={index} id={card._id} productType={card.productType}>
             <div className={productType === 'tours' ? 'service-container pointer' : 'carrousell pointer'}>
-              {['books', 'video-games', 'pc-parts',].includes(
+              {['books', 'video-games', 'pc-parts', 'tours'].includes(
                 card.productType
               ) && (
                   <GenericCard

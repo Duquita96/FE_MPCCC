@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const ToursTypeContext = createContext();
 
@@ -13,3 +14,7 @@ export const ToursTypeContextProvider = ({ children }) => {
 };
 
 export default ToursTypeContextProvider;
+
+ToursTypeContextProvider.propTypes = {
+    children: PropTypes.object,
+  };
