@@ -143,15 +143,15 @@ button a {
 }
 
 .p-height {
-  height: auto;
   width: auto;
   margin-left: 10px;
+  line-height: 1.5;
 }
 
 .description-box {
   width: 100%;
   height: 130px;
-  line-height: 2;
+  line-height: 1.5;
   overflow-y: auto;
 }
 

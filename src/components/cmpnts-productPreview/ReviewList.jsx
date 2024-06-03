@@ -4,13 +4,13 @@ import { FaStar } from 'react-icons/fa';
 
 export const StarRating = ({ rating }) => {
     return (
-        <span className='rating'>
+        <span>
             {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (
                     <label key={i}>
                         <FaStar
-                            color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
+                            color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'} size="12px"
                         />
                     </label>
                 );
