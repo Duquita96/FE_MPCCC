@@ -2,17 +2,17 @@
   width: 200px;
   padding: 1rem;
 }
-#allProducts-container{
+#allProducts-container {
   width: 100%;
 }
 
 #filter-collection {
   background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
   display: flex;
-  align-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-content:baseline;
   justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
   padding: 20px;
   width: 100%;
 }
