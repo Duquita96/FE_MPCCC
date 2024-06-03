@@ -1,14 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { HeaderContext } from '../context/HeaderContextProvider.jsx';
 import { UserContext } from '../context/UserContextProvider.jsx';
-import "../style/loginStyle.css";
 import axios from "axios";
+import "../style/loginStyle.css";
 
 const Login = () => {
-  const { toggleLogin, toggleFeedbackMsg, closeLogin } = useContext(HeaderContext);
+  const { toggleLogin, toggleFeedbackMsg, closeLogin, showLogin } = useContext(HeaderContext);
   const { addNewUser } = useContext(UserContext);
   const [signUp, setSignUp] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(()=>{setAnimate(true)}, [showLogin]);
 
   window.addEventListener("click", (e) => {
     if(!e.target.className.includes('login')) {closeLogin()}
@@ -103,7 +106,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={!animate? "login-container" : "login-container login-out" }>
       <form action="" className="login-form" onSubmit={signUpFunction}>
         {signUp ? (
           <input
