@@ -153,7 +153,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
         return true;
       } else if (priceRange.range2 && item.price >= 51 && item.price <= 100) {
         return true;
-      } else if (priceRange.range3 && item.price >= 101 && item.price <= 200) {
+      } else if (priceRange.range3 && item.price >= 101) {
         return true;
       }
       return false;
@@ -297,7 +297,7 @@ export const FilterPageCollection = ({ productType, toursType }) => {
                   onChange={handleCheckboxChange}
                   className='checkBox'
                 />
-                €101 - €200
+                 + €101
               </label>
             </div>
           </div>

@@ -57,6 +57,7 @@ GenericCard.propTypes = {
     ratingAvg: PropTypes.number,
     reviews: PropTypes.array,
     length: PropTypes.string,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
   productType: PropTypes.oneOf(['books', 'pc-parts', 'video-games', 'tours']).isRequired, // insert the productType
   toursType: PropTypes.oneOf(['sightseeing', 'museum', 'hiking']),

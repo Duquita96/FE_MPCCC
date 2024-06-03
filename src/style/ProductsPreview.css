@@ -106,7 +106,7 @@
 }
 
 .imgBoxContainer {
-  padding: 0px;
+  padding: 0px 5px;
   overflow: hidden;
   width: 190px;
 }
