@@ -1,8 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css?family=Bevan"); */
-
 #not-found-page {
-  /* margin: 0;
-  padding: 0; */
   height: 100vh;
   background: linear-gradient(180deg, var(--clr-dark1), var(--clr-light2));
   display: flex;
@@ -12,7 +8,6 @@
 }
 
 .colorSchematic {
-  font-family: 'Bevan', cursive;
   font-size: 120px;
   /* margin: 10vh 0 0; */
   text-align: center;

@@ -3,14 +3,20 @@
   display: flex;
   flex-direction: column;
 }
-#products-collection,
-#service-collection {
-  display: grid;
-  gap: 24px;
+#products-collection{
+  padding: 15px 12px 0px;
 }
 
 #products-collection {
-  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+#service-collection {
+  gap: 22px;
+}
+
+#products-collection,
+#service-collection {
+  width: auto;
   display: flex;
 }
 
@@ -19,17 +25,19 @@
   overflow: hidden;
   height: 250px;
   width: 100%;
-  padding: 1rem 0rem;
+  padding: 1rem;
   justify-content: center;
   align-content: center;
 }
 
 #service-collection {
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  overflow: hidden;
-  height: 110px;
-  display: flexbox;
+  height: 115px;
+  flex-direction: row;
+  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  justify-content: left;
 }
 
 #products-collection::-webkit-scrollbar,
@@ -58,9 +66,10 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  margin: 5px 20px;
+  margin: 5px 0px;
   transition: transform 0.3s ease;
   transition: margin 0.3s ease;
+  margin: 0px 10px;
 }
 
 .service-container {
@@ -71,7 +80,6 @@
 
 .carrousell,
 .service-container {
-  /* border: 1px solid rgb(49, 54, 63); */
   border-radius: 5px;
   background: var(--clr-light1);
   display: flex;
@@ -98,12 +106,15 @@
 }
 
 .imgBoxContainer {
-  padding: 0px 10px;
+  padding: 0px;
   overflow: hidden;
-  width: 20rem;
+  width: 190px;
 }
 #serviceBody {
   padding: auto;
+}
+.card-img-top {
+  margin-bottom: 5px;
 }
 .hidden {
   display: none;
@@ -115,21 +126,21 @@
 }
 
 .cardPrice {
-  height: 10px;
   display: flex;
-  justify-content: space-around;
-  margin: 0px 15px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px;
 }
 .cardPrice > span {
   font-weight: bolder;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #cardBody {
-  height: 40px;
+  height: 18px;
   font-size: 16px;
-  margin-top: 0px;
+  margin: 0px;
 }
 
 #collections-container {
@@ -139,92 +150,78 @@
 }
 
 #card-title {
-  height: 30px;
-  margin: 5px 15px;
+  height: 20px;
 }
+
+.card {
+  height: 190px;
+}
+
+.cardPrice > div{
+border: 1px solid rgba(0, 0, 0, 0.16);
+border-radius: 8px;
+width: 110px;
+margin: auto;
+box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16);
+display: flex;
+justify-content: center;
+align-items: end;
+}
+
+.rating{
+  font-size: 15px;
+}
+
+
+
 /* /////////////////////Responsivness //////////////////////*/
-
-@media (min-width: 1600px) {
-  #service-collection {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 2200px) {
-  #service-collection,
-  #products-collection {
-    overflow: scroll;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-  }
-  #products-collection {
-    justify-content: left;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 1024px) {
-  #service-collection {
-    height: calc(100px * 2);
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  #service-collection {
-    width: auto;
-    height: calc(100px * 2);
-    gap: 20px;
-  }
-}
-
 @media (max-width: 768px) {
-  .service-container {
-    height: 60px;
-    width: 95%;
-    padding-top: 5px;
-  }
-
-  #service-collection {
-    height: calc(40px * 2);
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  #card-title {
-    height: 30px;
+  .card-title {
+    font-size: 15px;
   }
 }
+
 
 @media (max-width: 468px) {
-  .service-container {
-    width: auto;
-    padding-top: 5px;
-  }
-  #serviceBody.card {
-    display: flex;
-  }
   .card-title {
     font-size: 14px;
   }
-  .card-text {
-    font-size: 12px;
+  .carrousell, .card, #cardBody {
+height: 20px;
+  }
+  .service-container {
+    padding: 5px;
+    width: 150px;
+  }
+  .service-container .cardNmePrice,
+  .service-container .card {
+    width: 140px;
+    margin: 0px;
+  }
+  .service-container #card-title {
+    margin: 5px;
+  }
+  #products-collection {
+    height: 200px;
+    margin: 5px;
   }
   .carrousell {
-    /* height: 200px; */
+    height: 170px;
     width: 150px;
-    /* display: flex;
-    overflow: hidden;
-    justify-content: center;
-    align-content: center;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    margin: 5px 20px;
-    transition: transform 0.3s ease;
-    transition: margin 0.3s ease; */
+  }
+  .imgBoxContainer {
+    width: 180px;
+  }
+
+  #cardImgSrc {
+    height: 90px;
+    width: 140px;
+  }
+  .carrousell .card #cardBody {
+    width: 140px;
+    margin: 0px;
+  }
+  .card {
+    width: 140px;
   }
 }

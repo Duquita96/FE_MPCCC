@@ -11,7 +11,8 @@ import Cart from "../Cart.jsx";
 import { HeaderContext } from "../../context/HeaderContextProvider.jsx";
 import { cartContext } from "../../context/CartContextProvider.jsx";
 import { WidthContext } from "../../context/WidthContextProvider.jsx";
-import {getImagePath} from "../cmpnts-productPreview/GenericCard.jsx";
+import { UserContext } from "../../context/UserContextProvider.jsx";
+import { getImagePath } from "../cmpnts-productPreview/GenericCard.jsx";
 import Comments from "../cmpnts-productPreview/Comments.jsx";
 import PageWrapper from "../PageWrapper.jsx";
 import MobileNavBar from "../../components/cmpnts-homepage-navbars/MobileNavBar.jsx";
@@ -39,26 +40,50 @@ export const ProductIdPage = ({ productType }) => {
   const navigate = useNavigate();
 
   const { addToCart } = useContext(cartContext);
-  const { showLogin, showCart } = useContext(HeaderContext);
+  const { showLogin, showCart, toggleFeedbackMsg } = useContext(HeaderContext);
   const { windowWidth } = useContext(WidthContext);
+  const { loggedIn } = useContext(UserContext);
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+    /** Displays a confirmation of succesfull add-to-cart for 3 seconds */
+    const confirmAddToCart = () => {toggleFeedbackMsg(3); setTimeout(() => {toggleFeedbackMsg(0)}, 3000)}
+
+
+  const handleGoBack = () => {navigate(-1)};
 
   const addItem = () => {
     let objToAdd;
-    productType === "books" 
-      ? objToAdd = {productId:book._id, name: book.name, productType: book.productType, price: book.price}
-      : productType === "tours" 
-      ? objToAdd = {productId:tour._id, name: tour.name, productType: tour.productType, price: tour.price}
-      : productType === "video-games" 
-      ? objToAdd = {productId:videoGames._id, name: videoGames.name, productType: videoGames.productType, price: videoGames.price}
-      : objToAdd = {productId:pcParts._id, name: pcParts.name, productType: pcParts.productType, price: pcParts.price}
+    productType === "books"
+      ? (objToAdd = {
+          productId: book._id,
+          name: book.name,
+          productType: book.productType,
+          price: book.price,
+        })
+      : productType === "tours"
+      ? (objToAdd = {
+          productId: tour._id,
+          name: tour.name,
+          productType: tour.productType,
+          price: tour.price,
+        })
+      : productType === "video-games"
+      ? (objToAdd = {
+          productId: videoGames._id,
+          name: videoGames.name,
+          productType: videoGames.productType,
+          price: videoGames.price,
+        })
+      : (objToAdd = {
+          productId: pcParts._id,
+          name: pcParts.name,
+          productType: pcParts.productType,
+          price: pcParts.price,
+        });
     addToCart(objToAdd);
+    confirmAddToCart();
   };
 
-(productType === "tours")
+  productType === "tours";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -123,8 +148,13 @@ export const ProductIdPage = ({ productType }) => {
             <strong>Description</strong>: {book.description}
           </p>
           <div>
-            <button className="add-to-cart" onClick={addItem}>
-              Add to Cart
+            <button
+              className="add-to-crt"
+              disabled={!loggedIn}
+              onClick={addItem}
+              style={{ backgroundColor: loggedIn ? null : "grey" }}
+            >
+              {loggedIn ? "Add to Cart" : "Not logged in"}
             </button>
           </div>
         </>
@@ -159,7 +189,14 @@ export const ProductIdPage = ({ productType }) => {
           <strong>Description</strong>:{tour.description}
         </p>
         <div id="add-button-container">
-          <button className="add-to-cart" onClick={addItem} >Reserve</button>
+          <button
+            className="add-to-crt"
+            disabled={!loggedIn}
+            onClick={addItem}
+            style={{ backgroundColor: loggedIn ? null : "grey" }}
+          >
+            {loggedIn ? "Reserve" : "Not logged in"}
+          </button>
         </div>
       </div>
     </div>
@@ -191,7 +228,14 @@ export const ProductIdPage = ({ productType }) => {
               <strong>Description</strong>: {pcParts.description}
             </p>
             <div>
-              <button className="add-to-cart" onClick={addItem}>Add to Cart</button>
+              <button
+                className="add-to-crt"
+                disabled={!loggedIn}
+                onClick={addItem}
+                style={{ backgroundColor: loggedIn ? null : "grey" }}
+              >
+                {loggedIn ? "Add to Cart" : "Not logged in"}
+              </button>
             </div>
           </>
         </div>
@@ -226,7 +270,14 @@ export const ProductIdPage = ({ productType }) => {
               <strong>Description</strong>: {videoGames.description}
             </p>
             <div>
-              <button className="add-to-cart" onClick={addItem}>Add to Cart</button>
+              <button
+                className="add-to-crt"
+                disabled={!loggedIn}
+                onClick={addItem}
+                style={{ backgroundColor: loggedIn ? null : "grey" }}
+              >
+                {loggedIn ? "Add to Cart" : "Not logged in"}
+              </button>
             </div>
           </>
         </div>

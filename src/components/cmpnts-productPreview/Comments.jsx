@@ -21,11 +21,16 @@ function Comments({ productType }) {
             `http://localhost:8000/api/v1/${productType}/${id}/reviews`
         ];
         const token = localStorage.getItem('token');
+
+        if (!token) {
+            console.log('You need to be logged in to post a review.');
+            return;
+        }
         urls.forEach(url => {
             fetch(url, {
                 headers: { 
                     'Content-Type': 'application/json', 
-                    'x-auth-token': token // Agrega el token a los headers
+                    'x-auth-token': token
                 }
             })
                 .then(response => {

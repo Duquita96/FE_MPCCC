@@ -57,7 +57,7 @@ const UserContextProvider = ({ children }) => {
     localStorage.clear();
   };
 
-  const addOrders = array => {
+  const addOrders = (array) => {
     setOrderlist(array);
   };
 

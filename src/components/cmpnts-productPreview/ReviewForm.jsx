@@ -9,7 +9,7 @@ import '../../style/ReviewForm.css';
 const ReviewForm = ({ onAddReview, productType }) => {
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState('');
     const { id } = useParams();
 
     const handleSubmit = (e) => {
@@ -53,7 +53,7 @@ const ReviewForm = ({ onAddReview, productType }) => {
                     />
                     <input
                         type="number"
-                        placeholder="Rating (1-5)"
+                        placeholder="Rating: 1/5"
                         min="1"
                         max="5"
                         value={rating}

@@ -20,13 +20,16 @@
 
 #product-title {
   margin: 10px;
-  padding: 10px;
+  padding: 0px 10px;
   background: rgb(118, 171, 174);
   color: rgb(34, 40, 49);
   transition: transform 0.3s ease;
   width: 100%;
   text-align: center;
   font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }
 
 #product_description {
@@ -50,10 +53,9 @@
   display: flex;
 }
 
-.add-to-cart,
+.add-to-crt,
 .button_container,
 #product_description > div {
-  /* border: 1px solid rgb(34, 40, 49); */
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgb(34, 40, 49, 0.5);
   margin: 10px;
@@ -108,7 +110,7 @@
   height: 30px;
 }
 
-.add-to-cart,
+.add-to-crt,
 .viewMoreButton,
 .goBack-button,
 .filter-goBack-button,
@@ -116,7 +118,7 @@
   transition: transform 0.3s ease;
 }
 
-.add-to-cart:hover,
+.add-to-crt:hover,
 .viewMoreButton:hover,
 .buyIcon:hover,
 .filter-goBack-button:hover,
@@ -141,7 +143,7 @@ button a {
 }
 
 .p-height {
-  height: 30px;
+  height: auto;
   width: auto;
   margin-left: 10px;
 }
@@ -153,10 +155,10 @@ button a {
   overflow-y: auto;
 }
 
-.add-to-cart {
+.add-to-crt {
   background: rgb(34, 40, 49);
   color: rgb(118, 171, 174);
-  margin: 15px auto;
+  margin: 10px auto;
   width: 90%;
   height: 30px;
   border: none;
@@ -165,7 +167,7 @@ button a {
   align-items: center;
 }
 #addItem {
-  margin: 15px auto 15px 20px;
+  margin: 10px auto 15px 20px;
   text-align: center;
   width: 10%;
   border-radius: 5px;
@@ -254,7 +256,6 @@ button a {
 @media (max-width: 540px) {
   #product-title {
     font-size: 25px;
-    padding-top: 0;
   }
   .imgContainer {
     height: 150px;
@@ -284,10 +285,16 @@ button a {
     font-size: 22px;
   }
 }
+@media (max-width: 375px){
+  #product-title {
+    font-size: 18px;
+  }
+}
+
 
 @media (max-width: 360px) {
   #product-title {
-    font-size: 20px;
+    font-size: 16px;
   }
   .filter-goBack-button {
     margin: 0px;
@@ -306,10 +313,5 @@ button a {
   .description-box > strong,
   .description-box {
     font-size: 14px;
-  }
-}
-@media (max-width: 360px) {
-  #product-title {
-    font-size: 15px;
   }
 }

@@ -6,7 +6,7 @@ export const HeaderContext = createContext();
 const HeaderContextProvider = ({ children }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const [loginMsg, setLoginMsg] = useState(0);
+  const [feedbackMsg, setFeedbackMsg] = useState(0);
 
  window.onresize = () => {if (showCart || showLogin) {setShowCart(false);setShowLogin(false)}};
 
@@ -21,8 +21,8 @@ const HeaderContextProvider = ({ children }) => {
     setShowCart(showCart ? false : true);
   };
   /** Toggles between the success, fail and invisble modes of the login status */
-  const toggleLoginMsg = (number) => {
-    setLoginMsg(number);
+  const toggleFeedbackMsg = (number) => {
+    setFeedbackMsg(number);
   };
 
   const closeCart = () => setShowCart(false);
@@ -32,10 +32,10 @@ const HeaderContextProvider = ({ children }) => {
       value={{
         showLogin,
         showCart,
-        loginMsg,
+        feedbackMsg,
         toggleLogin,
         toggleCart,
-        toggleLoginMsg,
+        toggleFeedbackMsg,
         closeCart,
       }}
     >

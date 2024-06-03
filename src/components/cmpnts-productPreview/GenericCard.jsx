@@ -8,7 +8,8 @@ import { StarRating } from './ReviewList.jsx';
 export const getImagePath = (card) => `../src/assets/img/${card.imgSrc}`;
 
 export function truncateName(name) {
-  return name.length > 40 ? name.substring(0, 18) + '...' : name;
+
+  return name.length > 20 ? name.substring(0, 17) + '...' : name;
 }
 
 // Generic Component to render the cards
@@ -28,11 +29,16 @@ const GenericCard = ({ card, productType, hideImg = false }) => {
           />
         </div>
         <Card.Body id={productType === 'tours' ? "serviceBody" : "cardBody"}>
+
           <Card.Title id='card-title' className='cardNmePrice'>&ldquo;{cardName}&rdquo; </Card.Title>
         </Card.Body>
         <div className='cardPrice'>
-                  <StarRating rating={card.ratingAvg} />
-                  <span>{card.price}Є</span>
+          <div>
+            <StarRating rating={card.ratingAvg} className="starsReview" />
+            <Card.Text className='rating'>({card.reviews.length})</Card.Text>
+          </div>
+
+          <span>{card.price}Є</span>
         </div>
 
       </Card>
@@ -49,6 +55,8 @@ GenericCard.propTypes = {
     price: PropTypes.number.isRequired,
     rating: PropTypes.number,
     ratingAvg: PropTypes.number,
+    reviews: PropTypes.array,
+    length: PropTypes.string,
   }).isRequired,
   productType: PropTypes.oneOf(['books', 'pc-parts', 'video-games', 'tours']).isRequired, // insert the productType
   toursType: PropTypes.oneOf(['sightseeing', 'museum', 'hiking']),

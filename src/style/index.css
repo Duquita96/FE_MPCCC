@@ -5,10 +5,17 @@
   list-style: none;
   text-decoration: none;
   font-size: 1.6rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 :root {
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: 'Times New Roman', Times, serif;
   font-size: 62.5%;
+  /* font-weight: 300; */
 
   --clr-dark1: rgb(34, 40, 49);
   --clr-dark1-transparent: rgba(34, 40, 49, 0.5);
@@ -76,9 +83,6 @@ body {
   .nav-item {
     min-width: 30px;
     position: static;
-  }
-  .hero-text {
-    font-size: 1.4rem;
   }
   .hero-container {
     height: 100px;

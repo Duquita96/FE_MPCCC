@@ -6,7 +6,7 @@ import "../style/loginStyle.css";
 import axios from "axios";
 
 const Login = () => {
-  const { toggleLogin, toggleLoginMsg } = useContext(HeaderContext);
+  const { toggleLogin, toggleFeedbackMsg } = useContext(HeaderContext);
   const { addNewUser } = useContext(UserContext);
   const [signUp, setSignUp] = useState(false);
 
@@ -34,10 +34,10 @@ const Login = () => {
    const toggleDisplay = () => {setSignUp(signUp === false ? true : false); resetFields()};
 
   /** Displays a confirmation of succesfull log-in for 3 seconds */
-  const confirmLogin = () => {toggleLoginMsg(1); setTimeout(() => {toggleLoginMsg(0)}, 3000)}
+  const confirmLogin = () => {toggleFeedbackMsg(1); setTimeout(() => {toggleFeedbackMsg(0)}, 3000)}
 
   /** Displays a message of unsuccesfull log-in for 3 seconds */
-  const rejectLogin = () => {toggleLoginMsg(2); setTimeout(() => {toggleLoginMsg(0)}, 3000)};
+  const rejectLogin = () => {toggleFeedbackMsg(2); setTimeout(() => {toggleFeedbackMsg(0)}, 3000)};
 
   /** Calculates the age from the date input field */
   const calcAge = () => {
