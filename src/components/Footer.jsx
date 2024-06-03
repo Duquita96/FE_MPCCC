@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='footer-copyright'>
-        <p>
+        <p className='ft-text'>
           Copyright &#169; {new Date().getFullYear()} by PMC&#179; Marketplace
         </p>
       </div>

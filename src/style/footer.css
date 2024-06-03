@@ -29,7 +29,7 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin: 20px auto 30px;
+  margin: 20px auto 40px;
   max-width: 1000px;
 }
 
@@ -42,11 +42,11 @@
 }
 
 .ft-text {
-  font-size: small;
+  font-size: 1.4rem;
 }
 
 .footer-copyright {
-  padding: 20px;
+  padding: 12px;
   background: linear-gradient(
     45deg,
     var(--clr-light1),
@@ -55,4 +55,5 @@
   );
   color: var(--clr-light2);
   text-align: center;
+  user-select: none;
 }

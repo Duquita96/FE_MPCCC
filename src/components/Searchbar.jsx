@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import HeaderContextProvider, { HeaderContext } from "../context/HeaderContextProvider";
 import axios from "axios";
 import "../style/headerStyle.css";
 
@@ -8,24 +9,15 @@ const SearchBar = () => {
   window.onclick = function(e) {e.target.className !== "search-result-list" ? clear() : null};
 
   const [inputStr, setInputStr] = useState("");
-  const [searchData, setSearchData] = useState([]);
+  const { searchData, updateSearchData } = useContext(HeaderContext);
 
   const navigate = useNavigate();
-
-  const updateSearchData = (array) => {setSearchData(array)};
 
   useEffect(() => {
     if (searchData.length === 0) {
       axios
         .get("http://localhost:8000/api/v1/resources/list")
-        .then((res) => {
-          const fetchArray = res.data.data;
-          fetchArray.push({_id: 1, name: 'Video-games', productType: "category"});
-          fetchArray.push({_id: 2, name: 'Books', productType: "category"});
-          fetchArray.push({_id: 3, name: 'Pc Parts', productType: "category"});
-          fetchArray.push({_id: 4, name: 'Tours', productType: "category"});
-          updateSearchData(fetchArray);
-        })
+        .then((res) => {updateSearchData(res.data.data)})
         .catch((err) => console.log(err));
     }
   }, []);

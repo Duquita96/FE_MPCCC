@@ -7,6 +7,7 @@ const HeaderContextProvider = ({ children }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [feedbackMsg, setFeedbackMsg] = useState(0);
+  const [searchData, setSearchData] = useState([]);
 
  window.onresize = () => {if (showCart || showLogin) {setShowCart(false);setShowLogin(false)}};
 
@@ -25,6 +26,8 @@ const HeaderContextProvider = ({ children }) => {
     setFeedbackMsg(number);
   };
 
+  const updateSearchData = (array) => {setSearchData(array)};
+
   const closeCart = () => setShowCart(false);
   const closeLogin = () => setShowLogin(false);
 
@@ -35,11 +38,13 @@ const HeaderContextProvider = ({ children }) => {
         showLogin,
         showCart,
         feedbackMsg,
+        searchData,
         toggleLogin,
         toggleCart,
         toggleFeedbackMsg,
         closeCart,
-        closeLogin
+        closeLogin,
+        updateSearchData
       }}
     >
       {children}
