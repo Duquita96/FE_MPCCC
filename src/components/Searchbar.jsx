@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import HeaderContextProvider, { HeaderContext } from "../context/HeaderContextProvider";
+import { HeaderContext } from "../context/HeaderContextProvider";
 import axios from "axios";
 import "../style/headerStyle.css";
 
