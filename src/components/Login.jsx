@@ -134,7 +134,7 @@ const Login = () => {
           />
         ) : null}
         {signUp ? (
-          <div className="ageField">
+          <div className="login-ageField">
             <label>Date of birth</label>
             <input
               type="date"

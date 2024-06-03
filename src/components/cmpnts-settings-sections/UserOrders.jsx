@@ -6,7 +6,7 @@ const UserOrders = () => {
 
   const [render, setRender] = useState(false);
 
-  useEffect(() => {setTimeout(() => {setRender(true)},100)}, [orderList])
+  useEffect(() => {setTimeout(() => {setRender(true)},300)}, [orderList])
 
   return (
     <>
