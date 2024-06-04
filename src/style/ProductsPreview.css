@@ -31,13 +31,14 @@
 }
 
 #service-collection {
-  height: 115px;
+  height: 135px;
   flex-direction: row;
   overflow: scroll;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   justify-content: left;
+  margin-bottom: 40px;
 }
 
 #products-collection::-webkit-scrollbar,
@@ -57,7 +58,7 @@
 }
 
 .carrousell {
-  height: 200px;
+  height: 220px;
   width: 200px;
   display: flex;
   overflow: hidden;
@@ -73,7 +74,7 @@
 }
 
 .service-container {
-  height: 80px;
+  height: 100px;
   width: 190px;
   margin: auto;
 }
@@ -106,10 +107,11 @@
 }
 
 .imgBoxContainer {
-  padding: 0px 5px;
+  padding: 5px 5px;
   overflow: hidden;
   width: 190px;
 }
+
 #serviceBody {
   padding: auto;
 }
@@ -129,16 +131,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 5px;
+  /* margin: 5px; */
+  gap: 10px;
 }
 .cardPrice > span {
   font-weight: bolder;
-  display: flex;
-  justify-content: center;
+
+  /* display: flex;
+  justify-content: center; */
 }
 
 #cardBody {
-  height: 18px;
+  height: 25px;
   font-size: 16px;
   margin: 0px;
 }
@@ -151,6 +155,9 @@
 
 #card-title {
   height: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .card {
@@ -168,11 +175,11 @@
   align-items: end;
 }
 
-.cardPrice > div > span{
+.cardPrice > div > span {
   height: 15px;
 }
 
-.card-text{
+.card-text {
   font-size: 12px;
   padding-left: 2px;
 }
@@ -185,8 +192,11 @@
 }
 
 @media (max-width: 468px) {
-  .card-title {
-    font-size: 14px;
+  #card-title {
+    font-size: 13px;
+  }
+  .card-price {
+    font-size: 13px;
   }
   .carrousell,
   .card,
@@ -210,7 +220,7 @@
     margin: 5px;
   }
   .carrousell {
-    height: 170px;
+    height: 185px;
     width: 150px;
   }
   .imgBoxContainer {

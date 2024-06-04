@@ -3,6 +3,7 @@
 }
 
 .footer-social {
+  margin-top: 50px;
   border-bottom: 1px solid var(--clr-light1);
   height: 35px;
   display: flex;
