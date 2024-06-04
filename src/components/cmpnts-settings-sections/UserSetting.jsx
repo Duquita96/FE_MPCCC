@@ -5,11 +5,9 @@ import axios from 'axios';
 import UserNotLoggedIn from './UserNotLoggedIn';
 
 const UserSettings = () => {
-  const { addNewUser, resetUser, loggedIn, addOrders } =
-    useContext(UserContext);
+  const { addNewUser, resetUser, loggedIn, addOrders } = useContext(UserContext);
 
   useEffect(() => {
-    console.log('I am running...');
     const token = localStorage.getItem('token');
     const headers = { 'x-auth-token': token };
     axios

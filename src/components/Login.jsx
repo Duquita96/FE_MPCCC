@@ -138,9 +138,10 @@ const Login = () => {
         ) : null}
         {signUp ? (
           <div className="login-ageField">
-            <label>Date of birth</label>
+            <label className="login-t">Date of birth</label>
             <input
               type="date"
+              className="login-t"
               name="birthdate"
               id="age"
               value={form.age}
@@ -188,7 +189,7 @@ const Login = () => {
           </span>
         ) : null}
         {signUp ? (
-          <input type="checkbox" name="terms" id="terms" required />
+          <input type="checkbox" name="terms" id="terms" required className="login-t" />
         ) : null}
         <button className="login-btn" type="submit">
           {signUp ? "Sign up" : "Login"}

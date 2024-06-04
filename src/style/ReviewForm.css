@@ -17,7 +17,7 @@
 
 #submitButton {
   background: rgb(34, 40, 49);
-  color: rgb(118, 171, 174);
+  color: var(--clr-light2);
   width: 15%;
   height: 40px;
   border: none;
@@ -32,7 +32,7 @@
 }
 
 #submitButton:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: pointer;
 }
 

@@ -16,7 +16,7 @@ const UserOrders = () => {
           if (order.status === "pending") {
             return (
               <div key={order._id} className="order">
-                <p><a className="orderLink" href="#">{order._id}</a></p>
+                <p>Id: <a className="orderLink" href="#">{order._id}</a></p>
                 <p>{order.createdAt.slice(0,10)}</p>
               </div>
             );

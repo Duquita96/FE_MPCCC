@@ -64,7 +64,7 @@ const ReviewForm = ({ onAddReview, productType }) => {
                     />
                 </div>
 
-                <button type="submit" id='submitButton'>Submit Review</button>
+                <button type="submit" id='submitButton'>Submit</button>
             </div>
 
             <textarea

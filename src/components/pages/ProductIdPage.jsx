@@ -119,6 +119,8 @@ export const ProductIdPage = ({ productType }) => {
 
     fetchData();
   }, [id, productType]);
+
+
   const renderProductDetails = (book) => (
     <div className="product_section">
       <div className="imgContainer">
@@ -126,12 +128,8 @@ export const ProductIdPage = ({ productType }) => {
           <img src={imgPath} alt={"productImage"} className="zoomImg" />
         </Zoom>
       </div>
-
       <div className="product">
         <>
-          <p id="p-title" className="p-height">
-            <strong>Title</strong>: {book.name}
-          </p>
           <p id="p-author" className="p-height">
             <strong>Author</strong>: {book.author}
           </p>
@@ -139,7 +137,7 @@ export const ProductIdPage = ({ productType }) => {
             <strong>Genre</strong>: {book.genre}
           </p>
           <p id="p-price" className="p-height">
-            <strong>Price</strong>: {book.price}
+            <strong>Price</strong>: {book.price} €
           </p>
           <p id="p-pages" className="p-height">
             <strong>Pages</strong>: {book.pages}
@@ -180,7 +178,7 @@ export const ProductIdPage = ({ productType }) => {
           <strong>Difficulty</strong>: {tour.difficulty}
         </p>
         <p id="t-price" className="p-height">
-          <strong>Price</strong>: {tour.price}
+          <strong>Price</strong>: {tour.price} €
         </p>
         <p id="t-pages" className="p-height">
           <strong>Duration</strong>: {tour.duration}h
@@ -212,9 +210,6 @@ export const ProductIdPage = ({ productType }) => {
 
         <div className="product">
           <>
-            <p id="p-title" className="p-height">
-              <strong>Name</strong>: {pcParts.name}
-            </p>
             <p id="p-author" className="p-height">
               <strong>Brand</strong>: {pcParts.brand}
             </p>
@@ -222,12 +217,12 @@ export const ProductIdPage = ({ productType }) => {
               <strong>Category</strong>: {pcParts.category}
             </p>
             <p id="p-price" className="p-height">
-              <strong>Price</strong>: {pcParts.price}
+              <strong>Price</strong>: {pcParts.price} €
             </p>
             <p id="p-description" className="description-box">
               <strong>Description</strong>: {pcParts.description}
             </p>
-            <div>
+            <div className="add-to-crt-container">
               <button
                 className="add-to-crt"
                 disabled={!loggedIn}
@@ -257,14 +252,8 @@ export const ProductIdPage = ({ productType }) => {
             <p id="p-title" className="p-height">
               <strong>Name</strong>: {videoGames.name}
             </p>
-            <p id="p-author" className="p-height">
-              <strong>Brand</strong>: {videoGames.brand}
-            </p>
-            <p id="p-genre" className="p-height">
-              <strong>Category</strong>: {videoGames.category}
-            </p>
             <p id="p-price" className="p-height">
-              <strong>Price</strong>: {videoGames.price}
+              <strong>Price</strong>: {videoGames.price} €
             </p>
             <p id="p-description" className="description-box">
               <strong>Description</strong>: {videoGames.description}
@@ -308,7 +297,7 @@ export const ProductIdPage = ({ productType }) => {
                 : "Item Name"}
             </div>
           </div>
-          <div>
+          <div className="product-main">
             {book ? (
               renderProductDetails(book)
             ) : tour ? (
