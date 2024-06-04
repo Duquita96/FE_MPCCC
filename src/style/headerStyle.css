@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   text-align: center;
+  background-color: var(--clr-dark1);
 }
 
 .main-header {
-  background-color: var(--clr-dark1);
   height: 100px;
   justify-content: space-around;
   color: white;
@@ -54,7 +54,7 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: black;
-  z-index: 5;
+  z-index: 6;
 }
 
 .search-result-list li:hover {
@@ -123,7 +123,7 @@
 
 .navbar {
   background-color: var(--clr-light1);
-  height: 55px;
+  min-height: 55px;
   justify-content: center;
   flex-wrap: wrap;
 }

@@ -1,13 +1,8 @@
-import '../../style/notFoundPage.css';
 import useTypewriter from '../../utils/useTypewriter.js';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../../style/notFoundPage.css';
 
 const NotFoundPage = () => {
-  const handleTryAgain = () => {};
-
-  const handleGoHome = () => {
-    // Implement window.location = home; logic here
-  };
 
   const code0Ref = useTypewriter('this_page.not_found = true;', 0);
   const code1Ref = useTypewriter('if (you_spelt_it_wrong) {try_again();}', 600);
@@ -29,7 +24,7 @@ const NotFoundPage = () => {
         <code ref={code1Ref} className='code'>
           <span className='span'>if</span> (
           <b className='b'>you\_spelt\_it\_wrong</b>) &#123;
-          <span className='span' onClick={handleTryAgain}>
+          <span className='span'>
             try\_again()
           </span>
           ;&#125;
@@ -42,16 +37,16 @@ const NotFoundPage = () => {
           <em className='em'>alert</em>(
           <i className='i'>&quot;We&apos;re really sorry about that.&quot;</i>
           );{' '}
-          <span className='span' onClick={handleGoHome}>
+          <span className='span'>
             window.location = home;
           </span>
           &#125;
         </code>
       </div>
       <div className='mt'>
-        <NavLink to={'/'} className='btn-back-home'>
+        <Link to={'/'} className='btn-back-home'>
           Home
-        </NavLink>
+        </Link>
       </div>
     </div>
   );

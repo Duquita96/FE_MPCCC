@@ -1,14 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { HeaderContext } from '../context/HeaderContextProvider.jsx';
 import { UserContext } from '../context/UserContextProvider.jsx';
-import "../style/loginStyle.css";
 import axios from "axios";
+import "../style/loginStyle.css";
 
 const Login = () => {
-  const { toggleLogin, toggleFeedbackMsg, closeLogin } = useContext(HeaderContext);
+  const { toggleLogin, toggleFeedbackMsg, closeLogin, showLogin } = useContext(HeaderContext);
   const { addNewUser } = useContext(UserContext);
   const [signUp, setSignUp] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(()=>{setAnimate(true)}, [showLogin]);
 
   window.addEventListener("click", (e) => {
     if(!e.target.className.includes('login')) {closeLogin()}
@@ -103,7 +106,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={!animate? "login-container" : "login-container login-out" }>
       <form action="" className="login-form" onSubmit={signUpFunction}>
         {signUp ? (
           <input
@@ -135,9 +138,10 @@ const Login = () => {
         ) : null}
         {signUp ? (
           <div className="login-ageField">
-            <label>Date of birth</label>
+            <label className="login-t">Date of birth</label>
             <input
               type="date"
+              className="login-t"
               name="birthdate"
               id="age"
               value={form.age}
@@ -185,7 +189,7 @@ const Login = () => {
           </span>
         ) : null}
         {signUp ? (
-          <input type="checkbox" name="terms" id="terms" required />
+          <input type="checkbox" name="terms" id="terms" required className="login-t" />
         ) : null}
         <button className="login-btn" type="submit">
           {signUp ? "Sign up" : "Login"}

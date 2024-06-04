@@ -15,21 +15,17 @@ const UserOptions = () => {
       .get('http://localhost:8000/api/v1/users/me/newsletter', { headers })
       .then(res => setIsNewsletter(res.data.data.newsletter));
   }, []);
-  console.log({ isNewsletter });
 
   const { toggleFeedbackMsg } = useContext(HeaderContext);
-
   /** Displays a confirmation of un/subscribe for 3 seconds */
   const feedbackMsg = (number) => {toggleFeedbackMsg(number); setTimeout(() => {toggleFeedbackMsg(0)}, 3000)}
   // 5 = subscribe - 6 = unsubscribe
 
   const onChange = async () => {
-    if (isNewsletter) feedbackMsg(5);
-    else feedbackMsg(6);
-
     await patchFunction({ newsletter: !isNewsletter }).then(() => {
       userDispatch({ type: 'news', newsletter: !isNewsletter });
       setIsNewsletter(!isNewsletter);
+      feedbackMsg(!isNewsletter? 5 : 6)
     });
   };
 

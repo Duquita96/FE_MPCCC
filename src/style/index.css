@@ -67,10 +67,10 @@ body {
   .cart-container {
     top: 155px;
   }
+
   .sub-headers {
-    background-color: var(--clr-dark2);
     color: var(--clr-light2);
-    z-index: 5;
+    z-index: 4;
   }
   .settings-container {
     padding: 80px;
@@ -81,7 +81,7 @@ body {
   .navbar {
     background: linear-gradient(180deg, var(--clr-light1), var(--clr-light2));
     padding-top: 10px;
-    height: 100px;
+    min-height: 90px;
     align-items: flex-start;
   }
   .hero-container {
