@@ -10,7 +10,7 @@ const HeroSection = () => {
     <div className="hero-container">
       {windowWidth > 768 && <p className="hero-text">
         "A great selection of products and services at the best value, right
-        here for you!
+        here for you!"
       </p>}
       {windowWidth > 768 && <div className="stars">
         <FaStar className="heroStar" size={12} />

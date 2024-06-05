@@ -68,6 +68,10 @@ body {
     top: 155px;
   }
 
+  .login-container {
+    top: -45px
+  }
+
   .sub-headers {
     color: var(--clr-light2);
     z-index: 4;

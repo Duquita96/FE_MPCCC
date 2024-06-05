@@ -9,10 +9,13 @@
     text-align: center;
     margin: auto;
     margin-top: 5px;
+    font-style: italic;
+    
 }
 
 .hero-text:last-of-type {
     font-weight:600;
+    font-style: normal;
     color: var(--clr-dark1);
 }
 
