@@ -185,8 +185,8 @@ button a {
     height: 200px;
   }
   .zoomImg {
-    height: 200px;
-    width: 550px;
+    height: 210px;
+    width: 580px;
     object-fit: cover;
   }
   .product {

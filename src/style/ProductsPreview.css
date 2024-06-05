@@ -1,5 +1,5 @@
 #products-preview-section {
-  margin: 8vh 5% 5vh 5%;
+  margin: 10vh 5% auto 5%;
   display: flex;
   flex-direction: column;
 }
@@ -31,14 +31,13 @@
 }
 
 #service-collection {
-  height: 135px;
+  height: 115px;
   flex-direction: row;
   overflow: scroll;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   justify-content: left;
-  margin-bottom: 40px;
 }
 
 #products-collection::-webkit-scrollbar,
@@ -58,7 +57,7 @@
 }
 
 .carrousell {
-  height: 220px;
+  height: 200px;
   width: 200px;
   display: flex;
   overflow: hidden;
@@ -74,7 +73,7 @@
 }
 
 .service-container {
-  height: 100px;
+  height: 80px;
   width: 190px;
   margin: auto;
 }
@@ -107,11 +106,10 @@
 }
 
 .imgBoxContainer {
-  padding: 5px 5px;
+  padding: 0px 5px;
   overflow: hidden;
   width: 190px;
 }
-
 #serviceBody {
   padding: auto;
 }
@@ -147,7 +145,7 @@
 }
 
 #cardBody {
-  height: 25px;
+  height: 18px;
   font-size: 16px;
   margin: 0px;
 }
@@ -160,9 +158,6 @@
 
 #card-title {
   height: 20px;
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-bottom: 5px;
 }
 
 .card {
@@ -180,11 +175,11 @@
   align-items: end;
 }
 
-.cardPrice > div > span {
+.cardPrice > div > span{
   height: 15px;
 }
 
-.card-text {
+.card-text{
   font-size: 12px;
   padding-left: 2px;
 }
@@ -197,11 +192,8 @@
 }
 
 @media (max-width: 468px) {
-  #card-title {
-    font-size: 13px;
-  }
-  .card-price {
-    font-size: 13px;
+  .card-title {
+    font-size: 14px;
   }
   .carrousell,
   .card,
@@ -225,16 +217,16 @@
     margin: 5px;
   }
   .carrousell {
-    height: 185px;
+    height: 170px;
     width: 150px;
   }
   .imgBoxContainer {
-    width: 180px;
+/*     width: 180px; */
   }
 
   #cardImgSrc {
     height: 90px;
-    width: 140px;
+    width: 130px;
   }
   .carrousell .card #cardBody {
     width: 140px;
