@@ -16,7 +16,7 @@
   padding: 3px;
   font-size: larger;
   font-weight: bolder;
-  color: var(--clr-light1);
+  color: var(--clr-light2);
   border-top: 1px solid var(--clr-light1);
   border-bottom: 1px solid var(--clr-light1);
   cursor: pointer;
